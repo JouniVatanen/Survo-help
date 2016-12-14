@@ -4,7 +4,7 @@
 <META charset="utf-8">
 <META http-equiv="X-UA-Compatible" content="IE=edge">
 <META name="viewport" content="width=device-width, initial-scale=1"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<TITLE>Stat statistics | Help system | Survo R</TITLE> 
+<TITLE>File load | Help system | Survo R</TITLE> 
 <!-- Bootstrap -->
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,18 +50,13 @@ s.parentNode.insertBefore(gcse, s);
 ></SPAN></BUTTON></DIV></DIV></FORM></DIV></DIV></DIV></NAV><DIV CLASS="container">
 
 
-<H2>Stat</H2> 
-<H3>Description</H3><DIV  id="CommandList">Computes certain basic statistics and summaries for active variables in
-data and forms a frequency distribution for each of them according to
-an automatic classification.
-The <CODE>SELECT</CODE>, <CODE>VARS</CODE> and <CODE>MASK</CODE> specifications may limit the results.
-
-</DIV><H3>Usage</H3><PRE><CODE>STAT 'data',L,STATUS
-</CODE></PRE>
-<CODE>L</CODE> (optional) is the first line for the results.
-<CODE>STATUS</CODE> (optional) gives only a short description of the data.
-See below for more information.
-<H3>Parameters</H3><DL><DT><CODE>SELECT='Boolean expression'</CODE> 
+<H2>File load</H2> 
+<H3>Description</H3><DIV  id="CommandList">This loads the file
+</DIV><H3>Usage</H3>FILE LOAD <Survo_data_file> TO <text_file>
+moves the active fields of the data file to a text file.
+<H3>Parameters</H3><DL><DT><CODE>Code word</CODE> 
+<DD>Explanation
+<DT><CODE>SELECT='Boolean expression'</CODE> 
 <DD>selects observations satisfying the conditions given by
 Boolean expression=A+B+C+... (read A or B or C or ...) or
 A*B*C*...  (read A and B and C and ...).
@@ -130,76 +125,16 @@ example, <CODE>MASK=#7(XY)</CODE> selects the fields indicated by X or Y in mask
 column 7.
 Activation of a MASK line of this type will lead to a file activation
 display of that mask column for additional changes.
-<DT><CODE>STATUS</CODE> 
-<DD>Gives a short description of the structure and status of the data. As an option <CODE>#MASK='list of characters'</CODE> tells
-the numbers of variables activated by given characters.
-Example:
-<PRE><CODE>STAT DECA,CUR+1,STATUS / #MASK=XY-
-#var=15 #act=5 #obs=48
-#X=4 #Y=1 #-=10
-</CODE></PRE>
-This operation is used mostly by sucros for studying properties of
-a given data set.
-<DT><CODE>SUMS='1, 2, 3 or 4'</CODE> 
-<DD>Calculates sums, sum  of squares, etc. by giving a specification.
-<DD><CODE>SUMS=1</CODE> plain sums are computed.
-<DT><CODE>MEANS=k1,k2,...</CODE> 
-<DD>Calculates special means of the form ((X1^k+X2^k+...+XN^k)/N)^(1/k) will be
-computed for positive variables X and for various values of the
-exponent k=k1,k2,...
-<DD>Quadratic means are obtained by <CODE>k=2</CODE> or <CODE>k=Q</CODE>.
-<DD>Harmonic means are obtained by <CODE>k=-1</CODE> or <CODE>k=H</CODE>.
-<DD>Geometric means are obtained by <CODE>k=0</CODE> or <CODE>k=G</CODE>.
-<DT><CODE>FRACTILES=p1,p2,...</CODE> 
-<DD>Calculates given fractiles p1,p2,... where 0&lt<p&lt<1.
-<DT><CODE>CONFMEAN=p</CODE> 
-<DD>Calculates confidence intervals for means under normality assumption for a
-given confidence interval. Example <CODE>CONFMEAN=0.95</CODE>.
-<DT><CODE>CLASSMAX='number of classes'</CODE> 
-<DD>Gives maximum number of classes for freque cy distribution. Default: <CODE>CLASSMAX=30</CODE>.
-<DT><CODE>MAXSTRING=#</CODE> 
-<DD>Considers different values of string variables up to # characters. Default: <CODE>MAXSTRING=8</CODE>.
 
-</DL><H3>Details</H3><P>The basic statistics given by STAT include, for example, min, max,
-mean, stddev, skewness, kurtosis, first order autocorrelation,
-median, quartiles and entropy.
-The selection of statistics depends, however, on the scale type of the
-variable. Certain statistics (like autocorrelation) are also omitted,
-if no information seems to be gained (autocorrelation&lt<2/sqrt(N)).
+</DL><H3>Details</H3>Also the header lines telling the name of the data file and the names
+of the fields will be moved.
+If <Survo_data_file> is preceded by a '-', the header lines are
+not moved. This is useful in situations where several parts of a data
+file has to be copied in a single text file.
+Each record will appear as a line terminated by a line feed character.
 
-<P>Certain results of STAT are also saved as a matrix file in the following
-form. Example:
-<PRE><CODE>STAT DECA / VARS=Height,Weight
-
-MAT LOAD STAT.M'
-MATRIX STAT.M'
-Basic_statistics_of_DECA'
-///        Height   Weight
-mean      186.958   85.563
-stddev      5.090    6.848
-N          48.000   48.000
-min       173.000   68.000
-max       198.000  105.000
-N_miss      0.000    0.000
-skewness   -0.448   -0.042
-kurtosis    0.327    1.201
-lower_Q   184.000   82.000
-median    188.000   86.000
-upper_Q   190.000   90.000
-</CODE></PRE>
-Elements of this matrix can be obtained e.g. for editorial computing as
-<CODE>MAT_STAT.M(Height,kurtosis)=0.33</CODE> 
-<H3>See also</H3><A HREF="minstat.html">MINSTAT</A>,
-<A HREF="statmsf.html">STATMSF</A> 
-<H3>Examples</H3><PRE><CODE>STAT <Survo>/D/DECA,CUR+2 / VARS=Points,100m
-..........
-STAT <Survo>/D/DECA,END+2 / VARS=Name CLASSMAX=50
-..........
-STAT <Survo>/U/EX/Helsinki,CUR+1 / VARS=Temp,Rain
-SELECT=Year,1995,2010
-..........
-STAT <Survo>/U/EX/Helsinki,END+3 / VARS=ALL,-Year
-</CODE></PRE>
+<H3>See also</H3>
+<H3>Examples</H3>
 <FOOTER><P>
 <P>
 <P CLASS="pull-right"><A href="index.html" class="pagination-centered btn btn-default btn-sm"

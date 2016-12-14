@@ -1,0 +1,47 @@
+SURVO 98 edit field:    201       4000       380 (32 bit version)
+0001|*SAVE SUCRO / Sucro and SUCRO commands 13.12.2016 Jouni Vatanen
+0005|*/ACTIVATE +
+0006|*This is the last part
+0008|*Page list
+S   |3
+0009|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0010|*SORT CUR+1,E>-1,CUR-1
+0011|*sucro
+0012|*tutload
+0013|*tutsave
+0014|*/ACTIVATE
+0015|E
+0017|*1. Copy base structure to end by activating COPY command
+S   |1
+0018|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+S   |1
+0019|*COPY CUR+1,E>,END+3
+S   |2
+0020|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
+S   |2
+0021|*REPLACE "temp","set",C         / LINES=CUR+1,E>
+S   |2
+0022|*Command name
+S   |3
+0023|+PRINT CUR+2,E> TO www\public_html\temp.html
+0024|*/OPEN             www\public_html\temp.html
+0025|- include HTML50.DEV
+0026|*Command name | Help system | Survo R
+S   |3
+0027|- chapter menu IN Survo-hlp
+0028|- chapter sidebar IN Survo-hlp
+0029|*Command name
+S   |3
+0030|- [DESC]
+0032|- [USAGE]
+0034|- [PARAMETERS]
+0035|- [DLIST]
+0036|ICode word
+S   | xxxxxxxxx
+0037|NExplanation
+0039|- [/DLIST]
+0040|- [DETAILS]
+0042|- [LINKS]
+0044|- [EXAMPLES]
+0046|- chapter end IN Survo-hlp
+0047|E

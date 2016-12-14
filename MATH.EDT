@@ -1,0 +1,177 @@
+SURVO 98 edit field:    201       4000       380 (32 bit version)
+0001|*SAVE MATH / MATH commands 13.12.2016 Jouni Vatanen
+0005|*/ACTIVATE +
+0006|*After activation move to METHOD
+0008|*Page list
+S   |3
+0009|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0010|*SORT CUR+1,E>-1,CUR-1
+0011|*simplex
+0012|*comb
+0013|*intrel
+0014|*/contfrac
+0015|*geom
+0016|*markov
+0017|*touch
+0018|*editorial computing
+0019|*library functions
+0020|E
+0023|*1. Copy base structure to end by activating COPY command
+S   |1
+0024|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+S   |1
+0025|*COPY CUR+1,E>,END+3
+S   |2
+0026|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
+S   |2
+0027|*REPLACE "temp","set",C         / LINES=CUR+1,E>
+S   |2
+0028|*Command name
+S   |3
+0029|*PRINT CUR+2,E> TO www\public_html\temp.html
+0030|*/OPEN             www\public_html\temp.html
+0031|- include HTML50.DEV
+0032|*Command name | Help system | Survo R
+S   |3
+0033|- chapter menu IN Survo-hlp
+0034|- chapter sidebar IN Survo-hlp
+0035|*Command name
+S   |3
+0036|- [DESC]
+0038|- [USAGE]
+0040|- [PARAMETERS]
+0041|- [DLIST]
+0042|ICode word
+S   | xxxxxxxxx
+0043|NExplanation
+0045|- [/DLIST]
+0046|- [DETAILS]
+0048|- [LINKS]
+0050|- [EXAMPLES]
+0052|- chapter end IN Survo-hlp
+0053|E
+0055|*Stat
+S   |3
+0056|+PRINT CUR+2,E> TO www\public_html\stat.html
+0057|*/OPEN             www\public_html\stat.html
+0058|- include HTML50.DEV
+0059|*Stat statistics | Help system | Survo R
+S   |3
+0060|- chapter menu IN Survo-hlp
+0061|- chapter sidebar IN Survo-hlp
+0062|*Stat
+S   |3
+0063|- [DESC]
+0064|*Computes certain basic statistics and summaries for active variables in
+0065|*data and forms a frequency distribution for each of them according to
+0066|*an automatic classification.
+0067|*The SELECT, VARS and MASK specifications may limit the results.
+S   |     xxxxxx  xxxx     xxxx
+0069|- [USAGE]
+0070|(STAT 'data',L,STATUS
+0071|)
+0072|*L (optional) is the first line for the results.
+S   | x
+0073|*STATUS (optional) gives only a short description of the data.
+S   | xxxxxx
+0074|*See below for more information.
+0075|- [PARAMETERS]
+0076|- [DLIST]
+0077|- chapter select IN Survo-hlp
+0078|- chapter vars IN Survo-hlp
+0079|- chapter mask IN Survo-hlp
+0080|ISTATUS
+S   | xxxxxx
+0081|NGives a short description of the structure and status of the data. As an option #MASK='list of characters' tells
+S   |                                                                                 xxxxxxxxxxxxxxxxxxxxxxxxxx
+0082|*the numbers of variables activated by given characters.
+0083|*Example:
+0084|(STAT DECA,CUR+1,STATUS / #MASK=XY-
+0085|*#var=15 #act=5 #obs=48
+0086|*#X=4 #Y=1 #-=10
+0087|)
+0088|*This operation is used mostly by sucros for studying properties of
+0089|*a given data set.
+0090|ISUMS='1, 2, 3 or 4'
+S   | xxxxxxxxxxxxxxxxxxx
+0091|NCalculates sums, sum  of squares, etc. by giving a specification.
+0092|NSUMS=1 plain sums are computed.
+S   | xxxxxx
+0093|IMEANS=k1,k2,...
+S   | xxxxxxxxxxxxxxx
+0094|NCalculates special means of the form ((X1^k+X2^k+...+XN^k)/N)^(1/k) will be
+0095|*computed for positive variables X and for various values of the
+0096|*exponent k=k1,k2,...
+0097|NQuadratic means are obtained by k=2 or k=Q.
+S   |                                 xxx    xxx
+0098|NHarmonic means are obtained by k=-1 or k=H.
+S   |                                xxxx    xxx
+0099|NGeometric means are obtained by k=0 or k=G.
+S   |                                 xxx    xxx
+0100|IFRACTILES=p1,p2,...
+S   | xxxxxxxxxxxxxxxxxxx
+0101|NCalculates given fractiles p1,p2,... where 0<p<1.
+S   |                                             < <
+0102|ICONFMEAN=p
+S   | xxxxxxxxxx
+0103|NCalculates confidence intervals for means under normality assumption for a
+0104|*given confidence interval. Example CONFMEAN=0.95.
+S   |                                    xxxxxxxxxxxxx
+0105|ICLASSMAX='number of classes'
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0106|NGives maximum number of classes for freque cy distribution. Default: CLASSMAX=30.
+S   |                                                                      xxxxxxxxxxx
+0107|IMAXSTRING=#
+S   | xxxxxxxxxxx
+0108|NConsiders different values of string variables up to # characters. Default: MAXSTRING=8.
+S   |                                                                             xxxxxxxxxxx
+0110|- [/DLIST]
+0111|- [DETAILS]
+0112|/The basic statistics given by STAT include, for example, min, max,
+0113|*mean, stddev, skewness, kurtosis, first order autocorrelation,
+0114|*median, quartiles and entropy.
+0115|*The selection of statistics depends, however, on the scale type of the
+0116|*variable. Certain statistics (like autocorrelation) are also omitted,
+0117|*if no information seems to be gained (autocorrelation<2/sqrt(N)).
+S   |                                                      <
+0119|/Certain results of STAT are also saved as a matrix file in the following
+0120|*form. Example:
+0121|(STAT DECA / VARS=Height,Weight
+0123|*MAT LOAD STAT.M'
+0124|*MATRIX STAT.M'
+0125|*Basic_statistics_of_DECA'
+0126|*///        Height   Weight
+0127|*mean      186.958   85.563
+0128|*stddev      5.090    6.848
+0129|*N          48.000   48.000
+0130|*min       173.000   68.000
+0131|*max       198.000  105.000
+0132|*N_miss      0.000    0.000
+0133|*skewness   -0.448   -0.042
+0134|*kurtosis    0.327    1.201
+0135|*lower_Q   184.000   82.000
+0136|*median    188.000   86.000
+0137|*upper_Q   190.000   90.000
+0138|)
+0139|*Elements of this matrix can be obtained e.g. for editorial computing as
+0140|*MAT_STAT.M(Height,kurtosis)=0.33
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0141|- [LINKS]
+0142|- [LINK(minstat.html)]
+0143|*MINSTAT,
+S   |       |
+0144|- [LINK(statmsf.html)]
+0145|*STATMSF
+S   |       |
+0146|- [EXAMPLES]
+0147|(STAT <Survo>/D/DECA,CUR+2 / VARS=Points,100m
+0148|*..........
+0149|*STAT <Survo>/D/DECA,END+2 / VARS=Name CLASSMAX=50
+0150|*..........
+0151|*STAT <Survo>/U/EX/Helsinki,CUR+1 / VARS=Temp,Rain
+0152|*SELECT=Year,1995,2010
+0153|*..........
+0154|*STAT <Survo>/U/EX/Helsinki,END+3 / VARS=ALL,-Year
+0155|)
+0156|- chapter end IN Survo-hlp
+0157|E

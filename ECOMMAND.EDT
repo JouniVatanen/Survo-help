@@ -1,0 +1,325 @@
+SURVO 98 edit field:    201       4000       380 (32 bit version)
+0001|*SAVE ECOMMAND / EDITORIAL commands 13.12.2016 Jouni Vatanen
+0005|*/ACTIVATE +
+0006|*After activation load SYSTEM
+0008|*Page list
+S   |3
+0009|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0010|*SORT CUR+1,E>-1,CUR-1
+0011|*clear
+0012|*column and row calculation (C+, C*, C-,C/, L+, L*, ...)
+0013|*count
+0014|*find
+0015|*form
+0016|*interp
+0017|*move
+0018|*replace
+0019|*set
+0020|*sort
+0021|*transp
+0022|*vfind
+0023|E
+0025|*1. Copy base structure to end by activating COPY command
+S   |1
+0026|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+S   |1
+0027|*COPY CUR+1,E>,END+3
+S   |2
+0028|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
+S   |2
+0029|*REPLACE "temp","set",C         / LINES=CUR+1,E>
+S   |2
+0030|*Command name
+S   |3
+0031|+PRINT CUR+2,E> TO www\public_html\temp.html
+0032|*/OPEN             www\public_html\temp.html
+0033|- include HTML50.DEV
+0034|*Command name | Help system | Survo R
+S   |3
+0035|- chapter menu IN Survo-hlp
+0036|- chapter sidebar IN Survo-hlp
+0037|*Command name
+S   |3
+0038|- [DESC]
+0040|- [USAGE]
+0042|- [PARAMETERS]
+0043|- [DLIST]
+0044|ICode word
+S   | xxxxxxxxx
+0045|NExplanation
+0047|- [/DLIST]
+0048|- [DETAILS]
+0050|- [LINKS]
+0052|- [EXAMPLES]
+0054|- chapter end IN Survo-hlp
+0055|E
+0057|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
+S   |2
+0058|*REPLACE "temp","set",C         / LINES=CUR+1,E>
+S   |2
+0059|*Set
+S   |3
+0060|+PRINT CUR+2,E> TO www\public_html\set.html
+0061|*/OPEN             www\public_html\set.html
+0062|- include HTML50.DEV
+0063|*Set | Help system | Survo R
+S   |3
+0064|- chapter menu IN Survo-hlp
+0065|- chapter sidebar IN Survo-hlp
+0066|*Set
+S   |3
+0067|- [DESC]
+0068|*Copies the non-space characters of the image line K to each of the lines
+0069|*L1-L2.
+0070|- [USAGE]
+0071|/SET L1,L2,K
+S   | xxxxxxxxxxx
+0072|*copies the non-space characters of the image line K to each of the lines
+0073|*L1-L2.
+0074|/SET L1,L2,K,s
+S   | xxxxxxxxxxxxx
+0075|*copies the non-space characters of the image line K to lines
+0076|*L1,L1+s,L1+2*s,... until L2.
+0077|- [PARAMETERS]
+0078|- [DLIST]
+0079|IL1
+S   | xx
+0080|NFirst line.
+0081|IL2
+S   | xx
+0082|NLast line.
+0083|IK
+S   | x
+0084|NImage line.
+0085|Is
+S   | x
+0086|NMultiplier.
+0088|- [/DLIST]
+0089|- [LINKS]
+0092|- [EXAMPLES]
+0094|- chapter end IN Survo-hlp
+0095|E
+0097|*REPLACE "Command name","Count",C / LINES=CUR+1,E>
+S   |2
+0098|*REPLACE "temp","count",C         / LINES=CUR+1,E>
+S   |2
+0099|*Count
+S   |3
+0100|+PRINT CUR+2,E> TO www\public_html\count.html
+0101|*/OPEN             www\public_html\count.html
+0102|- include HTML50.DEV
+0103|*Count | Help system | Survo R
+S   |3
+0104|- chapter menu IN Survo-hlp
+0105|- chapter sidebar IN Survo-hlp
+0106|*Count
+S   |3
+0107|- [DESC]
+0109|- [USAGE]
+0111|- [PARAMETERS]
+0112|- [DLIST]
+0113|ICode word
+S   | xxxxxxxxx
+0114|NExplanation
+0116|- [/DLIST]
+0117|- [DETAILS]
+0119|- [LINKS]
+0121|- [EXAMPLES]
+0123|- chapter end IN Survo-hlp
+0124|E
+0126|*REPLACE "Command name","Sort",C / LINES=CUR+1,E>
+S   |2
+0127|*REPLACE "temp","sort",C         / LINES=CUR+1,E>
+S   |2
+0128|*Sort
+S   |3
+0129|+PRINT CUR+2,E> TO www\public_html\sort.html
+0130|*/OPEN             www\public_html\sort.html
+0131|- include HTML50.DEV
+0132|*Sort | Help system | Survo R
+S   |3
+0133|- chapter menu IN Survo-hlp
+0134|- chapter sidebar IN Survo-hlp
+0135|*Sort
+S   |3
+0136|- [DESC]
+0138|- [USAGE]
+0140|- [PARAMETERS]
+0141|- [DLIST]
+0142|ICode word
+S   | xxxxxxxxx
+0143|NExplanation
+0145|- [/DLIST]
+0146|- [DETAILS]
+0148|- [LINKS]
+0150|- [EXAMPLES]
+0152|- chapter end IN Survo-hlp
+0153|E
+0155|*REPLACE "Command name","Form",C / LINES=CUR+1,E>
+S   |2
+0156|*REPLACE "temp","form",C         / LINES=CUR+1,E>
+S   |2
+0157|*Form
+S   |3
+0158|+PRINT CUR+2,E> TO www\public_html\form.html
+0159|*/OPEN             www\public_html\form.html
+0160|- include HTML50.DEV
+0161|*Form | Help system | Survo R
+S   |3
+0162|- chapter menu IN Survo-hlp
+0163|- chapter sidebar IN Survo-hlp
+0164|*Form
+S   |3
+0165|- [DESC]
+0167|- [USAGE]
+0169|- [PARAMETERS]
+0170|- [DLIST]
+0171|ICode word
+S   | xxxxxxxxx
+0172|NExplanation
+0174|- [/DLIST]
+0175|- [DETAILS]
+0177|- [LINKS]
+0179|- [EXAMPLES]
+0181|- chapter end IN Survo-hlp
+0182|E
+0184|*REPLACE "Command name","Transp",C / LINES=CUR+1,E>
+S   |2
+0185|*REPLACE "temp","transp",C         / LINES=CUR+1,E>
+S   |2
+0186|*Transp
+S   |3
+0187|+PRINT CUR+2,E> TO www\public_html\transp.html
+0188|*/OPEN             www\public_html\transp.html
+0189|- include HTML50.DEV
+0190|*Transp | Help system | Survo R
+S   |3
+0191|- chapter menu IN Survo-hlp
+0192|- chapter sidebar IN Survo-hlp
+0193|*Transp
+S   |3
+0194|- [DESC]
+0196|- [USAGE]
+0198|- [PARAMETERS]
+0199|- [DLIST]
+0200|ICode word
+S   | xxxxxxxxx
+0201|NExplanation
+0203|- [/DLIST]
+0204|- [DETAILS]
+0206|- [LINKS]
+0208|- [EXAMPLES]
+0210|- chapter end IN Survo-hlp
+0211|E
+0213|*REPLACE "Command name","Interp",C / LINES=CUR+1,E>
+S   |2
+0214|*REPLACE "temp","interp",C         / LINES=CUR+1,E>
+S   |2
+0215|*Interp
+S   |3
+0216|+PRINT CUR+2,E> TO www\public_html\interp.html
+0217|*/OPEN             www\public_html\interp.html
+0218|- include HTML50.DEV
+0219|*Interp | Help system | Survo R
+S   |3
+0220|- chapter menu IN Survo-hlp
+0221|- chapter sidebar IN Survo-hlp
+0222|*Interp
+S   |3
+0223|- [DESC]
+0225|- [USAGE]
+0227|- [PARAMETERS]
+0228|- [DLIST]
+0229|ICode word
+S   | xxxxxxxxx
+0230|NExplanation
+0232|- [/DLIST]
+0233|- [DETAILS]
+0235|- [LINKS]
+0237|- [EXAMPLES]
+0239|- chapter end IN Survo-hlp
+0240|E
+0242|*REPLACE "Command name","Column and row calculation",C / LINES=CUR+1,E>
+S   |2
+0243|*REPLACE "temp","column-and-row-calculation",C         / LINES=CUR+1,E>
+S   |2
+0244|*Column and row calculation
+S   |3
+0245|+PRINT CUR+2,E> TO www\public_html\column-and-row-calculation.html
+0246|*/OPEN             www\public_html\column-and-row-calculation.html
+0247|- include HTML50.DEV
+0248|*Column and row calculation | Help system | Survo R
+S   |3
+0249|- chapter menu IN Survo-hlp
+0250|- chapter sidebar IN Survo-hlp
+0251|*Column and row calculation
+S   |3
+0252|- [DESC]
+0254|- [USAGE]
+0256|- [PARAMETERS]
+0257|- [DLIST]
+0258|ICode word
+S   | xxxxxxxxx
+0259|NExplanation
+0261|- [/DLIST]
+0262|- [DETAILS]
+0264|- [LINKS]
+0266|- [EXAMPLES]
+0268|- chapter end IN Survo-hlp
+0269|E
+0271|*REPLACE "Command name","Move",C / LINES=CUR+1,E>
+S   |2
+0272|*REPLACE "temp","move",C         / LINES=CUR+1,E>
+S   |2
+0273|*Move
+S   |3
+0274|+PRINT CUR+2,E> TO www\public_html\move.html
+0275|*/OPEN             www\public_html\move.html
+0276|- include HTML50.DEV
+0277|*Move | Help system | Survo R
+S   |3
+0278|- chapter menu IN Survo-hlp
+0279|- chapter sidebar IN Survo-hlp
+0280|*Move
+S   |3
+0281|- [DESC]
+0283|- [USAGE]
+0285|- [PARAMETERS]
+0286|- [DLIST]
+0287|ICode word
+S   | xxxxxxxxx
+0288|NExplanation
+0290|- [/DLIST]
+0291|- [DETAILS]
+0293|- [LINKS]
+0295|- [EXAMPLES]
+0297|- chapter end IN Survo-hlp
+0298|E
+0300|*REPLACE "Command name","Find",C / LINES=CUR+1,E>
+S   |2
+0301|*REPLACE "temp","find",C         / LINES=CUR+1,E>
+S   |2
+0302|*Find
+S   |3
+0303|+PRINT CUR+2,E> TO www\public_html\find.html
+0304|*/OPEN             www\public_html\find.html
+0305|- include HTML50.DEV
+0306|*Find | Help system | Survo R
+S   |3
+0307|- chapter menu IN Survo-hlp
+0308|- chapter sidebar IN Survo-hlp
+0309|*Find
+S   |3
+0310|- [DESC]
+0312|- [USAGE]
+0314|- [PARAMETERS]
+0315|- [DLIST]
+0316|ICode word
+S   | xxxxxxxxx
+0317|NExplanation
+0319|- [/DLIST]
+0320|- [DETAILS]
+0322|- [LINKS]
+0324|- [EXAMPLES]
+0326|- chapter end IN Survo-hlp
+0327|E

@@ -51,17 +51,15 @@ s.parentNode.insertBefore(gcse, s);
 
 
 <H2>File save with fields</H2> 
-<H3>Description</H3> 
-Saves contents of a text file to a Survo data file.
+<H3>Description</H3><DIV  id="CommandList">Saves contents of a text file to a Survo data file.
 Works like <CODE>FILE SAVE</CODE>.
 
-<H3>Usage</H3> 
-<PRE><CODE>FILE SAVE 'text file' TO 'Survo data file'
+</DIV><H3>Usage</H3><PRE><CODE>FILE SAVE 'text file' TO 'Survo data file'
 FIELDS:
-1   name of a field in Survo data file or '-'   length or delimiters 
-2   name of a field in Survo data file or '-'   length or delimiters 
+1  <name of a field in Survo data file or '-'> <length or delimiters>
+2  <name of a field in Survo data file or '-'> <length or delimiters>
 - - -
-K   name of a field in Survo data file or '-'   length or delimiters 
+K  <name of a field in Survo data file or '-'> <length or delimiters>
 END
 </CODE></PRE>
 <P><CODE>'text file'</CODE> is the whole name of the text file that you want to save. Use without
@@ -70,8 +68,7 @@ the name of the file where the data will be saved. Use without '-characters.
 <CODE>K</CODE> is the number of fields in one text file. <CODE>NEW</CODE> deletes the existing Survo data file.
 
 
-<H3>Parameters</H3> 
-<DL><DT><CODE>NAMES='names line'</CODE> 
+<H3>Parameters</H3><DL><DT><CODE>NAMES='names line'</CODE> 
 <DD>gives the line for the variable names in Survo data
 file. Default (if no NAMES given): variable names X1, X2, ... are used.
 <DD><CODE>NAMES=DEFAULT</CODE> maps the columns of a text file to the active variables of
@@ -97,7 +94,7 @@ Default: last line of the text file.
 <DD>selects observations satisfying the conditions given by
 Boolean expression=A+B+C+... (read A or B or C or ...) or
 A*B*C*...  (read A and B and C and ...).
-Each condition A,B,C,... must be given as a specification of the
+Each condition A,B,C,  . must be given as a specification of the
 form
 <DD>     A1='variable','lower limit','upper limit'
 or
@@ -109,8 +106,8 @@ or
 <CODE>North=Province:OUL,LAP South=Province:UUS,KYM,TUR</CODE> 
 <CODE>Over10000=Popul,10000,500000  Over20000=Popul,20000,500000</CODE> 
 <DD>selects cases where
-    either  Province is OUL or LAP         and  Popul =10000
-    or      Province is UUS or KYM or TUR  and  Popul =20000
+    either  Province is OUL or LAP         and  Popul>=10000
+    or      Province is UUS or KYM or TUR  and  Popul>=20000
 
 <DD>The SELECT specification can also be written with negations
 (a `!' in front of a Boolean expression)
@@ -172,8 +169,8 @@ Default: 300.
 file. This spesification is used only if the system doesn't regognize
 encoding. <CODE>ENCODING=UTF-8</CODE> encodes UTF-8 text files. Default: DEFAULT.
 
-<DT>&gt; <CODE>R</CODE> 
-<DD>&gt; <CODE>R</CODE>'R data frame' transforms R data frame to Survo data. Use without '-characters.
+<DT>&gt><CODE>R</CODE> 
+<DD>&gt><CODE>R</CODE>'R data frame' transforms R data frame to Survo data. Use without '-characters.
 
 <DT><CODE>SKIP='list of characters'</CODE> 
 <DD>skips unwanted charcters.
@@ -224,19 +221,18 @@ variables.
 <DT><CODE>MODEL='number of a line'</CODE> 
 <DD>allows to give 'model-line'.???
 
-</DL><H3>Details</H3> 
-<P>where K is the number of fields in one logical record in the text file,
+</DL><H3>Details</H3><P>where K is the number of fields in one logical record in the text file,
 copies a part of a text file to a Survo data file.
 If the Survo data file does not exist, a new file will be created.
 The fields of the text file are mapped to various Survo data fields
 according to the list. Fields which are not copied from the text file
 are indicated by a '-' in the list.
-If  length or delimiters  is not given, the field is assumed to be ter-
+If <length or delimiters> is not given, the field is assumed to be ter-
 minated by one or several spaces in the text file. However,
 the last field in each record must be terminated by a line feed.
 Other fields ending with line feed should be indicated by LF in the
 list. For example, 10 test3 LF
-The  length or delimiters  parameter can also be an integer giving the
+The <length or delimiters> parameter can also be an integer giving the
 fixed length of the corresponding field in the text file or it can
 be a sequence of delimiter characters.
 For example, 11 test6 5
@@ -256,8 +252,7 @@ Thus fields consisting of several words are not treated correctly.
 In such cases a apecification <CODE>MODE=2</CODE> should be given. Then also
 empty fields terminating with LF will be accepted.
 
-<H3>See also</H3> 
-<A HREF="file-save.html">FILE SAVE</A> 
+<H3>See also</H3><A HREF="file-save.html">FILE SAVE</A> 
 <A HREF="file-status.html">FILE STATUS</A>,
 <A HREF="file-update.html">FILE UPDATE</A>,
 <A HREF="file-create.html">FILE CREATE</A>,
@@ -266,8 +261,7 @@ empty fields terminating with LF will be accepted.
 <A HREF="txtrim.html">TXTRIM</A>,
 <A HREF="file-save-mat.html">FILE SAVE MAT</A> 
 
-<H3>Examples</H3> 
-<PRE><CODE>FILE SAVE data1.txt TO data / DELIMITER=TAB
+<H3>Examples</H3><PRE><CODE>FILE SAVE data1.txt TO data / DELIMITER=TAB
 ..........
 </CODE></PRE>
 <P>

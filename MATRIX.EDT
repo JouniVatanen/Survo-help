@@ -1,0 +1,54 @@
+SURVO 98 edit field:    201       4000       380 (32 bit version)
+0001|*SAVE MATRIX / MATRIX commands 13.12.2016 Jouni Vatanen
+0005|*/ACTIVATE +
+0006|*After activation load GRAPH
+0008|*Page list
+S   |3
+0009|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0010|*SORT CUR+1,E>-1,CUR-1
+0011|*mat
+0012|*matrun
+0013|*mat
+0014|*mat #transform
+0015|*mat #mult
+0016|*mat #samples
+0017|*pol
+0018|*tran1
+0019|*posdir
+0020|*dist
+0021|*lscal
+0022|E
+0024|*1. Copy base structure to end by activating COPY command
+S   |1
+0025|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+S   |1
+0026|*COPY CUR+1,E>,END+3
+S   |2
+0027|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
+S   |2
+0028|*REPLACE "temp","set",C         / LINES=CUR+1,E>
+S   |2
+0029|*Command name
+S   |3
+0030|+PRINT CUR+2,E> TO www\public_html\temp.html
+0031|*/OPEN             www\public_html\temp.html
+0032|- include HTML50.DEV
+0033|*Command name | Help system | Survo R
+S   |3
+0034|- chapter menu IN Survo-hlp
+0035|- chapter sidebar IN Survo-hlp
+0036|*Command name
+S   |3
+0037|- [DESC]
+0039|- [USAGE]
+0041|- [PARAMETERS]
+0042|- [DLIST]
+0043|ICode word
+S   | xxxxxxxxx
+0044|NExplanation
+0046|- [/DLIST]
+0047|- [DETAILS]
+0049|- [LINKS]
+0051|- [EXAMPLES]
+0053|- chapter end IN Survo-hlp
+0054|E

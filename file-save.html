@@ -51,18 +51,15 @@ s.parentNode.insertBefore(gcse, s);
 
 
 <H2>File save</H2> 
-<H3>Description</H3> 
-<CODE>FILE SAVE</CODE> saves contents of a text file to Survo data file.
+<H3>Description</H3><DIV  id="CommandList"><CODE>FILE SAVE</CODE> saves contents of a text file to Survo data file.
 
-<H3>Usage</H3> 
-<P><CODE>FILE SAVE 'text file' TO NEW 'Survo data file'</CODE> 
+</DIV><H3>Usage</H3><P><CODE>FILE SAVE 'text file' TO NEW 'Survo data file'</CODE> 
 <P><CODE>'text file'</CODE> is the whole name of the text file that you want to save. Use without
 '-characters and with the correct file extension
 <CODE>'Survo data file'</CODE> is name of the file where the data will be saved. Use without '-characters.
 <CODE>NEW</CODE> is optional and deletes the existing Survo data file.
 
-<H3>Parameters</H3> 
-<DL><DT><CODE>NAMES</CODE> 
+<H3>Parameters</H3><DL><DT><CODE>NAMES</CODE> 
 <DD><CODE>NAMES=names_line</CODE> gives  he line for the variable names in Survo data
 file. Default (if no NAMES given): variable names X1, X2, ... are used.
 <CODE>NAMES=DEFAULT</CODE> maps the columns of a text file to the active variables of
@@ -88,7 +85,7 @@ Default: last line of the text file.
 <DD>selects observations satisfying the conditions given by
 Boolean expression=A+B+C+... (read A or B or C or ...) or
 A*B*C*...  (read A and B and C and ...).
-Each condition A,B,C,... must be given as a specification of the
+Each condition A,B,C,  . must be given as a specification of the
 form
 <DD>     A1='variable','lower limit','upper limit'
 or
@@ -100,8 +97,8 @@ or
 <CODE>North=Province:OUL,LAP South=Province:UUS,KYM,TUR</CODE> 
 <CODE>Over10000=Popul,10000,500000  Over20000=Popul,20000,500000</CODE> 
 <DD>selects cases where
-    either  Province is OUL or LAP         and  Popul =10000
-    or      Province is UUS or KYM or TUR  and  Popul =20000
+    either  Province is OUL or LAP         and  Popul>=10000
+    or      Province is UUS or KYM or TUR  and  Popul>=20000
 
 <DD>The SELECT specification can also be written with negations
 (a `!' in front of a Boolean expression)
@@ -163,8 +160,8 @@ Default: 300.
 file. This spesification is used only if the system doesn't regognize
 encoding. <CODE>ENCODING=UTF-8</CODE> encodes UTF-8 text files. Default: DEFAULT.
 
-<DT>&gt; <CODE>R</CODE> 
-<DD>&gt; <CODE>R'R data frame'</CODE> transforms R data frame to Survo data. Use without '-characters.
+<DT>&gt><CODE>R</CODE> 
+<DD>&gt><CODE>R'R data frame'</CODE> transforms R data frame to Survo data. Use without '-characters.
 
 <DT><CODE>SKIP</CODE> 
 <DD><CODE>SKIP=list_of_characters</CODE> skips unwanted charcters.
@@ -220,8 +217,7 @@ variables. <CODE>NEWSPACE=0,0</CODE> creates a Survo data file with no extra spa
 
 <DT><CODE>MODEL</CODE> 
 <DD>MODEL=# of a line allows to give 'model-line'.???
-</DL><H3>Details</H3> 
-<P>Before creating the Survo data file, <CODE>FILE SAVE</CODE> scans the entire text
+</DL><H3>Details</H3><P>Before creating the Survo data file, <CODE>FILE SAVE</CODE> scans the entire text
 file. It detects whether the field is a string or a numeric field. If it
 appears as the first line in the text file and the labels are strings
 (not starting by digits), these labels will appear as names of fields in
@@ -231,13 +227,12 @@ the new Survo data file.
 identifier and of its extension (more accurate description, format,
 etc.). The identifier part must be started by a letter and other
 characters are typically letters and numbers. Characters like
-+-*/()[]{},!"'?   should be avoided.
++-*/()[]{},!"'?>< should be avoided.
 
 <P>The maximum line length in the text file is at least 100 000. Longer
 records has to be divided into several lines.
 
-<H3>See also</H3> 
-<A HREF="file-save-with-fields.html">FILE SAVE with FIELDS</A>,
+<H3>See also</H3><A HREF="file-save-with-fields.html">FILE SAVE with FIELDS</A>,
 <A HREF="#">FILE STATUS</A>,
 <A HREF="#">FILE UPDATE</A>,
 <A HREF="#">FILE LOAD</A>,
@@ -245,8 +240,7 @@ records has to be divided into several lines.
 <A HREF="#">TXTRIM</A>,
 <A HREF="#">FILE SAVE MAT</A> 
 
-<H3>Examples</H3> 
-<PRE><CODE>FILE SAVE data1.txt TO data / DELIMITER=TAB
+<H3>Examples</H3><PRE><CODE>FILE SAVE data1.txt TO data / DELIMITER=TAB
 ..........
 </CODE></PRE>
 <P>

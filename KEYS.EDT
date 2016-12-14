@@ -1,0 +1,46 @@
+SURVO 98 edit field:    201       4000       380 (32 bit version)
+0001|*SAVE KEYS / KEYS and their special usage 13.12.2016 Jouni Vatanen
+0005|*/ACTIVATE +
+0006|*After activation load PRINT
+0008|*Page list
+S   |3
+0009|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0010|*SORT CUR+1,E>-1,CUR-1
+0011|*function keys
+0012|*prefix
+0013|*touch
+0014|E
+0016|*1. Copy base structure to end by activating COPY command
+S   |1
+0017|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+S   |1
+0018|*COPY CUR+1,E>,END+3
+S   |2
+0019|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
+S   |2
+0020|*REPLACE "temp","set",C         / LINES=CUR+1,E>
+S   |2
+0021|*Command name
+S   |3
+0022|+PRINT CUR+2,E> TO www\public_html\temp.html
+0023|*/OPEN             www\public_html\temp.html
+0024|- include HTML50.DEV
+0025|*Command name | Help system | Survo R
+S   |3
+0026|- chapter menu IN Survo-hlp
+0027|- chapter sidebar IN Survo-hlp
+0028|*Command name
+S   |3
+0029|- [DESC]
+0031|- [USAGE]
+0033|- [PARAMETERS]
+0034|- [DLIST]
+0035|ICode word
+S   | xxxxxxxxx
+0036|NExplanation
+0038|- [/DLIST]
+0039|- [DETAILS]
+0041|- [LINKS]
+0043|- [EXAMPLES]
+0045|- chapter end IN Survo-hlp
+0046|E

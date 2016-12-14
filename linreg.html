@@ -51,18 +51,15 @@ s.parentNode.insertBefore(gcse, s);
 
 
 <H2>Linreg</H2> 
-<H3>Description</H3> 
-Performs linear regression analysis on active variables in 'data'.
+<H3>Description</H3><DIV  id="CommandList">Performs linear regression analysis on active variables in 'data'.
 The regressand is indicated by mask Y and the regressors by X's.
 The optional variables for residuals and predicted values of the
 model are pointed out by masks R and P, respectively.
 
-<H3>Usage</H3> 
-<PRE><CODE>LINREG data,L
+</DIV><H3>Usage</H3><PRE><CODE>LINREG data,L
 </CODE></PRE>
 <CODE>L</CODE> (optional) is the first line for the results.
-<H3>Parameters</H3> 
-<DL><DT><CODE>MASK</CODE> 
+<H3>Parameters</H3><DL><DT><CODE>MASK</CODE> 
 <DD><CODE>MASK</CODE> without parameters is an operation which leads to the activation
 procedure for the fields of any Survo data file.
 
@@ -111,7 +108,7 @@ activation status in the data file.
 <DD>selects observations satisfying the conditions given by
 Boolean expression=A+B+C+... (read A or B or C or ...) or
 A*B*C*...  (read A and B and C and ...).
-Each condition A,B,C,... must be given as a specification of the
+Each condition A,B,C,  . must be given as a specification of the
 form
 <DD>     A1='variable','lower limit','upper limit'
 or
@@ -123,16 +120,15 @@ or
 <CODE>North=Province:OUL,LAP South=Province:UUS,KYM,TUR</CODE> 
 <CODE>Over10000=Popul,10000,500000  Over20000=Popul,20000,500000</CODE> 
 <DD>selects cases where
-    either  Province is OUL or LAP         and  Popul =10000
-    or      Province is UUS or KYM or TUR  and  Popul =20000
+    either  Province is OUL or LAP         and  Popul>=10000
+    or      Province is UUS or KYM or TUR  and  Popul>=20000
 
 <DD>The SELECT specification can also be written with negations
 (a `!' in front of a Boolean expression)
 and with parentheses.
 For details read more about
 <A HREF="#">select observations and/ or variables</A>.
-</DL><H3>Details</H3> 
-<P>As a default the means, standard deviations and correlations of
+</DL><H3>Details</H3><P>As a default the means, standard deviations and correlations of
 variables included in the model will be also printed.
 <P>LINREG saves the regression coefficients in a matrix file REG.M
 and in the case of one regressand and one regressor also coefficients
@@ -141,13 +137,11 @@ of an orthogonal regression analysis in a matrix file OREG.M.
 and X variables) will be computed for each of them. In this case no
 R and P variable is valid.
 
-<H3>See also</H3> 
-<A HREF="regdiag.html">REGDIAG</A>,
+<H3>See also</H3><A HREF="regdiag.html">REGDIAG</A>,
 <A HREF="movreg.html">MOVREG</A>,
 <A HREF="robreg.html">ROBREG</A>,
 <A HREF="estimate.html">ESTIMATE</A>,
-<H3>Examples</H3> 
-<PRE><CODE>FILE COPY  Survo /D/DECA,DECA / VARS=ALL
+<H3>Examples</H3><PRE><CODE>FILE COPY &lt<Survo&gt>/D/DECA,DECA / VARS=ALL
 LINREG DECA,END+3   / VARS=Points(Y),100m(X),400m(X),L_jump(X),Javelin(X)
 ..........
 

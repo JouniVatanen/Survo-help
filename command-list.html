@@ -5,7 +5,7 @@
 <META http-equiv="X-UA-Compatible" content="IE=edge">
 <META name="viewport" content="width=device-width, initial-scale=1"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <TITLE>
-Page not found | Error 404 | Help system | Survo R
+Command list | Help system | Survo R
 </TITLE><!-- Bootstrap -->
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,15 +49,49 @@ s.parentNode.insertBefore(gcse, s);
 ><DIV CLASS="input-group-btn"><BUTTON CLASS="btn btn-default" TYPE="submit"
 ><SPAN CLASS="glyphicon glyphicon-search"
 ></SPAN></BUTTON></DIV></DIV></FORM></DIV></DIV></DIV></NAV><DIV CLASS="container">
-<H2>Sorry!</H2> 
-<DIV CLASS="row"><DIV CLASS="col-sm-6">The page you were trying to reach doesn't exist anymore or it has just moved.
-Be sure to check your spelling. The best thing to do is to start again from the home page.
-<P>Thank you very much.
-<P>
-<A CLASS="btn btn-default" HREF="index.html" ROLE="button"
->Go to home page</A> 
-</DIV><DIV CLASS="col-sm-6"><STRONG>Add a great picture about Survo!</STRONG> 
-</DIV></DIV><FOOTER><P>
+<SCRIPT src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></SCRIPT><SCRIPT>  $(function(){
+    var includes = $('[data-include]');
+    jQuery.each(includes, function(){
+      var file = $(this).data('include') + '.html' + ' #CommandList';
+      $(this).load(file);
+    });
+  });
+</SCRIPT><H2>Commands by alphabetical order</H2> 
+<DL><DT><A HREF=file-load.html>FILE&nbsp;LOAD</A><DD><DIV data-include="file-load"></DIV><DT><A HREF=file-save.html>FILE&nbsp;SAVE</A><DD><DIV data-include="file-save"></DIV><DT><A HREF=file-save-with-fields.html>FILE&nbsp;SAVE&nbsp;WITH&nbsp;FIELDS</A><DD><DIV data-include="file-save-with-fields"></DIV><DT><A HREF=linreg.html>LINREG</A><DD><DIV data-include="linreg"></DIV><DT><A HREF=stat.html>STAT</A><DD><DIV data-include="stat"></DIV>
+</DL><H2>Commands by keyword (abandoned idea)</H2> 
+<DT><H4>Basics</H4> 
+<DD>Activate commands
+<DD>SAVE
+<DD>LOAD
+<DD>FILE SAVE
+<DD>FILE LOAD
+<DD>VARS
+<DD>STAT
+
+<DT><H4>Editorial system</H4> 
+<DD>Activate commands
+<DD>R commands
+<DD>F1 commands
+<DD>F2-F12 commands
+
+<DT><H4>Data</H4> 
+<DD>FILE SAVE
+<DD>FILE LOAD
+<DD>FILE COPY
+<DD>VAR
+<DD>Select observations
+
+<DT><H4>Statistics</H4> 
+<DD>STAT
+<DD>LINREG
+<DD>CORR
+
+<DT><H4>Results</H4> 
+<DD>PRINT
+<DD>STAT
+<DD>PLOT
+
+<FOOTER><P>
 <P>
 <P CLASS="pull-right"><A href="index.html" class="pagination-centered btn btn-default btn-sm"
 ><SPAN class="glyphicon glyphicon-home"
