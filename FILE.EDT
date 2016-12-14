@@ -22,7 +22,7 @@ S   |3
 0024|*file reduce
 0025|*file activate
 0026|*file mask
-0027|*file ma e
+0027|*file make
 0028|*data (save and load from txt, excel etc., modify data)
 0029|*...
 0030|E
@@ -62,7 +62,7 @@ S   | xxxxxxxxx
 0062|E
 0064|*COPY CUR+1,E>,END+3
 S   |2
-0065|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
+0065|*REPLACE "COMMAND NAME","SET",C / LINES=CUR+1,E>
 S   |2
 0066|*REPLACE "temp","set",C         / LINES=CUR+1,E>
 S   |2
@@ -71,11 +71,11 @@ S   |3
 0068|+PRINT CUR+2,E> TO www\public_html\file-save.html
 0069|*/OPEN www\public_html\file-save.html
 0070|- include HTML50.DEV
-0071|*File save | Help system | Survo R
+0071|*FILE SAVE | Help | Survo R
 S   |3
 0072|- chapter menu IN Survo-hlp
 0073|- chapter sidebar IN Survo-hlp
-0074|*File save
+0074|*FILE SAVE
 S   |3
 0075|- [DESC]
 0076|*FILE SAVE saves contents of a text file to Survo data file.
