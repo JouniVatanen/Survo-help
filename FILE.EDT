@@ -2,518 +2,519 @@ SURVO 98 edit field:    201       4000       380 (32 bit version)
 0001|*SAVE FILE / FILE commands 5.10.2016 Jouni Vatanen
 0005|*/ACTIVATE +
 0006|*After activation load TAB
-0008|*Page list
+0007|*LOAD TAB
+0009|*Page list
 S   |3
-0009|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-0010|*SORT CUR+1,E>-1,CUR-1
-0011|*file save
-0012|*file save with fields
-0013|*file load
-0014|*file update
-0015|*file create
-0016|*file aggr
-0017|*file edit
-0018|*file show
-0019|*file medit
-0020|*file expand
-0021|*file select
-0022|*file copy
-0023|*file del
-0024|*file reduce
-0025|*file activate
-0026|*file mask
-0027|*file make
-0028|*data (save and load from txt, excel etc., modify data)
-0029|E
-0031|*Notes
+0010|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0011|*SORT CUR+1,E>-1,CUR-1
+0012|*file save
+0013|*file save with fields
+0014|*file load
+0015|*file update
+0016|*file create
+0017|*file aggr
+0018|*file edit
+0019|*file show
+0020|*file medit
+0021|*file expand
+0022|*file select
+0023|*file copy
+0024|*file del
+0025|*file reduce
+0026|*file activate
+0027|*file mask
+0028|*file make
+0029|*data (save and load from txt, excel etc., modify data)
+0030|E
+0032|*Notes
 S   |3
-0032|*After [DESC] write a one-liner description what the command does.
-0033|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
-0034|*Write only command names in CAPITALS to the first REPLACE command.
-0037|*1. Copy base structure to end by activating COPY command
+0033|*After [DESC] write a one-liner description what the command does.
+0034|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
+0035|*Write only command names in CAPITALS to the first REPLACE command.
+0038|*1. Copy base structure to end by activating COPY command
 S   |1
-0038|*2. Use REPLACE commands to replace COMMAND NAME and web-page-name
+0039|*2. Use REPLACE commands to replace COMMAND NAME and web-page-name
 S   |1
-0039|*COPY CUR+1,E>,END+3
-0040|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
+0040|*COPY CUR+1,E>,END+3
+0041|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
 S   |                                    555
-0041|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
+0042|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
 S   |                                    555
-0042|*COMMAND NAME IN CAPITAL
+0043|*COMMAND NAME IN CAPITAL
 S   |3
-0043|+PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
-0044|*/OPEN             www\public_html\web-page-name-in-small.html
-0045|- include HTML50.DEV
-0046|*COMMAND NAME IN CAPITAL | Help | Survo R
+0044|+PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
+0045|*/OPEN             www\public_html\web-page-name-in-small.html
+0046|- include HTML50.DEV
+0047|*COMMAND NAME IN CAPITAL | Help | Survo R
 S   |3
-0047|- chapter menu IN Survo-hlp
-0048|- chapter sidebar IN Survo-hlp
-0049|*COMMAND NAME IN CAPITAL
+0048|- chapter menu IN Survo-hlp
+0049|- chapter sidebar IN Survo-hlp
+0050|*COMMAND NAME IN CAPITAL
 S   |3
-0050|- [DESC]
-0052|- [USAGE]
-0054|- [PARAMETERS]
-0055|- [DLIST]
-0056|ICode word
+0051|- [DESC]
+0053|- [USAGE]
+0055|- [PARAMETERS]
+0056|- [DLIST]
+0057|ICode word
 S   | xxxxxxxxx
-0057|NExplanation
-0059|- [/DLIST]
-0060|- [DETAILS]
-0062|- [LINKS]
-0064|- [EXAMPLES]
-0066|- chapter end IN Survo-hlp
-0067|E
-0069|*REPLACE "COMMAND NAME IN CAPITAL","FILE SAVE",C / LINES=CUR+1,E>
-0070|*REPLACE  "web-page-name-in-small","file-save",C / LINES=CUR+1,E>
-0071|*FILE SAVE
+0058|NExplanation
+0060|- [/DLIST]
+0061|- [DETAILS]
+0063|- [LINKS]
+0065|- [EXAMPLES]
+0067|- chapter end IN Survo-hlp
+0068|E
+0070|*REPLACE "COMMAND NAME IN CAPITAL","FILE SAVE",C / LINES=CUR+1,E>
+0071|*REPLACE  "web-page-name-in-small","file-save",C / LINES=CUR+1,E>
+0072|*FILE SAVE
 S   |3
-0072|+PRINT CUR+2,E> TO www\public_html\file-save.html
-0073|*/OPEN             www\public_html\file-save.html
-0074|- include HTML50.DEV
-0075|*FILE SAVE | Help | Survo R
+0073|+PRINT CUR+2,E> TO www\public_html\file-save.html
+0074|*/OPEN             www\public_html\file-save.html
+0075|- include HTML50.DEV
+0076|*FILE SAVE | Help | Survo R
 S   |3
-0076|- chapter menu IN Survo-hlp
-0077|- chapter sidebar IN Survo-hlp
-0078|*FILE SAVE
+0077|- chapter menu IN Survo-hlp
+0078|- chapter sidebar IN Survo-hlp
+0079|*FILE SAVE
 S   |3
-0079|- [DESC]
-0080|*FILE SAVE saves contents of a text file to Survo data file.
+0080|- [DESC]
+0081|*FILE SAVE saves contents of a text file to Survo data file.
 S   | xxxxxxxxx
-0082|- [USAGE]
-0083|/FILE SAVE 'text file' TO NEW 'Survo data file'
+0083|- [USAGE]
+0084|/FILE SAVE 'text file' TO NEW 'Survo data file'
 S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-0084|/'text file' is the whole name of the text file that you want to save. Use without
+0085|/'text file' is the whole name of the text file that you want to save. Use without
 S   | xxxxxxxxxxx
-0085|*'-characters and with the correct file extension
-0086|*'Survo data file' is name of the file where the data will be saved. Use without '-characters.
+0086|*'-characters and with the correct file extension
+0087|*'Survo data file' is name of the file where the data will be saved. Use without '-characters.
 S   | xxxxxxxxxxxxxxxxx
-0087|*NEW is optional and deletes the existing Survo data file.
+0088|*NEW is optional and deletes the existing Survo data file.
 S   | xxx
-0089|- [PARAMETERS]
-0090|- [DLIST]
-0091|INAMES
+0090|- [PARAMETERS]
+0091|- [DLIST]
+0092|INAMES
 S   | xxxxx
-0092|NNAMES=names_line gives  he line for the variable names in Survo data
+0093|NNAMES=names_line gives  he line for the variable names in Survo data
 S   | xxxxxxxxxxxxxxxx
-0093|*file. Default (if no NAMES given): variable names X1, X2, ... are used.
-0094|*NAMES=DEFAULT maps the columns of a text file to the active variables of
+0094|*file. Default (if no NAMES given): variable names X1, X2, ... are used.
+0095|*NAMES=DEFAULT maps the columns of a text file to the active variables of
 S   | xxxxxxxxxxxxx
-0095|*Survo data file.
-0097|IDELIMITER
+0096|*Survo data file.
+0098|IDELIMITER
 S   | xxxxxxxxx
-0098|NDELIMITER=char(number) separates the columns of the text file. Default:
+0099|NDELIMITER=char(number) separates the columns of the text file. Default:
 S   | xxxxxxxxxxxxxxxxxxxxxx
-0099|*one or more blank (space) characters. Possible values are denoted by
-0100|*char(i), i=1,...,255. Keyword TAB may be used instead of char(9).
-0102|IFIRST
+0100|*one or more blank (space) characters. Possible values are denoted by
+0101|*char(i), i=1,...,255. Keyword TAB may be used instead of char(9).
+0103|IFIRST
 S   | xxxxx
-0103|NFIRST=first_line. The first line to be copied from the text file.
+0104|NFIRST=first_line. The first line to be copied from the text file.
 S   | xxxxxxxxxxxxxxxx
-0104|*Default: 1.
-0106|ILAST
+0105|*Default: 1.
+0107|ILAST
 S   | xxxx
-0107|NLAST=last_line. The last line to be copied from the text file.
+0108|NLAST=last_line. The last line to be copied from the text file.
 S   | xxxxxxxxx xxxx
-0108|*Default: last line of the text file.
-0110|IMISSING
+0109|*Default: last line of the text file.
+0111|IMISSING
 S   | xxxxxxx
-0111|NMISSING=string treats string as a missing value. Default: spaces and/or '-'.
+0112|NMISSING=string treats string as a missing value. Default: spaces and/or '-'.
 S   | xxxxxxxxxxxxxx
-0113|- chapter select IN Survo-hlp
-0114|- chapter vars IN Survo-hlp
-0115|- chapter mask IN Survo-hlp
-0117|IMAXFIELDS
+0114|- chapter select IN Survo-hlp
+0115|- chapter vars IN Survo-hlp
+0116|- chapter mask IN Survo-hlp
+0118|IMAXFIELDS
 S   | xxxxxxxxx
-0118|NMAXFIELDS=# of fields defines maximum number of fields in the text file.
+0119|NMAXFIELDS=# of fields defines maximum number of fields in the text file.
 S   | xxxxxxxxxxxxxxxxxxxxx
-0119|*Default: 300.
-0121|IENCODING
+0120|*Default: 300.
+0122|IENCODING
 S   | xxxxxxxx
-0122|Nencoding of the text file spesifies, how to encode the text
-0123|*file. This spesification is used only if the system doesn't regognize
-0124|*encoding. ENCODING=UTF-8 encodes UTF-8 text files. Default: DEFAULT.
+0123|Nencoding of the text file spesifies, how to encode the text
+0124|*file. This spesification is used only if the system doesn't regognize
+0125|*encoding. ENCODING=UTF-8 encodes UTF-8 text files. Default: DEFAULT.
 S   |           xxxxxxxxxxxxxx
-0126|I>R
+0127|I>R
 S   | >x
-0127|N>R'R data frame' transforms R data frame to Survo data. Use without '-characters.
+0128|N>R'R data frame' transforms R data frame to Survo data. Use without '-characters.
 S   | >xxxxxxxxxxxxxxx
-0129|ISKIP
+0130|ISKIP
 S   | xxxx
-0130|NSKIP=list_of_characters skips unwanted charcters.
+0131|NSKIP=list_of_characters skips unwanted charcters.
 S   | xxxxxxxxxxxxxxxxxxxxxxx
-0132|IFIELDS
+0133|IFIELDS
 S   | xxxxxx
-0133|NFIELDS specification makes difficult text file structures readable to a Survo data files.
+0134|NFIELDS specification makes difficult text file structures readable to a Survo data files.
 S   | xxxxxx
-0134|*For more information check
-0135|- [LINK(file-save-with-fields.html)]
-0136|*FILE SAVE with FIELDS.
+0135|*For more information check
+0136|- [LINK(file-save-with-fields.html)]
+0137|*FILE SAVE with FIELDS.
 S   |                     |
-0138|IMATCH
+0139|IMATCH
 S   | xxxxx
-0139|NOnly to use with FIELDS specification. For more information check
-0140|- [LINK(file-save-with-fields)]
-0141|*FILE SAVE WITH FIELDS.
+0140|NOnly to use with FIELDS specification. For more information check
+0141|- [LINK(file-save-with-fields)]
+0142|*FILE SAVE WITH FIELDS.
 S   |                     |
-0143|ISKIP_ERRORS
+0144|ISKIP_ERRORS
 S   | xxxxxxxxxxx
-0144|NDoes not interrupt saving the text file when the line has too few
-0145|*fields. SKIP_ERRORS=1 deletes incomplete lines. SKIP_ERRORS=2 creates a
+0145|NDoes not interrupt saving the text file when the line has too few
+0146|*fields. SKIP_ERRORS=1 deletes incomplete lines. SKIP_ERRORS=2 creates a
 S   |         xxxxxxxxxxxxx                           xxxxxxxxxxxxx
-0146|*data record from an incomplete line and assumes that missing fields are
-0147|*at the end of the text line
-0149|ICHECK_VAR_NAMES
+0147|*data record from an incomplete line and assumes that missing fields are
+0148|*at the end of the text line
+0150|ICHECK_VAR_NAMES
 S   | xxxxxxxxxxxxxxx
-0150|NCHECK_VAR_NAMES=0 treats variable names as is instead of altering the 8th character
+0151|NCHECK_VAR_NAMES=0 treats variable names as is instead of altering the 8th character
 S   | xxxxxxxxxxxxxxxxx
-0151|*if duplicate variable names are encountered.
-0153|IREMOVE_QUOTES
+0152|*if duplicate variable names are encountered.
+0154|IREMOVE_QUOTES
 S   | xxxxxxxxxxxxx
-0154|NREMOVE_QUOTES=1 converts double quotes within text to ''.
+0155|NREMOVE_QUOTES=1 converts double quotes within text to ''.
 S   | xxxxxxxxxxxxxxx
-0156|IFORMAT
+0157|IFORMAT
 S   | xxxxxx
-0157|NFORMAT=WORD,'variable','delimiters' saves the words of a text file to a selected variable.
+0158|NFORMAT=WORD,'variable','delimiters' saves the words of a text file to a selected variable.
 S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-0158|*Default for delimiters: ' ,.:;?!-'.
-0159|NFORMAT=CHAR,'variable','length' save the character of a text file to a selected variable.
+0159|*Default for delimiters: ' ,.:;?!-'.
+0160|NFORMAT=CHAR,'variable','length' save the character of a text file to a selected variable.
 S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-0160|*Default for length: 1. Spaces are skipped.
-0161|*FORMAT=0 avoids collison with wrong format-lists like NOFORMAT=1.
+0161|*Default for length: 1. Spaces are skipped.
+0162|*FORMAT=0 avoids collison with wrong format-lists like NOFORMAT=1.
 S   | xxxxxxxx                                              xxxxxxxxxx
-0163|INOFORMAT
+0164|INOFORMAT
 S   | xxxxxxxx
-0164|NNOFORMAT=1 avoids collison with wrong format-lists like FORMAT=0.
+0165|NNOFORMAT=1 avoids collison with wrong format-lists like FORMAT=0.
 S   | xxxxxxxxxx                                              xxxxxxxx
-0166|IFILTER
+0167|IFILTER
 S   | xxxxxx
-0167|NFILTER=conversion file converses a text file to a Survo data file with
+0168|NFILTER=conversion file converses a text file to a Survo data file with
 S   | xxxxxxxxxxxxxxxxxxxxxx
-0168|*specific conversion rules. For making code conversion files check
-0169|- [LINK(code-conversion.html)]
-0170|*code conversion.FILTER=#DOTCOMMA FILTER=#COMMADOT replaces
+0169|*specific conversion rules. For making code conversion files check
+0170|- [LINK(code-conversion.html)]
+0171|*code conversion.FILTER=#DOTCOMMA FILTER=#COMMADOT replaces
 S   |               | xxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx
-0171|*dots with commas and vice versa. FILTER=#SEMICOMMA replaces semicommas
+0172|*dots with commas and vice versa. FILTER=#SEMICOMMA replaces semicommas
 S   |                                  xxxxxxxxxxxxxxxxx
-0172|*with commas.
-0174|INOFIELDS
+0173|*with commas.
+0175|INOFIELDS
 S   | xxxxxxxx
-0175|NNOFIELDS avoids collision with wrong field-lists.
+0176|NNOFIELDS avoids collision with wrong field-lists.
 S   | xxxxxxxx
-0177|INEWSPACE
+0178|INEWSPACE
 S   | xxxxxxxx
-0178|NNEWSPACE=m,n creates a Survo data file with space for m records and n
+0179|NNEWSPACE=m,n creates a Survo data file with space for m records and n
 S   | xxxxxxxxxxxx
-0179|*variables. NEWSPACE=0,0 creates a Survo data file with no extra space.
+0180|*variables. NEWSPACE=0,0 creates a Survo data file with no extra space.
 S   |            xxxxxxxxxxxx
-0181|IDEC
+0182|IDEC
 S   | xxx
-0182|NDEC=character specifies the decimal character used. Default: . (dot).
+0183|NDEC=character specifies the decimal character used. Default: . (dot).
 S   | xxxxxxxxxxxxx
-0184|IMODEL
+0185|IMODEL
 S   | xxxxx
-0185|NMODEL=# of a line allows to give 'model-line'.???
-0186|- [/DLIST]
-0187|- [DETAILS]
-0188|/Before creating the Survo data file, FILE SAVE scans the entire text
+0186|NMODEL=# of a line allows to give 'model-line'.???
+0187|- [/DLIST]
+0188|- [DETAILS]
+0189|/Before creating the Survo data file, FILE SAVE scans the entire text
 S   |                                      xxxxxxxxx
-0189|*file. It detects whether the field is a string or a numeric field. If it
-0190|*appears as the first line in the text file and the labels are strings
-0191|*(not starting by digits), these labels will appear as names of fields in
-0192|*the new Survo data file.
-0194|/Names of variables in Survo data files consist of max. 8 character
-0195|*identifier and of its extension (more accurate description, format,
-0196|*etc.). The identifier part must be started by a letter and other
-0197|*characters are typically letters and numbers. Characters like
-0198|*+-*/()[]{},!"'?>< should be avoided.
-0200|/The maximum line length in the text file is at least 100 000. Longer
-0201|*records has to be divided into several lines.
-0203|- [LINKS]
-0204|- [LINK(file-save-with-fields.html)]
-0205|*FILE SAVE with FIELDS,
+0190|*file. It detects whether the field is a string or a numeric field. If it
+0191|*appears as the first line in the text file and the labels are strings
+0192|*(not starting by digits), these labels will appear as names of fields in
+0193|*the new Survo data file.
+0195|/Names of variables in Survo data files consist of max. 8 character
+0196|*identifier and of its extension (more accurate description, format,
+0197|*etc.). The identifier part must be started by a letter and other
+0198|*characters are typically letters and numbers. Characters like
+0199|*+-*/()[]{},!"'?>< should be avoided.
+0201|/The maximum line length in the text file is at least 100 000. Longer
+0202|*records has to be divided into several lines.
+0204|- [LINKS]
+0205|- [LINK(file-save-with-fields.html)]
+0206|*FILE SAVE with FIELDS,
 S   |                     |
-0206|- [LINK(file-status.html)]
-0207|*FILE STATUS,
+0207|- [LINK(file-status.html)]
+0208|*FILE STATUS,
 S   |           |
-0208|- [LINK(file-update.html)]
-0209|*FILE UPDATE,
+0209|- [LINK(file-update.html)]
+0210|*FILE UPDATE,
 S   |           |
-0210|- [LINK(file-load.html)]
-0211|*FILE LOAD,
+0211|- [LINK(file-load.html)]
+0212|*FILE LOAD,
 S   |         |
-0212|- [LINK(txt-conv.html)]
-0213|*TXTCONV,
+0213|- [LINK(txt-conv.html)]
+0214|*TXTCONV,
 S   |       |
-0214|- [LINK(txtrim.html)]
-0215|*TXTRIM,
+0215|- [LINK(txtrim.html)]
+0216|*TXTRIM,
 S   |      |
-0216|- [LINK(file-save-mat.html)]
-0217|*FILE SAVE MAT
+0217|- [LINK(file-save-mat.html)]
+0218|*FILE SAVE MAT
 S   |             |
-0219|- [EXAMPLES]
-0220|(FILE SAVE data1.txt TO data / DELIMITER=TAB
-0221|*..........
-0222|)
-0223|/
-0224|(FILE SAVE data1.txt TO data / NAMES=1 FIRST=2 LAST=10
-0225|*..........
-0226|)
-0227|/
-0228|(FILE SAVE data1.txt TO data / SKIP=";|
-0229|*..........
-0230|)
-0231|/
-0232|(FILE SAVE data1.txt TO data / DELIMITER=TAB NAMES=1 FIRST=2
-0233|)
-0234|- chapter end IN Survo-hlp
-0235|E
-0237|*REPLACE "COMMAND NAME IN CAPITAL","FILE SAVE WITH FIELDS",C / LINES=CUR+1,E>
-0238|*REPLACE  "web-page-name-in-small","file-save-with-fields",C / LINES=CUR+1,E>
-0239|*FILE SAVE WITH FIELDS
+0220|- [EXAMPLES]
+0221|(FILE SAVE data1.txt TO data / DELIMITER=TAB
+0222|*..........
+0223|)
+0224|/
+0225|(FILE SAVE data1.txt TO data / NAMES=1 FIRST=2 LAST=10
+0226|*..........
+0227|)
+0228|/
+0229|(FILE SAVE data1.txt TO data / SKIP=";|
+0230|*..........
+0231|)
+0232|/
+0233|(FILE SAVE data1.txt TO data / DELIMITER=TAB NAMES=1 FIRST=2
+0234|)
+0235|- chapter end IN Survo-hlp
+0236|E
+0238|*REPLACE "COMMAND NAME IN CAPITAL","FILE SAVE WITH FIELDS",C / LINES=CUR+1,E>
+0239|*REPLACE  "web-page-name-in-small","file-save-with-fields",C / LINES=CUR+1,E>
+0240|*FILE SAVE WITH FIELDS
 S   |3
-0240|+PRINT CUR+2,E> TO www\public_html\file-save-with-fields.html
-0241|*/OPEN             www\public_html\file-save-with-fields.html
-0242|- include HTML50.DEV
-0243|*FILE SAVE WITH FIELDS | Help | Survo R
+0241|+PRINT CUR+2,E> TO www\public_html\file-save-with-fields.html
+0242|*/OPEN             www\public_html\file-save-with-fields.html
+0243|- include HTML50.DEV
+0244|*FILE SAVE WITH FIELDS | Help | Survo R
 S   |3
-0244|- chapter menu IN Survo-hlp
-0245|- chapter sidebar IN Survo-hlp
-0246|*FILE SAVE WITH FIELDS
+0245|- chapter menu IN Survo-hlp
+0246|- chapter sidebar IN Survo-hlp
+0247|*FILE SAVE WITH FIELDS
 S   |3
-0247|- [DESC]
-0248|*Saves contents of a text file to a Survo data file.
-0249|*Works like FILE SAVE.
+0248|- [DESC]
+0249|*Saves contents of a text file to a Survo data file.
+0250|*Works like FILE SAVE.
 S   |            xxxxxxxxx
-0251|- [USAGE]
-0252|(FILE SAVE 'text file' TO 'Survo data file'
-0253|*FIELDS:
-0254|*1  <name of a field in Survo data file or '-'> <length or delimiters>
-0255|*2  <name of a field in Survo data file or '-'> <length or delimiters>
-0256|*- - -
-0257|*K  <name of a field in Survo data file or '-'> <length or delimiters>
-0258|*END
-0259|)
-0260|/'text file' is the whole name of the text file that you want to save. Use without
+0252|- [USAGE]
+0253|(FILE SAVE 'text file' TO 'Survo data file'
+0254|*FIELDS:
+0255|*1  <name of a field in Survo data file or '-'> <length or delimiters>
+0256|*2  <name of a field in Survo data file or '-'> <length or delimiters>
+0257|*- - -
+0258|*K  <name of a field in Survo data file or '-'> <length or delimiters>
+0259|*END
+0260|)
+0261|/'text file' is the whole name of the text file that you want to save. Use without
 S   | xxxxxxxxxxx
-0261|*characters an  with the correct file extension.'Survo data file' is
+0262|*characters an  with the correct file extension.'Survo data file' is
 S   |                                                xxxxxxxxxxxxxxxxx
-0262|*the name of the file where the data will be saved. Use without '-characters.
-0263|*K is the number of fields in one text file. NEW deletes the existing Survo data file.
+0263|*the name of the file where the data will be saved. Use without '-characters.
+0264|*K is the number of fields in one text file. NEW deletes the existing Survo data file.
 S   | x                                           xxx
-0266|- [PARAMETERS]
-0267|- [DLIST]
-0268|INAMES='names line'
+0267|- [PARAMETERS]
+0268|- [DLIST]
+0269|INAMES='names line'
 S   | xxxxxxxxxxxxxxxxxx
-0269|Ngives the line for the variable names in Survo data
-0270|*file. Default (if no NAMES given): variable names X1, X2, ... are used.
-0271|NNAMES=DEFAULT maps the columns of a text file to the active variables of
+0270|Ngives the line for the variable names in Survo data
+0271|*file. Default (if no NAMES given): variable names X1, X2, ... are used.
+0272|NNAMES=DEFAULT maps the columns of a text file to the active variables of
 S   | xxxxxxxxxxxxx
-0272|*Survo data file.
-0274|IDELIMITER=char(number)
+0273|*Survo data file.
+0275|IDELIMITER=char(number)
 S   | xxxxxxxxxxxxxxxxxxxxxx
-0275|Nseparates the columns of the text file. Default:
-0276|*one or more blank (space) characters. Possible values are denoted by
-0277|*char(i), i=1,...,255. Keyword TAB may be used instead of char(9).
-0278|**
-0279|IFIRST='first line'
+0276|Nseparates the columns of the text file. Default:
+0277|*one or more blank (space) characters. Possible values are denoted by
+0278|*char(i), i=1,...,255. Keyword TAB may be used instead of char(9).
+0279|**
+0280|IFIRST='first line'
 S   | xxxxxxxxxxxxxxxxxx
-0280|NThe first line to be copied from the text file.
-0281|*Default: 1.
-0283|ILAST='last line'
+0281|NThe first line to be copied from the text file.
+0282|*Default: 1.
+0284|ILAST='last line'
 S   | xxxxxxxxxxxxxxxx
-0284|NThe last line to be copied from the text file.
-0285|*Default: last line of the text file.
-0287|IMISSING='string'
+0285|NThe last line to be copied from the text file.
+0286|*Default: last line of the text file.
+0288|IMISSING='string'
 S   | xxxxxxxxxxxxxxxx
-0288|Ntreats string as a missing value. Default: spaces and/or '-'.
-0290|- chapter select IN Survo-hlp
-0291|- chapter vars IN Survo-hlp
-0292|- chapter mask IN Survo-hlp
-0294|IMAXFIELDS='number of fields'
+0289|Ntreats string as a missing value. Default: spaces and/or '-'.
+0291|- chapter select IN Survo-hlp
+0292|- chapter vars IN Survo-hlp
+0293|- chapter mask IN Survo-hlp
+0295|IMAXFIELDS='number of fields'
 S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-0295|Ndefines maximum number of fields in the text file.
-0296|*Default: 300.
-0298|IENCODING='encoding type'
+0296|Ndefines maximum number of fields in the text file.
+0297|*Default: 300.
+0299|IENCODING='encoding type'
 S   | xxxxxxxxxxxxxxxxxxxxxxxx
-0299|Nspesifies, how to encode the text
-0300|*file. This spesification is used only if the system doesn't regognize
-0301|*encoding. ENCODING=UTF-8 encodes UTF-8 text files. Default: DEFAULT.
+0300|Nspesifies, how to encode the text
+0301|*file. This spesification is used only if the system doesn't regognize
+0302|*encoding. ENCODING=UTF-8 encodes UTF-8 text files. Default: DEFAULT.
 S   |           xxxxxxxxxxxxxx
-0303|I>R
+0304|I>R
 S   | >x
-0304|N>R'R data frame' transforms R data frame to Survo data. Use without '-characters.
+0305|N>R'R data frame' transforms R data frame to Survo data. Use without '-characters.
 S   | >x
-0306|ISKIP='list of characters'
+0307|ISKIP='list of characters'
 S   | xxxxxxxxxxxxxxxxxxxxxxxxx
-0307|Nskips unwanted charcters.
-0309|IMATCH
+0308|Nskips unwanted charcters.
+0310|IMATCH
 S   | xxxxx
-0310|N
-0312|ISKIP_ERRORS='1 or 2'
+0311|N
+0313|ISKIP_ERRORS='1 or 2'
 S   | xxxxxxxxxxxxxxxxxxxx
-0313|NDoes not interrupt saving the text file when the line has too few
-0314|*fields.
-0315|NSKIP_ERRORS=1 deletes incomplete lines.
+0314|NDoes not interrupt saving the text file when the line has too few
+0315|*fields.
+0316|NSKIP_ERRORS=1 deletes incomplete lines.
 S   | xxxxxxxxxxxxx
-0316|NSKIP_ERRORS=2 creates a data record from an incomplete line and assumes
+0317|NSKIP_ERRORS=2 creates a data record from an incomplete line and assumes
 S   | xxxxxxxxxxxxx
-0317|*that missing fields are at the end of the text line.
-0319|ICHECK_VAR_NAMES=0
+0318|*that missing fields are at the end of the text line.
+0320|ICHECK_VAR_NAMES=0
 S   | xxxxxxxxxxxxxxxxx
-0320|Ntreats variable names as is instead of altering the 8th character
-0321|*if duplicate variable names are encountered.
-0323|IREMOVE_QUOTES=1
+0321|Ntreats variable names as is instead of altering the 8th character
+0322|*if duplicate variable names are encountered.
+0324|IREMOVE_QUOTES=1
 S   | xxxxxxxxxxxxxxx
-0324|Nconverts double quotes within text to ''.
-0326|IFORMAT=0
+0325|Nconverts double quotes within text to ''.
+0327|IFORMAT=0
 S   | xxxxxxxx
-0327|Navoids collison with wrong format-lists like NOFORMAT=1.
+0328|Navoids collison with wrong format-lists like NOFORMAT=1.
 S   |                                              xxxxxxxxxx
-0329|INOFORMAT=1
+0330|INOFORMAT=1
 S   | xxxxxxxxxx
-0330|Navoids collison with wrong format-lists like FORMAT=0.
+0331|Navoids collison with wrong format-lists like FORMAT=0.
 S   |                                              xxxxxxxx
-0332|IFILTER='conversion file'.BIN
+0333|IFILTER='conversion file'.BIN
 S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-0333|Nconverses a text file to a Survo data file with
-0334|*specific conversion rules. For making code conversion files check
-0335|- [LINK(#)]
-0336|*code conversion.
+0334|Nconverses a text file to a Survo data file with
+0335|*specific conversion rules. For making code conversion files check
+0336|- [LINK(#)]
+0337|*code conversion.
 S   |               |
-0337|NFILTER=#DOTCOMMA FILTER=#COMMADOT replaces
+0338|NFILTER=#DOTCOMMA FILTER=#COMMADOT replaces
 S   | xxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx
-0338|*dots with commas and vice versa.
-0339|NFILTER=#SEMICOMMA replaces semicommas
+0339|*dots with commas and vice versa.
+0340|NFILTER=#SEMICOMMA replaces semicommas
 S   | xxxxxxxxxxxxxxxxx
-0340|*with commas.
-0342|INOFIELDS
+0341|*with commas.
+0343|INOFIELDS
 S   | xxxxxxxx
-0343|Navoids collision with wrong field-lists.
-0345|INEWSPACE=m,n
+0344|Navoids collision with wrong field-lists.
+0346|INEWSPACE=m,n
 S   | xxxxxxxxxxxx
-0346|Ncreates a Survo data file with space for m records and n
-0347|*variables.
-0348|NNEWSPACE=0,0 creates a Survo data file with no extra space.
+0347|Ncreates a Survo data file with space for m records and n
+0348|*variables.
+0349|NNEWSPACE=0,0 creates a Survo data file with no extra space.
 S   | xxxxxxxxxxxx
-0350|IDEC='character'
+0351|IDEC='character'
 S   | xxxxxxxxxxxxxxxx
-0351|Nspecifies the decimal character used. Default: . (dot).
-0353|IMODEL='number of a line'
+0352|Nspecifies the decimal character used. Default: . (dot).
+0354|IMODEL='number of a line'
 S   | xxxxxxxxxxxxxxxxxxxxxxxx
-0354|Nallows to give 'model-line'.???
-0356|- [/DLIST]
-0357|- [DETAILS]
-0358|/where K is the number of fields in one logical record in the text file,
-0359|*copies a part of a text file to a Survo data file.
-0360|*If the Survo data file does not exist, a new file will be created.
-0361|*The fields of the text file are mapped to various Survo data fields
-0362|*according to the list. Fields which are not copied from the text file
-0363|*are indicated by a '-' in the list.
-0364|*If <length or delimiters> is not given, the field is assumed to be ter-
-0365|*minated by one or several spaces in the text file. However,
-0366|*the last field in each record must be terminated by a line feed.
-0367|*Other fields ending with line feed should be indicated by LF in the
-0368|*list. For example, 10 test3 LF
-0369|*The <length or delimiters> parameter can also be an integer giving the
-0370|*fixed length of the corresponding field in the text file or it can
-0371|*be a sequence of delimiter characters.
-0372|*For example, 11 test6 5
-0373|*             12 test7 :/
-0374|*defines test6 as a field of 5 characters and test7 as a field of
-0375|*next characters ending by : or / or space. A delimiter can also
-0376|*be given in the form [decimal_value]. For example,
-0377|*             13 test8 [50][51]
-0378|*defines test8 to be terminated by one or several '1's or '2's.
-0379|*Please, note that
-0380|*             13 test8 12
-0381|*would define test8 to be a field of 12 characters.
-0383|/The default mode (MODE=1), when interpreting the text file, considers
+0355|Nallows to give 'model-line'.???
+0357|- [/DLIST]
+0358|- [DETAILS]
+0359|/where K is the number of fields in one logical record in the text file,
+0360|*copies a part of a text file to a Survo data file.
+0361|*If the Survo data file does not exist, a new file will be created.
+0362|*The fields of the text file are mapped to various Survo data fields
+0363|*according to the list. Fields which are not copied from the text file
+0364|*are indicated by a '-' in the list.
+0365|*If <length or delimiters> is not given, the field is assumed to be ter-
+0366|*minated by one or several spaces in the text file. However,
+0367|*the last field in each record must be terminated by a line feed.
+0368|*Other fields ending with line feed should be indicated by LF in the
+0369|*list. For example, 10 test3 LF
+0370|*The <length or delimiters> parameter can also be an integer giving the
+0371|*fixed length of the corresponding field in the text file or it can
+0372|*be a sequence of delimiter characters.
+0373|*For example, 11 test6 5
+0374|*             12 test7 :/
+0375|*defines test6 as a field of 5 characters and test7 as a field of
+0376|*next characters ending by : or / or space. A delimiter can also
+0377|*be given in the form [decimal_value]. For example,
+0378|*             13 test8 [50][51]
+0379|*defines test8 to be terminated by one or several '1's or '2's.
+0380|*Please, note that
+0381|*             13 test8 12
+0382|*would define test8 to be a field of 12 characters.
+0384|/The default mode (MODE=1), when interpreting the text file, considers
 S   |                   xxxxxx
-0384|*spaces as delimiters also when other symbols are given as delimiters.
-0385|*Thus fields consisting of several words are not treated correctly.
-0386|*In such cases a apecification MODE=2 should be given. Then also
+0385|*spaces as delimiters also when other symbols are given as delimiters.
+0386|*Thus fields consisting of several words are not treated correctly.
+0387|*In such cases a apecification MODE=2 should be given. Then also
 S   |                               xxxxxx
-0387|*empty fields terminating with LF will be accepted.
-0389|- [LINKS]
-0390|- [LINK(file-save.html)]
-0391|*FILE SAVE
+0388|*empty fields terminating with LF will be accepted.
+0390|- [LINKS]
+0391|- [LINK(file-save.html)]
+0392|*FILE SAVE
 S   |         |
-0392|- [LINK(file-status.html)]
-0393|*FILE STATUS,
+0393|- [LINK(file-status.html)]
+0394|*FILE STATUS,
 S   |           |
-0394|- [LINK(file-update.html)]
-0395|*FILE UPDATE,
+0395|- [LINK(file-update.html)]
+0396|*FILE UPDATE,
 S   |           |
-0396|- [LINK(file-create.html)]
-0397|*FILE CREATE,
+0397|- [LINK(file-create.html)]
+0398|*FILE CREATE,
 S   |           |
-0398|- [LINK(file-load.html)]
-0399|*FILE LOAD,
+0399|- [LINK(file-load.html)]
+0400|*FILE LOAD,
 S   |         |
-0400|- [LINK(txtconv.html)]
-0401|*TXTCONV,
+0401|- [LINK(txtconv.html)]
+0402|*TXTCONV,
 S   |       |
-0402|- [LINK(txtrim.html)]
-0403|*TXTRIM,
+0403|- [LINK(txtrim.html)]
+0404|*TXTRIM,
 S   |      |
-0404|- [LINK(file-save-mat.html)]
-0405|*FILE SAVE MAT
+0405|- [LINK(file-save-mat.html)]
+0406|*FILE SAVE MAT
 S   |             |
-0407|- [EXAMPLES]
-0408|(FILE SAVE data1.txt TO data / DELIMITER=TAB
-0409|*..........
-0410|)
-0411|/
-0412|(FILE SAVE data1.txt TO data / NAMES=1 FIRST=2 LAST=10
-0413|*..........
-0414|)
-0415|/
-0416|(FILE SAVE data1.txt TO data / SKIP=";|
-0417|*..........
-0418|)
-0419|/
-0420|(FILE SAVE data1.txt TO data / DELIMITER=TAB NAMES=1 FIRST=2
-0421|)
-0422|*For a more complex examples see
-0423|- / [BUTTON]
-0425|- / [BUTTON]
-0426|- chapter end IN Survo-hlp
-0427|E
-0429|*REPLACE "COMMAND NAME IN CAPITAL","FILE LOAD",C / LINES=CUR+1,E>
-0430|*REPLACE  "web-page-name-in-small","file-load",C / LINES=CUR+1,E>
-0431|*FILE LOAD
+0408|- [EXAMPLES]
+0409|(FILE SAVE data1.txt TO data / DELIMITER=TAB
+0410|*..........
+0411|)
+0412|/
+0413|(FILE SAVE data1.txt TO data / NAMES=1 FIRST=2 LAST=10
+0414|*..........
+0415|)
+0416|/
+0417|(FILE SAVE data1.txt TO data / SKIP=";|
+0418|*..........
+0419|)
+0420|/
+0421|(FILE SAVE data1.txt TO data / DELIMITER=TAB NAMES=1 FIRST=2
+0422|)
+0423|*For a more complex examples see
+0424|- / [BUTTON]
+0426|- / [BUTTON]
+0427|- chapter end IN Survo-hlp
+0428|E
+0430|*REPLACE "COMMAND NAME IN CAPITAL","FILE LOAD",C / LINES=CUR+1,E>
+0431|*REPLACE  "web-page-name-in-small","file-load",C / LINES=CUR+1,E>
+0432|*FILE LOAD
 S   |3
-0432|+PRINT CUR+2,E> TO www\public_html\file-load.html
-0433|*/OPEN             www\public_html\file-load.html
-0434|- include HTML50.DEV
-0435|*FILE LOAD | Help | Survo R
+0433|+PRINT CUR+2,E> TO www\public_html\file-load.html
+0434|*/OPEN             www\public_html\file-load.html
+0435|- include HTML50.DEV
+0436|*FILE LOAD | Help | Survo R
 S   |3
-0436|- chapter menu IN Survo-hlp
-0437|- chapter sidebar IN Survo-hlp
-0438|*FILE LOAD
+0437|- chapter menu IN Survo-hlp
+0438|- chapter sidebar IN Survo-hlp
+0439|*FILE LOAD
 S   |3
-0439|- [DESC]
-0440|*This loads the file
-0441|- [USAGE]
-0442|*FILE LOAD <Survo_data_file> TO <text_file>
-0443|*moves the active fields of the data file to a text file.
-0444|- [PARAMETERS]
-0445|- [DLIST]
-0446|ICode word
+0440|- [DESC]
+0441|*This loads the file
+0442|- [USAGE]
+0443|*FILE LOAD <Survo_data_file> TO <text_file>
+0444|*moves the active fields of the data file to a text file.
+0445|- [PARAMETERS]
+0446|- [DLIST]
+0447|ICode word
 S   | xxxxxxxxx
-0447|NExplanation
-0448|- chapter select IN Survo-hlp
-0449|- chapter vars   IN Survo-hlp
-0450|- chapter mask   IN Survo-hlp
-0452|- [/DLIST]
-0453|- [DETAILS]
-0454|*Also the header lines telling the name of the data file and the names
-0455|*of the fields will be moved.
-0456|*If <Survo_data_file> is preceded by a '-', the header lines are
-0457|*not moved. This is useful in situations where several parts of a data
-0458|*file has to be copied in a single text file.
-0459|*Each record will appear as a line terminated by a line feed character.
-0461|- [LINKS]
-0463|- [EXAMPLES]
-0465|- chapter end IN Survo-hlp
-0466|E
+0448|NExplanation
+0449|- chapter select IN Survo-hlp
+0450|- chapter vars   IN Survo-hlp
+0451|- chapter mask   IN Survo-hlp
+0453|- [/DLIST]
+0454|- [DETAILS]
+0455|*Also the header lines telling the name of the data file and the names
+0456|*of the fields will be moved.
+0457|*If <Survo_data_file> is preceded by a '-', the header lines are
+0458|*not moved. This is useful in situations where several parts of a data
+0459|*file has to be copied in a single text file.
+0460|*Each record will appear as a line terminated by a line feed character.
+0462|- [LINKS]
+0464|- [EXAMPLES]
+0466|- chapter end IN Survo-hlp
+0467|E

@@ -1,6 +1,5 @@
 SURVO 98 edit field:    201       4000       380 (32 bit version)
 0001|*SAVE Survo-hlp    / Survo-help_v13 13.12.2016 Jouni Vatanen
-0003|*dd
 0005|*/ACTIVATE +
 0007|*CD S:\Muut\Survo-hlp
 0009|*Page list
@@ -54,7 +53,7 @@ S   |                                               x
 0054|*See already made command pages for more advices.
 0056|*Activate-command will make you
 0057|*1. New folders under subfolder www/
-0058|*2. Necessary HTML5.DEV and Q.DV2
+0058|*2. Necessary HTML50.DEV, HTML50.BIN and Q.DV2
 0059|*3. Other content like humans.txt, robots.txt and possible js-files
 0060|*4. Web pages
 0062|*The web page to work you will also need to copy from zip-file images,

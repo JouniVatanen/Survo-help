@@ -2,53 +2,54 @@ SURVO 98 edit field:    201       4000       380 (32 bit version)
 0001|*SAVE TRANSFORM / TRANSFORM commands 13.12.2016 Jouni Vatanen
 0005|*/ACTIVATE +
 0006|*After activation load SUCRO
-0008|*Page list
+0007|*LOAD SUCRO
+0009|*Page list
 S   |3
-0009|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-0010|*SORT CUR+1,E>-1,CUR-1
-0011|*classify
-0012|*linco
-0013|*select (selecting variables and observations, create subsets)
-0014|*smooth
-0015|*transform
-0016|*var
-0017|*varstat
-0018|E
-0020|*Notes
+0010|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0011|*SORT CUR+1,E>-1,CUR-1
+0012|*classify
+0013|*linco
+0014|*select (selecting variables and observations, create subsets)
+0015|*smooth
+0016|*transform
+0017|*var
+0018|*varstat
+0019|E
+0021|*Notes
 S   |3
-0021|*After [DESC] write a one-liner description what the command does.
-0022|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
-0023|*Write only command names in CAPITALS to the first REPLACE command.
-0025|*1. Copy base structure to end by activating COPY command
+0022|*After [DESC] write a one-liner description what the command does.
+0023|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
+0024|*Write only command names in CAPITALS to the first REPLACE command.
+0026|*1. Copy base structure to end by activating COPY command
 S   |1
-0026|*2. Use REPLACE commands to replace COMMAND NAME and web-page-name
+0027|*2. Use REPLACE commands to replace COMMAND NAME and web-page-name
 S   |1
-0027|*COPY CUR+1,E>,END+3
-0028|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
+0028|*COPY CUR+1,E>,END+3
+0029|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
 S   |                                    555
-0029|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
+0030|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
 S   |                                    555
-0030|*COMMAND NAME IN CAPITAL
+0031|*COMMAND NAME IN CAPITAL
 S   |3
-0031|+PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
-0032|*/OPEN             www\public_html\web-page-name-in-small.html
-0033|- include HTML50.DEV
-0034|*COMMAND NAME IN CAPITAL | Help | Survo R
+0032|+PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
+0033|*/OPEN             www\public_html\web-page-name-in-small.html
+0034|- include HTML50.DEV
+0035|*COMMAND NAME IN CAPITAL | Help | Survo R
 S   |3
-0035|- chapter menu IN Survo-hlp
-0036|- chapter sidebar IN Survo-hlp
-0037|*Command name
+0036|- chapter menu IN Survo-hlp
+0037|- chapter sidebar IN Survo-hlp
+0038|*Command name
 S   |3
-0038|- [DESC]
-0040|- [USAGE]
-0042|- [PARAMETERS]
-0043|- [DLIST]
-0044|ICode word
+0039|- [DESC]
+0041|- [USAGE]
+0043|- [PARAMETERS]
+0044|- [DLIST]
+0045|ICode word
 S   | xxxxxxxxx
-0045|NExplanation
-0047|- [/DLIST]
-0048|- [DETAILS]
-0050|- [LINKS]
-0052|- [EXAMPLES]
-0054|- chapter end IN Survo-hlp
-0055|E
+0046|NExplanation
+0048|- [/DLIST]
+0049|- [DETAILS]
+0051|- [LINKS]
+0053|- [EXAMPLES]
+0055|- chapter end IN Survo-hlp
+0056|E

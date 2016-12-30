@@ -1,6 +1,4 @@
 
-
-
 /*Fix Problems with Google Custom Seach Engine CSS*/
 .reset-box-sizing, .reset-box-sizing *, .reset-box-sizing *:before, .reset-box-sizing *:after,  .gsc-inline-block {
   -webkit-box-sizing: content-box;

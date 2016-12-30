@@ -2,561 +2,562 @@ SURVO 98 edit field:    201       4000       380 (32 bit version)
 0001|*SAVE MISC   / General webcontent 5.10.2016 Jouni Vatanen
 0005|*/ACTIVATE +
 0006|*After activation move to EXAMPLES
-0008|*Page list
+0007|*LOAD EXAMPLES
+0009|*Page list
 S   |3
-0009|*index
-0010|*get started
-0011|*404 (error)
-0012|*search
-0013|*examples
-0014|*tutorial
-0015|*command list
-0016|*faq
-0017|*robots.txt
-0018|*humans.txt
-0021|*Notes
+0010|*index
+0011|*get started
+0012|*404 (error)
+0013|*search
+0014|*examples
+0015|*tutorial
+0016|*command list
+0017|*faq
+0018|*robots.txt
+0019|*humans.txt
+0022|*Notes
 S   |3
-0022|*After [DESC] write a one-liner description what the command does.
-0023|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
-0024|*Write only command names in CAPITALS to the first REPLACE command.
-0026|*1. Copy base structure to end by activating COPY command
+0023|*After [DESC] write a one-liner description what the command does.
+0024|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
+0025|*Write only command names in CAPITALS to the first REPLACE command.
+0027|*1. Copy base structure to end by activating COPY command
 S   |1
-0027|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+0028|*2. Use REPLACE commands to replace Command name for the command you want to make a page
 S   |1
-0028|*COPY CUR+1,E>,END+3
-0029|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
+0029|*COPY CUR+1,E>,END+3
+0030|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
 S   |                                    555
-0030|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
+0031|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
 S   |                                    555
-0031|*COMMAND NAME
+0032|*COMMAND NAME
 S   |3
-0032|*PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
-0033|*/OPEN             www\public_html\web-page-name-in-small.html
-0034|- include HTML50.DEV
-0035|*COMMAND NAME | Help | Survo R
+0033|*PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
+0034|*/OPEN             www\public_html\web-page-name-in-small.html
+0035|- include HTML50.DEV
+0036|*COMMAND NAME | Help | Survo R
 S   |3
-0036|- chapter menu Survo-hlp
-0037|- chapter sidebar Survo-hlp
-0038|*COMMAND NAME
+0037|- chapter menu Survo-hlp
+0038|- chapter sidebar Survo-hlp
+0039|*COMMAND NAME
 S   |3
-0039|- [DESC]
-0041|- [USAGE]
-0043|- [PARAMETERS]
-0044|- [DLIST]
-0045|ICode word
+0040|- [DESC]
+0042|- [USAGE]
+0044|- [PARAMETERS]
+0045|- [DLIST]
+0046|ICode word
 S   | xxxxxxxxx
-0046|NExplanation
-0048|- [/DLIST]
-0049|- [DETAILS]
-0051|- [LINKS]
-0053|- [EXAMPLES]
-0055|- chapter end
-0056|E
-0058|*REPLACE "COMMAND NAME IN CAPITAL","Index",C / LINES=CUR+1,E>
-0059|*REPLACE  "web-page-name-in-small","index",C / LINES=CUR+1,E>
-0060|*Index
+0047|NExplanation
+0049|- [/DLIST]
+0050|- [DETAILS]
+0052|- [LINKS]
+0054|- [EXAMPLES]
+0056|- chapter end
+0057|E
+0059|*REPLACE "COMMAND NAME IN CAPITAL","Index",C / LINES=CUR+1,E>
+0060|*REPLACE  "web-page-name-in-small","index",C / LINES=CUR+1,E>
+0061|*Index
 S   |3
-0061|+PRINT CUR+2,E> TO www\public_html\index.html
-0062|*/OPEN             www\public_html\index.html
-0063|- include HTML50.DEV
-0064|*Home | Help | Survo R
+0062|+PRINT CUR+2,E> TO www\public_html\index.html
+0063|*/OPEN             www\public_html\index.html
+0064|- include HTML50.DEV
+0065|*Home | Help | Survo R
 S   |3
-0065|- chapter menu IN Survo-hlp
-0066|- / chapter sidebar IN Survo-hlp
-0067|*Introduction
+0066|- chapter menu IN Survo-hlp
+0067|- / chapter sidebar IN Survo-hlp
+0068|*Introduction
 S   | kkkkkkkkkkkk
-0068|- [DIV(row)][DIV(col-md-6)]
-0069|/Survo is a general computing environment for data analysis: managing and
-0070|*processing of data, using methods of statistical analysis, visualizing data by
-0071|*statistical graphics as well as working with many types of computations and
-0072|*calculations. In addition to managing numerical data, it includes efficient
-0073|*tools for writing and editing textual information. Whatever you do, Survo
-0074|*provides you with flexible ways of planning, managing, organizing, completing
-0075|*and documenting your jobs.
-0077|/All the functions of Survo are tied together by a special text editor. Although
-0078|*there are a few menus available in Survo R, the actual interface of Survo is
-0079|*based on using that text editor. The idea is that operations or commands, their
-0080|*specifications and comments are written very freely in the edit field that is a
-0081|*wide and open space in the editor.
-0083|/As soon as an operation is activated, it will typically write its results back
-0084|*in the same edit field. This means that the way of working is highly
-0085|*interactive all the time, and any output might serve as the input for the next
-0086|*operation. What is essential and important here is that the whole working
-0087|*process will be more or less automatically documented and repeatable. It is the
-0088|*key to an extremely efficient way of working, called editorial approach.
-0090|*Help system to guide you
+0069|- [DIV(row)][DIV(col-md-6)]
+0070|/Survo is a general computing environment for data analysis: managing and
+0071|*processing of data, using methods of statistical analysis, visualizing data by
+0072|*statistical graphics as well as working with many types of computations and
+0073|*calculations. In addition to managing numerical data, it includes efficient
+0074|*tools for writing and editing textual information. Whatever you do, Survo
+0075|*provides you with flexible ways of planning, managing, organizing, completing
+0076|*and documenting your jobs.
+0078|/All the functions of Survo are tied together by a special text editor. Although
+0079|*there are a few menus available in Survo R, the actual interface of Survo is
+0080|*based on using that text editor. The idea is that operations or commands, their
+0081|*specifications and comments are written very freely in the edit field that is a
+0082|*wide and open space in the editor.
+0084|/As soon as an operation is activated, it will typically write its results back
+0085|*in the same edit field. This means that the way of working is highly
+0086|*interactive all the time, and any output might serve as the input for the next
+0087|*operation. What is essential and important here is that the whole working
+0088|*process will be more or less automatically documented and repeatable. It is the
+0089|*key to an extremely efficient way of working, called editorial approach.
+0091|*Help system to guide you
 S   | kkkkkkkkkkkkkkkkkkkkkkkk
-0091|/Don't worry if Survo is new to you. Whether you are a beginner or
-0092|*an advanced user this help system will solve your problems.
-0093|*You can either use search to find what you need, read the getting started
-0094|*section, see tutorials and videos or see and try examples.
-0096|- [/DIV][DIV(col-md-6)]
-0097|*Examples of how to use Survo
-0098|- [DIV_DEF]
-0099|*CLASS="embed-responsive embed-responsive-16by9"
-0100|- [/DIV_DEF]
-0101|- [IFRAME(https://www.youtube.com/embed/C3Jthb_IvaE,embed-responsive-item)][/IFRAME]
-0102|- [/DIV][/DIV][/DIV]
-0103|- [DIV(row)][DIV(col-sm-4)]
-0104|*Get started
+0092|/Don't worry if Survo is new to you. Whether you are a beginner or
+0093|*an advanced user this help system will solve your problems.
+0094|*You can either use search to find what you need, read the getting started
+0095|*section, see tutorials and videos or see and try examples.
+0097|- [/DIV][DIV(col-md-6)]
+0098|*Examples of how to use Survo
+0099|- [DIV_DEF]
+0100|*CLASS="embed-responsive embed-responsive-16by9"
+0101|- [/DIV_DEF]
+0102|- [IFRAME(https://www.youtube.com/embed/C3Jthb_IvaE,embed-responsive-item)][/IFRAME]
+0103|- [/DIV][/DIV][/DIV]
+0104|- [DIV(row)][DIV(col-sm-4)]
+0105|*Get started
 S   | mmmmmmmmmmm
-0105|/See this to get started. Learn everything from how Survo funtions
-0106|*to basic commands and videos.
-0107|/
-0108|- [LINK_DEF]
-0109|*CLASS="btn btn-default" HREF="get-started.html" ROLE="button"
-0110|- [/LINK_DEF]
-0111|*View details
+0106|/See this to get started. Learn everything from how Survo funtions
+0107|*to basic commands and videos.
+0108|/
+0109|- [LINK_DEF]
+0110|*CLASS="btn btn-default" HREF="get-started.html" ROLE="button"
+0111|- [/LINK_DEF]
+0112|*View details
 S   |            |
-0112|- [/DIV][DIV(col-sm-4)]
-0113|*Tutorials and videos
+0113|- [/DIV][DIV(col-sm-4)]
+0114|*Tutorials and videos
 S   | mmmmmmmmmmmmmmmmmmmm
-0114|/See a collections of tutorials, manuals and videos. Everything is grouped by
-0115|*different areas like basics, advanced, data manipulation and getting results.
-0116|/
-0117|- [LINK_DEF]
-0118|*CLASS="btn btn-default" HREF="tutorials.html" ROLE="button"
-0119|- [/LINK_DEF]
-0120|*View details
+0115|/See a collections of tutorials, manuals and videos. Everything is grouped by
+0116|*different areas like basics, advanced, data manipulation and getting results.
+0117|/
+0118|- [LINK_DEF]
+0119|*CLASS="btn btn-default" HREF="tutorials.html" ROLE="button"
+0120|- [/LINK_DEF]
+0121|*View details
 S   |            |
-0121|- [/DIV][DIV(col-sm-4)]
-0122|*Examples
+0122|- [/DIV][DIV(col-sm-4)]
+0123|*Examples
 S   | mmmmmmmm
-0123|/Here are some great examples to get you kick-started. You can copy the code from
-0124|*the examples and modify it your needs.
-0125|/
-0126|- [LINK_DEF]
-0127|*CLASS="btn btn-default" HREF="examples.html" ROLE="button"
-0128|- [/LINK_DEF]
-0129|*View details
+0124|/Here are some great examples to get you kick-started. You can copy the code from
+0125|*the examples and modify it your needs.
+0126|/
+0127|- [LINK_DEF]
+0128|*CLASS="btn btn-default" HREF="examples.html" ROLE="button"
+0129|- [/LINK_DEF]
+0130|*View details
 S   |            |
-0130|- [/DIV][/DIV]
-0131|- chapter end IN Survo-hlp
-0132|E
-0134|*REPLACE "COMMAND NAME IN CAPITAL","Get started",C / LINES=CUR+1,E>
-0135|*REPLACE  "web-page-name-in-small","get-started",C / LINES=CUR+1,E>
-0136|*Get started
+0131|- [/DIV][/DIV]
+0132|- chapter end IN Survo-hlp
+0133|E
+0135|*REPLACE "COMMAND NAME IN CAPITAL","Get started",C / LINES=CUR+1,E>
+0136|*REPLACE  "web-page-name-in-small","get-started",C / LINES=CUR+1,E>
+0137|*Get started
 S   |3
-0137|+PRINT CUR+2,E> TO www\public_html\get-started.html
-0138|*/OPEN             www\public_html\get-started.html
-0139|- include HTML50.DEV
-0140|*Get started | Help | Survo R
+0138|+PRINT CUR+2,E> TO www\public_html\get-started.html
+0139|*/OPEN             www\public_html\get-started.html
+0140|- include HTML50.DEV
+0141|*Get started | Help | Survo R
 S   |3
-0141|- chapter menu IN Survo-hlp
-0142|- / chapter sidebar IN Survo-hlp
-0143|*How to use Survo
+0142|- chapter menu IN Survo-hlp
+0143|- / chapter sidebar IN Survo-hlp
+0144|*How to use Survo
 S   | kkkkkkkkkkkkkkkk
-0144|- [DIV(row)][DIV(col-md-6)]
-0145|*The unique concept of editorial approach means that all functions of
-0146|*Survo are controlled by its own text editor. The way of working is
-0147|*immediate and efficient: results appear at the same area, called edit
-0148|*field, where functions are activated, and where the user can freely
-0149|*write text. This makes it possible to document the jobs automatically,
-0150|*and as precisely as needed.
-0151|- [/DIV][DIV(col-md-6)]
-0152|/3-5 pictures of an edit field
-0155|/Introduction to Survo video?
-0156|- [DIV_DEF]
-0157|*CLASS="embed-responsive embed-responsive-16by9"
-0158|- [/DIV_DEF]
-0159|- [IFRAME(https://www.youtube.com/embed/lehL61-bR80,embed-responsive-item)][/IFRAME]
-0160|- [/DIV][/DIV][/DIV]
-0162|*Tour
+0145|- [DIV(row)][DIV(col-md-6)]
+0146|*The unique concept of editorial approach means that all functions of
+0147|*Survo are controlled by its own text editor. The way of working is
+0148|*immediate and efficient: results appear at the same area, called edit
+0149|*field, where functions are activated, and where the user can freely
+0150|*write text. This makes it possible to document the jobs automatically,
+0151|*and as precisely as needed.
+0152|- [/DIV][DIV(col-md-6)]
+0153|/3-5 pictures of an edit field
+0156|/Introduction to Survo video?
+0157|- [DIV_DEF]
+0158|*CLASS="embed-responsive embed-responsive-16by9"
+0159|- [/DIV_DEF]
+0160|- [IFRAME(https://www.youtube.com/embed/lehL61-bR80,embed-responsive-item)][/IFRAME]
+0161|- [/DIV][/DIV][/DIV]
+0163|*Tour
 S   | kkkk
-0163|- [DIV(row)]
-0164|- [DIV(col-md-4)]
-0165|*"Cuckoos singing in the rain"
-0166|- [DIV_DEF]
-0167|*CLASS="embed-responsive embed-responsive-16by9"
-0168|- [/DIV_DEF]
-0169|- [IFRAME(https://www.youtube.com/embed/rNhAhd2YqME,embed-responsive-item)][/IFRAME]
-0170|- [/DIV][/DIV]
-0171|- [DIV(col-md-4)]
-0172|*Influence curves for the correlation coefficient
-0173|- [DIV_DEF]
-0174|*CLASS="embed-responsive embed-responsive-16by9"
-0175|- [/DIV_DEF]
-0176|- [IFRAME(https://www.youtube.com/embed/cQ6uI6u8Ft0,embed-responsive-item)][/IFRAME]
-0177|- [/DIV][/DIV]
-0178|- [DIV(col-md-4)]
-0179|*Origin of species
-0180|- [DIV_DEF]
-0181|*CLASS="embed-responsive embed-responsive-16by9"
-0182|- [/DIV_DEF]
-0183|- [IFRAME(https://www.youtube.com/embed/eehQ0TWpl2o,embed-responsive-item)][/IFRAME]
-0184|- [/DIV][/DIV][/DIV]
-0185|/
+0164|- [DIV(row)]
+0165|- [DIV(col-md-4)]
+0166|*"Cuckoos singing in the rain"
+0167|- [DIV_DEF]
+0168|*CLASS="embed-responsive embed-responsive-16by9"
+0169|- [/DIV_DEF]
+0170|- [IFRAME(https://www.youtube.com/embed/rNhAhd2YqME,embed-responsive-item)][/IFRAME]
+0171|- [/DIV][/DIV]
+0172|- [DIV(col-md-4)]
+0173|*Influence curves for the correlation coefficient
+0174|- [DIV_DEF]
+0175|*CLASS="embed-responsive embed-responsive-16by9"
+0176|- [/DIV_DEF]
+0177|- [IFRAME(https://www.youtube.com/embed/cQ6uI6u8Ft0,embed-responsive-item)][/IFRAME]
+0178|- [/DIV][/DIV]
+0179|- [DIV(col-md-4)]
+0180|*Origin of species
+0181|- [DIV_DEF]
+0182|*CLASS="embed-responsive embed-responsive-16by9"
+0183|- [/DIV_DEF]
+0184|- [IFRAME(https://www.youtube.com/embed/eehQ0TWpl2o,embed-responsive-item)][/IFRAME]
+0185|- [/DIV][/DIV][/DIV]
 0186|/
-0187|- [BUTTON_DEF]
-0188|*class="btn btn-default" data-toggle="collapse" data-target="#more-videos"
-0189|- [/BUTTON_DEF]
-0190|*View more videos
-0191|- [/BUTTON]
-0192|- [DIV_DEF]
-0193|*id="more-videos" class="collapse"
-0194|- [/DIV_DEF]
-0195|- [DIV(row)][DIV(col-md-4)]
-0196|*Graphical rotation in factor analysis
-0197|- [DIV_DEF]
-0198|*CLASS="embed-responsive embed-responsive-16by9"
-0199|- [/DIV_DEF]
-0200|- [IFRAME(https://www.youtube.com/embed/-yZRUR6gpAg,embed-responsive-item)][/IFRAME]
-0201|- [/DIV][/DIV]
-0202|- [DIV(col-md-4)]
-0203|*Arrow diagrams
-0204|- [DIV_DEF]
-0205|*CLASS="embed-responsive embed-responsive-16by9"
-0206|- [/DIV_DEF]
-0207|- [IFRAME(https://www.youtube.com/embed/XqdhjBNdh1c,embed-responsive-item)][/IFRAME]
-0208|- [/DIV][/DIV]
-0209|- [DIV(col-md-4)]
-0210|*Chernoff faces
-0211|- [DIV_DEF]
-0212|*CLASS="embed-responsive embed-responsive-16by9"
-0213|- [/DIV_DEF]
-0214|- [IFRAME(https://www.youtube.com/embed/Oqh9b5jL4SA,embed-responsive-item)][/IFRAME]
-0215|- [/DIV][/DIV][/DIV][/DIV]
-0216|*Tutorials
+0187|/
+0188|- [BUTTON_DEF]
+0189|*class="btn btn-default" data-toggle="collapse" data-target="#more-videos"
+0190|- [/BUTTON_DEF]
+0191|*View more videos
+0192|- [/BUTTON]
+0193|- [DIV_DEF]
+0194|*id="more-videos" class="collapse"
+0195|- [/DIV_DEF]
+0196|- [DIV(row)][DIV(col-md-4)]
+0197|*Graphical rotation in factor analysis
+0198|- [DIV_DEF]
+0199|*CLASS="embed-responsive embed-responsive-16by9"
+0200|- [/DIV_DEF]
+0201|- [IFRAME(https://www.youtube.com/embed/-yZRUR6gpAg,embed-responsive-item)][/IFRAME]
+0202|- [/DIV][/DIV]
+0203|- [DIV(col-md-4)]
+0204|*Arrow diagrams
+0205|- [DIV_DEF]
+0206|*CLASS="embed-responsive embed-responsive-16by9"
+0207|- [/DIV_DEF]
+0208|- [IFRAME(https://www.youtube.com/embed/XqdhjBNdh1c,embed-responsive-item)][/IFRAME]
+0209|- [/DIV][/DIV]
+0210|- [DIV(col-md-4)]
+0211|*Chernoff faces
+0212|- [DIV_DEF]
+0213|*CLASS="embed-responsive embed-responsive-16by9"
+0214|- [/DIV_DEF]
+0215|- [IFRAME(https://www.youtube.com/embed/Oqh9b5jL4SA,embed-responsive-item)][/IFRAME]
+0216|- [/DIV][/DIV][/DIV][/DIV]
+0217|*Tutorials
 S   | kkkkkkkkk
-0217|- [DIV(row)]
-0218|- [DIV(col-sm-3)]
-0219|*Basics
+0218|- [DIV(row)]
+0219|- [DIV(col-sm-3)]
+0220|*Basics
 S   | llllll
-0220|- [LIST][L]
-0221|- [LINK(#)]
-0222|*Survo book
+0221|- [LIST][L]
+0222|- [LINK(#)]
+0223|*Survo book
 S   |          |
-0223|- [/L][L][LINK(#)]
-0224|*Some other link
+0224|- [/L][L][LINK(#)]
+0225|*Some other link
 S   |               |
-0225|- [/L][/LIST][/DIV]
-0226|- [DIV(col-sm-3)]
-0227|*Data manipulation
+0226|- [/L][/LIST][/DIV]
+0227|- [DIV(col-sm-3)]
+0228|*Data manipulation
 S   | lllllllllllllllll
-0228|- [LIST][L]
-0229|- [LINK(#)]
-0230|*Survo book
+0229|- [LIST][L]
+0230|- [LINK(#)]
+0231|*Survo book
 S   |          |
-0231|- [/L][L][LINK(#)]
-0232|*Some other link
+0232|- [/L][L][LINK(#)]
+0233|*Some other link
 S   |               |
-0233|- [/L][/LIST][/DIV]
-0234|- [DIV(col-sm-3)]
-0235|*Statistics
+0234|- [/L][/LIST][/DIV]
+0235|- [DIV(col-sm-3)]
+0236|*Statistics
 S   | llllllllll
-0236|- [LIST][L]
-0237|- [LINK(#)]
-0238|*Survo book
+0237|- [LIST][L]
+0238|- [LINK(#)]
+0239|*Survo book
 S   |          |
-0239|- [/L][L][LINK(#)]
-0240|*Some other link
+0240|- [/L][L][LINK(#)]
+0241|*Some other link
 S   |               |
-0241|- [/L][/LIST][/DIV]
-0242|- [DIV(col-sm-3)]
-0243|*Statistics
+0242|- [/L][/LIST][/DIV]
+0243|- [DIV(col-sm-3)]
+0244|*Statistics
 S   | llllllllll
-0244|- [LIST][L]
-0245|- [LINK(#)]
-0246|*Survo book
+0245|- [LIST][L]
+0246|- [LINK(#)]
+0247|*Survo book
 S   |          |
-0247|- [/L][L][LINK(#)]
-0248|*Some other link
+0248|- [/L][L][LINK(#)]
+0249|*Some other link
 S   |               |
-0249|- [/L][/LIST][/DIV]
-0250|- [/DIV]
-0251|*Install Survo
+0250|- [/L][/LIST][/DIV]
+0251|- [/DIV]
+0252|*Install Survo
 S   | kkkkkkkkkkkkk
-0252|/Survo R is distributed as a collection of R packages. The only mandatory
-0253|*package to use Survo R is muste that is a standard R package and it can
-0254|*be installed as any other R package. Once package is installed, just
-0255|*enter the command library(muste) and if you want to launch the editor
-0256|*enter the command survo().
-0258|/However, in order to avoid common pitfalls we recommend installation in
-0259|*the following way. First check notes for your system below and perform
-0260|*required actions as suggested.Then continue to Survo R installation part
-0261|*at the end.
-0262|/
-0263|- [BUTTON_DEF]
-0264|*class="btn btn-default" data-toggle="collapse" data-target="#more-win"
-0265|- [/BUTTON_DEF]
-0266|*Notes for Windows users
-0267|- [/BUTTON]
-0268|- [DIV_DEF]
-0269|*id="more-win" class="collapse"
-0270|- [/DIV_DEF]
-0271|/There is a separate all-in-one installation file available that contains all
-0272|*you need to use Survo R in Windows (R, Ghostscript, all Survo R components and
-0273|*other suggested R packages). To use this option, follow the separate
-0274|*instructions.
-0276|/Otherwise, make sure that you have installed R version 3.0.1 or higher on your
-0277|*computer. We strongly suggest that you install R under some user owned
-0278|*location, such as C:\R\. During the installation, choose customized startup
-0279|*options and select SDI (separate windows interface). After installation, follow
-0280|*the general instructions below.
-0281|- [/DIV]
-0282|/
-0283|- [BUTTON_DEF]
-0284|*class="btn btn-default" data-toggle="collapse" data-target="#more-mac"
-0285|- [/BUTTON_DEF]
-0286|*Notes for Mac OS X users
-0287|- [/BUTTON]
-0288|- [DIV_DEF]
-0289|*id="more-mac" class="collapse"
-0290|- [/DIV_DEF]
-0291|/First make sure that your operating system is up-to-date (Apple menu - System
-0292|*update)!
-0294|/Install R version 3.0.1 or higher to your computer using the default options of
-0295|*the installer (you need the Tcl/Tk components, so don't uncheck them). For R
-0296|*3.1.0 it is recommended to use Snow Leopard binary installation package even
-0297|*with Mavericks.
-0299|/You also need to install XQuartz from http://xquartz.macosforge.org. Download
-0300|*the disk image (dmg) file for XQuartz. When you open this file by
-0301|*double-clicking on it, you'll find XQuartz.pkg; double-click on it to run the
-0302|*installer, clicking through all the defaults. After the installation is ready,
-0303|*it is recommended to restart your computer.
-0305|/It is likely that you would like to change the default key bindings of the
-0306|*function keys F1-F12 while using Survo R. To do that, open your System
-0307|*Preferences and select Keyboard. Select "Keyboard" tab and make sure that the
-0308|*box next to "Use all F1, F2, etc. keys as standard function keys as normal" is
-0309|*checked. In addition, switch to "Keyboard Shortcuts" tab, select "Expose and
-0310|*Spaces" and uncheck the bindings of F8-F11 keys.
-0312|/After all this, follow the general instructions below.
-0313|- [/DIV]
-0314|/
-0315|- [BUTTON_DEF]
-0316|*class="btn btn-default" data-toggle="collapse" data-target="#more-linux"
-0317|- [/BUTTON_DEF]
-0318|*Notes for Linux users
-0319|- [/BUTTON]
-0320|- [DIV_DEF]
-0321|*id="more-linux" class="collapse"
-0322|- [/DIV_DEF]
-0323|*Install R version 3.0.1 or higher to your system. Follow the general
-0324|*instructions below to install Survo R. It is strongly suggested that you
-0325|*install Survo R related stuff into a user package library under home directory
-0326|*so that the use of Survo R is possible without running R as root.
-0327|- [/DIV]
-0328|/Make sure that you have access to internet, Start R and execute the following command:
-0329|(source("http://www.survo.fi/install.R")
-0330|)
-0331|*This will install Survo R and other related packages as well as provide
-0332|*autoupdate feature for these packages. If you have problems with
-0333|*installation, please check frequently asked questions. If problem
-0334|*persists, please post a message describing your problem to the forum.
-0336|- chapter end IN Survo-hlp
-0337|E
-0339|*REPLACE "COMMAND NAME IN CAPITAL","Error 404",C / LINES=CUR+1,E>
-0340|*REPLACE  "web-page-name-in-small","404",C / LINES=CUR+1,E>
-0341|*Error 404
+0253|/Survo R is distributed as a collection of R packages. The only mandatory
+0254|*package to use Survo R is muste that is a standard R package and it can
+0255|*be installed as any other R package. Once package is installed, just
+0256|*enter the command library(muste) and if you want to launch the editor
+0257|*enter the command survo().
+0259|/However, in order to avoid common pitfalls we recommend installation in
+0260|*the following way. First check notes for your system below and perform
+0261|*required actions as suggested.Then continue to Survo R installation part
+0262|*at the end.
+0263|/
+0264|- [BUTTON_DEF]
+0265|*class="btn btn-default" data-toggle="collapse" data-target="#more-win"
+0266|- [/BUTTON_DEF]
+0267|*Notes for Windows users
+0268|- [/BUTTON]
+0269|- [DIV_DEF]
+0270|*id="more-win" class="collapse"
+0271|- [/DIV_DEF]
+0272|/There is a separate all-in-one installation file available that contains all
+0273|*you need to use Survo R in Windows (R, Ghostscript, all Survo R components and
+0274|*other suggested R packages). To use this option, follow the separate
+0275|*instructions.
+0277|/Otherwise, make sure that you have installed R version 3.0.1 or higher on your
+0278|*computer. We strongly suggest that you install R under some user owned
+0279|*location, such as C:\R\. During the installation, choose customized startup
+0280|*options and select SDI (separate windows interface). After installation, follow
+0281|*the general instructions below.
+0282|- [/DIV]
+0283|/
+0284|- [BUTTON_DEF]
+0285|*class="btn btn-default" data-toggle="collapse" data-target="#more-mac"
+0286|- [/BUTTON_DEF]
+0287|*Notes for Mac OS X users
+0288|- [/BUTTON]
+0289|- [DIV_DEF]
+0290|*id="more-mac" class="collapse"
+0291|- [/DIV_DEF]
+0292|/First make sure that your operating system is up-to-date (Apple menu - System
+0293|*update)!
+0295|/Install R version 3.0.1 or higher to your computer using the default options of
+0296|*the installer (you need the Tcl/Tk components, so don't uncheck them). For R
+0297|*3.1.0 it is recommended to use Snow Leopard binary installation package even
+0298|*with Mavericks.
+0300|/You also need to install XQuartz from http://xquartz.macosforge.org. Download
+0301|*the disk image (dmg) file for XQuartz. When you open this file by
+0302|*double-clicking on it, you'll find XQuartz.pkg; double-click on it to run the
+0303|*installer, clicking through all the defaults. After the installation is ready,
+0304|*it is recommended to restart your computer.
+0306|/It is likely that you would like to change the default key bindings of the
+0307|*function keys F1-F12 while using Survo R. To do that, open your System
+0308|*Preferences and select Keyboard. Select "Keyboard" tab and make sure that the
+0309|*box next to "Use all F1, F2, etc. keys as standard function keys as normal" is
+0310|*checked. In addition, switch to "Keyboard Shortcuts" tab, select "Expose and
+0311|*Spaces" and uncheck the bindings of F8-F11 keys.
+0313|/After all this, follow the general instructions below.
+0314|- [/DIV]
+0315|/
+0316|- [BUTTON_DEF]
+0317|*class="btn btn-default" data-toggle="collapse" data-target="#more-linux"
+0318|- [/BUTTON_DEF]
+0319|*Notes for Linux users
+0320|- [/BUTTON]
+0321|- [DIV_DEF]
+0322|*id="more-linux" class="collapse"
+0323|- [/DIV_DEF]
+0324|*Install R version 3.0.1 or higher to your system. Follow the general
+0325|*instructions below to install Survo R. It is strongly suggested that you
+0326|*install Survo R related stuff into a user package library under home directory
+0327|*so that the use of Survo R is possible without running R as root.
+0328|- [/DIV]
+0329|/Make sure that you have access to internet, Start R and execute the following command:
+0330|(source("http://www.survo.fi/install.R")
+0331|)
+0332|*This will install Survo R and other related packages as well as provide
+0333|*autoupdate feature for these packages. If you have problems with
+0334|*installation, please check frequently asked questions. If problem
+0335|*persists, please post a message describing your problem to the forum.
+0337|- chapter end IN Survo-hlp
+0338|E
+0340|*REPLACE "COMMAND NAME IN CAPITAL","Error 404",C / LINES=CUR+1,E>
+0341|*REPLACE  "web-page-name-in-small","404",C / LINES=CUR+1,E>
+0342|*Error 404
 S   |3
-0342|+PRINT CUR+2,E> TO www\public_html\404.html
-0343|*/OPEN             www\public_html\404.html
-0344|- include HTML50.DEV
-0345|*Page not found | Error 404 | Help | Survo R
+0343|+PRINT CUR+2,E> TO www\public_html\404.html
+0344|*/OPEN             www\public_html\404.html
+0345|- include HTML50.DEV
+0346|*Page not found | Error 404 | Help | Survo R
 S   |3
-0346|- chapter menu IN Survo-hlp
-0347|- / chapter sidebar IN Survo-hlp
-0348|*Sorry!
+0347|- chapter menu IN Survo-hlp
+0348|- / chapter sidebar IN Survo-hlp
+0349|*Sorry!
 S   | kkkkkk
-0349|- [DIV(row)][DIV(col-sm-6)]
-0350|*The page you were trying to reach doesn't exist anymore or it has just moved.
-0351|*Be sure to check your spelling. The best thing to do is to start again from the home page.
-0352|/Thank you very much.
-0353|/
-0354|- [LINK_DEF]
-0355|*CLASS="btn btn-default" HREF="index.html" ROLE="button"
-0356|- [/LINK_DEF]
-0357|*Go to home page
+0350|- [DIV(row)][DIV(col-sm-6)]
+0351|*The page you were trying to reach doesn't exist anymore or it has just moved.
+0352|*Be sure to check your spelling. The best thing to do is to start again from the home page.
+0353|/Thank you very much.
+0354|/
+0355|- [LINK_DEF]
+0356|*CLASS="btn btn-default" HREF="index.html" ROLE="button"
+0357|- [/LINK_DEF]
+0358|*Go to home page
 S   |               |
-0358|- [/DIV][DIV(col-sm-6)]
-0359|*Add a great picture about Survo!
+0359|- [/DIV][DIV(col-sm-6)]
+0360|*Add a great picture about Survo!
 S   | 11111111111111111111111111111111
-0360|- [/DIV][/DIV]
-0361|- chapter end IN Survo-hlp
-0362|E
-0364|*REPLACE "COMMAND NAME IN CAPITAL","Command list",C / LINES=CUR+1,E>
-0365|*REPLACE  "web-page-name-in-small","command-list",C / LINES=CUR+1,E>
-0366|*Command list
+0361|- [/DIV][/DIV]
+0362|- chapter end IN Survo-hlp
+0363|E
+0365|*REPLACE "COMMAND NAME IN CAPITAL","Command list",C / LINES=CUR+1,E>
+0366|*REPLACE  "web-page-name-in-small","command-list",C / LINES=CUR+1,E>
+0367|*Command list
 S   |3
-0367|+PRINT CUR+2,E> TO www\public_html\command-list.html
-0368|*/OPEN             www\public_html\command-list.html
-0369|- include HTML50.DEV
-0370|*Command list | Help | Survo R
+0368|+PRINT CUR+2,E> TO www\public_html\command-list.html
+0369|*/OPEN             www\public_html\command-list.html
+0370|- include HTML50.DEV
+0371|*Command list | Help | Survo R
 S   |3
-0371|- chapter menu IN Survo-hlp
-0372|- / chapter sidebar IN Survo-hlp
-0373|- [SCRIPT(https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js)][/SCRIPT]
-0374|- [SCRIPT]
-0375|*  $(function(){
-0376|*    var includes = $('[data-include]');
-0377|*    jQuery.each(includes, function(){
-0378|*      var file = $(this).data('include') + '.html' + ' #CommandList';
-0379|*      $(this).load(file);
-0380|*    });
-0381|*  });
-0382|- [/SCRIPT]
-0383|*Commands by alphabetical order
+0372|- chapter menu IN Survo-hlp
+0373|- / chapter sidebar IN Survo-hlp
+0374|- [SCRIPT(https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js)][/SCRIPT]
+0375|- [SCRIPT]
+0376|*  $(function(){
+0377|*    var includes = $('[data-include]');
+0378|*    jQuery.each(includes, function(){
+0379|*      var file = $(this).data('include') + '.html' + ' #CommandList';
+0380|*      $(this).load(file);
+0381|*    });
+0382|*  });
+0383|- [/SCRIPT]
+0384|*Commands by alphabetical order
 S   | kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-0384|- / Uses jquery, LINK4 and an added id in [DESC] problem with space!
+0385|- / Uses jquery, LINK4 and an added id in [DESC] problem with space!
 S   |2
-0385|- [DLIST]
-0386|- /      xxxxxxxxxxxxxxxxxxxx
-0387|- / ## SORT CUR+1,I>-4,CUR-1,S
+0386|- [DLIST]
+0387|- /      xxxxxxxxxxxxxxxxxxxx
+0388|- / ## SORT CUR+1,I>-4,CUR-1,S
 S   |1
-0388|- [LINK4(file-load,FILE&nbsp;LOAD)]
-0389|- [LINK4(file-save,FILE&nbsp;SAVE)]
-0390|- [LINK4(file-save-with-fields,FILE&nbsp;SAVE&nbsp;WITH&nbsp;FIELDS)]
-0391|- [LINK4(linreg,LINREG)]
-0392|- [LINK4(stat,STAT)]
-0394|- [/DLIST]
-0395|*Commands by keyword (abandoned idea)
+0389|- [LINK4(file-load,FILE&nbsp;LOAD)]
+0390|- [LINK4(file-save,FILE&nbsp;SAVE)]
+0391|- [LINK4(file-save-with-fields,FILE&nbsp;SAVE&nbsp;WITH&nbsp;FIELDS)]
+0392|- [LINK4(linreg,LINREG)]
+0393|- [LINK4(stat,STAT)]
+0395|- [/DLIST]
+0396|*Commands by keyword (abandoned idea)
 S   | kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-0396|IBasics
+0397|IBasics
 S   | mmmmmm
-0397|NActivate commands
-0398|NSAVE
-0399|NLOAD
-0400|NFILE SAVE
-0401|NFILE LOAD
-0402|NVARS
-0403|NSTAT
-0405|IEditorial system
+0398|NActivate commands
+0399|NSAVE
+0400|NLOAD
+0401|NFILE SAVE
+0402|NFILE LOAD
+0403|NVARS
+0404|NSTAT
+0406|IEditorial system
 S   | mmmmmmmmmmmmmmmm
-0406|NActivate commands
-0407|NR commands
-0408|NF1 commands
-0409|NF2-F12 commands
-0411|IData
+0407|NActivate commands
+0408|NR commands
+0409|NF1 commands
+0410|NF2-F12 commands
+0412|IData
 S   | mmmm
-0412|NFILE SAVE
-0413|NFILE LOAD
-0414|NFILE COPY
-0415|NVAR
-0416|NSelect observations
-0418|IStatistics
+0413|NFILE SAVE
+0414|NFILE LOAD
+0415|NFILE COPY
+0416|NVAR
+0417|NSelect observations
+0419|IStatistics
 S   | mmmmmmmmmm
-0419|NSTAT
-0420|NLINREG
-0421|NCORR
-0423|IResults
+0420|NSTAT
+0421|NLINREG
+0422|NCORR
+0424|IResults
 S   | mmmmmmm
-0424|NPRINT
-0425|NSTAT
-0426|NPLOT
-0428|- chapter end IN Survo-hlp
-0429|E
-0431|*REPLACE "COMMAND NAME IN CAPITAL","Tutorial",C / LINES=CUR+1,E>
-0432|*REPLACE  "web-page-name-in-small","turorial",C / LINES=CUR+1,E>
-0433|*Tutorial
+0425|NPRINT
+0426|NSTAT
+0427|NPLOT
+0429|- chapter end IN Survo-hlp
+0430|E
+0432|*REPLACE "COMMAND NAME IN CAPITAL","Tutorial",C / LINES=CUR+1,E>
+0433|*REPLACE  "web-page-name-in-small","turorial",C / LINES=CUR+1,E>
+0434|*Tutorial
 S   |3
-0434|+PRINT CUR+2,E> TO www\public_html\tutorial.html
-0435|*/OPEN             www\public_html\tutorial.html
-0436|- include HTML50.DEV
-0437|*Tutorial manual video | Help | Survo R
+0435|+PRINT CUR+2,E> TO www\public_html\tutorial.html
+0436|*/OPEN             www\public_html\tutorial.html
+0437|- include HTML50.DEV
+0438|*Tutorial manual video | Help | Survo R
 S   |3
-0438|- chapter menu IN Survo-hlp
-0439|- / chapter sidebar IN Survo-hlp
-0440|*Tutorial
+0439|- chapter menu IN Survo-hlp
+0440|- / chapter sidebar IN Survo-hlp
+0441|*Tutorial
 S   | kkkkkkkk
-0441|/Some example explained with pictures and words
-0442|/Maybe 3 pictures?
-0444|*Tutorials
+0442|/Some example explained with pictures and words
+0443|/Maybe 3 pictures?
+0445|*Tutorials
 S   | kkkkkkkkk
-0445|/Comprehensive list and links of all the tutorials at the web.
-0446|/Maybe 3-5 best ones at the beginning. Otherwise at the -DATE order
-0447|*Videos
+0446|/Comprehensive list and links of all the tutorials at the web.
+0447|/Maybe 3-5 best ones at the beginning. Otherwise at the -DATE order
+0448|*Videos
 S   | kkkkkk
-0448|/List of 3 videos from Youtube and a collapsed longer etc. 12 videos list.
-0450|- chapter end IN Survo-hlp
-0451|E
-0453|*REPLACE "COMMAND NAME IN CAPITAL","Example",C / LINES=CUR+1,E>
-0454|*REPLACE  "web-page-name-in-small","example",C / LINES=CUR+1,E>
-0455|*Example
+0449|/List of 3 videos from Youtube and a collapsed longer etc. 12 videos list.
+0451|- chapter end IN Survo-hlp
+0452|E
+0454|*REPLACE "COMMAND NAME IN CAPITAL","Example",C / LINES=CUR+1,E>
+0455|*REPLACE  "web-page-name-in-small","example",C / LINES=CUR+1,E>
+0456|*Example
 S   |3
-0456|+PRINT CUR+2,E> TO www\public_html\example.html
-0457|*/OPEN             www\public_html\example.html
-0458|- include HTML50.DEV
-0459|*Example | Help | Survo R
+0457|+PRINT CUR+2,E> TO www\public_html\example.html
+0458|*/OPEN             www\public_html\example.html
+0459|- include HTML50.DEV
+0460|*Example | Help | Survo R
 S   |3
-0460|- chapter menu IN Survo-hlp
-0461|- / chapter sidebar IN Survo-hlp
-0462|*Examples
+0461|- chapter menu IN Survo-hlp
+0462|- / chapter sidebar IN Survo-hlp
+0463|*Examples
 S   | kkkkkkkk
-0463|*Here comes some basic example opened, videos and examples as a code you can copy
-0465|*Basic example explained
+0464|*Here comes some basic example opened, videos and examples as a code you can copy
+0466|*Basic example explained
 S   | lllllllllllllllllllllll
-0466|*Picture about
-0470|*Example videos
+0467|*Picture about
+0471|*Example videos
 S   | llllllllllllll
-0474|*Examples as a code
+0475|*Examples as a code
 S   | llllllllllllllllll
-0475|/Include also data. For example.
-0476|/
-0477|(GET "http://survo.fi/puzzles/250808.txt" data.txt
-0478|*FILE SAVE data.txt TO data
-0479|*..........
-0480|)
-0481|- chapter end IN Survo-hlp
-0482|E
-0484|*REPLACE "COMMAND NAME IN CAPITAL","FAQ",C / LINES=CUR+1,E>
-0485|*REPLACE  "web-page-name-in-small","faq",C / LINES=CUR+1,E>
-0486|*More info about FAQ
+0476|/Include also data. For example.
+0477|/
+0478|(GET "http://survo.fi/puzzles/250808.txt" data.txt
+0479|*FILE SAVE data.txt TO data
+0480|*..........
+0481|)
+0482|- chapter end IN Survo-hlp
+0483|E
+0485|*REPLACE "COMMAND NAME IN CAPITAL","FAQ",C / LINES=CUR+1,E>
+0486|*REPLACE  "web-page-name-in-small","faq",C / LINES=CUR+1,E>
+0487|*More info about FAQ
 S   |3
-0487|+PRINT CUR+2,E> TO www\public_html\faq.html
-0488|*/OPEN             www\public_html\faq.html
-0489|- include HTML50.DEV
-0490|*FAQ | Frequently asked questions | Help | Survo R
+0488|+PRINT CUR+2,E> TO www\public_html\faq.html
+0489|*/OPEN             www\public_html\faq.html
+0490|- include HTML50.DEV
+0491|*FAQ | Frequently asked questions | Help | Survo R
 S   |3
-0491|- chapter menu IN Survo-hlp
-0492|- / chapter sidebar IN Survo-hlp
-0495|- chapter end IN Survo-hlp
-0496|E
-0498|*REPLACE "COMMAND NAME IN CAPITAL","Search",C / LINES=CUR+1,E>
-0499|*REPLACE  "web-page-name-in-small","search",C / LINES=CUR+1,E>
-0500|*Search
+0492|- chapter menu IN Survo-hlp
+0493|- / chapter sidebar IN Survo-hlp
+0496|- chapter end IN Survo-hlp
+0497|E
+0499|*REPLACE "COMMAND NAME IN CAPITAL","Search",C / LINES=CUR+1,E>
+0500|*REPLACE  "web-page-name-in-small","search",C / LINES=CUR+1,E>
+0501|*Search
 S   |3
-0501|+PRINT CUR+2,E> TO www\public_html\search.html
-0502|*/OPEN             www\public_html\search.html
-0503|- include HTML50.DEV
-0504|*Search results | Help | Survo R
+0502|+PRINT CUR+2,E> TO www\public_html\search.html
+0503|*/OPEN             www\public_html\search.html
+0504|- include HTML50.DEV
+0505|*Search results | Help | Survo R
 S   |3
-0505|- chapter menu IN Survo-hlp
-0506|- / chapter sidebar IN Survo-hlp
-0507|*Search results
+0506|- chapter menu IN Survo-hlp
+0507|- / chapter sidebar IN Survo-hlp
+0508|*Search results
 S   | kkkkkkkkkkkkkk
-0508|- [GS(searchresults-only)][/GS(searchresults-only)]
-0509|- chapter end IN Survo-hlp
-0510|E
-0512|*........................................................................................................................................................................................................
-0513|* - OTHER GENERAL CONTENT
+0509|- [GS(searchresults-only)][/GS(searchresults-only)]
+0510|- chapter end IN Survo-hlp
+0511|E
+0513|*........................................................................................................................................................................................................
+0514|* - OTHER GENERAL CONTENT
 S   |4
-0514|*Here comes other required content
+0515|*Here comes other required content
 S   |3
-0516|*Modify this content!
+0517|*Modify this content!
 S   |1
-0517|+SAVEP CUR+2,E>,www\public_html\robots.txt
-0518|*/OPEN          www\public_html\robots.txt
-0519|*User-agent: *
-0520|*Disallow: /
-0521|E
-0522|*Modify this content!
+0518|+SAVEP CUR+2,E>,www\public_html\robots.txt
+0519|*/OPEN          www\public_html\robots.txt
+0520|*User-agent: *
+0521|*Disallow: /
+0522|E
+0523|*Modify this content!
 S   |1
-0523|+SAVEP CUR+2,E>,www\public_html\humans.txt
-0524|*/OPEN          www\public_html\humans.txt
-0525|*/* TEAM */
-0527|*    Seppo Mustonen -- Developer
-0528|*    Kimmo Vehkalahti -- Developer
-0529|*    Reijo Sund -- Developer
-0530|*    Jouni Vatanen -- Developer -- @JouniVatanen
-0531|*    Maria Valaste -- Developer
-0532|*    Petri Palmu -- Developer
-0534|*/* THANKS */
-0536|*/* SITE */
-0538|*    Last update: 2016/07/29
-0539|*    Language: English
-0540|*    Standards: HTML5, CSS3
-0541|*    Components: Bootstrap
-0542|*    Software: Survo, GIMP
-0543|E
-0544|+
-0545|*LOAD EXAMPLES
+0524|+SAVEP CUR+2,E>,www\public_html\humans.txt
+0525|*/OPEN          www\public_html\humans.txt
+0526|*/* TEAM */
+0528|*    Seppo Mustonen -- Developer
+0529|*    Kimmo Vehkalahti -- Developer
+0530|*    Reijo Sund -- Developer
+0531|*    Jouni Vatanen -- Developer -- @JouniVatanen
+0532|*    Maria Valaste -- Developer
+0533|*    Petri Palmu -- Developer
+0535|*/* THANKS */
+0537|*/* SITE */
+0539|*    Last update: 2016/07/29
+0540|*    Language: English
+0541|*    Standards: HTML5, CSS3
+0542|*    Components: Bootstrap
+0543|*    Software: Survo, GIMP
+0544|E
+0545|+
+0546|*LOAD EXAMPLES

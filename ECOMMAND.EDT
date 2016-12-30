@@ -2,102 +2,103 @@ SURVO 98 edit field:    201       4000       380 (32 bit version)
 0001|*SAVE ECOMMAND / EDITORIAL commands 13.12.2016 Jouni Vatanen
 0005|*/ACTIVATE +
 0006|*After activation load SYSTEM
-0008|*Page list
+0007|*LOAD SYSTEM
+0009|*Page list
 S   |3
-0009|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-0010|*SORT CUR+1,E>-1,CUR-1
-0011|*clear
-0012|*column and row calculation (C+, C*, C-,C/, L+, L*, ...)
-0013|*count
-0014|*find
-0015|*form
-0016|*interp
-0017|*move
-0018|*replace
-0019|*set
-0020|*sort
-0021|*transp
-0022|*vfind
-0023|E
-0025|*Notes
+0010|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0011|*SORT CUR+1,E>-1,CUR-1
+0012|*clear
+0013|*column and row calculation (C+, C*, C-,C/, L+, L*, ...)
+0014|*count
+0015|*find
+0016|*form
+0017|*interp
+0018|*move
+0019|*replace
+0020|*set
+0021|*sort
+0022|*transp
+0023|*vfind
+0024|E
+0026|*Notes
 S   |3
-0026|*After [DESC] write a one-liner description what the command does.
-0027|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
-0028|*Write only command names in CAPITALS to the first REPLACE command.
-0030|*1. Copy base structure to end by activating COPY command
+0027|*After [DESC] write a one-liner description what the command does.
+0028|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
+0029|*Write only command names in CAPITALS to the first REPLACE command.
+0031|*1. Copy base structure to end by activating COPY command
 S   |1
-0031|*2. Use REPLACE commands to replace COMMAND NAME and web-page-name
+0032|*2. Use REPLACE commands to replace COMMAND NAME and web-page-name
 S   |1
-0032|*COPY CUR+1,E>,END+3
-0033|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
+0033|*COPY CUR+1,E>,END+3
+0034|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
 S   |                                    555
-0034|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
+0035|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
 S   |                                    555
-0035|*COMMAND NAME IN CAPITAL
+0036|*COMMAND NAME IN CAPITAL
 S   |3
-0036|+PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
-0037|*/OPEN             www\public_html\web-page-name-in-small.html
-0038|- include HTML50.DEV
-0039|*COMMAND NAME IN CAPITAL | Help | Survo R
+0037|+PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
+0038|*/OPEN             www\public_html\web-page-name-in-small.html
+0039|- include HTML50.DEV
+0040|*COMMAND NAME IN CAPITAL | Help | Survo R
 S   |3
-0040|- chapter menu IN Survo-hlp
-0041|- chapter sidebar IN Survo-hlp
-0042|*COMMAND NAME IN CAPITAL
+0041|- chapter menu IN Survo-hlp
+0042|- chapter sidebar IN Survo-hlp
+0043|*COMMAND NAME IN CAPITAL
 S   |3
-0043|- [DESC]
-0045|- [USAGE]
-0047|- [PARAMETERS]
-0048|- [DLIST]
-0049|ICode word
+0044|- [DESC]
+0046|- [USAGE]
+0048|- [PARAMETERS]
+0049|- [DLIST]
+0050|ICode word
 S   | xxxxxxxxx
-0050|NExplanation
-0052|- [/DLIST]
-0053|- [DETAILS]
-0055|- [LINKS]
-0057|- [EXAMPLES]
-0059|- chapter end IN Survo-hlp
-0060|E
-0062|*REPLACE "COMMAND NAME IN CAPITAL","SET",C / LINES=CUR+1,E>
-0063|*REPLACE  "web-page-name-in-small","set",C / LINES=CUR+1,E>
-0064|*SET
+0051|NExplanation
+0053|- [/DLIST]
+0054|- [DETAILS]
+0056|- [LINKS]
+0058|- [EXAMPLES]
+0060|- chapter end IN Survo-hlp
+0061|E
+0063|*REPLACE "COMMAND NAME IN CAPITAL","SET",C / LINES=CUR+1,E>
+0064|*REPLACE  "web-page-name-in-small","set",C / LINES=CUR+1,E>
+0065|*SET
 S   |3
-0065|+PRINT CUR+2,E> TO www\public_html\set.html
-0066|*/OPEN             www\public_html\set.html
-0067|- include HTML50.DEV
-0068|*SET | Help | Survo R
+0066|+PRINT CUR+2,E> TO www\public_html\set.html
+0067|*/OPEN             www\public_html\set.html
+0068|- include HTML50.DEV
+0069|*SET | Help | Survo R
 S   |3
-0069|- chapter menu IN Survo-hlp
-0070|- chapter sidebar IN Survo-hlp
-0071|*SET
+0070|- chapter menu IN Survo-hlp
+0071|- chapter sidebar IN Survo-hlp
+0072|*SET
 S   |3
-0072|- [DESC]
-0073|*Copies the non-space characters of the image line K to each of the lines
-0074|*L1-L2.
-0075|- [USAGE]
-0076|/SET L1,L2,K
+0073|- [DESC]
+0074|*Copies the non-space characters of the image line K to each of the lines
+0075|*L1-L2.
+0076|- [USAGE]
+0077|/SET L1,L2,K
 S   | xxxxxxxxxxx
-0077|*copies the non-space characters of the image line K to each of the lines
-0078|*L1-L2.
-0079|/SET L1,L2,K,s
+0078|*copies the non-space characters of the image line K to each of the lines
+0079|*L1-L2.
+0080|/SET L1,L2,K,s
 S   | xxxxxxxxxxxxx
-0080|*copies the non-space characters of the image line K to lines
-0081|*L1,L1+s,L1+2*s,... until L2.
-0082|- [PARAMETERS]
-0083|- [DLIST]
-0084|IL1
+0081|*copies the non-space characters of the image line K to lines
+0082|*L1,L1+s,L1+2*s,... until L2.
+0083|- [PARAMETERS]
+0084|- [DLIST]
+0085|IL1
 S   | xx
-0085|NFirst line.
-0086|IL2
+0086|NFirst line.
+0087|IL2
 S   | xx
-0087|NLast line.
-0088|IK
+0088|NLast line.
+0089|IK
 S   | x
-0089|NImage line.
-0090|Is
+0090|NImage line.
+0091|Is
 S   | x
-0091|NMultiplier.
-0093|- [/DLIST]
-0094|- [LINKS]
-0097|- [EXAMPLES]
-0099|- chapter end IN Survo-hlp
-0100|E
+0092|NMultiplier.
+0094|- [/DLIST]
+0095|- [LINKS]
+0098|- [EXAMPLES]
+0100|- chapter end IN Survo-hlp
+0101|E
