@@ -29,16 +29,16 @@ S   |1
 S   |                                    555
 0031|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
 S   |                                    555
-0032|*COMMAND NAME
+0032|*COMMAND NAME IN CAPITAL
 S   |3
 0033|*PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
 0034|*/OPEN             www\public_html\web-page-name-in-small.html
 0035|- include HTML50.DEV
-0036|*COMMAND NAME | Help | Survo R
+0036|*COMMAND NAME IN CAPITAL | Help | Survo R
 S   |3
 0037|- chapter menu Survo-hlp
 0038|- chapter sidebar Survo-hlp
-0039|*COMMAND NAME
+0039|*COMMAND NAME IN CAPITAL
 S   |3
 0040|- [DESC]
 0042|- [USAGE]

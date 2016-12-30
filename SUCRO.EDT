@@ -1,8 +1,8 @@
 SURVO 98 edit field:    201       4000       380 (32 bit version)
 0001|*SAVE SUCRO / Sucro and SUCRO commands 13.12.2016 Jouni Vatanen
 0005|*/ACTIVATE +
-0006|*This is the last part for example you can load the settings page
-0007|*LOAD Survo-hlp
+0006|*After activation load R
+0007|*LOAD R
 0009|*Page list
 S   |3
 0010|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -35,7 +35,7 @@ S   |3
 S   |3
 0033|- chapter menu IN Survo-hlp
 0034|- chapter sidebar IN Survo-hlp
-0035|*Command name
+0035|*COMMAND NAME IN CAPITAL
 S   |3
 0036|- [DESC]
 0038|- [USAGE]
