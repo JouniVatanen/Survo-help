@@ -13,37 +13,41 @@ S   |3
 0015|*burt
 0016|*mtab
 0017|E
-0019|*1. Copy base structure to end by activating COPY command
+0019|*Notes
+S   |3
+0020|*After [DESC] write a one-liner description what the command does.
+0021|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
+0022|*Write only command names in CAPITALS to the first REPLACE command.
+0024|*1. Copy base structure to end by activating COPY command
 S   |1
-0020|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+0025|*2. Use REPLACE commands to replace COMMAND NAME and web-page-name
 S   |1
-0021|*COPY CUR+1,E>,END+3
-S   |2
-0022|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
-S   |2
-0023|*REPLACE "temp","set",C         / LINES=CUR+1,E>
-S   |2
-0024|*Command name
+0026|*COPY CUR+1,E>,END+3
+0027|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
+S   |                                    555
+0028|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
+S   |                                    555
+0029|*COMMAND NAME IN CAPITAL
 S   |3
-0025|+PRINT CUR+2,E> TO www\public_html\temp.html
-0026|*/OPEN             www\public_html\temp.html
-0027|- include HTML50.DEV
-0028|*Command name | Help system | Survo R
+0030|+PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
+0031|*/OPEN             www\public_html\web-page-name-in-small.html
+0032|- include HTML50.DEV
+0033|*COMMAND NAME IN CAPITAL | Help | Survo R
 S   |3
-0029|- chapter menu IN Survo-hlp
-0030|- chapter sidebar IN Survo-hlp
-0031|*Command name
+0034|- chapter menu IN Survo-hlp
+0035|- chapter sidebar IN Survo-hlp
+0036|*Command name
 S   |3
-0032|- [DESC]
-0034|- [USAGE]
-0036|- [PARAMETERS]
-0037|- [DLIST]
-0038|ICode word
+0037|- [DESC]
+0039|- [USAGE]
+0041|- [PARAMETERS]
+0042|- [DLIST]
+0043|ICode word
 S   | xxxxxxxxx
-0039|NExplanation
-0041|- [/DLIST]
-0042|- [DETAILS]
-0044|- [LINKS]
-0046|- [EXAMPLES]
-0048|- chapter end IN Survo-hlp
-0049|E
+0044|NExplanation
+0046|- [/DLIST]
+0047|- [DETAILS]
+0049|- [LINKS]
+0051|- [EXAMPLES]
+0053|- chapter end IN Survo-hlp
+0054|E

@@ -1,0 +1,140 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QT1
+0004|*LOAD EDQ
+0006|+TIMESER? þ PRINT CUR+1,E TO qt1_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Time series analysis
+0011|- shadow a: [LINK(qt2_05.html)]
+0012|*  A = Auto- and crosscorrelations
+S   |   a                             |
+0013|- shadow a: [LINK(qt3_01.html)]
+0014|*  F = FORECAST operation
+S   |   a                    |
+0015|- shadow a: [LINK(qt1_02.html)]
+0016|*  S = SER operations (moving averages, cumulative sums, etc.)
+S   |   a                                                         |
+0017|- shadow a: [New][LINK(q24_01.html)]
+0018|d  E = AR and ARMA models by ESTIMATE
+S   |   a                                ;
+0019|- shadow a: [LINK(q13_01.html)]
+0020|*  P = Plotting
+S   |   a          |
+0022|- [New]
+0023|*Survival analysis
+0024|- [/New]
+0025|- shadow a: [New][LINK(qts_01.html)]
+0026|d  U = Survival analysis (SURVIVAL by Kim Huuhko)
+S   |   a                                            ;
+0028|E
+0031|*  S = SER operations
+0032|+SER? þ PRINT CUR+1,E TO qt1_02.html
+0033|- include HTML40.DEV
+0034|- include Q.DV2
+0035|- [HelpText]
+0036|*SER operations are like VAR operations, but they offer transformations
+0037|*needed in management of time series.
+0039|*The general form of a SER operation is
+0040|*SER <new_series>=<operation>(<old_series>,P1,P2,...Pn) TO <data>
+S   |     <          > <         > <          >                 <    >
+0041|*where <old_series> and <new_series> are variables in <data>.
+S   |       <          >     <          >                  <    >
+0043|*If <data> is a data file (not a data matrix in the edit field),
+S   |    <    >
+0044|*<new_series> is created when necessary.
+S   | <          >
+0045|*If a series of SER operations is activated, the extension TO <data>
+S   |                                                              <    >
+0046|*is not required when the same (current) data file is used.
+0048|- shadow a: [LINK(qt1_03.html)]
+0049|*   M = Moving averages (operations MA,MAE)
+S   |    a                                     |
+0050|- shadow a: [LINK(qt2_01.html)]
+0051|*   D = Differences (D)
+S   |    a                 |
+0052|- shadow a: [LINK(qt2_03.html)]
+0053|*   C = Cumulative sums (CUM)
+S   |    a                       |
+0054|- shadow a: [LINK(qt1_04.html)]
+0055|*   S = Moving sums and linear combinations (MS)
+S   |    a                                          |
+0056|- shadow a: [LINK(qt2_04.html)]
+0057|*   X = Examples of SER operations
+S   |    a                            |
+0058|- shadow a: [LINK(qt1_01.html)]
+0059|*   T = More information on time series analysis
+S   |    a                                          |
+0061|E
+0064|+MA? þ PRINT CUR+1,E TO qt1_03.html
+0065|- include HTML40.DEV
+0066|- include Q.DV2
+0067|- [HelpText]
+0068|#SER Y=MA(X,<weight_description>) TO <data>
+S   |            <                  >     <    >
+0069|*computes moving averages of X to Y according to <weight_description>.
+S   |                                                 <                  >
+0070|*<weight_description> can be any of the three alternatives:
+S   | <                  >
+0071|*1) List of weights
+0072|*      SER Temp2=MA(Temp,1,2,3,0,0)
+0073|*   i.e. Temp2[t]=1*Temp[t-2]+2*Temp[t-1]+3*Temp[t]+0*Temp[t+1]+0*Temp[t+1]
+0074|*   or
+0075|*      SER Temp3=MA(Temp,1,2,3,*) being equivalent to
+0076|*      SER Temp3=MA(Temp,1,2,3,2,1) (symmetric weights)
+0077|*   Number of weights must be uneven.
+0078|*2) Name of a weight pattern
+0079|*      SER TempS=MA(Temp,SPENCER)
+0080|*   The weights for SPENCER must be given in the same edit field as
+0081|*      SPENCER=-3,-6,-5,3,21,46,67,74,*
+0082|*3) Weights for polynomial trends
+0083|*      SER Temp4=MA(Temp,P3:21)
+0084|*   fits a cubic (P3) to sets of 21 points.
+0085|*   Generally Pp:m implies fitting of a polynomial of degree p
+0086|*   with a span of m consecutive points.
+0087|*   m must be an odd integer.
+0088|*In all cases above, the sum of weights is scaled to 1.
+0090|#SER Y=MAE(X,<weight_description>) TO <data>
+S   |             <                  >     <    >
+0091|*works as MA, but provides trend values for the first and last m values
+0092|*of the series as well.
+0093|*MAE works only in the case of polynomial weights.
+0095|#SER Y=MA(X,<weight_description>) TO <data>  / PERIOD=s
+S   |            <                  >     <    >
+0096|*works similarly, but uses values
+0097|*   ..., X[t-3s], X[t-2s], X[t-s], X[t], X[t+s], X[t+2s], X[t+3s], ...
+0098|*instead of
+0099|*   ..., X[t-3],  X[t-2],  X[t-1], X[t], X[t+1], X[t+2],  X[t+3],  ...
+0100|*The period s is given as an extra specification PERIOD=s.
+0102|*Another way to enter the period s (say for s=3) is to use the operation
+0103|*SER Y=MA3(X,<weight_description>) TO <data> .
+S   |             <                  >     <    >
+0105|*SER Y=MAE(X,<weight_description>) TO <data>  / PERIOD=s
+S   |             <                  >     <    >
+0106|*provides smoothened values for the first and last observations as well
+0107|*(in case of polynomial weights).
+0108|*Alternative notation is Y=MAE3(X,... for s=3.
+0110|- shadow a: [LINK(qt1_02.html)]
+0111|*  S = More information on SER operations
+S   |   a                                    |
+0112|E
+0115|+MSUM? þ PRINT CUR+1,E TO qt1_04.html
+0116|- include HTML40.DEV
+0117|- include Q.DV2
+0118|- [HelpText]
+0119|#SER Y=MS(X,W1,W2,...,Wm) TO <data>
+S   |                             <    >
+0120|*computes linear combinations of lagged values of X as
+0121|*  Y[t]=W1*X[t-m+1]+W2*X[t-m+1]+...+Wm*X[t]
+0122|*(without rescaling weights W1,...,Wm).
+0123|*By giving one of the weights with a terminating 'T' (say WkT),
+0124|*  Y[t]=W1*X[t-k+1]+W2*X[t-k+2]+...+Wk*X[t]+...+Wm*X[t-k+m]
+0125|*is computed.
+0126|*For example,
+0127|*SER Y=MS(X,1,-1,1T,-1) TO <data>
+S   |                           <    >
+0128|*computes Y[t]=X[t-2]-X[t-1]+X[t]-X[t+1]
+0130|- shadow a: [LINK(qt1_02.html)]
+0131|*  S = More information on SER operations
+S   |   a                                    |
+0132|E

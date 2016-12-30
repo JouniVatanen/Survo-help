@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">LOADM &lt;matrix_file&gt;,&lt;format&gt;,L
+works in principle like MAT LOAD but writes the matrix in the edit
+field (and in the output file) in block form where the width of each
+block is limited by the visible part of the edit field.
+The number and order of rows and columns to be written can be selected
+by ROWS and COLUMNS specifications. For example, ROWS=3,2,1,4 informs
+that rows 3,2,1,4 only and in this order will be written.
+
+To emphasize exceptional elements of the matrix (like high loadings
+of a factor matrix) in the display, specifications LIMITS and SHADOWS
+can be used.
+Another alternative is to use the SHADOW_MATRIX specification as shown in
+
+LIMITS gives a list of upper bounds of various classes and SHADOWS
+gives a list of corresponding shadow values.
+Example: LIMITS=-0.7,-0.3,0.3,0.7,1
+         SHADOWS=7,1,0,1,7  (0=normal display)
+Another alternative is to use the SHADOW_MATRIX specification as shown in
+
+Formats of elements in LOADM:
+Parameter &lt;format&gt; is given in one of the following ways:
+
+1. LOADM &lt;matrix_file&gt;,12.1234,L
+   writes elements with 2 places in the integer part and with 4 decimals.
+
+2. LOADM &lt;matrix_file&gt;,(10),L
+   gives elements with 10 characters according to the maximum element
+   by absolute value. Thus when the greatest value is 1998.261213,
+   the selected format corresponds to 1234.1234 (if negative values
+   appear in the matrix) or to 1234.12345 (if not).
+
+3. LOADM &lt;matrix_file&gt;,(C10),L
+   works as the previous alternative but the format is selected
+   separately for each column of the matrix.
+
+
+<A NAME="LOADM2"></A>
+Extended form of LOADM especially for factor matrices
+according to the style suggested by Lauri Tarkkonen:
+
+LOADM &lt;matrix_file&gt;,&lt;format&gt;,L
+with specifications LIMITS, SHADOWS, SORT, COLUMNS, SUMS, POSDIR, WIDE
+writes a (rotated factor) matrix in the edit field by
+  1. sorting (SORT) the rows hierarchically by factors and loadings
+     of variables,
+  2. inserting long descriptive names of variables at the end of
+     each row (provided that a name of data giving those names is
+     indicated by SORT),
+  3. displaying the elements with different shadings according to their
+     sizes (LIMITS, SHADOWS as described earlier, see <A HREF="qm3_05.html">LOADM</A>?),
+  4. sorting the columns according to the sums of squares (COLUMNS=SORT),
+  5. displaying marginal sums of squares (SUMS=2) or sums (SUMS=1),
+  6. orienting the factors (signs of loadings) according to the same
+     rules as in the POSDIR operation (POSDIR=1,2, or 3), see <A HREF="qmm1_09.html">POSDIR</A>?,
+  7. allowing wide matrices to be written as a single block (WIDE=1)
+     if the line length is large enough.
+
+The most important specification is SORT of the form
+SORT=1
+or
+SORT=&lt;name_of_data_file&gt; 
+In both cases the variables are written in the order of their
+loadings in different factors as follows. At first the factors
+are studied according the order of the sums of squares of loadings.
+Variables having their highest loadings in the strongest factor
+are sorted to descending order according to the absolute
+values of their loadings in that factor. These variables in this
+order will appear as first ones in the output. The same procedure
+is applied to the remaining variables according to the second
+strongest factor and so on.
+In the latter form of SORT the long names of variables are taken
+from the given data file and appended to the end of each row.
+This helps interpretation of factors.
+
+SORT=-1 or SORT=-&lt;name_of_data_file&gt; 
+leads to the same sorting procedure but now within each factor
+the loadings are sorted by their signed values.
+
+An extra parameter in all forms of SORT, for example, SORT=1,0.3
+excludes variables with a highest loading less than a given value (0.3)
+from the sorting procedure and puts those variables (rows) at the end
+of the matrix.
+
+Sucro /LOADFACT &lt;data_file&gt;,&lt;rotated_factor_matrix&gt; 
+does the job automatically with selected values of extra specifications
+and gives a ready-made work scheme which may be improved by the user.
+See
+/LOADFACT ?
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

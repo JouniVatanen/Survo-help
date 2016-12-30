@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">INTREL &lt;decimal_number&gt;,L
+tries to find an exact numeric expression for which &lt;decimal_number&gt; 
+is an (accurate) approximation.
+The PSLQ algorithm by Ferguson and Plouffe (1992) is used.
+The main approach is to see &lt;decimal_number&gt; as a root X of an
+algebraic equation of nth degree
+    C0+C1*X+C2*X^2+...+Cn*X^n=0
+with integer coefficients C0,C1,C2,...,Cn.
+The maximum degree n is set by a specification DEGREE=n (n=1,2,...,20).
+The accuracy of approximation is set by EPS, default EPS=1e-12 .
+L is the first line for the results (default is CUR+1).
+.......................................................................
+Example: ACCURACY=16
+sqrt(2)=1.4142135623731 DEGREE=2
+INTREL 3.4142135623731
+X=3.4142135623731 is a root of X^2-4*X+2=0
+.......................................................................
+
+By giving a specification CONSTANTS=&lt;matrix_file&gt; values of the first
+column, say X1,X2,..., are used instead of powers of X.
+Example on the next page:
+
+.......................................................................
+Example:
+MATRIX C
+///    C
+1      1
+e      2.718281828459045
+Pi     3.141592653589793
+
+MAT SAVE C
+x=5+2*3.141592653589793-3*exp(1)
+x=3.128339821802451
+.......................................................................
+CONSTANTS=C
+INTREL 3.128339821802451
+Integer relation for X=3.128339821802451:
+Constant  Coefficient
+X                  1
+1                 -5
+e                  3
+Pi                -2
+.......................................................................
+
+ <A HREF="qm1_01.html">1 = More about mathematical operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

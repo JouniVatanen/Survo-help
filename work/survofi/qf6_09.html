@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">FILE SELECT &lt;new_data&gt; FROM &lt;old_data&gt; BY &lt;select_file&gt; 
+            with a specification KEYS=&lt;var1&gt;,&lt;var2&gt;,...
+makes a &lt;new_data&gt; file by copying observations from the &lt;old_data&gt; file
+selectively.
+The observations to be copied are determined by &lt;select_file&gt; which also
+is a Survo data file.
+Only those observations which have same values in variables indicated by
+the KEYS specification in &lt;old_data&gt; and &lt;select_file&gt; are copied to
+&lt;new_data&gt;.
+
+Options:
+The cases that are copied from &lt;old_data&gt; can be marked in a variable
+given by a MARK=&lt;name_of_variable_in_old_data&gt; specification.
+The MARK variable must be created before FILE SELECT (and intialized
+with 0 values). FILE SELECT then gives the value 1 for the MARK variable
+in those cases which are copied.
+By a specification NMATCH=&lt;name_of_variable_in_select_file&gt; the number
+of cases matched by each key combination is counted and saved.
+Also the NMATCH variable must exist before FILE SELECT (and initialized
+with 0 values).
+
+FILE SELECT is much faster than FILE COPY in applications where a subset
+of cases is to be selected from a huge data file according to certain
+identification keys.
+
+A complementary selection of observations can be made by using a
+KEYS!=&lt;var1&gt;,&lt;var2&gt;,... specification. Then cases which differ at least
+in one of the key variables are selected.
+
+  <A HREF="qf1_01.html">D = More information on data management</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

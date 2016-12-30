@@ -1,0 +1,129 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QMT
+0004|*LOAD EDQ
+0006|+TOUCH? þ PRINT CUR+1,E TO qmt_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Touch mode is entered by pressing the key TOUCH. Exit takes place by ENTER.
+0012|*In touch mode various computations are carried out by moving the cursor
+0013|*to touch any number in the edit field and the number is activated by
+0014|*pressing any of the keys +,-,* or / which correspond to standard
+0015|*arithmetical operations. Several numbers can be activated in this way
+0016|*and the resulting numerical expression will appear at each stage on the
+0017|*bottom line of the screen.
+0018|*To print the current result in the edit field, the cursor is moved to
+0019|*indicate the desired position and the key = is pressed.
+0021|*In touch mode more numbers and text (in lower case) can be typed in
+0022|*the edit field.
+0023|*Capital letters should be avoided, since a few of them have a special
+0024|*function in touch mode (as seen on the next page):
+0026|*Control keys in touch mode:
+0027|*HELP gives information while staying in touch mode.
+0028|*S evaluates the current expression without printing.
+0029|*C is used to enter constants (needed in touch chains).
+0030|*F enters a format (like 123.1234) for the results printed by =
+0031|a@ enters a function (sqrt,log,exp,sin,cos,tan,arctan,abs,int).
+0032|*M saves the current result to any of the memory locations 0,1,2,...,9.
+0033|*K gets a value from memory.
+0034|*PREFIX 0 clears the current result to 0 without printing it.
+0036|*Touch mode is also a general tool for calculation with numerical
+0037|*tables and for other repetitive computations in a form of touch chains.
+0038|*A touch chain is defined in touch mode simply by performing the required
+0039|*steps and letting the system to store them. In repetitive calculations
+0040|*only one typical iteration is performed as a model and the system
+0041|*can repeat it as many times there are numbers to touch.
+0042|*To define a touch chain in touch mode, the key DISK is pressed.
+0043|*Then the steps needed for the chain or for one typical iteration
+0044|*are performed. To terminate the definition either EXIT is pressed
+0045|*(and the chain can be reactivated by ESC) or
+0046|*ESC is pressed which immediately leads to automatic repetitive
+0047|*excution of the touch chain. A repetetive chain can also later be
+0048|*activated by ESC.
+0049|*Execution of a touch chain is automatically stopped when an edit line
+0050|*with `E' in the control column is encountered. This enables computation
+0051|*of tables with a fixed number of lines.
+0053|*In touch chains the following keys are often useful:
+0054|*R (under definition) causes the steps of the chain already entered
+0055|*  to be repeated as long there are numbers to touch.
+0056|*P saves the current position of the cursor and later when P is pressed
+0057|*  again the cursor returns to the position saved. Thereafter a new
+0058|*  position may be indicated by P.
+0059|*T saves the current touch chain on disk.
+0060|*L loads a touch chain saved on disk by T.
+0062|*After returning to editorial mode by ENTER, a touch chain saved by T
+0063|*can be loaded into the edit field by a TCHLOAD <file_name> command.
+S   |                                                <         >
+0064|*A chain loaded in the edit field can be saved (after it has been edited)
+0065|*into a file by TCHSAVE <file_name> command.
+S   |                        <         >
+0068|- [New]
+0069|*Collecting data in a text file in touch mode
+0070|- [/New]
+0072|*Numbers, words, characters and parts of edit lines can be collected
+0073|*in a selected text file as consecutive lines. If the text file already
+0074|*exists, new items are appended to it.
+0075|*This procedure starts in touch mode by touching the (path)name of the
+0076|*text file by `D'. If a space is touched by `D', file TOUCH.TXT on the
+0077|*the current Survo data path is selected.
+0078|*Thereafter items are selected as follows:
+0079|*W saves the current word (or number) touched by the cursor,
+0080|*B saves the current character,
+0081|*E saves the current line to the right from the cursor.
+0082|*A saves the current line to the left  from the cursor.
+0084|*To stop data collecting, press `D' again or exit the touch mode by
+0085|*ENTER.
+0087|*The text file thus created can be processed by other means of Survo.
+0088|*For example, it is loaded into the edit field by the LOADP command.
+0091|- [New]
+0092|*Defining a `worm' in touch mode and moving it.
+0093|- [/New]
+0095|*Any sequence of neighbouring characters in the edit field can be
+0096|*moved like a worm across the text and copied in another place.
+0097|*To define a worm, move the cursor to touch the first character
+0098|*and press the WORDS (alt-F2) key. Move the cursor to touch all
+0099|*other characters belonging to the worm and press WORDS again.
+0100|*The worm thus defined (and highlighted) is now moved by the arrow
+0101|*keys. Any time, when pressing `=' the current status of the worm
+0102|*will be written in the edit field. Exit the worm mode by the WORDS key.
+0103|*During the move the worm does not overwrite any text in the edit field
+0104|*although it may temporarily hide it. The worm can even override itself.
+0105|*Also shadow characters are moved and copied.
+0107|*In worm mode, `C' clears the screen, `D' performs the display off/on
+0108|*function, and `S' shows the worm with proper shadow characters when
+0109|*it is moved. These options are useful in attaining visual effects
+0110|*when using the worm mode in sucros.
+0113|- [New]
+0114|*Collecting lines
+0115|- [/New]
+0117|*This corresponds to the `Collecting data' procedure described above
+0118|*but is simpler when copying edit lines in a new order is concerned.
+0119|*Thus when staying in touch mode a set of edit lines (actually
+0120|*parts of them to the right from the cursor) are selected simply
+0121|*by moving the cursor by arrow keys and pressing `V'. All lines
+0122|*selected by `V' are saved with their shadow lines in a temporary
+0123|*file (TCHLINES.TXT).
+0124|*While still staying in touch mode the selected lines are printed
+0125|*to a new place (indicated by the cursor) simply by pressing `='.
+0126|*The lines are displayed in the order they have been selected thus
+0127|*providing `sorting' lines of tables by hand, etc.
+0129|*After exit from touch mode the contents of TCHLINES.TXT is still
+0130|*available. Hence when entering touch mode later, one may print
+0131|*its contents by touching an empty line by `V', moving the cursor
+0132|*and pressing `='.
+0135|- [New]
+0136|*Collecting words
+0137|- [/New]
+0139|*Words appearing in the current edit field can be collected in any
+0140|*order by pressing '+' (like adding numbers). The sequence
+0141|*of words collected appears on the bottom line in the form
+0142|*word1+word2+word3+...
+0143|*and this sequence is then displayed in the place selected by the user
+0144|*by pressing '=' in the form
+0145|*word1 word2 word3 ...
+0146|*The first word must begin by a letter; otherwise the entire sequence
+0147|*is interpreted as a sum of numbers.
+0149|- shadow a: [LINK(qm1_01.html)]
+0150|*  M = More information on mathematical operations
+S   |   a                                             |
+0151|E

@@ -1,0 +1,167 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QL3
+0005|*................................................................................
+0006|*LOAD EDQ
+0007|+ARITED? þ PRINT CUR+1,E TO ql3_01.html
+0008|- include HTML40.DEV
+0009|- include Q.DV2
+0010|- [HelpText]
+0011|*Functions defined in the edit field:
+0012|*Functions of one or up to 10 variables may be defined by the user
+0013|*by entering a definition of the form
+0014|*   <function_name>(X1,X2,...):=function_of_X1,X2...
+S   |    <             >
+0015|*in the current edit field.
+0016|*Examples: sinh(X):=(exp(X)-exp(-X))/2
+0017|*          norm(X,Y):=sqrt(X*X+Y*Y)
+0018|*          Fisher(r):=0.5*log((1+r)/(1-r))
+0019|*       Roots of equation X^2+P*X+Q=0:
+0020|*          Root1(P,Q):=-P/2+S(P,Q)   S(P,Q):=sqrt(P*P/4-Q)
+0021|*          Root2(P,Q):=-P/2-S(P,Q)
+0022|*       The Least Common Denominator: lcd(u,v):=u*v/gcd(u,v)
+0023|*Any function defined in such a way may be used as any standard function.
+0024|*Examples:
+0025|*          sinh(1)=1.1752011936
+0026|*          norm(12,norm(3,4))=13
+0027|*          Root1(1,-6)=2   Root2(1,-6)=-3
+0028|*          lcd(144,240)=720
+0030|*Recursive functions:
+0031|*By means of the if()then()else() structure recursive definitions for
+0032|*functions may given as follows:
+0033|*     factorial(N):=if(N=1)then(1)else(N*factorial(N-1))
+0034|*  Serial expansion of the exponential function:
+0035|*     expn(X,N):=if(N=0)then(1)else(expn(X,N-1)+term(X,N))
+0036|*     term(X,N):=if(N=1)then(X)else(term(X,N-1)*X/N)
+0037|*Examples:
+0038|*          factorial(7)=5040
+0039|*          expn(1,20)=2.7182818285
+0040|*........................................................................
+0041|*Since recursive computations take much space and time,
+0042|*it is more efficient to use the 'for' statement for definitions
+0043|*above:
+0044|*     factorial(N):=for(I=1)to(N)product(I)
+0045|*     expn(X,N):=for(I=0)to(N)sum(X^I/factorial(I))
+0046|*Another way to speed up recursive computation is to employ a
+0047|*`remember' option (see next page).
+0048|*................................................................................
+0050|*A recursive function can also be defined as follows:
+0051|S     factorial(N)|=if(N=1)then(1)else(N*factorial(N-1))
+S   |                  8
+0052|*See a '|' instead ':' in the definition! Then each numerical value
+0053|*once obtained in recursion process is saved temporarily in a table
+0054|*and instead of a recursion step a table-lookup is used in subsequent
+0055|*evaluations. Computation of function values is then much faster.
+0057|*Recursive computing requires much stack memory and may lead to
+0058|*a stack overflow. The stack size given for the Survo Editor is
+0059|*currently 10'000'000 bytes. The system parameter check_stack
+0060|*(in SURVO.APU) determines the maximum size allowed in editorial
+0061|*arithmetics. The default setting is check_stack=5000000 and it
+0062|*can be changed temporarily by the SYSTEM command.
+0064|- shadow a: [LINK(qm1_03.html)]
+0065|*  E = More information on editorial computing
+S   |   a                                         |
+0066|E
+0067|+M? þ PRINT CUR+1,E TO ql3_02.html
+0068|- include HTML40.DEV
+0069|- include Q.DV2
+0070|- [HelpText]
+0072|- shadow a: [LINK(qm1_03.html)]
+0073|*  E = More information on editorial computing
+S   |   a                                         |
+0074|E
+0077|+ARITIF? þ PRINT CUR+1,E TO ql3_03.html
+0078|- include HTML40.DEV
+0079|- include Q.DV2
+0080|- [HelpText]
+0081|*Conditional expressions may be given in the form
+0082|*     if(<condition>)then(<expression>)else(<expression>)
+S   |         <         >      <          >      <          >
+0083|*<condition> can be any of the forms: a<b a<=b a=b a>=b a>b and a<>b
+S   | <         >                           <   <        >    >       <>
+0084|*Example: Y=if(X<0.5)then(0)else(1)
+S   |                <
+0086|- shadow a: [LINK(qm1_03.html)]
+0087|*  E = More information on editorial computing
+S   |   a                                         |
+0088|E
+0090|+ARITFOR? þ PRINT CUR+1,E TO ql3_04.html
+0091|- include HTML40.DEV
+0092|- include Q.DV2
+0093|- [HelpText]
+0094|*Sums products and maxima of expressions of one or more variables
+0095|*can be computed by the 'for' statement in editorial computing.
+0096|*The general structure is
+0097|*   <variable>=for(I=N1)to(N2)<sum|product|max|maxt>(<expression>)
+S   |    <        >                <                    > <          >
+0098|*or
+0099|*   <variable>=for(I=N1)to(N2)term(T=A)<sum|product|max|maxt>(<expression>)
+S   |    <        >                         <                    > <          >
+0101|*Examples:
+0102|*s=for(i=1)to(100)sum(i)  s=5050
+0103|*sum(N):=for(I=1)to(N)sum(1/I/I)  sqrt(6*sum(3000))=3.1412743806
+0104|*factorial(N):=for(I=1)to(N)product(I)  factorial(10)=3628800
+0105|*expn(X,N):=for(I=1)to(N)term(T=1)sum(T*X/I)
+0106|*           N terms from the serial expansion of exp(X)-1.
+0109|- shadow a: [LINK(qm1_03.html)]
+0110|*  E = More information on editorial computing
+S   |   a                                         |
+0111|E
+0113|+ARITM? þ PRINT CUR+1,E TO ql3_05.html
+0114|- include HTML40.DEV
+0115|- include Q.DV2
+0116|- [HelpText]
+0117|*Several expressions may be activated simultaneously by placing a '.'
+0118|*in front of '=' in all expressions which should be computed.
+0119|*Simultaneous activation takes place by activating one of the
+0120|*expressions in a normal way.
+0121|*For example, by activating sqrt(X).= below
+0122|*........................................................................
+0123|*          X=5  pi=3.14159265359
+0124|*          sqrt(X).=_                     log(X)/X.=
+0125|*          X/10.=                         tan(pi*X/3).=
+0126|*          X*X=  (. missing)              X*X.=
+0127|*........................................................................
+0128|*the display will be changed to
+0129|*........................................................................
+0130|*          X=5  pi=3.14159265359
+0131|*          sqrt(X).=2.2360679775          log(X)/X.=0.32188758248682
+0132|*          X/10.=0.5                      tan(pi*X/3).=-1.7320508076
+0133|*          X*X=   (. missing)             X*X.=25
+0134|*........................................................................
+0136|- shadow a: [LINK(qm1_03.html)]
+0137|*  E = More information on editorial computing
+S   |   a                                         |
+0138|E
+0140|+ARITINT? þ PRINT CUR+1,E TO ql3_06.html
+0141|- include HTML40.DEV
+0142|- include Q.DV2
+0143|- [HelpText]
+0144|*Integral of function f(x) in the interval (a,b) is computed using
+0145|*Simpson's rule by the `integral' statement of the form
+0146|*   <variable>=integral(f(x))from(a)to(b)
+S   |    <        >
+0147|*or in extended forms
+0148|*   <variable>=integral(f(x))from(a)to(b)eps(eps) ,
+S   |    <        >
+0149|*   <variable>=integral(f(x))from(a)to(b)eps(eps)n(n) .
+S   |    <        >
+0150|*The original range (a,b) is split by 2^n equidistant points using
+0151|*n=1,2,3,... until the relative error is <eps or the optional n value
+S   |                                         <
+0152|*is achieved. Default values are eps=1e-10, n=12.
+0153|*Examples:
+0154|*................................................................................
+0155|*      a=0 b=1 eps=0.0001 pi=3.141592653589793 infinity=10
+0156|*   I1=integral(x^2)from(a)to(b)eps(eps)
+0157|*   I2=integral(exp(-x*x/2)/sqrt(2*pi))from(-infinity)to(0)
+0158|*   I1.=0.33333333333333
+0159|*   I2.=0.5
+0161|*................................................................................
+0162|*Number of prime integers less than N ( here N=1000000 ) can be roughly
+0163|*approximated by the integral
+0165|*integral(1/log(x))from(2)to(N)eps(0)n(17)=78627.636537002
+0167|*while the true number is 78498.
+0169|- shadow a: [LINK(qm1_03.html)]
+0170|*  E = More information on editorial computing
+S   |   a                                         |
+0171|E

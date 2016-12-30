@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">TRANSFORM &lt;data&gt; BY &lt;function of X&gt; 
+transforms all the active variables and observations (possibly limited
+by MASK, IND and CASES specifications) by &lt;function of X&gt; where X
+refers to one of the active variables in turn.
+
+TRANSFORM accepts the same functions as VAR. Thus functions
+sqrt,log,exp,sin,cos,tan,atn,abs,int,probit, and rnd are available.
+The 'if' structure is allowed:
+For example,
+TRANSFORM DATA1 BY if(X=9)then(MISSING)else(X)
+replaces all values '9' in active variables by missing values.
+Library functions and the control statement 'for' are not accepted.
+Although the same transformations can be made by VAR for each variable
+separately, use of TRANSFORM saves time and effort in systematic modi-
+fications of data values.
+
+For example,
+TRANSFORM YEAR88 BY log(X)
+replaces data values in data YEAR88 by their natural logarithms.
+
+The transformed values can be saved as other (possibly new) variables
+by using TRANSFORM in an extended form
+TRANSFORM &lt;data&gt; BY &lt;function of X&gt; AS &lt;letter&gt;:&lt;type&gt; 
+where &lt;letter&gt; is a character to be placed in front of each transformed
+variable. The extension :&lt;type&gt; where &lt;type&gt; is 1,2,4 or 8 is optional
+and gives the type of new numerical variables. Default is 4.
+For example,
+TRANSFORM YEAR88 BY log(X) AS L
+VARS=Sales,Costs
+makes the logarithms of variables Sales and Costs as (new) variables
+LSales and LCosts.
+
+Also extra variables may be used in the transformation.
+In order to speed up the process, in such cases a specification MODE=2
+should be entered.
+Example: "Proportions of events of Decathlon in percentages"
+&gt;COPY &lt;Survo&gt;\U\D\DECA.SVO TEST.SVO
+MASK=--AAAAAAAAAA--
+MODE=2
+TRANSFORM TEST BY 1000*X/Points
+FILE SHOW TEST
+
+The active variables and observations can be centered and standardised
+by
+TRANSFORM &lt;data&gt; BY CENTERING
+and
+TRANSFORM &lt;data&gt; BY STANDARDISING (or STD),
+respectively.
+
+TRANSFORM &lt;data&gt; BY #UNIFORM(a,b)
+generates values from a uniform distribution on interval (a,b).
+For continuos variables (types 4,8) values will be from a continuos
+uniform distribution on (a,b).
+For discrete variables (types 1,2) values will be from a discrete
+uniform distribution with values a, a+1, a+2,..., b-1 .
+In huge datasets this alternative is many times faster than
+TRANSFORM &lt;data&gt; BY (b-a)*rand(seed)+a
+The pseudo-random number generator and its seed number can be selected by
+a RND specification. Example: RND=rand(1998115)
+
+<A NAME="TRANSF2"></A>TRANSFORM &lt;data&gt; BY #LINEAR(a,b) makes linear transformation X -&gt; a*X+b .
+TRANSFORM &lt;data&gt; BY #DISTR(P)
+                    makes random values from a discrete distribution.
+                    The values (in ascending order) and probabilities
+                    are given as a matrix file P of two columns.
+In all applications of TRANSFORM where variables are transformed
+`in place' it is worthwhile to notice that transformations leading
+to decimal values (like log(X)) may be inaccurate in case of integer-
+valued variables (of type 1 or 2). In such a situation one should
+take a list of all active variables into the edit field by FILE STATUS,
+change types 1 and 2 to either 4 or 8, create (FILE CREATE) a new data
+file with this list of variables and copy (FILE COPY) the original data
+to this new data file. Transformations can then be made in the new data
+file.
+
+  <A HREF="qv3_05.html">M = Simulation of Markov chains by TRANSFORM</A> 
+  <A HREF="qv1_01.html">V = More information on transformations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

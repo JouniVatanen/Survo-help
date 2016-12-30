@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Converting decimal numbers to fractions:
+Examples:
+   3.14159265(1:ratio).=3/1 (0.14159265)
+   3.14159265(4:ratio).=16/5 (-0.05840735)
+   3.14159265(5:ratio).=22/7 (-0.00126449285714)
+   3.14159265(11:ratio).=355/113 (-0.00000027035398)
+   3.14159265(20:ratio).=96893/30842 (0.00000001657804)
+replaces the decimal number 3.14159265 by the best possible approximate
+fraction (ratio of two integers) by using accuracies 1,4,5,11 and 20.
+The numbers in parentheses are errors.
+
+In x(c:ratio)=n/m,
+the best approximation n/m for x is found by minimising the function
+
+   f(x,m,n)=n+10^c*(m*x/n-1)^2
+
+with respect to integers m and n. This technique is originally used
+in S.Mustonen's studies for musical consonances and dissonances.
+There x corresponds to a (impure) musical interval and the optimal
+m and n values give the ideal ratio for the musical interval recognised
+for a selected accuracy of the 'ear' c.
+
+For example, the 'neutral third' 11/9=1.222222222
+will be heard as an impure minor third (6/5) by a moderate ear c=4:
+   1.222222222(4:ratio)=6/5 (0.022222222)
+but as an interval of its own (11/9) by a very accurate ear c=5:
+   1.222222222(5:ratio)=11/9 (-0.00000000022222)
+
+  <A HREF="qc1_01.html">C = More information on numerical conversions</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

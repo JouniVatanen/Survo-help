@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Numerical accuracy and form of results in editorial computing
+All calculations in editorial computing are performed - whenever
+possible - in double precision, i.e. within an accuracy of 15-16
+significant digits. By default, the results are displayed with
+13-14 significant digits. The `accuracy' parameter in SURVO.APU
+has no influence in editorial computing.
+
+However, an ACCURACY specification controls the display accuracy.
+ACCURACY=&lt;4,5,...,or 16&gt; gives # of significant digits in results
+of editorial computing. Another form is
+ACCURACY=-n where n is 1,2,3,... gives the # of decimals.
+Examples:
+................................................................................
+ACCURACY=7  A=0.12345678901234567
+A=0.1234568
+................................................................................
+ACCURACY=-2 A=12345.6789   B=-12
+A.=12345.68      B.=-12.00
+
+When extremely small or large values of results in editorial computing
+are needed in accurate form, a ' (single quotation mark) in the
+control column on those lines of values implies the results to be
+displayed in exponential form (1.123456789012345e+123).
+
+In versions 1.24+ it is possible to make calculations in multiple
+precision up to about a million digits. See <A HREF="qmp1_01.html">MULTIPLE</A>?
+
+  <A HREF="qm1_03.html">A = More information on arithmetics</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

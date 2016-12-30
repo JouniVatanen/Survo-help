@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Estimating ARMAX(p,q) models by ESTIMATE
+
+A general ARMAX(p,q) model is
+
+(1) Y = X*beta + u,
+
+where Y    is an n vector of regressand,
+      X    is an n*m matrix of m regressors,
+      beta is m vector of regression coefficients,
+      u    is an n vector of residuals u(1),...,u(n)
+and the residual u(j) related to the j'th observation depends on
+p preceding residuals u(j-1),...,u(j-p) and q independent
+N(0,s^2) error terms e(j),e(j-1),...,e(j-q) as follows
+
+(2) u(j)=r(1)*u(j-1)+...+r(p)*u(j-p)+e(j)+a(1)*e(j-1)+...+a(q)*e(j-q),
+
+where r(1),...,r(p) and a(1),...,a(q) are unknown parameters.
+
+In fact, also non-linear models, where X*beta (the part of exogenous
+variables) is replaced by a more general function f(x,beta), may be
+estimated by the following method.
+
+A conditional maximum likelihood method (see e.g. Hamilton: Time Series
+Analysis, 1994, Chapter 5.6) will be applied.
+The conditional log likelihood function (with respect to first
+observations and error terms) is a sum of expressions
+
+(3) -0.5*(log(s^2)+e(j)^2/s^2+log(2*pi))
+
+where e(j)'s are determined by (2) and u(j)'s are obtained from (1).
+
+Since e(j) depends on previous values e(j-1),...,e(j-q),
+during the estimation process the values of e variable
+have to be updated always when values of parameters to be estimated
+s,beta,r(1),...,r(p),a(1),...,a(q) are changed.
+
+To provide this feature in ESTIMATE, an extra variable (say EPS)
+must be defined in the original data set with initial values 0.
+Updating of e values is imposed by an UPDATE specification.
+The final values of e will be saved in the data set after the
+estimation.
+
+For example, in the model
+Y=b0+b1*X1+b2*X2+b3*X3+b4*X4+u,
+where u has the ARMA(3,1) structure, the ESTIMATE scheme is written
+as follows:
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+11 *{A0}=Y-b0-b1*X1-b2*X2-b3*X3-b4*X4
+12 *{AR1}=r1*(Y[-1]-b0-b1*X1[-1]-b2*X2[-1]-b3*X3[-1]-b4*X4[-1])
+13 *{AR2}=r2*(Y[-2]-b0-b1*X1[-2]-b2*X2[-2]-b3*X3[-2]-b4*X4[-2])
+14 *{AR3}=r3*(Y[-3]-b0-b1*X1[-3]-b2*X2[-3]-b3*X3[-3]-b4*X4[-3])
+15 *{EPS}={A0}-{AR1}-{AR2}-{AR3}-a1*EPS[-1]
+16 *UPDATE=EPS
+17 *
+18 *MODEL ARMA
+19 *LOGDENSITY=-0.5*(log(s*s)+({EPS})^2/(s*s))
+20 *
+21 *ESTIMATE &lt;data&gt;,ARMA,CUR+1
+22 *
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+The model ARMA (lines 18-19) is defined according to (3) and
+the {EPS} expression, e(j) solved from (2), is given on line 15.
+Various components of the model (in braces) are on lines 11-14.
+
+The specification UPDATE=EPS quarantees that ESTIMATE will update
+EPS according to expression {EPS} (line 15) and saves the final values
+as variable EPS.
+UPDATE admits even a list of variables which may be useful in more
+general models.
+
+Because the likelihood function has typically many local maxima,
+one has to be careful when selecting initial values for parameters.
+Good values for s and beta may be obtained from OLS estimation
+(by LINREG or REGDIAG).
+Initial values for ARMA parameters may be found by making a grid search
+(METHOD=G in ESTIMATE).
+
+  <A HREF="q24_01.html">1 = More information about ESTIMATE operation</A> 
+
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

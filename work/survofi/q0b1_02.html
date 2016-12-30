@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">TIME
+gives the date and time in the form
+TIME Sun Dec 29 17:51:17 1985
+on the current (TIME) line. TIME is useful in time measurement for long
+sequences of Survo operations activated by PREFIX ESC.
+
+Sucro /TDIFF (without parameters) gives the difference of two preceding
+TIME results in seconds.
+
+TIME COUNT START (without parameters) resets a clock to 0.000 seconds.
+TIME COUNT END   (without parameters) gives the time elapsed since the
+last activation of TIME COUNT START.
+
+
+<A NAME="TIMES"></A>For measuring execution times of various Survo operations
+in series of activations (e.g. in sucros) the following form
+of TIME COUNT is useful.
+
+TIME COUNT FILE &lt;pathname_of_a_text_file&gt; 
+opens a new text file for saving execution times.
+When an operation has been activated and completed, the time elapsed
+is saved in the text file as a new line in the form
+&lt;name_of_command&gt; &lt;execution_time_in_seconds&gt; 
+Example: MNSIMUL 4.840
+         --- 2.010
+         CORR 1.230
+
+Times between activations (typing text and commands, moving the cursor,
+etc.) are indicated in the file by '--- commands'.
+Before studying and analyzing the contents of the text file it must be
+closed by the command
+TIME COUNT FILE CLOSE
+
+<A NAME="CC"></A>  <A HREF="q03_01.html">C = More information on control operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

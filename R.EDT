@@ -1,0 +1,44 @@
+SURVO 98 edit field:    201       4000       380 (32 bit version)
+0001|*SAVE R / R connections commands 14.12.2016 Reijo Sund
+0005|*/ACTIVATE +
+0006|*After activation load
+0008|*Page list
+S   |3
+0009|*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0010|*SORT CUR+1,E>-1,CUR-1
+0011|*R connections
+0012|E
+0014|*1. Copy base structure to end by activating COPY command
+S   |1
+0015|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+S   |1
+0016|*COPY CUR+1,E>,END+3
+S   |2
+0017|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
+S   |2
+0018|*REPLACE "temp","set",C         / LINES=CUR+1,E>
+S   |2
+0019|*Command name
+S   |3
+0020|+PRINT CUR+2,E> TO www\public_html\temp.html
+0021|*/OPEN             www\public_html\temp.html
+0022|- include HTML50.DEV
+0023|*Command name | Help system | Survo R
+S   |3
+0024|- chapter menu IN Survo-hlp
+0025|- chapter sidebar IN Survo-hlp
+0026|*Command name
+S   |3
+0027|- [DESC]
+0029|- [USAGE]
+0031|- [PARAMETERS]
+0032|- [DLIST]
+0033|ICode word
+S   | xxxxxxxxx
+0034|NExplanation
+0036|- [/DLIST]
+0037|- [DETAILS]
+0039|- [LINKS]
+0041|- [EXAMPLES]
+0043|- chapter end IN Survo-hlp
+0044|E

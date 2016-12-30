@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">TEXTS=&lt;list_of_text_specifications&gt; 
+gives a list of extra texts to be written in the current graph. Each
+member of this list is a word (name of the text), and any such a text
+is given in the form
+
+   &lt;name_of_the_text&gt;=&lt;string&gt;,x,y
+
+where (x,y) is the starting point of the text in plotting units and
+&lt;string&gt; is a string without spaces and ','s to be written. Possible
+spaces should be replaced by '_'s. Similarly ','s must be replaced by
+';'s.  (';' and '_' are given as '\;' and '\_'.) 
+Example: TEXTS=T1,T2 T1=[Times(15)],SURVO_84C,500,50 T2=9_May_1987,650,50
+As in T1, a control code in brackets may precede the text.
+
+If a text is to be plotted in parentheses or brackets, a control
+code (in brackets or parentheses) must precede it:
+Example: TEXTS=L1,Label2  L1=[Times(15)],(SURVO_84C),100,300
+                          Label2=(),[4_Jan_1992],400,50
+In Label2, () is a dummy control code. The texts to be plotted will
+be    (SURVO 84C)   and   [4 Jan 1992]  .
+
+New alternative: Text on multiple lines (see next page!)
+
+
+Text on multiple lines:
+
+Any of the text names, say TL, listed in the TEXTS specification,
+can also refer to a set of several lines. In this case TL has the
+form
+   TL=#LINES:&lt;first_line&gt;,&lt;last_line&gt;,x,y,&lt;line_spacing&gt; 
+where (x,y) is the starting point of the first line. The following
+lines will be plotted below the first one by using the given
+line spacing.
+Example:
+................................................................................
+GPLOT Y(X)=A*sin(X)  / A=0,10,1 X=[line_width(5)][RED],-pi,pi,pi/20
+MODE=EGA               pi=3.141592653589793 XSCALE=-pi,0,pi
+TEXTS=T T=[Times(20)],#LINES:CUR+3,CUR+5,50,270,30
+This is a family
+of sinus curves
+with different amplitudes.
+FRAMES=F F=40,200,280,100,4    FRAME=0
+................................................................................
+   <A HREF="q111_13.html">R = Moving and rotating texts</A> 
+   <A HREF="q11_01.html">P = More information on plotting</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

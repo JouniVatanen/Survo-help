@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">SURVO MM allows creating and saving of edit fields up to the capacity
+of the central memory of the computer. For example, in a 128KB memory
+it is possible to maintain edit fields of 500000 lines with 100 or
+more columns. The maximum number of columns is 996 (10006 from ver.3)
+but there is no (practical) upper limit for the number of lines.
+Very large fields are needed only in special applications and temporary
+situations; for example, when irregular text files (created elsewhere)
+should be polished. In general, it is not wise to keep big data sets in
+the edit field.
+
+When an edit field does not exceed the capacity of SURVO 84C (about
+60000 bytes), it is saved in SURVO MM (by the SAVE command) exactly
+in the same way as in SURVO 84C.
+Large fields with more than 252 columns and/or too many lines are
+saved in a new form where only non-empty lines (with their line
+numbers and possible shadow lines) are stored. Also trailing blanks
+are omitted and thus much space is spared on the disk.
+These SURVO MM edit files are in fact simple text files.
+`Over-sized' edit files cannot be used in SURVO 84C as edit fields
+but they can be treated there as text files (by LOADP and SHOW).
+
+An over-sized edit field is indicated by a red square   almost at the end
+of the header line.
+
+As an option (in dealing with certain system files) an over-sized
+edit field can be saved in the old SURVO 84C format by setting
+string "(84ED)" in the comment of the SAVE command on the first edit line.
+Example:
+
+    1 *SAVE BIGTEXT / over-sized field (84ED)
+    2 *
+ -----
+ 9999 *
+10000 * This is the last line!
+
+This (84ED) option should be never used in standard applications
+since it creates very large files.
+
+ <A HREF="qs1_01.html">S = More information about SURVO MM</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

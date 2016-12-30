@@ -1,0 +1,288 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q23
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+DATA? þ PRINT CUR+1,E TO q23_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*Survo supports several forms of data in statistical analysis.
+0013|*The data sets to be processed may be either in Survo data files or
+0014|*located in the edit field.
+0015|*All forms listed below are valid as input data. However, when saving
+0016|*derived variables like residuals in regression analysis or making
+0017|*transformed variables (by VAR operation, for example), type 4 or
+0018|*5 is required.
+0019|*The FILE COPY operation can be used to move data of types 1-4 to
+0020|*a Survo data file.
+0021|- shadow a: [LINK(q23_07.html)]
+0022|*  1 = Small sample as a list of data values in the edit field
+S   |   a                                                         |
+0023|- shadow a: [LINK(q23_04.html)]
+0024|*  2 = Data matrix in the edit field (without line labels)
+S   |   a                                                     |
+0025|- shadow a: [LINK(q23_05.html)]
+0026|*  3 = Data matrix in the edit field (without mask line)
+S   |   a                                                   |
+0027|- shadow a: [LINK(q23_06.html)]
+0028|*  4 = Data matrix in the edit field (general form)
+S   |   a                                              |
+0029|- shadow a: [LINK(q23_02.html)]
+0030|*  5 = Data file
+S   |   a           |
+0031|- shadow a: [LINK(q23_08.html)]
+0032|*  6 = Matrix file
+S   |   a             |
+0033|- shadow a: [New][LINK(q23_09.html)]
+0034|d  D = Data values in editorial computing
+S   |   a                                    ;
+0035|- shadow a: [LINK(q07_01.html)]
+0036|*  C = Selecting variables and observations
+S   |   a                                      |
+0037|- shadow a: [LINK(qf1_01.html)]
+0038|*  F = File management (FILE COPY etc.)
+S   |   a                                  |
+0039|- shadow a: [LINK(qu2_01.html)]
+0040|*  T = Multiway tables (TAB operations)
+S   |   a                                  |
+0041|- shadow a: [LINK(qm2_01.html)]
+0042|*  M = Matrices (MAT operations)
+S   |   a                           |
+0043|- shadow a: [LINK(q21_01.html)]
+0044|*  S = Statistical operations
+S   |   a                        |
+0045|E
+0048|+DATA5? þ PRINT CUR+1,E TO q23_02.html
+0049|- include HTML40.DEV
+0050|- include Q.DV2
+0051|- [HelpText]
+0052|SData in a data file:
+S   | 77777777777777777777
+0053|*When processing the whole set of observations in a data file the name
+0054|*of the data file is referred to in the statistical operation.
+0055|*To select a subset of observations a specification of the form
+0056|*DATA <name of data set> IN <data file>,<# of 1st obs.>,<# of last obs.>
+S   |      <                >    <         > <             > <              >
+0057|*may be given in the current edit field.
+0058|*For example, DATA SAMPLE IN FILE1,1,30 defines SAMPLE as the 30 first
+0059|*observations of data file FILE1.
+0060|*The last observation of the data file can generally be referred to by
+0061|*END in the DATA ... IN ... construction. Thus the last 30 observations
+0062|*of FILE1 can be defined by DATA SAMPLE2 IN FILE1,END-29,END.
+0064|*Another possibility to select a subset of observations is to use the
+0065|- shadow %: [LINK(q07_02.html)] [/LINK]
+0066|*IND, CASES and SELECT specifications (see SELECTC).
+S   |                                           %%%%%%%
+0068|*In all cases above only active variables of the data file will be
+0069|- shadow %: [LINK(qf1_01.html)] [/LINK]
+0070|*processed (see FILE ACTIVATE, MASK).
+S   |                %%%%
+0071|- shadow %: [LINK(qf1_01.html)] [/LINK]
+0072|*For general information on data files, see FILE?
+S   |                                            %%%%
+0073|- shadow a: [LINK(q23_01.html)]
+0074|*  D = More information on data representation
+S   |   a                                         |
+0075|E
+0076|+DD? þ PRINT CUR+1,E TO q23_03.html
+0077|- include HTML40.DEV
+0078|- include Q.DV2
+0079|- [HelpText]
+0080|- shadow a: [LINK(q23_01.html)]
+0081|*  D = More information on data representation
+S   |   a                                         |
+0082|E
+0085|+DATA2? þ PRINT CUR+1,E TO q23_04.html
+0086|- include HTML40.DEV
+0087|- include Q.DV2
+0088|- [HelpText]
+0089|*Simplest form of a data matrix is following:
+0091|*  11 *DATA ABC1
+0092|*  12 *   X   Y   test1
+0093|*  13 * 1.2   5   -4.56
+0094|*  14 * 3.4  11    3.52
+0095|*  15 * 2.0   9    2
+0096|*  16 * 1.7   4    4.6
+0097|*  17 *
+0099|*The data set ABC1 consists of three variables (X,Y,test1) and 4
+0100|*observations (on lines 13-16). The empty line 17 terminates the
+0101|*data set. The line of labels (12) must be immediately after the
+0102|*DATA line (11).
+0103|*Missing values are indicated by a '-'.
+0104|- shadow a: [LINK(q23_01.html)]
+0105|*  D = More information on data representation
+S   |   a                                         |
+0106|E
+0108|+DATA3? þ PRINT CUR+1,E TO q23_05.html
+0109|- include HTML40.DEV
+0110|- include Q.DV2
+0111|- [HelpText]
+0112|*The line labels for the names of variables and data itself can
+0113|*be given explicitly as follows:
+0115|*  11 *DATA ABC1,13,16,12
+0116|*  12 *   X   Y   test1
+0117|*  13 * 1.2   5   -4.56
+0118|*  14 * 3.4  11    3.52
+0119|*  15 * 2.0   9    2
+0120|*  16 * 1.7   4    4.6
+0121|*  17 * (this line can contain any text)
+0123|*Here DATA ABC1,13,16,12 indicates that data values are on lines 13-16
+0124|*and labels on line 12.
+0125|*Thus it is not necessary to have the DATA line, labels and data values
+0126|*on consecutive lines. Also symbolic labels may be used for lines.
+0127|*Missing values are indicated by a '-'.
+0128|- shadow a: [LINK(q23_01.html)]
+0129|*  D = More information on data representation
+S   |   a                                         |
+0130|E
+0132|+DATA4? þ PRINT CUR+1,E TO q23_06.html
+0133|- include HTML40.DEV
+0134|- include Q.DV2
+0135|- [HelpText]
+0136|*The most general representation of data matrix is following:
+0137|* 29 *DATA COUNTRIES,A,B,C,D
+0138|* 30 C  Country      Coffee   Tea    Beer  Wine Spirits
+0139|* 31 D  -----------   AAAA   AAAA   ----- -----   XXX
+0140|* 32 A  Italy          3.6   0.06    13.6 106.6   2.0
+0141|* 33 *  Portugal       2.2   0.03    27.5  89.3   0.9
+0142|* 34 *  Finland       12.5   0.15    54.7   7.6   2.7
+0143|* - - - - - - - - - - - - - - - - - - - - - - - - - - -
+0144|* 43 B  Ireland        0.2   3.73   124.5   3.8   1.9
+0146|*Data COUNTRIES is defined by a DATA specification on line 29.
+0147|*The observations are on lines A-B (32-43) and the names of the
+0148|*variables (columns) on line C (30). The new parameter D (31)
+0149|*is the label of a mask line which specifies the status of each
+0150|*variable (column) in the analysis (--- is an inactive variable).
+0151|*Missing values are indicated by a '-' or by leaving the cell empty.
+0152|*This is the only form of a data matrix which permits writing
+0153|*new data values (like residuals and other derived variables)
+0154|*in statistical operations. Data files are, of course, still
+0155|*more flexible in this respect.
+0156|- shadow a: [LINK(q23_01.html)]
+0157|*  D = More information on data representation
+S   |   a                                         |
+0158|E
+0160|+DATA1? þ PRINT CUR+1,E TO q23_07.html
+0161|- include HTML40.DEV
+0162|- include Q.DV2
+0163|- [HelpText]
+0164|*Small data sets with only one or few variables can be listed simply
+0165|*as follows:
+0167|*    11 *DATA X: 17.3 -3.4 4.5 6.8 END
+0168|*    12 *
+0169|*    13 *DATA TEST:(X,Y,test1) 2,4,6 7,2,0 8,4,5 11,5,0
+0170|*    14 *     3,2,1 5,12,7 4,6,6 9,9,5 4,5,1 8,6,14 END
+0171|*    15 *
+0173|*Above two data sets X and TEST are written.
+0174|*Please, observe the colon ':' after the name of the data set.
+0175|*The X data has only one variable (X) with 4 observations. In the TEST
+0176|*data we have three variables (X,Y,test1) and 10 triplets of
+0177|*observations. END or an empty line terminates the list of values.
+0179|*These data can be used as any other in statistical operations.
+0180|*For example, CORR TEST computes the means, std.devs and correlations
+0181|*for the three variables of TEST.
+0182|*In more advanced applications other forms of Survo data
+0183|*representation should be preferred to.
+0184|- shadow a: [LINK(q23_01.html)]
+0185|*  D = More information on data representation
+S   |   a                                         |
+0186|E
+0188|+MATD? þ PRINT CUR+1,E TO q23_08.html
+0189|- include HTML40.DEV
+0190|- include Q.DV2
+0191|- [HelpText]
+0192|*Matrix files generated by various statistical operations as inter-
+0193|*mediate results (typically with extension .M) can be used as input
+0194|*data in all operations working with statistical data sets. Then
+0195|*the columns are considered variables and rows cases (observations).
+0196|*In addition, the row labels correspond to a string variable (CASE)
+0197|*appearing as #1 among variables. The actual columns of the matrix
+0198|*are numerical (double precision) variables with indices 2,3,...
+0199|*and their names are the column labels. By default, the CASE variable
+0200|*is passive but the other variables are active (activated by 'A').
+0201|*Use names of variables or VARS,MASK specifications for other selections.
+0203|*Exception:
+0204|*Matrix files of symmetric and diagonal matrices are nor accepted as
+0205|*data files since a normal data set (table) is not "symmetric".
+0206|*In special cases where a symmetric matrix should be used as a data
+0207|*matrix it is easy to convert it to a Survo data file by
+0208|*FILE SAVE MAT command. For example, the correlation matrix CORR.M
+0209|*(produced by CORR) is converted to a Survo data file D_CORR by
+0210|*FILE SAVE MAT CORR.M TO D_CORR
+0212|*If a matrix file is used as a data set, it must be referred to by
+0213|*the complete pathname with the extension (.M or .MAT).
+0215|*For example, the two first factors (F1,F2) of a factor matrix FACT.M
+0216|*created as a result of the FACTA operation can be plotted on the
+0217|*screen by the PLOT scheme:
+0218|- [New]
+0219|*GPLOT FACT.M,F1,F2
+0220|*SCALE=-1,0,1 GRID=XY POINT=CASE
+0221|*LINE=6 LINE2=0,0 (Points are to be connected to the origin)
+0222|- [/New]
+0224|*To make a MVBAR chart of the same factors with CASE indicating each
+0225|*pair of bars, use the following scheme:
+0226|- [New]
+0227|*GPLOT FACT.M   / TYPE=MVBAR MASK=AAA (The first 'A' indicates CASE)
+0228|- [/New]
+0230|- shadow a: [LINK(q23_01.html)]
+0231|*  D = More information on data representation
+S   |   a                                         |
+0232|- shadow a: [LINK(qm2_01.html)]
+0233|*  M = More information on matrix operations
+S   |   a                                       |
+0234|- shadow a: [LINK(qm7_01.html)]
+0235|*  S = Saving matrices into Survo data files (FILE SAVE MAT)
+S   |   a                                                       |
+0236|E
+0239|+DAT? þ PRINT CUR+1,E TO q23_09.html
+0240|- include HTML40.DEV
+0241|- include Q.DV2
+0242|- [HelpText]
+0243|- [New]
+0244|*Survo data sets in editorial computing
+0245|- [/New]
+0247|*Any numeric value in a Survo data set (data file, data matrix in the
+0248|*edit field etc.) can be used in editorial computing by a special DAT function.
+0249|*For example, if DAT_FINLAND(Helsinki,Popul)=_
+0250|*is activated, we obtain
+0251|*                DAT_FINLAND(Helsinki,Popul)=483057
+0253|*The first argument refers to the name of the observation and the second
+0254|*one to the variable. Thus in this case we get the number of inhabitants
+0255|*(Popul) in Helsinki from the data file FINLAND.
+0257|*DAT function can be used in mathematical expressions. For example,
+0258|*the population of Helsinki in thousands is given by
+0259|*DAT_FINLAND(Helsinki,Popul)/1000=483.057
+0261|*Also values of string variables can be displayed by DAT function. For example,
+0262|*DAT_FINLAND(Helsinki,Province)=UUS
+0263|*gives the the name of the Helsinki province. In numerical computations
+0264|*such values are treated as zeros: DAT_FINLAND(Helsinki,Province)+100=100
+0266|*If the name of the observation is not the first one in the data set,
+0267|*it can be referred to by notation Name_of_name_variable>Value.
+S   |                                                        >
+0268|*For example, in FINLAND
+0269|*DAT_FINLAND(Commune>Helsinki,Popul)=483057
+S   |                    >
+0270|*is, of course, the same as DAT_FINLAND(Helsinki,Popul).
+0271|*The first commune of the UUS province can be found by
+0272|*DAT_FINLAND(Province>UUS,Commune)=Artj„rvi
+S   |                     >
+0273|*and its population either by
+0274|*DAT_FINLAND(Province>UUS,Popul)=2039 or DAT_FINLAND(Artj„rvi,Popul)=2039
+S   |                     >
+0275|*The order (place) of Helsinki in data FINLAND is obtained by
+0276|*DAT_FINLAND(Helsinki,ORDER)=47 and observations can also be referred to
+0277|*by their order. For example, DAT_FINLAND(#47,Commune)=Helsinki
+0279|- shadow a: [New][LINK(qm1_11.html)]
+0280|d  S = Shorthand notation for functions
+S   |   a                                  ;
+0281|- shadow a: [LINK(qm1_03.html)]
+0282|*  E = More information on editorial computing
+S   |   a                                         |
+0283|- shadow a: [LINK(q23_01.html)]
+0284|*  D = More information on data sets in Survo
+S   |   a                                        |
+0285|- shadow a: [LINK(ql1_07.html)]
+0286|*  X = X function
+S   |   a            |
+0287|E
+0288|*$E

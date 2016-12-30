@@ -1,0 +1,813 @@
+SURVO 98 edit field:    201       2000       300 (32 bit version)
+0001|*SAVE Survo-hlpv4 / Survo helppi 14.7.2015 Jouni Vatanen
+0003|*CD S:\Muut\Survo-hlp
+0007|*kts. bootstrap.css -> k„ytt„„k” mukautuvaa vai ei?
+0008|*kts. miten saada samalle sivulle linkkivalikko
+0010|*kts. miten onnistuu
+0013|*/ACTIVATE P
+0016|PSAVEP CUR+1,E>,Q.DV2
+0017|* / Definitions for the HTML version of the inquiry system / kv 1999
+0018|* / define [name1] Help[S]System[S]of[S]Survo
+0019|* / define [name2] [S](World[S]Wide[S]Web[S]edition)
+0020|* define [name1] Help&nbsp;System
+0021|* define [name2] &nbsp;(web&nbsp;edition)
+0022|* define [Name] [name1]
+0023|* [TITLE]SURVO&nbsp;[Name][/TITLE][LF]
+0024|* / [STYLESHEET(../survo.css)]
+0025|* [STYLESHEET(q.css)]
+0026|* [META]NAME="Description" CONTENT="SURVO&nbsp;[Name]"[/META][LF]
+0027|* [META]NAME="Classification" CONTENT="help system"[/META][LF]
+0028|* [META]NAME="Keywords" CONTENT="Survo, help, hypertext"[/META][LF]
+0029|* [BODY]
+0030|* define [pict1] [IMAGE(../survologo1.gif)]
+0031|* define [pict2] WIDTH="200"[S]HEIGHT="82"[S]ALT="SURVO&nbsp;MM"[/IMAGE]
+0032|* define [Picture] [pict1][pict2]
+0033|* / [H1][Picture]&nbsp;[LINK(mainmenu.html)][Name][/LINK][/H1]
+0034|* / -----------------------------------------------------------------
+0035|* / define [Syntax] [H4]
+0036|* / define [/Syntax] [/H4][RULER]
+0037|* define [HelpText] [LF][P(HelpText)]
+S   |1
+0038|* define [/HelpText] [/P][RULER]
+S   |1
+0039|* define [Example] [%=0] / [RULER(70%)]
+0040|* define [/Example] [%=0] / [RULER(70%)]
+0041|* define [New] [%=0] / [STRONG]
+0042|* define [/New] [%=0] / [/STRONG]
+0043|* define [Mark] <B>
+0044|* define [/Mark] </B>
+0045|* define [Banner1] [LF][DIVCLASS(Details)][SMALL]
+0046|* define [URL] [LINK(http://www.survo.fi/)]
+0047|* define [More] More[S]information[S]on[S]Survo[S]from[S]
+0048|* define [lt] www.survo.fi
+0049|* define [SurvoLink] [More][URL][lt][/LINK][/SMALL]
+0050|* define [SurSys] Survo[S]Systems[S]2001-2012
+0051|* define [wm1] [MAIL(webmaster'at'survo.fi)]
+0052|* define [wm2]       webmaster'at'survo.fi[/MAIL]
+0053|* define [wmail] [wm1][wm2]
+0054|* define [b2a] [SMALL]Copyright[Copyright]
+0055|* define [b2b] [SurSys].[+][wmail][/SMALL][/DIVCLASS]
+0056|* define [Banner2] [b2a][b2b]
+0057|* control E: [/HelpText][Banner1][SurvoLink][+][Banner2][LF][END]
+0058|* shadow /: [STRONG] [/STRONG]
+0059|* shadow f: [Mark] [/Mark]     / (fixed footnotes)
+0060|* shadow 7: [Mark] [/Mark]
+0061|* shadow 8: [New] [/New]
+0062|* shadow 4: [Mark] [/Mark]
+0063|* shadow 2: [%=0]
+0064|* shadow 3: [%=0]
+0065|* / shadow E: [Mark] [/Mark]
+S   |1
+0066|* shadow ?: [Mark] [/Mark]
+0067|* shadow _: [Mark] [/Mark]
+0068|* shadow N: [Mark] [/Mark]
+0069|* shadow L: [Mark] [/Mark]
+0070|* shadow D: [Mark] [/Mark]
+0071|* shadow ,: [Mark] [/Mark]
+0072|* shadow *: [Mark] [/Mark]
+0073|* shadow {: [Mark] [/Mark]
+0074|* shadow }: [Mark] [/Mark]
+0075|* shadow z: [Mark] [/Mark]
+0076|* shadow w: [Mark] [/Mark]
+0077|* / shadow x: [Mark] [/Mark]
+S   |1
+0078|* shadow |: [%=0] [/LINK]
+0079|* shadow ;: [%=0] [/LINK][/New]
+0080|* control #: [%=0]
+0081|* control ": [%=0]
+0082|* control [LB]: [Example]
+0083|* control [S]: [S][S][S]
+0084|* control [RB]: [/Example]
+0085|* shadow +: [Mark] [/Mark]
+0086|* control N: [%=0]
+0087|* replace ................. ................. / no replace, that is
+0088|* /
+0089|E
+0091|PSAVEP CUR+1,E>,HTML40.DEV
+0092|* / HTML40.DEV / Survo "printer driver" for HTML  9.3.1995/K.Vehkalahti
+0093|* / HTML 4.0 24.7.1998/kv
+0094|* / Some CSS definitions 24.2.1999/kv
+0095|* / Deprecated elements marked 7.4.1999/kv
+0096|* / SURVO MM driver 24.7.2000/kv
+0097|* / Image positioning tags + minor enhancements 14.2.2001/kv
+0098|* / HTML 4.01 w. dtd 30.8.2001/kv
+0099|* / -------------------------------------------------------------------
+0100|* / This driver outputs HTML 4.01 Transitional under SURVO MM.
+0101|* / Usage:
+0102|* / *PRINT CUR+1,E TO mypage.html
+0103|* / - include HTML40.DEV
+0104|* / * ...
+0105|* / E
+0106|* / -------------------------------------------------------------------
+0107|* / Necessary definitions required for a Survo printer driver:
+0108|* / -------------------------------------------------------------------
+0109|* define [S]         [2/0]
+0110|* define [LF]       [0/10]
+0111|* define [NEL]        [LF]
+0112|* define [LB]       [5/11]
+0113|* define [RB]       [5/13]
+0114|* define [TEXT]      [%=0]
+0115|* define [FORM_FEED] [%=0]
+0116|* define [NEW_PAGE]  [%=0]
+0117|* define [NEWLINE]   [%=0]
+0118|* shadow [S]:        [%=0]
+0119|* / -------------------------------------------------------------------
+0120|* / Actual definitions corresponding to the HTML codes:
+0121|* / -------------------------------------------------------------------
+0122|* define    [TITLE]    <TITLE>
+0123|* define   [/TITLE]   </TITLE>
+0124|* shadow 7: [TITLE]   [/TITLE]
+0125|* define    [H1]       <H1>
+0126|* define   [/H1]      </H1>
+0127|* define    [H2]       <H2>
+0128|* define   [/H2]      </H2>
+0129|* define    [H3]       <H3>
+0130|* define   [/H3]      </H3>
+0131|* define    [H4]       <H4>
+0132|* define   [/H4]      </H4>
+0133|* define    [H5]       <H5>
+0134|* define   [/H5]      </H5>
+0135|* define    [H6]       <H6>
+0136|* define   [/H6]      </H6>
+0137|* define    [HEADER1]  [H1]
+0138|* define   [/HEADER1] [/H1]
+0139|* define    [HEADER2]  [H2]
+0140|* define   [/HEADER2] [/H2]
+0141|* define    [HEADER3]  [H3]
+0142|* define   [/HEADER3] [/H3]
+0143|* define    [HEADER4]  [H4]
+0144|* define   [/HEADER4] [/H4]
+0145|* define    [HEADER5]  [H5]
+0146|* define   [/HEADER5] [/H5]
+0147|* define    [HEADER6]  [H6]
+0148|* define   [/HEADER6] [/H6]
+0149|* shadow j: [HEADER1] [/HEADER1]
+0150|* shadow k: [HEADER2] [/HEADER2]
+0151|* shadow l: [HEADER3] [/HEADER3]
+0152|* shadow m: [HEADER4] [/HEADER4]
+0153|* shadow n: [HEADER5] [/HEADER5]
+0154|* shadow o: [HEADER6] [/HEADER6]
+0155|* define    [P]        <P>
+0156|* define   [/P]       </P>
+0157|* define    [/]        [P]
+0158|* define    [/(align)] <P[S]ALIGN="align"> / deprecated
+0159|* shadow /: [%=0]      [/]
+0160|* control /:           [/]
+0161|* define    [+]        <BR>
+0162|* define    [+(clear)] <BR[S]CLEAR="clear">
+0163|* shadow \: [+]
+0164|* control +:           [+]
+0165|* define    [RULER(x)] <HR[S]WIDTH="x"> / deprecated
+0166|* define    [RULER]    <HR>
+0167|* control =:           [RULER]
+0168|* control |:           [+][+][RULER][+][+]
+0169|* define  [DIV(x)]      <DIV[S]ALIGN="x"> / deprecated
+0170|* define [/DIV]        </DIV>
+0171|* define  [DIVISION(x)] [DIV(x)]
+0172|* define [/DIVISION]   [/DIV]
+0173|* define  [CENTER]      [DIV(center)] / deprecated
+0174|* define [/CENTER]     [/DIV] / deprecated
+0175|* control {:       [CENTER] / deprecated
+0176|* control }:      [/CENTER] / deprecated
+0177|* shadow {:        [CENTER] / deprecated
+0178|* shadow }: [%=0] [/CENTER] / deprecated
+0179|* define  [STRONG]      <STRONG>
+0180|* define [/STRONG]     </STRONG>
+0181|* define  [SUB]         <SUB>
+0182|* define [/SUB]        </SUB>
+0183|* define  [SUP]         <SUP>
+0184|* define [/SUP]        </SUP>
+0185|* define  [DFN]         <DFN>
+0186|* define [/DFN]        </DFN>
+0187|* define  [DEFINITION]  [DFN]
+0188|* define [/DEFINITION] [/DFN]
+0189|* define  [EM]          <EM>
+0190|* define [/EM]         </EM>
+0191|* define  [EMPHASIS]    [EM]
+0192|* define [/EMPHASIS]   [/EM]
+0193|* define  [CITE]        <CITE>
+0194|* define [/CITE]       </CITE>
+0195|* define  [CITATION]    [CITE]
+0196|* define [/CITATION]   [/CITE]
+0197|* define  [CODE]        <CODE>
+0198|* define [/CODE]       </CODE>
+0199|* define  [PRE]         <PRE>
+0200|* define [/PRE]        </PRE>
+0201|* define  [BLOCKQUOTE]  <BLOCKQUOTE>
+0202|* define [/BLOCKQUOTE] </BLOCKQUOTE>
+0203|* define  [Q]           <Q>
+0204|* define [/Q]          </Q>
+0205|* define  [DEL]         <DEL>
+0206|* define [/DEL]        </DEL>
+0207|* define  [SMALL]      <SMALL> / deprecated
+0208|* define [/SMALL]     </SMALL> / deprecated
+0209|* define  [BIG]        <BIG> / deprecated
+0210|* define [/BIG]       </BIG> / deprecated
+0211|* shadow 1: [STRONG]     [/STRONG]
+0212|* shadow 2: [SUB]        [/SUB]
+0213|* shadow 3: [SUP]        [/SUP]
+0214|* shadow 4: [DEFINITION] [/DEFINITION]
+0215|* shadow 6: [EMPHASIS]   [/EMPHASIS]
+0216|* shadow 9: [CITATION]   [/CITATION]
+0217|* shadow x: [CODE]       [/CODE]
+0218|* shadow (: [CODE]
+0219|* shadow ): [/CODE]
+0220|* control (:   [PRE][CODE]
+0221|* control ): [/CODE][/PRE]
+0222|* control <:  [BLOCKQUOTE]
+0223|* control >: [/BLOCKQUOTE]
+0224|* define  [ADDRESS]  <ADDRESS>
+0225|* define [/ADDRESS] </ADDRESS>
+0226|* shadow 8: [LF][ADDRESS] [/ADDRESS]
+0227|* control [LB]:  [ADDRESS]
+0228|* control [RB]: [/ADDRESS]
+0229|* shadow <: &lt;  / The characters  < > &  MUST be painted with the corresponding
+0230|* shadow >: &gt;  / shadow characters, since the code conversion (HTML.BIN) will
+0231|* shadow &: &amp; / remove them. Extra spaces can be removed e.g. by TXTCONV.
+0232|* define [Copyright] [S]&copy;[S]
+0233|* / Links:
+0234|* define [MADEBY(x)] <LINK[S]REV=MADE[S]HREF="mailto:x">
+0235|* define  [MAIL(x)]  <A[S]HREF="mailto:x">
+0236|* define [/MAIL]    </A>
+0237|* define  [NAME(x)]  <A[S]NAME="x">
+0238|* define [/NAME]    </A>
+0239|* define  [JUMP(x)]  <A[S]HREF="#x">
+0240|* define [/JUMP]    </A>
+0241|* define  [LINK(x)]  <A[S]HREF="x">
+0242|* define [/LINK]    </A>
+0243|* shadow |:   [%=0] </A>
+0244|* / Images:
+0245|* define  [IMAGE(URL)]       <IMG[S]SRC="URL"[S]
+0246|* define  [IMAGE_LEFT(URL)]  [IMAGE(URL)]ALIGN="LEFT"[S]
+0247|* define  [IMAGE_RIGHT(URL)] [IMAGE(URL)]ALIGN="RIGHT"[S]
+0248|* define [/IMAGE] >
+0249|* / Miscellaneous header codes:
+0250|* define  [META]        <META[S]
+0251|* define [/META]         >
+0252|* define  [DESCRIPTION] [META]NAME="description"[S]CONTENT="
+0253|* define [/DESCRIPTION] ">
+0254|* define  [KEYWORDS]    [META]NAME="keywords"[S]CONTENT="
+0255|* define [/KEYWORDS]    ">
+0256|* shadow ': [%=0] ">
+0257|* / Body building:
+0258|* define  [BODY]     </HEAD>[LF]<BODY>[LF]
+0259|* define  [BODY_DEF] </HEAD>[LF]<BODY[S]
+0260|* define [/BODY_DEF] >[LF]
+0261|* define [END]       </BODY>[LF]</HTML>
+0262|* control E: [LF][END][LF] / end of the document
+0263|* / Shortcuts for basic backgrounds (deprecated):
+0264|* define [Black]  "#000000"
+0265|* define [White]  "#FFFFFF"
+0266|* define [WhiteBody] </HEAD>[LF]<BODY[S]BGCOLOR=[White][S]TEXT=[Black]> / deprecated
+0267|* define [BlackBody] </HEAD>[LF]<BODY[S]BGCOLOR=[Black][S]TEXT=[White]> / deprecated
+0268|* / Lists:
+0269|* define   [LIST]     <UL>
+0270|* define  [/LIST]    </UL>
+0271|* define  [NLIST]     <OL>
+0272|* define [/NLIST]    </OL>
+0273|* define  [NLIST(x)]  <OL[S]TYPE="x">
+0274|* define     [L]         <LI>
+0275|* define     [L(x)]      <LI[S]TYPE="x">
+0276|* define     [/L]        </LI>
+S   |1
+0277|* shadow L:  [L]
+0278|* control L: [L]         [/L]
+S   |1
+0279|* define  [DLIST]     <DL>
+0280|* define  [DLIST(x)]  <DL[S]COMPACT> / deprecated
+0281|* define [/DLIST]    </DL>
+0282|* define     [T]      <DT>
+0283|* shadow I:  [T]
+0284|* control I: [T]
+0285|* define     [D]         <DD>
+0286|* shadow N:  [D]
+0287|* control N: [D]
+0288|* / Fonts (ALL deprecated, use CSS instead):
+0289|* define    [FONT_SIZE(size)]   <FONT[S]SIZE="size"> / deprecated
+0290|* define    [FONT_COLOR(color)] <FONT[S]COLOR="color"> / deprecated
+0291|* define    [FONT(size,color)]  <FONT[S]SIZE="size"[S]COLOR="color"> / deprecated
+0292|* define   [/FONT]             </FONT> / deprecated
+0293|* shadow +: [FONT_SIZE(+1)]    [/FONT] / deprecated
+0294|* shadow -: [FONT_SIZE(-1)]    [/FONT] / deprecated
+0295|* / Tables:
+0296|* define  [TABLE]         <TABLE>
+0297|* define  [TABLE(BORDER)] <TABLE[S]BORDER>
+0298|* define  [TABLE_DEF]     <TABLE[S]
+0299|* define [/TABLE_DEF]     >
+0300|* define [/TABLE]        </TABLE>
+0301|* define  [TABLE_ROW]         <TR[S]
+0302|* define [/TABLE_ROW]         >
+0303|* control r:              <TR>
+0304|* shadow r:               <TR>
+0305|* control R:              [TABLE_ROW]ALIGN="right"[/TABLE_ROW]
+0306|* define  [TABLE_HEADER]      <TH
+0307|* define [/TABLE_HEADER]      >
+0308|* define  [TABLE_HEADER(x,y)] <TH[S]ROWSPAN="x"[S]COLSPAN="y">
+0309|* shadow H: [%=0] [TABLE_HEADER]ALIGN="left"[/TABLE_HEADER]
+0310|* define  [TABLE_CELL]        <TD[S]
+0311|* define [/TABLE_CELL]        >
+0312|* define  [TABLE_CELL(x,y)]   <TD[S]ROWSPAN="x"[S]COLSPAN="y">
+0313|* shadow e: [%=0] [TABLE_CELL]ALIGN="right"[/TABLE_CELL]
+0314|* shadow E: [%=0] [TABLE_CELL]ALIGN="left"[/TABLE_CELL]
+0315|* control c: [TABLE_CELL]ALIGN="right"[/TABLE_CELL]
+S   |1
+0316|* control C: [TABLE_CELL]ALIGN="left"[/TABLE_CELL]
+S   |1
+0317|* define    [TABLE_CAPTION]        <CAPTION>
+0318|* define    [TABLE_CAPTION(align)] <CAPTION[S]ALIGN="align"> / deprecated
+0319|* define   [/TABLE_CAPTION]       </CAPTION>
+0320|* shadow ": [TABLE_CAPTION] [/TABLE_CAPTION]
+0321|* / Forms:
+0322|* define  [FORM(x,y)] <FORM[S]METHOD="x"[S]ACTION="y">
+0323|* define [FORM]      <FORM>
+S   |1
+0324|* define [/FORM]     </FORM>
+0325|* define  [FORM_DEF]  <FORM[S]
+0326|* define [/FORM_DEF]  >
+0327|* define  [INPUT(x,y)] <INPUT[S]NAME="x"[S]TYPE="y"[S]
+0328|* define [/INPUT]     >
+0329|* define  [SELECT_DEF(name)] <SELECT[S]NAME="name"[S]
+0330|* define [/SELECT_DEF]       >
+0331|* define  [SELECT(name)]     [SELECT_DEF(name)][/SELECT_DEF]
+0332|* define [/SELECT]          </SELECT>
+0333|* define    [OPTION]   <OPTION>
+0334|* shadow O: [OPTION]
+0335|* define    [SELECTED] <OPTION[S]SELECTED>
+0336|* shadow S: [SELECTED]
+0337|* define  [TEXT_DEF(name)] <TEXTAREA[S]NAME="name"[S]
+0338|* define [/TEXT_DEF]       >
+0339|* define  [TEXT(name)]     [TEXT_DEF(name)][/TEXT_DEF]
+0340|* define [/TEXT]          </TEXTAREA>
+0341|* / Miscellaneous:
+0342|* shadow !: [%=0] >
+0343|* shadow ?: [LF]<!--[S] [S]-->[LF]
+0344|* / Maps and areas:
+0345|* define [MAP(name)] <MAP[S]NAME="name">[LF]
+0346|* define [/MAP] </MAP>[LF]
+0347|* define [AREA(URL)] <AREA[S]HREF="URL"[S]
+0348|* define [/AREA] >
+0349|* / Frames: (7/98) (not a part of the DTD given below, not recommended)
+0350|* define  [FRAMES_DEF]  <FRAMESET[S]
+0351|* define [/FRAMES_DEF]  >
+0352|* define [/FRAMES]     </FRAMESET>
+0353|* define  [FRAME_DEF(URL,name)] <FRAME[S]SRC="URL"[S]NAME="name"[S]
+0354|* define [/FRAME_DEF]          >
+0355|* define  [NOFRAMES]    <NOFRAMES>
+0356|* define [/NOFRAMES]   </NOFRAMES>[LF]</HTML>
+0357|* define [/HEAD]       </HEAD>
+0358|* define [LINK2(URL,frame)] <A[S]HREF="URL"[S]TARGET="frame">
+0359|* / Cascading Style Sheets: (2/99)
+0360|* define  [STYLESHEET(URL)] <LINK[S]REL="stylesheet"[S]HREF="URL"[S]TYPE="text/css">[LF]
+0361|* define  [STYLE]               <STYLE[S]TYPE="text/css">[LF][S][S]<!--[LF]
+0362|* define [/STYLE] [S][S]-->[LF]</STYLE>[LF]
+0363|* define  [SPAN(x)] <SPAN[S]CLASS="x">
+0364|* define [/SPAN]   </SPAN>
+0365|* / Classified elements: (CSS) (4/99)
+0366|* define  [DIVCLASS(x)]         <DIV[S]CLASS="x">
+0367|* define [/DIVCLASS]           </DIV>
+0368|* define [LIST(x)]               <UL[S]CLASS="x">
+S   |1
+0369|* define [CODE(x)]             <CODE[S]CLASS="x">
+0370|* define [STRONG(x)]         <STRONG[S]CLASS="x">
+0371|* define [EM(x)]                 <EM[S]CLASS="x">
+0372|* define [PRE(x)]               <PRE[S]CLASS="x">
+0373|* define [H1(x)]                 <H1[S]CLASS="x">
+0374|* define [H2(x)]                 <H2[S]CLASS="x">
+0375|* define [H3(x)]                 <H3[S]CLASS="x">
+0376|* define [H4(x)]                 <H4[S]CLASS="x">
+0377|* define [H5(x)]                 <H5[S]CLASS="x">
+0378|* define [H6(x)]                 <H6[S]CLASS="x">
+0379|* define [CITE(x)]             <CITE[S]CLASS="x">
+0380|* define [P(x)]                   <P[S]CLASS="x">
+0381|* define [BLOCKQUOTE(x)] <BLOCKQUOTE[S]CLASS="x">
+0382|* define [CITATION(x)] [CITE(x)]
+0383|* define [EMPHASIS(x)] [EM(x)]
+0384|* define [HEADER1(x)]  [H1(x)]
+0385|* define [HEADER2(x)]  [H2(x)]
+0386|* define [HEADER3(x)]  [H3(x)]
+0387|* define [HEADER4(x)]  [H4(x)]
+0388|* define [HEADER5(x)]  [H5(x)]
+0389|* define [HEADER6(x)]  [H6(x)]
+0390|* / End of definitions; remove border lines and convert to ISO-Latin-1
+0391|* / 18.2.1999: remove   < > &   altogether (use corresponding shadows!)
+0392|* replace .................
+0393|*  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"[LF]
+0394|* [S][S][S][S][S][S][S][S]"http://www.w3.org/TR/html4/loose.dtd">[LF]
+0395|* <HTML>[LF]
+0396|* [S][S][S][S][S]<!--[LF]
+0397|* [S][S][S][S][S][S][S][S] Created by using the PRINT operation of SURVO MM [LF]
+0398|* [S][S][S][S][S][S][S][S]  For more information, see http://www.survo.fi/  [LF]
+0399|* [S][S][S][S][S][S][S][S][S]-->[LF]
+0400|* <HEAD>[LF]
+0401|* <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">[LF]
+0402|* <META NAME="Generator" CONTENT="SURVO MM">[LF]
+0403|* codes HTML.BIN
+0404|E
+0406|PSAVEP CUR+1,E>,q.css
+0407|*A, BODY, CODE, DIV, EM, H1, HTML, IMG, P, STRONG, PRE, SMALL {
+0408|*  background: transparent;
+0409|*  text-decoration: none;
+0410|*  margin: 0;
+0411|*  padding: 0;
+0412|*  border: 0;
+0413|*}
+0414|*/*
+0415|** html body {
+0416|*  overflow: hidden;
+0417|*}
+0418|** div.content {
+0419|*  height: 100%;
+0420|*  overflow: auto;
+0421|*}
+0422|*@media screen {
+0423|*  body>div.header {
+0424|*   position:fixed;
+0425|*  }
+0426|*  body>div.sidebar {
+0427|*   position:fixed;
+0428|**/
+0429|*BODY {
+0430|*/*font-family: Arial, Verdana, sans-serif;*/
+0431|*  margin: 0;
+0432|*/*margin: 1em 2em 2em 2em;*/
+0433|*  padding: 100px 0 0 0;
+0434|*  color: #001030;
+0435|*  background: #FFFFFF
+0436|*}
+0437|*P {
+0438|*  margin: 0 0 0.6em 0;
+0439|*}
+0440|*img {
+0441|*  0;
+0442|*}
+0443|*A {
+0444|*  text-decoration: none;
+0445|*}
+0446|*A:link {
+0447|*  color: #001030;
+0448|*  background: transparent none;
+0449|*}
+0450|*A:visited {
+0451|*  color: #660066;
+0452|*  background: transparent none;
+0453|*}
+0454|*A:active {
+0455|*  color: #001090;
+0456|*  background: transparent none;
+0457|*}
+0458|*A:hover {
+0459|*  color: #0010F0;
+0460|*  background: #CCCCCC;
+0461|*}
+0462|*PRE,
+0463|*CODE {
+0464|*  padding: 0;
+0465|*  font-family: "Lucida Console", Monaco, monospace;
+0466|*}
+0467|*}
+0468|*.Banner {
+0469|*  font-family: Arial, Verdana, sans-serif;
+0470|*  font-size: smaller;
+0471|*  color: #990000;
+0472|*  background: transparent;
+0473|*  text-align: center;
+0474|*}
+0475|*.Details {
+0476|*  font-family: Arial, Verdana, sans-serif;
+0477|*  font-size: smaller;
+0478|*  text-align: center;
+0479|*}
+0480|*A STRONG {
+0481|*  text-decoration: none;
+0482|*}
+0483|*H1 {
+0484|*  font-family: Arial, Verdana, sans-serif;
+0485|*  font-size: x-large;
+0486|*  margin: 0;
+0487|*  padding: 0;
+0488|*  color: #006991;
+0489|*  background: transparent none;
+0490|*}
+0491|*H2 {
+S   |1
+0492|*  font-family: Arial, Verdana, sans-serif;
+0493|*  font-size:large;
+S   |1
+0494|*  margin: 0.9em 0 0.3em 0;
+0495|*  padding: 0;
+S   |1
+0496|*  color: #006991;
+S   |1
+0497|*  background: transparent none;
+S   |1
+0498|*  text-transform: uppercase;
+0499|*}
+S   |1
+0500|*H3 {
+0501|*  font-family: Arial, Verdana, sans-serif;
+0502|*  font-size: medium;
+0503|*  margin: 0.9em 0 0.3em 0;
+0504|*  padding: 0;
+0505|*  color: #666666;
+0506|*  background: transparent none;
+0507|*}
+0508|*H4 {
+0509|*  font-family: Arial, Verdana, sans-serif;
+0510|*  font-size: medium;
+0511|*  margin: 0.6em 0 0 0;
+0512|*  padding: 0;
+0513|*  color: #006991;
+0514|*  background: transparent none;
+0515|*  border-bottom: solid;
+0516|*}
+0517|*.header {
+0518|*  margin-left: 0.3em
+0519|*  font-family: Arial, Verdana, sans-serif;
+0520|*  position:absolute;
+0521|*  top: 0;
+0522|*  left: 0;
+0523|*  height: 100px;
+0524|*  display: block;
+0525|*  color: #006991;
+0526|*  border-bottom: solid;
+0527|*  vertical-align: bottom;
+0528|*  width: 100%;
+0529|*}
+0530|*.header a {
+0531|*  font-family: Arial, Verdana, sans-serif;
+0532|*  margin: 0;
+0533|*  padding: 0;
+0534|*  display: block;
+0535|*  color: #006991;
+0536|*}
+0537|*.header:first-child {
+0538|*  border-left: none;
+0539|*}
+0540|*.header ul {
+0541|*  margin: 0;
+0542|*  color: #FFFFFF;
+0543|*  list-style: none;
+0544|*}
+0545|*.logo {
+0546|*  position: absolute;
+0547|*  width: 160px;
+0548|*  margin: 0 1em 0 0.3em;
+0549|*}
+0550|*.menu {
+0551|*  padding: 0.6em  0 0 0;
+0552|*  position: absolute;
+0553|*  left: 160px;
+0554|*  float: left;
+0555|*}
+0556|*.menu a {
+0557|*  margin: 0;
+0558|*  padding: 0;
+0559|*  display: block;
+0560|*  float: left;
+0561|*  width: 150px;
+0562|*  border-left: solid;
+0563|*}
+0564|*.menu ul {
+0565|*  margin: 0;
+0566|*  padding: 0;
+0567|*  color: #FFFFFF;
+0568|*  list-style: none;
+0569|*  border: none;
+0570|*}
+0571|*.sidebar {
+0572|*  margin: 0 1em 0 0.3em;
+0573|*  padding: 0;
+0574|*  font-size: small;
+0575|*  width: 160px;
+0576|*  position: absolute;
+0577|*  left: 0;
+0578|*  top: 100px;
+0579|*}
+0580|*.sidebar ul ul {
+0581|*/*font-family: "Lucida Console", Monaco, monospace;*/
+0582|*  margin-left: -20px;
+0583|*  list-style-type: disc;
+0584|*  color: #666666;
+0585|*}
+0586|*.content {
+0587|*  margin: 0.3em;
+0588|*  overflow:auto;
+0589|*}
+0590|*.list-unstyled {
+0591|*  margin: 0;
+0592|*  padding: 0;
+0593|*  list-style:none;
+0594|*}
+0595|*form {
+0596|*  width:10%
+0597|*  margin:50px auto;
+0598|*}
+0599|*.search {
+0600|*  position: absolute;
+0601|*  left: 160px;
+0602|*  top: 50px;
+0603|*/*border:0px solid #dbdbdb;*/
+0604|*}
+0605|*.button {
+0606|*  position:relative;
+0607|*  padding:6px 15px;
+0608|*  left:-8px;
+0609|*  border:2px solid #207cca;
+0610|*  background-color:#207cca;
+0611|*  color:#fafafa;
+0612|*}
+0613|*.button:hover  {
+0614|*  background-color:#fafafa;
+0615|*  color:#207cca;
+0616|*}
+0617|*td {
+0618|*  vertical-align: top;
+0619|*}
+0620|*@media screen and ( max-width: 640px) {
+0621|*  .menu {
+0622|*     display: none;
+0623|*  }
+0624|*}
+0626|*REPLACE "ul.ml-navigation-bar-3",".menu",C / LINES=CUR+1,E
+0627|*/*Menu*/
+0628|*menu {
+0629|*  margin: 40px auto;
+0630|*  width: 960px;
+0631|*  display: block;
+0632|*  height: 50px;
+0633|*  background-color: #f1f1f1;
+0634|*  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.25), inset 0 0 3px rgba(255,255,255,.8);
+0635|*  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.25), inset 0 0 3px rgba(255,255,255,.8);
+0636|*  box-shadow: 0 1px 2px rgba(0,0,0,.25), inset 0 0 3px rgba(255,255,255,.8);
+0637|*  background-image: -webkit-linear-gradient(bottom, #e5e5e5, #fff);
+0638|*  background-image: -moz-linear-gradient(bottom, #e5e5e5, #fff);
+0639|*  background-image: -o-linear-gradient(bottom, #e5e5e5, #fff);
+0640|*  background-image: -ms-linear-gradient(bottom, #e5e5e5, #fff);
+0641|*  background-image: linear-gradient(to top, #e5e5e5, #fff);
+0642|*}
+0644|*/*Dropdowns*/
+0645|*.menu ul{display:none;}
+0646|*.menu li:hover>ul{display:block}
+0647|*.menu ul{position: absolute;left:0px;top:98%;}
+0648|*.menu ul ul{position: absolute;left:98%;top:-20px;}
+0649|*.menu ul {
+0650|*  background-color: #ffffff;
+0651|*  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.25), inset 0 0 3px rgba(255,255,255,.8);
+0652|*  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.25), inset 0 0 3px rgba(255,255,255,.8);
+0653|*  box-shadow: 0 1px 2px rgba(0,0,0,.25), inset 0 0 3px rgba(255,255,255,.8);
+0654|*  z-index: 5000;
+0655|*}
+0657|*/*List Items*/
+0658|*.menu li{
+0659|*  display:block;
+0660|*  margin: 0px;
+0661|*  float:left;
+0662|*  border-right: 1px solid #ccc;
+0663|*  -webkit-box-shadow: 1px 0px 0px rgba(255,255,255,.75);
+0664|*  -moz-box-shadow: 1px 0px 0px rgba(255,255,255,.75);
+0665|*  box-shadow: 1px 0px 0px rgba(255,255,255,.75);
+0666|*}
+0668|*.menu li.active {
+0669|*  border: none;
+0670|*}
+0672|*.menu ul li {
+0673|*  float:none;
+0674|*  margin: 5px 0;
+0675|*}
+0677|*/* Regular Links*/
+0678|*.menu a:active, .menu a:focus {
+0679|*  outline-style:none;
+0680|*}
+0682|*.menu a {
+0683|*  height: 50px;
+0684|*  display: block;
+0685|*  line-height: 50px;
+0686|*  background: none;
+0687|*  text-shadow: 0 1px 0 rgba(255,255,255,.50);
+0688|*  padding: 0px 15px;
+0689|*  text-decoration: none;
+0690|*  color: #858585;
+0691|*  margin: 0px;
+0692|*  font-weight: bold;
+0693|*  font-size: 14px;
+0694|*  text-transform: uppercase;
+0695|*}
+0697|*/*Multi-level Links*/
+0699|*.menu ul a {
+0700|*  margin: 0px;
+0701|*  height: 40px;
+0702|*  line-height: 40px;
+0703|*}
+0705|*.menu span{
+0706|*  overflow:hidden;
+0707|*}
+0709|*.menu ul a {
+0710|*  text-align:left;
+0711|*  white-space:nowrap;
+0712|*}
+0714|*.menu li:hover{
+0715|*  position:relative;
+0716|*}
+0718|*/*Active State*/
+0719|*.menu li.active a, .menu li.active:hover a {
+0720|*  padding: 0 22px;
+0721|*  background-color: #51a0e2;
+0722|*  background-image: -webkit-linear-gradient(bottom, #4592dc, #60aae5);
+0723|*  background-image: -moz-linear-gradient(bottom, #4592dc, #60aae5);
+0724|*  background-image: -o-linear-gradient(bottom, #4592dc, #60aae5);
+0725|*  background-image: -ms-linear-gradient(bottom, #4592dc, #60aae5);
+0726|*  background-image: linear-gradient(to top, #4592dc, #60aae5);
+0727|*  color: #fff;
+0728|*  text-shadow: none;
+0729|*}
+0731|*/*Hover State*/
+0732|*.menu li:hover>a{
+0733|*  color: #fff;
+0734|*  text-shadow: none;
+0735|*  background-color: #666;
+0736|*  text-decoration:none;
+0737|*}
+0739|*.menu li a:hover{
+0740|*  position:relative;
+0741|*}
+0743|*/*Arrow Images*/
+0744|*.menu span{
+0745|*  display:block;
+0746|*  background-image:url(./arrow-1.png);
+0747|*  background-position:right center;
+0748|*  background-repeat: no-repeat;
+0749|*  padding-right:18px;
+0750|*}
+0751|*.menu li:hover>a>span{
+0752|*  background-image:url(./arrow-1a.png);
+0753|*}
+0755|*.menu a:hover span{ background-image:url(./arrow-1a.png)}
+0756|*.menu ul span,.menu a:hover table span{ background-image:url(./arrow-2.png)}
+0757|*.menu ul li:hover > a span{ background-image:url(./arrow-2a.png);}
+0758|*.menu table a:hover span,.menu table a:hover a:hover span,.menu table a:hover a:hover a:hover span{background-image:url(./arrow-1.png)}
+0759|*.menu table a:hover table span,.menu table a:hover a:hover table span{background-image:url(./arrow-1.png)}
+0761|*/*Search Field*/
+0762|*.menu .search-field {
+0763|*  float: right;
+0764|*  width: 250px;
+0765|*  padding: 0px;
+0766|*  margin: 8px;
+0767|*  height: 34px;
+0768|*  background-color: #fff;
+0769|*  -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.5);
+0770|*  -moz-box-shadow: inset 0 0 3px rgba(0,0,0,.5);
+0771|*  box-shadow:  inset 0 0 3px rgba(0,0,0,.5);
+0772|*}
+0774|*.menu .search-field input[type=text] {
+0775|*  background: none;
+0776|*  border: none;
+0777|*  text-decoration: none;
+0778|*  color: #bababa;
+0779|*  font-weight: normal;
+0780|*  font-size: 14px;
+0781|*  width: 184px;
+0782|*  height: 24px;
+0783|*  padding: 6px 5px 5px 12px;
+0784|*}
+0786|*.menu .search-field input[type=text]:focus {
+0787|*  outline: none;
+0788|*}
+0790|*.menu .search-button {
+0791|*  float: left;
+0792|*  margin:  8px 0px 4px 8px;
+0793|*}
+0798|E
+0800|fDEF frame,f+1,F
+0801|- include HTML40.DEV
+0802|- include Q.DV2
+0803|- [DIVCLASS(header)][DIVCLASS(logo)]
+0804|- [IMAGE(http://www.survo.fi/SURVO-logo-2013.png)]
+0805|- [/IMAGE]
+0806|*Help System
+S   | jjjjjjjjjjj
+0807|- [/DIV][DIVCLASS(menu)]
+0808|- [LIST(list-unstyled)]
+0809|- [LINK(#)]
+0810|- [IMAGE(http://www.survo.fi/SURVO-logo-2013.png)]
+0811|- [/IMAGE][/LINK]
+0812|- [LINK(#)]
+0813|LHOME
+S   |    |
+0814|- [LINK(#)]
+0815|LCOMMANDS
+S   |        |
+0816|- [LINK(#)]
+0817|LMANUALS
+S   |       |
+0818|- [/DIV][/LIST][DIVCLASS(search)][FORM][INPUT(search_text,text)]
+0819|*placeholder="Search..."
+0820|- [/INPUT][INPUT(search_button,button)]
+0821|*value=Seach
+0822|- [/INPUT][/FORM]
+0823|- [/DIV][/DIV][DIVCLASS(content)]
+0824|F
+0826|PPRINT CUR+2,CUR+4 TO file_save.html
+0827|P/OPEN file_save.html
+0828|- include NULL.DEV
+0829|- chapter frame IN Survo-hlpv4
+0830|- chapter file_save IN FILE_SAVE

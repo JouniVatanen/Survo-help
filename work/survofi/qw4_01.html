@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">A sample mean may be compared to a known theoretical constant by the
+usual t test, e.g.
+      ANOVA IEADATA,30
+      DEPENDENT=KNOWLDGE
+      METHOD=TONESMPL(s)   CONSTANT=50
+The default value for the constant is 0. Confidence interval for
+the mean of the dependent variable is obtained if the desired
+siginificance level is given as the option, e.g. METHOD=TONESMPL(0.05).
+
+The equality of the means of two dependent variables may be tested
+by the paired t test (2 dependent samples), e.g.
+
+      DEPENDENT=KNOWLDGE,APPLICAT
+      METHOD=TPAIRED(S)
+
+where option S will cause the printout of the p-values corresponding to
+the test statistics. If there are more than two variables then tests
+are performed for all pairs of variables.
+
+The t test for two dependent samples is a special caser of one-sample
+repeated measurements, where each of the n subjects are measured at p
+treatment levels. Usually, the independence of the errors at the p
+levels of the same subject cannot be assumed. The p treatment levels
+(mutually dependent var.) are given by the DEPENDENT parameter, e. g.
+       DEPENDENT=KNOWLDGE,APPLICAT,MENTALPR,COMPREHN
+The overall test that the means of the four variables are equal, is
+performed automatically because there are more than two variables.
+
+  <A HREF="qw4_03.html">G = Analysis of repeated mesurements when you have both</A> 
+      between and within subjects factors
+  <A HREF="qw3_03.html">M = Multivariate analysis of (co)variance</A> 
+  <A HREF="qw1_01.html">A = More information on ANOVA operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

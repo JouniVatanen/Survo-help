@@ -1,0 +1,383 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q09
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+TEXTE? þ PRINT CUR+1,E TO q09_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*The editor of Survo provides several means for word processing.
+0013|*When typing text in the edit field the typewriter keys operate as in a
+0014|*standard typewriter.
+0015|*In text editing various control keys have their natural functions.
+0016|*For example, characters and lines are inserted and deleted by simple key
+0017|- shadow %: [LINK(q02_01.html)] [/LINK]
+0018|*strokes. The cursor is moved by the arrow keys. (See KEYS)
+S   |                                                      %%%%
+0019|- shadow a: [LINK(q09_02.html)]
+0020|*  1 = Clearing the edit field (CLEAR,SCRATCH,DELETE,ERASE)
+S   |   a                                                      |
+0021|- shadow a: [LINK(q05_13.html)]
+0022|S  2 = Searching and replacing (FIND,REPLACE,VFIND)
+S   |   a                                         88888|
+0023|- shadow a: [LINK(q09_03.html)]
+0024|*  3 = Formatting (TRIM,FORM,PUTEND)
+S   |   a                               |
+0025|- shadow a: [LINK(q09_04.html)]
+0026|S  4 = Moving parts of the edit field||(MOVE,COPY,INSERT,CHANGE,UPDATE,TEXTCOLS
+S   |   a                                                                   8888888|
+0027|- shadow a: [LINK(q08_01.html)]
+0028|S  5 = Printing (PRINT)              || REVERSE)
+S   |   a                                    8888888|
+0029|- shadow a: [LINK(q09_05.html)]
+0030|*  6 = Loading edit files and text files to the edit field (LOAD,LOADP,SHOW)
+S   |   a                                                                       |
+0031|- shadow a: [LINK(q09_06.html)]
+0032|*  7 = Saving the edit field in an edit file (SAVE) in a text file (SAVEP)
+S   |   a                                                                     |
+0033|- shadow a: [LINK(q0c_06.html)]
+0034|*  8 = Code conversion (CONVERT)
+S   |   a                           |
+0035|- shadow a: [LINK(q03_01.html)]
+0036|*  C = Control operations
+S   |   a                    |
+0037|- shadow a: [LINK(q01_08.html)]
+0038|*  H = Hypertext applications
+S   |   a                        |
+0039|- shadow a: [LINK(q09_09.html)]
+0040|*  T = Text file processing
+S   |   a                      |
+0041|- shadow a: [LINK(q08_12.html)]
+0042|*  F = Character fonts
+S   |   a                 |
+0043|- shadow a: [LINK(q09_12.html)]
+0044|*  L = Lukunopeuden ja luettavuuden mittaaminen (LUE) (in Finnish)
+S   |   a                                                             |
+0045|- shadow a: [LINK(q01_02.html)]
+0046|*  E = More information on EDITOR
+S   |   a                            |
+0047|E
+0050|*(LIST?)
+0051|*  8 = Text management in several edit files (LIST operations)
+0053|+aa? þ PRINT CUR+1,E TO q09_02.html
+0054|- include HTML40.DEV
+0055|- include Q.DV2
+0056|- [HelpText]
+0057|*Clearing the edit field:
+0058|- shadow a: [LINK(q05_01.html)]
+0059|*  1 = CLEAR
+S   |   a       |
+0060|- shadow a: [LINK(q05_02.html)]
+0061|*  2 = SCRATCH
+S   |   a         |
+0062|- shadow a: [LINK(q05_09.html)]
+0063|*  3 = DELETE
+S   |   a        |
+0064|- shadow a: [LINK(q0b_06.html)]
+0065|*  4 = ERASE
+S   |   a       |
+0066|E
+0068|+cc? þ PRINT CUR+1,E TO q09_03.html
+0069|- include HTML40.DEV
+0070|- include Q.DV2
+0071|- [HelpText]
+0072|*Formatting:
+0073|- shadow a: [LINK(q06_01.html)]
+0074|*  1 = TRIM commands for adjustment of text lines
+S   |   a                                            |
+0075|- shadow a: [LINK(q05_11.html)]
+0076|*  2 = FORM command for formatting of tables
+S   |   a                                       |
+0077|- shadow a: [LINK(q05_12.html)]
+0078|*  3 = PUTEND command for inserting a constant string at the end of lines
+S   |   a                                                                    |
+0079|E
+0081|+dd? þ PRINT CUR+1,E TO q09_04.html
+0082|- include HTML40.DEV
+0083|- include Q.DV2
+0084|- [HelpText]
+0085|*Moving parts of the edit field:
+0086|- shadow a: [LINK(q0b_02.html)]
+0087|*  0 = SORT
+S   |   a      |
+0088|- shadow a: [LINK(q0b_04.html)]
+0089|*  1 = MOVE
+S   |   a      |
+0090|- shadow a: [LINK(q02_17.html)]
+0091|*  2 = BLOCK (alt-F4)key
+S   |   a                   |
+0092|- shadow a: [LINK(q05_03.html)]
+0093|*  3 = COPY
+S   |   a      |
+0094|- shadow a: [LINK(q05_07.html)]
+0095|*  4 = INSERT
+S   |   a        |
+0096|- shadow a: [LINK(q0b_03.html)]
+0097|*  5 = CHANGE
+S   |   a        |
+0098|- shadow a: [LINK(q09_07.html)]
+0099|*  6 = UPDATE
+S   |   a        |
+0100|- shadow a: [LINK(q09_11.html)]
+0101|*  7 = TEXTCOLS
+S   |   a          |
+0102|- shadow a: [New][LINK(q0b_05.html)]
+0103|d  8 = REVERSE
+S   |   a         ;
+0105|E
+0107|+ff? þ PRINT CUR+1,E TO q09_05.html
+0108|- include HTML40.DEV
+0109|- include Q.DV2
+0110|- [HelpText]
+0111|*Loading edit files and text files to the edit field:
+0112|- shadow a: [LINK(q04_02.html)]
+0113|*  1 = LOAD
+S   |   a      |
+0114|- shadow a: [LINK(q04_06.html)]
+0115|*  2 = SHOW
+S   |   a      |
+0116|- shadow a: [LINK(q04_09.html)]
+0117|*  3 = LOADP
+S   |   a       |
+0118|E
+0120|+gg? þ PRINT CUR+1,E TO q09_06.html
+0121|- include HTML40.DEV
+0122|- include Q.DV2
+0123|- [HelpText]
+0124|*Saving the edit field:
+0125|- shadow a: [LINK(q04_01.html)]
+0126|*  1 = SAVE
+S   |   a      |
+0127|- shadow a: [LINK(q04_08.html)]
+0128|*  2 = SAVEP
+S   |   a       |
+0129|E
+0132|+UPDATE? þ PRINT CUR+1,E TO q09_07.html
+0133|- include HTML40.DEV
+0134|- include Q.DV2
+0135|- [HelpText]
+0136|#UPDATE L1,L2,<key_width>,<edit_file>
+S   |              <         > <         >
+0137|*replaces lines in a given <edit_file> by lines L1-L2 given in the
+S   |                           <         >
+0138|*current edit field. The proper lines to be replaced are matched by
+0139|*<key_width> first characters on each line. The order of the lines
+S   | <         >
+0140|*in <edit_file> can be different from that in the current edit field.
+S   |    <         >
+0142|*A typical example of UPDATE is in the edit field <Survo>\U\SYS\CURRENCY.EDT .
+S   |                                                  <     >
+0143|*There the UPDATE scheme will replace lines in file <Survo>\U\SYS\MEASURES.EDT
+S   |                                                    <     >
+0144|*by updated values of international money exchange rates.
+0146|- shadow a: [LINK(q09_01.html)]
+0147|*  T = More information on text editing
+S   |   a                                  |
+0148|E
+0150|+OIO? þ PRINT CUR+1,E TO q09_08.html
+0151|- include HTML40.DEV
+0152|- include Q.DV2
+0153|- [HelpText]
+0154|#OIO
+0155|*(Finnish Spelling Checker)
+0156|*(vain SURVO 84C:ss„)
+0157|*Pelkk„ OIO ilman parametereja oikolukee komentorivin alla olevan
+0158|*tekstin toimituskent„n loppuun asti.
+0159|*Oikoluvun aikana kuvaruudussa n„kyy ty”n eteneminen riveitt„in.
+0160|*Virheellisten ja tuntemattomien sanojen kohdalla toiminta keskeytyy.
+0161|*K„ytt„j„ voi t„ll”in korjata sanan. Sana voidaan my”s ohittaa
+0162|*ENTER-napilla tai tallettaa napilla + k„ytt„j„n omien sanojen luetteloon,
+0163|*joka on tekstitedosto SANAT.TXT hakemistossa .\SYS .
+0165|*OIO-komennon toiminta perustuu Kimmo Koskenniemen (Helsingin yliopisto)
+0166|*laatimaan algoritmiin ja C-kieliseen ohjelmaan, johon on lis„tty
+0167|*Survolle ominainen k„ytt„j„liit„nt„ ja uusien sanojen hakemiston
+0168|*hallinta. Koskenniemen ohjelman nykyinen sanavarasto on noin 7000
+0169|*perusmuotoista sanaa ja ohjelma tunnistaa niiden kaikki taivutusmuodot.
+0171|- shadow a: [LINK(q09_01.html)]
+0172|*  T = More information on text editing
+S   |   a                                  |
+0173|E
+0175|+TXTFILE? þ PRINT CUR+1,E TO q09_09.html
+0176|- include HTML40.DEV
+0177|- include Q.DV2
+0178|- [HelpText]
+0179|*Text file processing in Survo:
+0181|- shadow a: [LINK(q04_06.html)]
+0182|*  1 = Browsing and loading parts of text files (SHOW)
+S   |   a                                                 |
+0183|- shadow a: [LINK(q04_08.html)]
+0184|*  2 = Saving edit lines as a text file (SAVEP)
+S   |   a                                          |
+0185|- shadow a: [LINK(q04_09.html)]
+0186|*  3 = Loading text files into the edit field (LOADP)
+S   |   a                                                |
+0187|- shadow a: [LINK(qf6_01.html)]
+0188|*  4 = Saving text files in Survo data files (FILE SAVE)
+S   |   a                                                   |
+0189|- shadow a: [LINK(qf7_01.html)]
+0190|*  5 = Loading Survo data files into text files (FILE LOAD <data> TO <text>)
+S   |   a                                                       <    >    <    >|
+0191|- shadow a: [LINK(qk1_01.html)]
+0192|*  6 = LIST operations
+S   |   a                 |
+0193|- shadow a: [LINK(q09_10.html)]
+0194|*  7 = TXT operations for text files
+S   |   a                               |
+0195|- shadow a: [LINK(qkv3_07.html)]
+0196|*  8 = Searching for data tables in text files (DATAFIND by K.Vehkalahti)
+S   |   a                                                                    |
+0197|- shadow a: [New][LINK(q09_13.html)]
+0198|d  9 = Transposing a data set in a text file (TRANSPOSE)
+S   |   a                                                   ;
+0200|- shadow a: [LINK(q09_01.html)]
+0201|*  T = More information on text editing
+S   |   a                                  |
+0203|E
+0205|+TXT? þ PRINT CUR+1,E TO q09_10.html
+0206|- include HTML40.DEV
+0207|- include Q.DV2
+0208|- [HelpText]
+0209|*TXT operations for text files
+0211|- shadow a: [LINK(qf5_07.html)]
+0212|*  1 = TXTCONV  for character and string conversions
+S   |   a                                               |
+0213|- shadow a: [LINK(qf5_10.html)]
+0214|*  2 = TXTRIM   for adjusting the line length of a text file
+S   |   a                                                       |
+0215|- shadow a: [LINK(qf5_11.html)]
+0216|*  3 = TXTCOUNT for counting frequencies of various characters/line
+S   |   a                                                              |
+0217|- shadow a: [LINK(qf5_12.html)]
+0218|*  4 = TXTEDTOUT for saving an edit field with shadows etc. in a text file
+S   |   a                                                                     |
+0219|- shadow a: [LINK(qf5_13.html)]
+0220|*  5 = TXTEDTIN  for loading an edit field saved by TXTEDTOUT
+S   |   a                                                        |
+0221|- shadow a: [New][LINK(qf5_14.html)]
+0222|d  6 = TXTDEL   for deleting lines between two lines given in the edit field
+S   |   a                                                                       ;
+0223|- shadow a: [New][LINK(qf5_15.html)]
+0224|d  7 = TXTSHORT for shortening long fields
+S   |   a                                     ;
+0226|- shadow a: [LINK(q09_01.html)]
+0227|*  T = More information on text editing
+S   |   a                                  |
+0229|E
+0231|+TEXTCOLS? þ PRINT CUR+1,E TO q09_11.html
+0232|- include HTML40.DEV
+0233|- include Q.DV2
+0234|- [HelpText]
+0235|#TEXTCOLS L1,L2,<W>,<L>,<C>,<text>
+S   |                < > < > < > <    >
+0236|*transforms a text column on lines L1-L2 and having the width <W>
+S   |                                                              < >
+0237|*to text blocks each of them having <C> columns and <L> lines.
+S   |                                    < >             < >
+0238|*Optional <text> is inserted as an extra line between the blocks.
+S   |          <    >
+0239|*Example on the next page:
+0241|*TEXTCOLS CUR+1,CUR+16,5,4,3,/_New_page
+0242|*1111
+0243|*1111
+0244|*1111
+0245|*1111
+0246|S2222
+S   | 7777
+0247|*2222
+0248|*2222
+0249|*2222
+0250|*3333
+0251|S3333
+S   | 8888
+0252|*3333
+0253|*3333
+0254|*4444
+0255|*4444
+0256|*4444
+0257|*4444
+0258|*This line and lines below it remain intact.
+0260|- shadow a: [LINK(q09_01.html)]
+0261|*  T = More information on text editing
+S   |   a                                  |
+0262|E
+0264|+LUE? þ PRINT CUR+1,E TO q09_12.html
+0265|- include HTML40.DEV
+0266|- include Q.DV2
+0267|- [HelpText]
+0269|* LUE-komennolla voidaan mitata tekstin („„neen) lukemiseen tarvittava aika
+0270|* ja laskea tekstin luettavuutta kuvaava indeksi.
+0272|* Tutkittava teksti on joko toimituskent„ss„ LUE-komennon alapuolella
+0273|* tai erillisess„ tekstitiedostossa.
+0274|* Tekstin ollessa toimituskent„ss„ komento on pelkk„ LUE
+0275|* ja tekstitiedoston tapauksessa LUE <tiedoston_nimi> .
+S   |                                     <              >
+0277|* Tulokset n„ytet„„n tekstin l„pik„ynnin j„lkeen v„liaikaisesti ruudussa
+0278|* ja lukuaika tulee my”s komentoriville.
+0279|* Lis„ksi tulokset menev„t tulostiedostoon.
+0281|* Jos tulokset halutaan saada toimituskentt„„n, annetaan
+0282|* viimeisen„ parametrina ensimm„inen tulostusrivi,
+0283|* siis esim. LUE LUENTO1.TXT,11
+0286|* TEKSTIN LUKUAIKA:
+0287|* LUE:n antama arvio tekstin lukemiseen tarvittavasta lukuajasta
+0288|* perustuu S.Mustosen laatimaan dynaamiseen regressiomalliin.
+0289|* Mallissa lukuaika arvioidaan tekstiss„ esiintyvien lauseiden,
+0290|* sanojen ja tavujen lukum„„rien avulla.
+0292|* Arvioinnin voi sopeuttaa oman lukunopeuden mukaisesti antamalla
+0293|* t„smennyksen MITTAUS=<lukijan_nimi> (Huom. nimess„ ei v„lily”ntej„).
+S   |                       <            >
+0294|* T„ll”in kuvaputkelle saadaan lukemista koskevat ohjeet
+0295|* ja ohjelma mittaa todellisen lukunopeuden yhden tai muutaman
+0296|* lauseen eriss„ kunnes k„ytt„j„ (lukija) keskeytt„„ mittauksen
+0297|* napilla ESC.
+0299|* Mittauksen aikana kuvaputken alaosassa n„ytet„„n paitsi odotettu lukuaika
+0300|* ja havaittu lukuaika, my”s regressiomallin senhetkiset kertoimet.
+0301|* N„m„ kertoimet muuttuvat l„ht”arvoistaan v„hitellen nykyisen lukijan
+0302|* lukutapaa vastaaviksi.
+0303|* Kertoimien pit„isi j„rkeviss„ tilanteissa olla positiivisia.
+0304|* Negatiivisia kertoimia voi esiinty„, jos lukija ei pysty k„ytt„ytym„„n
+0305|* johdonmukaisesti vaan vaihtaa lukunopeutta tai -tyyli„.
+0307|* Mittauksen j„lkeen saadaan koko tekstin lukuaika uuden lukutavan mukaisesti.
+0308|* Uuden lukijan tiedot tallentuvat automaattisesti aputiedostoon
+0309|* <Survo>\U\SYS\LUKIJAT.TXT ja muiden tekstien lukemiseen tarvittava aika
+S   |  <     >
+0310|* voidaan t„m„n j„lkeen mitata niiden mukaisesti k„ytt„m„ll„
+0311|* t„smennyst„ LUKIJA=<lukijan_nimi> .
+S   |                     <            >
+0313|* Lukunopeuden mittauksessa virkkeitt„in tai virkepareittain ker„tyt tiedot
+0314|* saa my”s talletetuksi tekstitiedostoon antamalla t„smennyksen
+0315|* MITTADATA=<tiedoston_nimi> . Muuntamalla t„m„ tiedosto Survon havainto-
+S   |            <              >
+0316|* tiedostoksi on mahdollista j„lkeenp„in tutkia tarkemmin lukunopeuden
+0317|* riippuvuutta mitatuista tekstin ominaisuuksista.
+0319|* TEKSTIN LUETTAVUUS:
+0320|* LUE:n antama luettavuusarvio perustuu O.A.Wiion tutkimuksiin.
+0321|* Tekstin teoreettista vaikeusastetta mitataan vertaamalla sit„
+0322|* 300 lehtiartikkelin kielen tilastollisiin ominaisuuksiin.
+0323|* Lehtityypit ovat: lastenlehdet, sanomalehdet ja tiedelehdet.
+0324|* Tuloksena saatava vaikeusindeksi vaihtelee tyypillisesti
+0325|* nollasta sataan. Se lasketaan lineaarisen regressiomallin
+0326|* antamana ennusteena.
+0328|- shadow a: [LINK(q09_01.html)]
+0329|* T = Tietoja tekstink„sittelyst„
+S   |  a                             |
+0331|E
+0333|+TRANSPOSE? þ PRINT CUR+1,E TO q09_13.html
+0334|- include HTML40.DEV
+0335|- include Q.DV2
+0336|- [HelpText]
+0337|#TRANSPOSE <text_file>,<new_text_file>
+S   |           <         > <             >
+0338|*transposes a text file of m 'columns' and n lines into
+0339|*a new text file with n 'columns' and m lines.
+0340|*It thus interchages 'rows' and 'columns'.
+0341|*The separators between 'columns' in <text_file> and <new_text_file>,
+S   |                                     <         >     <             >
+0342|*respectively are given by the specification
+0343|*DELIMITER=char1,char2
+0344|*By default char1=char2=TAB (char(9)).
+0345|*Examples: DELIMITER=TAB,SP  (SP=space) is the same as
+0346|*          DELIMITER=char(9),char(32)
+0348|- shadow a: [LINK(q09_01.html)]
+0349|*  T = More information on text editing
+S   |   a                                  |
+0350|E

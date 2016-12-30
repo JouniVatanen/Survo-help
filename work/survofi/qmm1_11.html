@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">DISTV &lt;data&gt;,&lt;matrix_file&gt; 
+computes a distance or (dis)similarity matrix of active variables (!)
+for active observations.
+There is another Survo module DIST for a distance matrix of active
+observations.
+
+The results are saved in &lt;matrix_file&gt; with default extension .MAT .
+
+&lt;matrix file&gt; can be used as an input in /CSCAL and LSCAL operations,
+for example. In this case the matrix must consist of dissimilarities.
+
+The (dis)similarity measure used is selected by a MEASURE specification
+with following alternatives (see T.C.Cox &amp; M.A.A.Cox: Multidimensional
+Scaling, Chapman &amp; Hall p.10):
+
+EUCLIDEAN
+CITY_BLOCK
+MINKOWSKI(k)   (k&gt;0)
+CORRELATION    (1 - correlation)
+BINARY         (various measures for binary variables; see next page)
+
+Three first letters are sufficient like MEASURE=MIN(2) which is the
+same as MEASURE=EUC . Also MEASURE=MIN(1) is the same as MEASURE=CITY .
+
+The variables can be standardized by SCALING=YES .
+The observations are weighted by activating a weight variable by `W'.
+
+In case MEASURE=BINARY various user-defined (dis)similarity measures
+for binary variables are used.
+By default each active variable is converted to a binary one by mapping
+values X&lt;=0 to 0 and values X&gt;0 to 1.
+This convention is overridden by giving a specification BINARY=C
+Then values X&lt;=C are mapped to 0 and values X&gt;C to 1.
+An optional parameter R in BINARY=C,R exchanges the values 0 and 1.
+Both of the above conventions can be overridden individually in any
+variable, say Z, by entering a specification Z=C or Z=C,R with
+the same interpretation as in the BINARY specification.
+
+The actual (dis)similarity coefficient for binary variables is entered
+as a specification COEFF=&lt;function of a,b,c,d&gt; where a,b,c,d are the
+frequencies in a 2x2 table
+   X/Y 1      0
+   1   a      b
+   0   c      d
+for each pair X,Y of variables.
+For example, COEFF=1-(a+d)/(a+b+c+d)  gives a dissimilarity measure
+which is the complement of a simple matching coefficient (default).
+
+ <A HREF="qmm1_02.html">1 = More information on additional multivariate operations</A> 
+ <A HREF="qmr2_01.html">M = More information on multivariate analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

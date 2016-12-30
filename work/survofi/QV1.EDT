@@ -1,0 +1,232 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QV1
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+VAR? þ PRINT CUR+1,E TO qv1_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*Transformation of variables in Survo data sets:
+0014|*VAR operation:
+0015|- shadow a: [LINK(qv1_02.html)]
+0016|*  1 = Simple transformations (type 1)
+S   |   a                                 |
+0017|- shadow a: [LINK(qv1_03.html)]
+0018|*  2 = Composite transformations (type 2)
+S   |   a                                    |
+0019|- shadow a: [LINK(qv2_02.html)]
+0020|*  3 = Lags and leads in transformations
+S   |   a                                   |
+0021|- shadow a: [LINK(qv3_01.html)]
+0022|*  4 = Generating random variates
+S   |   a                            |
+0023|- shadow a: [LINK(qv3_03.html)]
+0024|*  5 = Special transformations (#RANK,#NORMAL,#STD,etc.)
+S   |   a                                                   |
+0025|- shadow a: [LINK(qv1_04.html)]
+0026|S  6 = Using additional data sets (or matrices) in the VAR operation
+S   |   a                              8888888888888                    |
+0027|- shadow a: [LINK(qv2_04.html)]
+0028|*  7 = Transformation of string variables
+S   |   a                                    |
+0029|*Other operations:
+0030|- shadow a: [New][LINK(qv2_05.html)]
+0031|d  V = VARSTAT operation
+S   |   a                   ;
+0032|- shadow a: [LINK(qv3_04.html)]
+0033|*  T = Same transformation for many variables simultaneously (TRANSFORM)
+S   |   a                                                                   |
+0034|- shadow a: [LINK(qv4_02.html)]
+0035|*  C = Classified variables (CLASSIFY)
+S   |   a                                 |
+0036|- shadow a: [LINK(qv4_01.html)]
+0037|*  L = Linear combinations of variables (LINCO)
+S   |   a                                          |
+0038|- shadow a: [LINK(qv5_01.html)]
+0039|*  S = Smoothing of data (SMOOTH)
+S   |   a                            |
+0040|- shadow a: [LINK(qt1_02.html)]
+0041|*  M = Moving averages, cumulative sums, etc. (SER)
+S   |   a                                              |
+0042|- shadow a: [New][LINK(qv5_02.html)]
+0043|d  P = Products of powers (POWERS)
+S   |   a                             ;
+0044|- shadow a: [LINK(qf6_13.html)]
+0045|*  F = Code conversions of string fields in data files (FILE CONVERT)
+S   |   a                                                                |
+0046|- shadow a: [LINK(qf1_01.html)]
+0047|*  D = More information on data management
+S   |   a                                     |
+0049|E
+0052|+VAR1? þ PRINT CUR+1,E TO qv1_02.html
+0053|- include HTML40.DEV
+0054|- include Q.DV2
+0055|- [HelpText]
+0056|#VAR <variable>=<expression> TO <data in data file>
+S   |     <        > <          >    <                 >
+0057|*is an operation setting values for a numeric <variable> in <data file>
+S   |                                              <        >    <         >
+0058|*as a function of other variables according to <expression>.
+S   |                                               <          >
+0059|*<variable> may be defined earlier (by FILE CREATE or FILE UPDATE) or it
+S   | <        >
+0060|*may be a new one. In case of a new variable, its type may be given in the
+0061|*form <variable>:<type>=<expression> where <type> is 1,2,4 or 8.
+S   |      <        > <    > <          >       <    >
+0062|*<variable>:4 is default.
+S   | <        >
+0063|*Also <variable>:S<len>=<expression> is permitted for new string variables.
+S   |      <        >  <   > <          >
+0064|*<expression> may be any function of variables in <data> and written
+S   | <          >                                     <    >
+0065|- shadow %: [LINK(qm1_03.html)] [/LINK]
+0066|*according to the rules of editorial computing (see ARIT?).
+S   |                                                    %%%%
+0067|*Examples:
+0068|*VAR Sum=Test1+2*Test2 TO DATA1
+0069|*VAR Lincome=log(Income) TO ECON
+0070|*VAR Number:2=ORDER TO FILE_A   / 'Number' will be a two-byte variable
+0071|*In the last example ORDER is a predefined variable whose value is the
+0072|*number (1,2,...) of the current observation. Likewise predefined
+0073|*variables N=number of observations, MISSING (missing value) and
+0074|*RND=random value in (0,1) can be used in <expression>.
+S   |                                          <          >
+0076|- shadow a: [LINK(qv1_01.html)]
+0077|*  V = More information on VAR operation
+S   |   a                                   |
+0078|E
+0081|+VAR2? þ PRINT CUR+1,E TO qv1_03.html
+0082|- include HTML40.DEV
+0083|- include Q.DV2
+0084|- [HelpText]
+0085|#VAR <list of variables> TO <data>
+S   |     <                 >    <    >
+0086|*with transformation statements written in the same edit field and
+0087|*defining values for the variables in the list specifies
+0088|*simultaneously several transformations and definitions of variables
+0089|*as functions of other ones.
+0090|*If a variable in the <list of variables> does not exist, it will be
+S   |                      <                 >
+0091|*automatically created provided that there is enough space in <data>.
+S   |                                                              <    >
+0093|*Example:  (Data RECTANGLS includes variables 'Width' and 'Height')
+0094|*VAR Area,Diagonal TO RECTANGLS
+0095|*Area=Width*Height
+0096|*Diagonal=sqrt(Width^2+Height^2)
+0098|*Conditional statements may appear as follows:
+0100|*VAR Ageclass:1 TO SAMPLE_3 / 'Ageclass' will be a new one-byte variable
+0101|*    Ageclass=if(Age<26)then(1)else(A2)
+S   |                    <
+0102|*          A2=if(Age<=60)then(2)else(3)
+S   |                    <
+0104|*To avoid confusions, it is advisable to protect all those variables
+0105|*whose values must not be altered.
+0107|- shadow a: [LINK(qv1_01.html)]
+0108|*  V = More information on VAR operation
+S   |   a                                   |
+0109|E
+0112|+VARD? þ PRINT CUR+1,E TO qv1_04.html
+0113|- include HTML40.DEV
+0114|- include Q.DV2
+0115|- [HelpText]
+0116|*Fields from other Survo data sets can be used as input information
+0117|*in VAR transformations. Other data sets to be employed in VAR must be
+0118|*given as a specification
+0119|*   INDATA=<data_1>,<data_2>,...
+S   |           <      > <      >
+0120|*where <data_1>,<data_2>,... are Survo data sets of any type. Number of
+S   |       <      > <      >
+0121|*them is limited to 12.
+0123|*A field in <data_i> is denoted by Di:<fieldname>, i=1,2,...
+S   |            <      >                  <         >
+0124|*Also lags and leads can be indicated in brackets [].
+0125|*Example:
+0126|*VAR Change=Price-D1:Price TO DAT87  / INDATA=DAT86
+0127|*computes 'Change' to data DAT87 as a difference of 'Price' in DAT87
+0128|*and DAT86.
+0130|- shadow a: [New][LINK(qv1_05.html)]
+0131|d  M = Matrix files in VAR operation
+S   |   a                               ;
+0132|- shadow a: [LINK(qv1_01.html)]
+0133|*  V = More information on VAR operation
+S   |   a                                   |
+0134|E
+0137|+VARMAT? þ PRINT CUR+1,E TO qv1_05.html
+0138|- include HTML40.DEV
+0139|- include Q.DV2
+0140|- [HelpText]
+0141|*Matrix files in VAR operation
+0143|*Either constants or data values saved as vectors or matrices in
+0144|*matrix files (with extension .MAT) can be referred to in the VAR
+0145|*operation. This is done by MAT_A(i,j) functions giving the value
+0146|*of the element on the i'th row and j'th column of a matrix A
+0147|*saved as A.MAT before the VAR operation is activated.
+0148|*Name `A' can be replaced by any other of max. 8 characters.
+0149|*In one VAR operation 20 different matrices can be used simultaneously
+0150|*in this way. Each matrix is loaded in the memory when it is called
+0151|*for the first time by any of the MAT_ functions.
+0152|*If the matrix consists of one column or row, a MAT_ function can
+0153|*be written with only one argument as MAT_A(i).
+0155|*Example 1: Sampling with replacement
+0156|*Assume that we have a `population' of 10000 observations
+0157|*described by 3 variables X1,X2,X3 in a Survo data file DATA3
+0158|*and we want to have a sample with replacement of 500 observations
+0159|*as a new data file SAMPLE3.
+0161|*MAT SAVE DATA DATA3 TO D3  / Saving data to a matrix file D3
+0162|*................................................................................
+0163|*FILE CREATE SAMPLE3,12,3    / Creating a new file for the sample
+0164|*FIELDS:
+0165|*1 N 4 X1
+0166|*2 N 4 X2
+0167|*3 N 4 X3
+0168|*END
+0169|*FILE INIT SAMPLE3,500       / 500 missing observations
+0170|*................................................................................
+0171|*VAR X1,X2,X3 TO SAMPLE3    / Making the sample
+0172|*i=int(10000*rand(1998))+1  / Random integer 1,2,...,10000
+0173|*X1=MAT_D3(i,1) X2=MAT_D3(i,2) X3=MAT_D3(i,3)
+0175|*Another example on the next pages!
+0177|*Example 2:
+0178|*Variable S is defined as a function of x as a sum
+0179|*  S=a1*exp(-b1*x)+a2*exp(-b2*x)+...+a20*exp(-b20*x)
+0180|*where a's and b's are constants and x a variable in a Survo data D.
+0181|*Assume that constants a1,...,a20 are saved in a matrix file A and
+0182|*constants b1,...,b20 in matrix file B.
+0183|*................................................................................
+0184|*Then S will be computed by
+0185|*VAR S=for(i=1)to(20)sum(a(i)*exp(-b(i)*x)) TO D
+0186|*a(i):=MAT_A(i)
+0187|*b(i):=MAT_B(i) .
+0188|*Definition of temporary functions a() and b() enables writing the formula
+0189|*in a more readable form.
+0190|*Numerical example on the next page!
+0191|*................................................................................
+0192|*An alternative:
+0193|*If a's and b's are the two (first) coulumns in a matrix C,
+0194|*the temporary functions a() and b() would be expressed as
+0195|*a(i):=MAT_C(i,1) b(i):=MAT_C(i,2) .
+0196|*................................................................................
+0198|*Numerical example (with coefficients selected at random):
+0199|[
+0200| *MAT A=ZER(20,1)
+0201| *MAT B=ZER(20,1)
+0202| *MAT #TRANSFORM A BY 10*rand(1998)   / a's uniform in (0,10)
+0203| *MAT #TRANSFORM B BY rand(1999)      / b's uniform  in (0,1)
+0204| *a(i):=MAT_A(i) b(i):=MAT_B(i)
+0205| *VAR S=for(i=1)to(20)sum(a(i)*exp(-b(i)*x)) TO D
+0206| *
+0207| *DATA D,A,A+5,A-1,A-2
+0208| * 11  11.11111
+0209| *  x     S
+0210| A  1  46.76749
+0211| *  2  29.58383
+0212| *  3  20.09316
+0213| *  4  14.53685
+0214| *  5  11.09308
+0215| *  6   8.84248
+0216| *
+0217| *
+0218|- shadow a: [LINK(qv1_01.html)]
+0219|]  V = More information on VAR operation
+S   |   a                                   |
+0220|E

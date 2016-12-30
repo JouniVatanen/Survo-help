@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">ROTATE &lt;factor_matrix&gt;,&lt;number_of_factors&gt;,L
+with an optional ROTATION specification makes an orthogonal or oblique
+factor rotation.
+The following results are obtained as matrix files:
+  AFACT.M Rotated factor matrix A
+  TFACT.M Rotation matrix T
+  RFACT.M Factor correlation matrix R
+
+If RESULTS&lt;=70, only A will be written to the edit field (from line L).
+Otherwise, also T and R are printed to the edit field.
+
+In case of an orthogonal rotation, A=F*T (F=&lt;factor matrix&gt;) and in
+an oblique rotation A=F*INV(T').
+Optionally, an initial rotation matrix can be given by T=&lt;matrix_file&gt;.
+Thus results of automatic rotations can be used as starting points
+for a more subjective graphical solution.
+
+  <A HREF="qmr3_08.html">1 = More information about ROTATE</A> 
+
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

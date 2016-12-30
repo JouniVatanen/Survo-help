@@ -1,0 +1,497 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q0C
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+CODES? þ PRINT CUR+1,E TO q0c_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*Bytewise operations for (binary) files
+0014|- shadow a: [LINK(q0c_02.html)]
+0015|*  1 = CODES LOAD
+S   |   a            |
+0016|- shadow a: [LINK(q0c_03.html)]
+0017|*  2 = CODES SAVE
+S   |   a            |
+0018|- shadow a: [New][LINK(q0c_04.html)]
+0019|d  3 = CODES REMOVE
+S   |   a              ;
+0020|- shadow a: [New][LINK(q0c_05.html)]
+0021|d  4 = CODES COPY
+S   |   a            ;
+0023|- shadow a: [LINK(q03_01.html)]
+0024|*  C = More information on control operations
+S   |   a                                        |
+0026|E
+0028|+CLOAD? þ PRINT CUR+1,E TO q0c_02.html
+0029|- include HTML40.DEV
+0030|- include Q.DV2
+0031|- [HelpText]
+0032|#CODES LOAD <binary_file>  / BYTES=<N>
+S   |            <           >          < >
+0033|*loads <N> first characters of <binary_file> to the edit field
+S   |       < >                     <           >
+0034|*and lists them on consecutive lines below the current line.
+0035|*Default value for <N> is BYTES=256.
+S   |                   < >
+0036|*The list of the characters has the following form:
+0037|*CODES LOAD SORTCODE.BIN_
+0038|*     0     0
+0039|*     1     1
+0040|*     2     2
+0041|*     3     3
+0042|*    ..    ..    .  .
+0043|*    97    65    a  A
+0044|*    98    66    b  B
+0045|*    99    67    c  C
+0046|*    ..    ..    .  .
+0047|*where the second column gives the decimal code of the corresponding
+0048|*character in the file. (For example, in SORTCODE.BIN, which is used
+0049|*in alphabetic sorting, 97 is mapped to 65 (i.e. 'a' is like 'A').
+0050|*Columns 3 and 4 are for explanations only.
+0052|- shadow a: [LINK(q0c_01.html)]
+0053|*  C = More information on CODES operations
+S   |   a                                      |
+0054|E
+0056|+CSAVE? þ PRINT CUR+1,E TO q0c_03.html
+0057|- include HTML40.DEV
+0058|- include Q.DV2
+0059|- [HelpText]
+0060|#CODES SAVE <binary_file>
+S   |            <           >
+0061|*saves a list of codes (of the previous type) to a file.
+0063|*Sort, conversion and input/output operations of Survo use binary
+0064|*files of this type for character manipulation.
+0065|- shadow %: [LINK(q0b_02.html)] [/LINK]
+0066|*See SORT, CONVERT, PRINT etc.
+S   |     %%%%
+0067|*Files of more than <N> bytes can be edited by CODES LOAD/SAVE
+S   |                    < >
+0068|*operations of the form
+0069|*CODES <LOAD or SAVE>,n
+S   |       <            >
+0070|*where n is the record number 1,2,3,... for records of size <N>.
+S   |                                                            < >
+0071|*For example CODES LOAD PITCH.BIN,1 is same as CODES LOAD PITCH.BIN
+0073|*When editing large binary files with CODES LOAD/SAVE commands
+0074|*finding a particular string of characters is simplified by
+0075|*using the VFIND command.
+0077|- shadow a: [LINK(q0c_01.html)]
+0078|*  C = More information on CODES operations
+S   |   a                                      |
+0079|E
+0081|+CREMOVE? þ PRINT CUR+1,E TO q0c_04.html
+0082|- include HTML40.DEV
+0083|- include Q.DV2
+0084|- [HelpText]
+0085|*CODES REMOVE <input_file>,<output_file>,C1,C2
+S   |              <          > <           >
+0086|*makes a copy of <input_file> to <output_file> so that bytes from C1
+S   |                 <          >    <           >
+0087|*to C2 are removed. For example, CODES REMOVE K1.TXT,K2.TXT,0,127
+0088|*produces K2.TXT as a copy of K1.TXT but without the 128 first bytes
+0089|*of K1.TXT.
+0090|*CODES LOAD can be used for inspecting <input_file> and for the
+S   |                                       <          >
+0091|*decision about what are the bytes to be removed.
+0093|*CODES REMOVE <input_file>,<output_file>,STEP,<integer>
+S   |              <          > <           >      <       >
+0094|*removes every <integer> byte.
+S   |               <       >
+0095|*For example, CODES REMOVE K1.TXT,K2.TXT,STEP,2 removes bytes 1,3,5,...
+0097|- shadow a: [LINK(q0c_01.html)]
+0098|*  C = More information on CODES operations
+S   |   a                                      |
+0099|E
+0101|+CCOPY? þ PRINT CUR+1,E TO q0c_05.html
+0102|- include HTML40.DEV
+0103|- include Q.DV2
+0104|- [HelpText]
+0105|*CODES COPY <input_file>,<output_file>,C1,C2
+S   |            <          > <           >
+0106|*makes a partial copy of <input_file> from bytes C1 to C2.
+S   |                         <          >
+0108|- shadow a: [LINK(q0c_01.html)]
+0109|*  C = More information on CODES operations
+S   |   a                                      |
+0110|E
+0112|+CONVERT? þ PRINT CUR+1,E TO q0c_06.html
+0113|- include HTML40.DEV
+0114|- include Q.DV2
+0115|- [HelpText]
+0116|#CONVERT L1,L2,<conversion_file>,<column>
+S   |               <               > <      >
+0117|*converts all the characters on lines L1-L2 in the current edit field
+0118|*according to the <column> (1,2,...) of <conversion_file>.
+S   |                  <      >              <               >
+0119|*Default value for <column> is 1. Each column consists of 256 bytes.
+S   |                   <      >
+0120|*A <conversion_file> can be defined by the user and saved by the
+S   |   <               >
+0121|- shadow %: [LINK(q0c_01.html)] [/LINK]
+0122|*CODES SAVE operation (see CODES).
+S   |                           %%%%%
+0124|- shadow a: [LINK(q09_01.html)]
+0125|*  T = More information on text editing
+S   |   a                                  |
+0126|E
+0128|+COLX? þ PRINT CUR+1,E TO q0c_07.html
+0129|- include HTML40.DEV
+0130|- include Q.DV2
+0131|- [HelpText]
+0132|#COLX
+0133|*COLX performs various modifications in the edit field.
+0134|*COLX col1,col2 exchanges columns col1 and col2 for the
+0135|*lines below the command (COLX) line.
+0136|*Default is col1=0, col2=last column; i.e. the control
+0137|*column and the last column are exchanged.
+0139|*COLX Ri,Cj (where i and j are integers)
+0140|*modifies the visible part of the edit field in such a way
+0141|*that i lines and j columns are displayed. Typically
+0142|*i<=23 and j<=80.
+S   |  <         <
+0144|*COLX Scol1,col2 copies characters in column col2 to
+0145|*shadow characters of column col1.
+0147|*COLX Li,col,j copies characters of line i to characters
+0148|*in column col starting from line j.
+0150|*Changing and hiding shadow effects (colors) in the edit field
+0152|*COLX s<shadow_code>,<new_code>
+S   |       <           > <        >
+0153|*displays characters with <shadow_code> with another shadow code <new_code>.
+S   |                          <           >                          <        >
+0154|*The codes are given in decimal form, i.e. shadow `1' (red) is code 49
+0155|*obtained by conversion 1(ascii:10)=49 .
+0156|*For example, COLX s49,32 (red->blank) hides effects of shadows `1'.
+S   |                               >
+0158|*COLX s,<BIN_file>
+S   |        <        >
+0159|*converts all shadow codes according to a 256 byte binary file.
+0160|*Default path for the file is <Survo>\U\SYS and extension is .BIN .
+S   |                              <     >
+0161|*Binary files are maintained by CODES SAVE and CODES LOAD commands.
+0162|*For example, COLX s,SHADKILL hides all shadow effects, i.e. maps
+0163|*all shadow codes to blank (32).
+0164|*COLX s
+0165|*restores original setting.
+0167|- [New]
+0168|*COLX w
+0169|- [/New]
+0170|*displays the current size of the main window in the form
+0171|*COLX w 30 80 (window size)
+0172|- shadow %: [LINK(q03_17.html)] [/LINK]
+0173|*where 30 is # of lines and 80 is # of columns. (See also RESIZE?).
+S   |                                                          %%%%%%
+0175|*COLX W<integer>
+S   |       <       >
+0176|*gives the coefficient for waiting times in sucros. Default is COLX W10.
+0177|*In tutorials (sucros) this coefficient can be changed temporarily by
+0178|*'+' and '-' keys. '+' decreases and '-' increases its value.
+0180|*COLX APU <word>=<value>
+S   |          <    > <     >
+0181|*sets a new line <word>=<value> in the SURVO.APU file. If the <word>
+S   |                 <    > <     >                               <    >
+0182|*line already exists, it's value is replaced by the new one.
+0183|*COLX APUDEL <word>
+S   |             <    >
+0184|*deletes the <word>=<value> line from SURVO.APU.
+S   |             <    > <     >
+0185|*After COLX APU and COLX APUDEL the new contents of SURVO.APU is valid
+0186|*when Survo is started again or a SETUP SURVO.APU command is given.
+0187|- [New]
+0188|*Alternatively, SYS is the same as COLX APU and SYSDEL is the same
+0189|*as COLX APUDEL.
+0190|- [/New]
+0192|- shadow a: [LINK(q03_01.html)]
+0193|*  C = More information on control operations
+S   |   a                                        |
+0194|E
+0196|+STRDIST? þ PRINT CUR+1,E TO q0c_08.html
+0197|- include HTML40.DEV
+0198|- include Q.DV2
+0199|- [HelpText]
+0200|#STRDIST L1,L2
+0201|*computes Levenshtein distance
+0202|*between strings given on edit lines L1,L2.
+0203|- shadow W: [LINK(http://www.merriampark.com/ld.htm)] [/LINK]
+0204|*See e.g. www.merriampark.com/ld.htm
+S   |          WWWWWWWWWWWWWWWWWWWWWWWWWW
+0206|*Levenshtein (edit) distance is a measure of the similarity between two
+0207|*strings s and t. The distance is the number of deletions, insertions, or
+0208|*substitutions required to transform s into t.
+0209|*Levenshtein distance is named after the Russian scientist Vladimir
+0210|*Levenshtein, who devised the algorithm in 1965.
+0212|*The Levenshtein distance algorithm has been used in
+0213|*Spell checking, Speech recognition, DNA analysis, Plagiarism detection,
+0214|*etc.
+0216|*In Survo, Levenshtein distance is used for detecting typos in command and
+0217|- shadow %: [LINK(q01_13.html)] [/LINK]
+0218|*specification words (see ERROR?) and in heuristic searches by
+S   |                          %%%%%
+0219|- shadow %: [LINK(q05_19.html)] [/LINK]
+0220|*the FIND command (see HFIND?).
+S   |                       %%%%%
+0221|*The standard measure is slightly modified by permitting an interchange of
+0222|*two consecutive characters as one of the edit operations.
+0224|*Example:
+0225|*STRDIST CUR+1,CUR+2 / Levenshtein distance is 2 (1)
+0226|*HEIGHTS
+0227|*HEIGTHS
+0229|*Thus the original distance is 2 (2 substitutions) and the modified
+0230|*one is 1 (1 interchange).
+0231|E
+0233|+WIN? þ PRINT CUR+1,E TO q0c_09.html
+0234|- include HTML40.DEV
+0235|- include Q.DV2
+0236|- [HelpText]
+0237|*SURVO MM Commands for window management:
+0239|*WIN SCREEN
+0240|*writes the size of the screen in pixels on the next edit line.
+0241|*WIN MIN
+0242|*minimizes the SURVO MM main window (useful in graphical sucro applications).
+0243|*WIN NORMAL
+0244|*restores the normal size of the main window.
+0245|*WIN MAX
+0246|*maximizes the SURVO MM main window.
+0247|*WIN POS x,y
+0248|*moves the top-left corner of the SURVO MM main window to position (x,y).
+0250|*/WINMAX resizes the main window to its maximum size using the current font.
+0251|*        It does the job by combining various WIN commands on this and
+0252|*        following page. (/WINMAX is made by Kimmo Vehkalahti.)
+0253|*/LMAX works as /WINMAX but increases only the number of visible lines.
+0255|*SURVO MM Commands for window management: (continued)
+0257|*WIN FONT GET
+0258|*writes the width and height of the SURVO MM main window font.
+0259|*WIN GET
+0260|*writes the position and size of the SURVO MM main window.
+0261|- [New]
+0262|*WINDOW <font_size>,<x>,<y>
+S   |        <         > < > < >
+0263|*selects a new font size and position for the main Survo window
+0264|- [/New]
+0265|- shadow %: [LINK(q0c_18.html)] [/LINK]
+0266|*(see also LNKFILE?).
+S   |           %%%%%%%
+0267|*FONT <font_size>
+S   |      <         >
+0268|*selects a new font for the SURVO MM main window.
+0270|- shadow a: [LINK(q0b_30.html)]
+0271|*  S = System parameters for Survo windows and fonts
+S   |   a                                               |
+0272|- shadow a: [LINK(q111_02.html)]
+0273|*  G = Control of Survo graphics windows
+S   |   a                                   |
+0274|- shadow a: [LINK(q03_01.html)]
+0275|*  C = More on control commands
+S   |   a                          |
+0277|E
+0280|+MOUSE? þ PRINT CUR+1,E TO q0c_10.html
+0281|- include HTML40.DEV
+0282|- include Q.DV2
+0283|- [HelpText]
+0284|*Using the mouse in SURVO MM:
+0286|*SURVO MM can be operated without a mouse just as earlier versions of Survo.
+0287|*In certain tasks, however, the mouse offers alternative means.
+0289|- shadow a: [LINK(q0c_11.html)]
+0290|*  1 = Moving the cursor and activating commands
+S   |   a                                           |
+0291|- shadow a: [LINK(q0c_12.html)]
+0292|*  2 = Help system
+S   |   a             |
+0293|- shadow a: [LINK(q0c_13.html)]
+0294|*  3 = Screen graphics
+S   |   a                 |
+0295|- shadow a: [LINK(q0c_14.html)]
+0296|*  4 = Soft buttons of SURVO MM
+S   |   a                          |
+0297|- shadow a: [New][LINK(q0c_17.html)]
+0298|d  5 = Defining blocks, copying them in the edit field and to the clipboard
+S   |   a                                                                      ;
+0299|- shadow a: [New][LINK(q0c_16.html)]
+0300|d  6 = Vertical and horizontal scrolling by the mouse wheel
+S   |   a                                                      ;
+0302|- shadow a: [LINK(q02_01.html)]
+0303|*  K = Keys and their functions
+S   |   a                          |
+0305|E
+0308|+M1? þ PRINT CUR+1,E TO q0c_11.html
+0309|- include HTML40.DEV
+0310|- include Q.DV2
+0311|- [HelpText]
+0312|*Mouse: Moving the cursor and activating commands:
+0314|*Traditionally in Survo the cursor is moved in the edit field window
+0315|*by the arrow keys, etc. and commands touched by the cursor are activated
+0316|*by the ESC key,
+0317|*In SURVO MM it is usually faster to move the cursor by the mouse by
+0318|*clicking the sought position. A double-click (by the left button)
+0319|*activates a Survo command if such a one is indicated by the mouse.
+0321|*A double-click by the right button starts the help system of Survo
+0322|*and information will be shown about the keyword indicated by the
+0323|*mouse. Please note that, in principle, any word in the edit field
+0324|*is a potential link to the help system.
+0326|- shadow a: [LINK(q0c_10.html)]
+0327|*  M = More information on the mouse
+S   |   a                               |
+0328|E
+0330|+M2? þ PRINT CUR+1,E TO q0c_12.html
+0331|- include HTML40.DEV
+0332|- include Q.DV2
+0333|- [HelpText]
+0334|*Mouse: Help system
+0336|*Navigation in the help window of SURVO MM is easiest by clicking
+0337|*keywords and items in the lists by the mouse.
+0338|*This facility is available if the system parameter help_window is
+0339|*set to 1 in SURVO.APU which is the default setting.
+0341|*The top line of the help window contains the mouse buttons
+0342|S|Prev| |Next| |Load| |Exit|
+S   | 777777777777777777777777777777777777777777777777777777777777777777777777
+0343|*for moving backwards in the help text |Prev|,
+0344|*for moving onwards in the help text |Next|,
+0345|*for loading the text in the current help window to the edit field |Load|,
+0346|*for exit from the help system |Exit|.
+0348|*The help window can be left open and any words within the text can
+0349|*be used as links to subsequent inquiries by clicking them.
+0350|*In the lists consisting of  lines of the type
+0351|- shadow a: [LINK(q11_01.html)]
+0352|*  P = More information on plotting
+S   |   a                              |
+0353|*clicking any position in front of '=' activates the same inquiry as
+0354|*pressing the key in front of '=' ('P' in this case).
+0356|- shadow a: [LINK(q0c_10.html)]
+0357|*  M = More information on the mouse
+S   |   a                               |
+0358|E
+0360|+M3? þ PRINT CUR+1,E TO q0c_13.html
+0361|- include HTML40.DEV
+0362|- include Q.DV2
+0363|- [HelpText]
+0364|*Mouse: Screen graphics
+0366|- shadow %: [LINK(q111_02.html)] [/LINK]
+0367|*Each graphics window created by GPLOT (see GPLOT?), represents an
+S   |                                            %%%%%
+0368|*enhanced metafile and such a window can be easily minimized, maximized,
+0369|*moved, and resized by typical means of Windows by the mouse.
+0370|- shadow %: [LINK(q113_09.html)] [/LINK]
+0371|*By using a MOUSE specification (see MOUSE2?) in GPLOT schemes also
+S   |                                     %%%%%%
+0372|*logical coordinates of the point in the graph clicked by the mouse may
+0373|*be saved in a text file. This a valuable feature, for example, in making
+0374|*sucros which are operating solely with graphic windows (while the edit field
+0375|- shadow %: [LINK(q0c_09.html)] [/LINK]
+0376|*window is minimized). (See also WIN?).
+S   |                                 %%%
+0378|- shadow a: [LINK(q113_09.html)]
+0379|*  G = Obtaining logical coordinates of a point in a graph
+S   |   a                                                     |
+0380|- shadow a: [LINK(q0c_10.html)]
+0381|*  M = More information on the mouse
+S   |   a                               |
+0382|E
+0385|*  M = More information on the mouse
+0386|%M=MOUSE
+0388|+M4? þ PRINT CUR+1,E TO q0c_14.html
+0389|- include HTML40.DEV
+0390|- include Q.DV2
+0391|- [HelpText]
+0392|*Mouse: Soft buttons of SURVO MM
+0394|*Below the edit field window, usually one or more lines of soft buttons
+0395|*are displayed. By toucing them by the mouse the function of the soft
+0396|*button is question is shown on the bottom line as plain text.
+0397|*Soft buttons can be activeted by the mouse (by a single or double
+0398|*click depending on the task of the button).
+0399|*Such activations lead typically to various operation sequences of
+0400|*Survo (made as sucros) or to new set of soft buttons (enabling
+0401|*hierachical menus, for example).
+0402|*Sets of soft buttons are defined in special edit fields as a typical
+0403|*Survo application for any purposes. In this way active users can create
+0404|*more user-friendly, mouse-controlled solutions for themselves and/or
+0405|*other users.
+0407|- shadow a: [LINK(q0b_29.html)]
+0408|*  S = SOFTKEYS command for mastering soft buttons
+S   |   a                                             |
+0409|- shadow a: [LINK(q0c_10.html)]
+0410|*  M = More information on the mouse
+S   |   a                               |
+0411|E
+0413|+MM? þ PRINT CUR+1,E TO q0c_15.html
+0414|- include HTML40.DEV
+0415|- include Q.DV2
+0416|- [HelpText]
+0418|- shadow a: [LINK(q0c_10.html)]
+0419|*  M = More information on the mouse
+S   |   a                               |
+0420|E
+0422|+WHEEL? þ PRINT CUR+1,E TO q0c_16.html
+0423|- include HTML40.DEV
+0424|- include Q.DV2
+0425|- [HelpText]
+0426|- [New]
+0427|*Vertical and horizontal scrolling by the mouse wheel (ver. 3.33+)
+0428|- [/New]
+0429|*The contents of the edit field can be scrolled by the scroll wheel.
+0430|*The direction (|=vertical or _=horizontal) is changed by pressing
+0431|*the SHIFT key and the current direction is shown (by | or _)
+0432|*after text "SURVO MM" on the header line of the current edit field.
+0434|*A reasonably fast scrolling speed is achieved by continuous rolling
+0435|*of the wheel.
+0437|*Alternative, traditional means in Survo for scrolling are
+0438|*arrow keys, alt+arrow keys, PgDn, PgUp.
+0440|- shadow a: [LINK(q0c_10.html)]
+0441|*  M = More information on the mouse
+S   |   a                               |
+0442|E
+0444|+MOUSE6? þ PRINT CUR+1,E TO q0c_17.html
+0445|- include HTML40.DEV
+0446|- include Q.DV2
+0447|- [HelpText]
+0448|*The traditional way of defining text blocks and copying them has been
+0449|- shadow %: [LINK(q02_17.html)] [/LINK]
+0450|*provided by the alt-F4 (BLOCK) key (see AF4?).
+S   |                                         %%%
+0452|*The same tasks can be carried out by the rightmost mouse button (RMB).
+0453|*Simply start definition of a block by clicking its upper-left corner
+0454|*by RMB. Then click the opposite corner (lower-right) by RMB.
+0455|*Thereafter the block area will be seen as painted.
+0457|*To put the block to the clipboard, click any point inside the block by RMB
+0458|*or
+0459|*to make copies of the block in the current edit field, point a new
+0460|*(empty) place by the mouse and click by RMB.
+0462|*This procedure may be interrupted at any stage by the DEL key or
+0463|*by clicking the prompt line (below the last visible edit line).
+0465|*Another option for the rightmost mouse button is
+0466|- shadow a: [New][LINK(q05_25.html)]
+0467|d  C = Copying single 'words' by mouse buttons
+S   |   a                                         ;
+0469|- shadow a: [LINK(q0c_10.html)]
+0470|*  M = More information on the mouse
+S   |   a                               |
+0471|E
+0475|+LNKFILE? þ PRINT CUR+1,E TO q0c_18.html
+0476|- include HTML40.DEV
+0477|- include Q.DV2
+0478|- [HelpText]
+0479|*Survo is normally started from a shortcut icon "SURVO MM" (or
+0480|*"Survo Editor") located on the desktop.
+0481|*Each shortcut is controlled by Windows using a corresponding LNK file.
+0482|*In Windows XP (and obviously also in NT and 2000) the properties
+0483|*of the Survo main window (i.e. font size and location) are changed
+0484|*most conveniently by the WINDOW command (for the current session)
+0485|*or by "SYS window=..." command (for a permanent change).
+0486|*These commands do not change the original LNK file.
+0488|*However, if same properties are edited by clicking the Survo icon
+0489|*(and selecting properties), the LNK file will be updated by Windows
+0490|*and this leads to a situation where the above Survo commands have
+0491|*no effect.
+0493|*It means that Windows has also created a subkey
+0494|*HKEY_CURRENT_USER\Console\<path>S
+S   |                           <    >
+0495|*where <path> is the path of Survo on the disk.
+S   |       <    >
+0496|*Then the problem is resolved by deleting this key from the registry
+0497|*by the REGEDIT program, for example.
+0498|*Warning! Be careful when editing the Windows registry since improper
+0499|*         actions may lead to harmful consequences.
+0501|- shadow a: [LINK(q0c_09.html)]
+0502|* 1 = WIN commands
+S   |  a              |
+0504|E
+0505|*$E

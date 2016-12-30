@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">DCLUSTER &lt;data&gt;,&lt;distance_matrix&gt;,L
+performs cluster analysis by different methods.
+By default it is done by means of `medoids'.
+This technique is presented by Kaufman and Rousseeuw in 1987.
+See their book `Finding Groups in Data' (Wiley 1990).
+It seems to be more robust than the standard k-means method.
+
+The computations in DCLUSTER are based entirely on a ready-computed
+&lt;distance_matrix&gt; (obtained in Survo by the DIST operation, for
+example) from Survo &lt;data&gt;.
+The number of clusters is given by specification GROUPS.
+Default is GROUPS=2. The group indices 1,2,... are saved in &lt;data&gt; 
+as a variable given by mask `G' and the (optional) `silhouette'
+as values of variable with mask `S'.
+The greatest possible number N of observations depends on the size of
+the central memory of the computer (NxN distance matrix has to be
+present). For example, in a 64MB memory N is about 2500.
+However, to large data (say, more than 1000 observations) the medoid
+method can be applied by taking random samples. This technique is
+supplied by the /CLARA sucro.
+
+DCLUSTER &lt;data&gt;,&lt;distance_matrix&gt;,L
+with specification METHOD=3 makes cluster analysis
+by the single linkage (nearest neighbour) method.
+The setup is otherwise similar as described above.
+To avoid certain weaknesses of this method like
+the chaining effect the distance between two groups
+of sizes n1 and n2 is multiplied by
+1+weight*[log2(min(n1,n2)+1)-1]  (suggestion of S.M. 1998)
+by using the specification WEIGHT=weight. Default is WEIGHT=0
+(i.e. standard single linkage) but WEIGHT=1 is recommended.
+
+In METHOD=3 an initial grouping 1,2,... (obtained by methoids)
+can be given by (another) grouping variable given by
+INIT=&lt;name_of_variable&gt;.
+In practice, when the expected number of cluster is, say, 2 or 3
+one may start by creating the medoid solution with, say, 10 groups
+and then the final solution is found by METHOD=3 with WEIGHT=1
+on the basis of this preliminary 10 group solution.
+  <A HREF="qmr1_03.html">C = More information on cluster analysis</A> 
+  <A HREF="qmr2_01.html">M = More information on multivariate analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

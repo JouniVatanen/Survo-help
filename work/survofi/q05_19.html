@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">FIND &lt;word&gt;~
+finds a word that best resembles the given word. (Example: FIND Survo~)
+The search is started from the edit line below the current line.
+Exact matches are not recognized since those are found by FIND &lt;word&gt; 
+(without a tilde '~' after the word).
+The best word is found by scanning all the words (separated by blanks)
+and selecting the one having the smallest Levenshtein (edit) distance
+to the given word.
+After the search the cursor is pointing at the best word. The search
+henceforth may be continued by pressing the 'N' key. It is interrupted
+by ENTER. At any stage the value of Levenshtein distance is
+displayed in the form d=&lt;distance&gt;. If d exceeds the length of &lt;word&gt;,
+the original starting position of the FIND command is resumed.
+FIND &lt;word&gt;~~
+works similarly but comparison of words is case-insensitive.
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

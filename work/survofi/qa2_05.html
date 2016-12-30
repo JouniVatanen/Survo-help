@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">COMPARE &lt;Sample&gt;,#NORMAL,L
+displays some basic statistics and performs the following tests for
+normality:
+    Shapiro-Wilk (for sample sizes N&lt;=50)  (Conover p.363)
+    D'Agostino   (50&lt;=N&lt;=500)
+    Anderson-Darling
+
+From version 3.30 the old D'Agostino test has been replaced by
+a more powerful D'Agostino-Pearson omnibus test.
+The results are given in the form
+D'Agostino-Pearson K^2=##.##### P=#.#### (#.### #.###)
+where K^2 is the test statistics with an approximate Chi^2 distribution
+with 2 degrees of freedom and P its p value. The numbers in brackets
+are normal approximations for tests based for skewness and kurtosis,
+respectively (K^2 is the sum of their squares), giving more information
+about kind of departure from normal distribution.
+Source:
+D'Agostino &amp; al. "A Suggestion for Using Powerful and Informative Tests
+of Normality", The American Statistician, Vol 44, No. 4, pp. 316-321
+  <A HREF="qa2_01.html#TEST">T = More information about COMPARE</A> 
+  <A HREF="qmm1_13.html">M = Tests for multivariate normality</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

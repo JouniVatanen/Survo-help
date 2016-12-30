@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText"><B>Dates in the edit field</B> 
+
+DATE
+without parameters gives the date and time in the form
+DATE / Wednesday January 24 1996 22:48:22 Week=04 Day=024
+on the current (DATE) line.
+
+DATE &lt;date&gt; 
+gives the specified date in the same form. The &lt;date&gt; must be given
+in the format DD.MM.YYYY or DD.MM.YY.
+
+DATE &lt;date-fragment&gt; 
+gives the date, filling in the missing parts from the present date.
+
+DATE &lt;+/-&gt; 
+gives the date incremented/decreased by the given number of days.
+
+The above forms may be combined, for example
+DATE 1.1.2000-1 / Friday December 31 1999 12:37:24 Week=52 Day=365
+
+
+<B>Dates in the edit field (continued)</B> 
+
+DATE &lt;date2&gt; - &lt;date1&gt; 
+displays the difference of two given dates in the form
+DATE 29.02.2000 - 1.12.1999 / Difference=90
+
+DATE &lt;date&gt;,Julian
+gives the Julian day number of the given date in the form
+DATE 16.11.1858,Julian / Tue Nov 16 1858 Julian_day=2400000
+
+If the given parameter is not recognized as a date or a date fragment,
+it will be taken as a name of a Survo data set. (See the options for
+data sets.)
+
+  <A HREF="qkv2_02.html">D = More information on DATE operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

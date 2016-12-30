@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<HEAD>
+<META charset="utf-8">
+<META http-equiv="X-UA-Compatible" content="IE=edge">
+<META name="viewport" content="width=device-width, initial-scale=1"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<TITLE>Stat statistics | Help system | Survo R</TITLE> 
+<!-- Bootstrap -->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!-- [if lt IE 9]>
+<SCRIPT> SRC="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></SCRIPT>
+<SCRIPT> SRC="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></SCRIPT>
+<![endif]-->
+<!-- Custom styles for this template -->
+<LINK REL="stylesheet" HREF="css/bootstrap.min.css" TYPE="text/css">
+
+<LINK REL="stylesheet" HREF="css/main.css" TYPE="text/css">
+
+<META  NAME="description" content="">
+<link rel="author" href="humans.txt">
+<SCRIPT>
+(function() {
+var cx = '010896179039517952376:nay7kuxzphw';
+var gcse = document.createElement('script');
+gcse.type = 'text/javascript';
+gcse.async = true;
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(gcse, s);
+})();
+</SCRIPT>
+</HEAD>
+<BODY>
+<NAV CLASS="navbar navbar-default navbar-fixed-top"
+><DIV CLASS="container"><DIV CLASS="row"><DIV CLASS="col-sm-9"><DIV CLASS="navbar-header"><BUTTON TYPE="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
+><SPAN CLASS="sr-only">Toggle navigation
+</SPAN><SPAN CLASS="icon-bar"></SPAN><SPAN CLASS="icon-bar"></SPAN><SPAN CLASS="icon-bar"></SPAN></BUTTON><A class="navbar-brand" href="index.html" rel="home" title="Survo help system"
+><IMG SRC="img/survo-logo-small.png" ></A></DIV><DIV CLASS="navbar-collapse collapse" id="navbar" aria-expanded="false"
+><UL CLASS="nav navbar-nav"
+><LI><A HREF="get-started.html">GET STARTED</A> 
+</LI><LI><A HREF="commands.html">COMMANDS</A> 
+</LI><LI><A HREF="examples.html">EXAMPLES</A> 
+</LI><LI><A HREF="http://forum.survo.fi/">FORUM</A> 
+</LI></UL></DIV></DIV><DIV CLASS="col-sm-3 pull-right"
+><FORM CLASS="navbar-form" ACTION="search.html"
+><DIV CLASS="input-group"><INPUT NAME="q" TYPE="text" CLASS="form-control"
+><DIV CLASS="input-group-btn"><BUTTON CLASS="btn btn-default" TYPE="submit"
+><SPAN CLASS="glyphicon glyphicon-search"
+></SPAN></BUTTON></DIV></DIV></FORM></DIV></DIV></DIV></NAV><DIV CLASS="container">
+
+
+<H2>Stat</H2> 
+<H3>Description</H3><DIV  id="CommandList">Computes certain basic statistics and summaries for active variables in
+data and forms a frequency distribution for each of them according to
+an automatic classification.
+The <CODE>SELECT</CODE>, <CODE>VARS</CODE> and <CODE>MASK</CODE> specifications may limit the results.
+
+</DIV><H3>Usage</H3><PRE><CODE>STAT 'data',L,STATUS
+</CODE></PRE>
+<CODE>L</CODE> (optional) is the first line for the results.
+<CODE>STATUS</CODE> (optional) gives only a short description of the data.
+See below for more information.
+<H3>Parameters</H3><DL><DT><CODE>SELECT='Boolean expression'</CODE> 
+<DD>selects observations satisfying the conditions given by
+Boolean expression=A+B+C+... (read A or B or C or ...) or
+A*B*C*...  (read A and B and C and ...).
+Each condition A,B,C,  . must be given as a specification of the
+form
+<DD>     A1='variable','lower limit','upper limit'
+or
+<DD>     A1='string variable':'case1','case2',...
+<DD>Any words can be used in place of A,B,C.
+
+<DD>Example:
+<CODE>SELECT=North*Over10000+South*Over20000</CODE> 
+<CODE>North=Province:OUL,LAP South=Province:UUS,KYM,TUR</CODE> 
+<CODE>Over10000=Popul,10000,500000  Over20000=Popul,20000,500000</CODE> 
+<DD>selects cases where
+    either  Province is OUL or LAP         and  Popul>=10000
+    or      Province is UUS or KYM or TUR  and  Popul>=20000
+
+<DD>The SELECT specification can also be written with negations
+(a `!' in front of a Boolean expression)
+and with parentheses.
+For details read more about
+<A HREF="#">select observations and/ or variables</A>.
+<DT><CODE>VARS='list of variables'</CODE> 
+<DD>is a specification which selects the variables into statistical analysis.
+Another way to do that is to use a <CODE>MASK</CODE> specification, but <CODE>VARS</CODE> always
+overrides <CODE>MASK</CODE> and permanent activation status in the data file.
+<DD>For example,
+<CODE>VARS=Height,Weight,Test1</CODE> 
+selects the variables Height,Weight and Test1 which all are activated
+by 'A' in the current data file; other variables will be passive.
+<CODE>VARS=ALL</CODE> means that all variables are to be selected.
+<CODE>VARS=ALL,-Name,-Test1</CODE> means that all variables except Name and Test1 are
+to be selected.
+The task of each variable can be given in parentheses in the VARS list.
+<DD>For example, in the LINREG operation
+<CODE>VARS=Height(X),Weight(X),Test1(Y),Residual(R)</CODE> 
+selects the variables and indicates their roles in the analysis as well.
+
+The influence of VARS is only temporary and does not change the
+activation status in the data file.
+<DT><CODE>MASK</CODE> 
+<DD><CODE>MASK</CODE> without parameters is an operation which leads to the activation
+procedure for the fields of any Survo data file.
+
+After return from MASK procedure to normal edit mode the current
+line will contain a MASK specification of the form
+<CODE>MASK=--XX-A-YX-R---AA-</CODE> (for example)
+indicating the activated fields in the current data file.
+If a MASK specification appears in the current subfield,
+when a statistical operation like CORR,LINREG,TAB etc. is activated,
+it determines the roles of the variables in the analysis.
+However, a possible VARS specification always overrides MASK in
+statistical operations.
+
+By activation of a MASK line with a given mask string (MASK=--XX-A-- ,
+for example) the selection of the fields determined by that string will
+be shown for a selected file and this selection may be adjusted. After
+return to edit mode again the MASK line will show the latest selection.
+
+Since a data file can contain several optional mask columns (default
+number is 7), any of them can be used to indicate the selected vari-
+ables by giving its number #1,#2,#3,,, as MASK=#7.
+A partial selection according to a mask column is also possible. For
+example, <CODE>MASK=#7(XY)</CODE> selects the fields indicated by X or Y in mask
+column 7.
+Activation of a MASK line of this type will lead to a file activation
+display of that mask column for additional changes.
+<DT><CODE>STATUS</CODE> 
+<DD>Gives a short description of the structure and status of the data. As an option <CODE>#MASK='list of characters'</CODE> tells
+the numbers of variables activated by given characters.
+Example:
+<PRE><CODE>STAT DECA,CUR+1,STATUS / #MASK=XY-
+#var=15 #act=5 #obs=48
+#X=4 #Y=1 #-=10
+</CODE></PRE>
+This operation is used mostly by sucros for studying properties of
+a given data set.
+<DT><CODE>SUMS='1, 2, 3 or 4'</CODE> 
+<DD>Calculates sums, sum  of squares, etc. by giving a specification.
+<DD><CODE>SUMS=1</CODE> plain sums are computed.
+<DT><CODE>MEANS=k1,k2,...</CODE> 
+<DD>Calculates special means of the form ((X1^k+X2^k+...+XN^k)/N)^(1/k) will be
+computed for positive variables X and for various values of the
+exponent k=k1,k2,...
+<DD>Quadratic means are obtained by <CODE>k=2</CODE> or <CODE>k=Q</CODE>.
+<DD>Harmonic means are obtained by <CODE>k=-1</CODE> or <CODE>k=H</CODE>.
+<DD>Geometric means are obtained by <CODE>k=0</CODE> or <CODE>k=G</CODE>.
+<DT><CODE>FRACTILES=p1,p2,...</CODE> 
+<DD>Calculates given fractiles p1,p2,... where 0&lt<p&lt<1.
+<DT><CODE>CONFMEAN=p</CODE> 
+<DD>Calculates confidence intervals for means under normality assumption for a
+given confidence interval. Example <CODE>CONFMEAN=0.95</CODE>.
+<DT><CODE>CLASSMAX='number of classes'</CODE> 
+<DD>Gives maximum number of classes for freque cy distribution. Default: <CODE>CLASSMAX=30</CODE>.
+<DT><CODE>MAXSTRING=#</CODE> 
+<DD>Considers different values of string variables up to # characters. Default: <CODE>MAXSTRING=8</CODE>.
+
+</DL><H3>Details</H3><P>The basic statistics given by STAT include, for example, min, max,
+mean, stddev, skewness, kurtosis, first order autocorrelation,
+median, quartiles and entropy.
+The selection of statistics depends, however, on the scale type of the
+variable. Certain statistics (like autocorrelation) are also omitted,
+if no information seems to be gained (autocorrelation&lt<2/sqrt(N)).
+
+<P>Certain results of STAT are also saved as a matrix file in the following
+form. Example:
+<PRE><CODE>STAT DECA / VARS=Height,Weight
+
+MAT LOAD STAT.M'
+MATRIX STAT.M'
+Basic_statistics_of_DECA'
+///        Height   Weight
+mean      186.958   85.563
+stddev      5.090    6.848
+N          48.000   48.000
+min       173.000   68.000
+max       198.000  105.000
+N_miss      0.000    0.000
+skewness   -0.448   -0.042
+kurtosis    0.327    1.201
+lower_Q   184.000   82.000
+median    188.000   86.000
+upper_Q   190.000   90.000
+</CODE></PRE>
+Elements of this matrix can be obtained e.g. for editorial computing as
+<CODE>MAT_STAT.M(Height,kurtosis)=0.33</CODE> 
+<H3>See also</H3><A HREF="minstat.html">MINSTAT</A>,
+<A HREF="statmsf.html">STATMSF</A> 
+<H3>Examples</H3><PRE><CODE>STAT <Survo>/D/DECA,CUR+2 / VARS=Points,100m
+..........
+STAT <Survo>/D/DECA,END+2 / VARS=Name CLASSMAX=50
+..........
+STAT <Survo>/U/EX/Helsinki,CUR+1 / VARS=Temp,Rain
+SELECT=Year,1995,2010
+..........
+STAT <Survo>/U/EX/Helsinki,END+3 / VARS=ALL,-Year
+</CODE></PRE>
+<FOOTER><P>
+<P>
+<P CLASS="pull-right"><A href="index.html" class="pagination-centered btn btn-default btn-sm"
+><SPAN class="glyphicon glyphicon-home"
+></SPAN></A><A href="#" class="btn btn-default btn-sm"
+><SPAN class="glyphicon glyphicon-chevron-up"
+></SPAN>Back to Top</A> 
+</A><P>c 2016 Survo
+</FOOTER></DIV><SCRIPT src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></SCRIPT><SCRIPT src="js/bootstrap.min.js">]</SCRIPT><SCRIPT>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-81645810-1', 'auto');
+  ga('send', 'pageview');
+</SCRIPT><SCRIPT> (function() {
+   var cx = '010896179039517952376:nay7kuxzphw';
+   var gcse = document.createElement('script');
+   gcse.type = 'text/javascript';
+   gcse.async = true;
+   gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+   var s = document.getElementsByTagName('script')[0];
+   s.parentNode.insertBefore(gcse, s);
+ })();
+</SCRIPT>
+</BODY>
+</HTML>
+

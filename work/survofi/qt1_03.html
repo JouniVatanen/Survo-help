@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">SER Y=MA(X,&lt;weight_description&gt;) TO &lt;data&gt; 
+computes moving averages of X to Y according to &lt;weight_description&gt;.
+&lt;weight_description&gt; can be any of the three alternatives:
+1) List of weights
+      SER Temp2=MA(Temp,1,2,3,0,0)
+   i.e. Temp2[t]=1*Temp[t-2]+2*Temp[t-1]+3*Temp[t]+0*Temp[t+1]+0*Temp[t+1]
+   or
+      SER Temp3=MA(Temp,1,2,3,*) being equivalent to
+      SER Temp3=MA(Temp,1,2,3,2,1) (symmetric weights)
+   Number of weights must be uneven.
+2) Name of a weight pattern
+      SER TempS=MA(Temp,SPENCER)
+   The weights for SPENCER must be given in the same edit field as
+      SPENCER=-3,-6,-5,3,21,46,67,74,*
+3) Weights for polynomial trends
+      SER Temp4=MA(Temp,P3:21)
+   fits a cubic (P3) to sets of 21 points.
+   Generally Pp:m implies fitting of a polynomial of degree p
+   with a span of m consecutive points.
+   m must be an odd integer.
+In all cases above, the sum of weights is scaled to 1.
+
+SER Y=MAE(X,&lt;weight_description&gt;) TO &lt;data&gt; 
+works as MA, but provides trend values for the first and last m values
+of the series as well.
+MAE works only in the case of polynomial weights.
+
+SER Y=MA(X,&lt;weight_description&gt;) TO &lt;data&gt;  / PERIOD=s
+works similarly, but uses values
+   ..., X[t-3s], X[t-2s], X[t-s], X[t], X[t+s], X[t+2s], X[t+3s], ...
+instead of
+   ..., X[t-3],  X[t-2],  X[t-1], X[t], X[t+1], X[t+2],  X[t+3],  ...
+The period s is given as an extra specification PERIOD=s.
+
+Another way to enter the period s (say for s=3) is to use the operation
+SER Y=MA3(X,&lt;weight_description&gt;) TO &lt;data&gt; .
+
+SER Y=MAE(X,&lt;weight_description&gt;) TO &lt;data&gt;  / PERIOD=s
+provides smoothened values for the first and last observations as well
+(in case of polynomial weights).
+Alternative notation is Y=MAE3(X,... for s=3.
+
+  <A HREF="qt1_02.html">S = More information on SER operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

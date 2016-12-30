@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">LIST SHOW &lt;name_of_list&gt; 
+opens a temporary window below the current (LIST SHOW) line and displays
+the contents of the edit fields belonging to the list. The lines (and
+columns) may be scrolled in that window in the same way as the edit
+field is scrolled on the screen. The user sees the text belonging to
+the list as one contiguos stream of lines. The changes of the fields
+are indicated by extra header lines telling the edit file and chapter.
+
+Various searches of strings over the entire list are initiated by
+the SEARCH (alt-F5) key. More information while staying in LIST SHOW
+is obtained by the HELP (F1) key. The S key tells about search options.
+The search with a previous keyword can be restarted by pressing ESC (twice).
+
+LIST SHOW *
+works with the list used most recently by LIST SHOW.
+
+In the LIST SHOW mode, the text in the list (edit fields) cannot be
+edited. However, by means of a /LIST sucro, an interplay between
+the LIST SHOW mode and the standard editorial mode can be arranged.
+The sucro command
+/LIST &lt;name_of_list&gt; 
+calls the corresponding LIST SHOW operation. On exit from LIST SHOW,
+the last edit field shown by LIST SHOW is loaded automatically and
+the cursor indicates the same place as it was pointing at in LIST SHOW.
+The user can edit the field and save it normally. By activating
+/LIST * (this could be defined as a macro), FILE SHOW is called again
+and it immediately gives the same display as in the previous call.
+In this way, even very long reports are maintained easily.
+
+The sucro command
+/HLIST
+lists (through LIST SHOW) all the text belonging to the inquiry (help)
+system of Survo.
+
+  <A HREF="qk1_01.html">L = More information on LIST operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

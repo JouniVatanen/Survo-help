@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText"><STRONG>Introduction</STRONG> 
+
+The function of the FEDIT operation is to display values in a SURVO
+84C data file on forms. The old values can be edited or new values
+can be entered in the data file, too. The size of a form is not limited
+by the size of the screen. Several forms may correspond to one obser-
+vation in the Survo data file. One can set conditions for displaying a
+form. If the conditions are not met, then the form is skipped. When
+new values are entered then FEDIT automatically checks that the val-
+ues are not in contradiction with the type of field. Additional validity
+checks may be defined, e.g. by listing valid values for some fields.
+
+The following example clarifies the idea of the form design. A ques-
+tionnaire starts as follows:
+
+<CODE>  
+  Company: .....................................................
+  Contact person<STRONG>:</STRONG> ..............................................
+  Address<STRONG>:</STRONG> ......................................................
+  Telefon<STRONG>:</STRONG> ................   Telefax: ...............
+
+  etc ...                                                        </CODE>  
+
+The questionnaire is completed by assigning each field to a variable in
+the data file:
+
+<CODE>  
+  Company: &amp;Company
+  Contact person<STRONG>:</STRONG> &amp;Contname
+  Address<STRONG>:</STRONG> &amp;Address
+  Telephone<STRONG>:</STRONG> &amp;Tel                Telefax: &amp;Fax
+
+  etc ...                                                        </CODE>  
+
+The form of the FEDIT operation is
+
+FEDIT &lt;Survo data file&gt;,&lt;form file&gt; 
+&lt;options&gt; 
+
+<STRONG>The SURVO 84C data file    </STRONG> 
+
+If the Survo data file exists, then FEDIT uses it. If the Survo data
+file does not exist, then FEDIT creates a new one by using the infor-
+mation in the form file.
+
+<STRONG>The</STRONG> <STRONG>form</STRONG> <STRONG>file</STRONG> 
+
+The form file is an ASCII text file. Its maximum record length is 253
+characters. The form file can be created, for example, by the SAVEP
+operation of SURVO 84C. If the form file does not exist, then a de-
+fault form file can be created on the basis of the information on va-
+riables saved in the SURVO data file.
+<STRONG>Options</STRONG> 
+
+The option CAPS equates the lowercase letters with capitals. Other
+options are needed very rarely, e.g. for increasing the maximum number
+of selection fields.
+
+<STRONG>Fields on the forms</STRONG> 
+
+Two types of fields may exist on forms:
+(1) Standard fields.
+(2) Selection fields.
+
+<STRONG>The size of a form   </STRONG> 
+
+If the form file exists, then FEDIT estimates the number of columns and
+rows needed on the basis of the information given by the form file. The
+form having the maximum width defines the width used for all forms.
+However, at least 50 columns are used. The length of a form may vary.
+
+   <A HREF="qw71_01.html">M = More information on FEDIT operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

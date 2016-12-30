@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">FILE MAKE &lt;new_data_file&gt;,&lt;m&gt;,&lt;n&gt;,&lt;X&gt;,&lt;type&gt;,&lt;lname&gt;,&lt;actcol&gt; 
+
+(where &lt;new_data_file&gt;,&lt;m&gt;,&lt;n&gt; are obligatory parameters)
+
+creates a Survo data file with &lt;m&gt; variables and &lt;n&gt; missing
+observations.
+
+Optional parameters:
+The names of variables have the string &lt;X&gt; as
+their common forepart and they are indexed by 1,2,3,...
+For example if &lt;X&gt; is VAR then the names of variables will be
+VAR1,VAR2,... Default for &lt;X&gt; is X.
+In case m=1 the only variable gets no index.
+
+The common (numerical) type of variables is given by &lt;type&gt;.
+Alternatives are 1,2,4, and 8. Default is 4.
+&lt;lname&gt; is the length of field names (default 64) and
+&lt;actcol&gt; is number of activation columns (default 7).
+
+By default space is reserved for certain amount of additional
+variables. This space can be adjusted also by a NEWSPACE=s1,s2
+specification where s1 is # of extra bytes in each record and
+s2 is # of extra variables. Thus by NEWSPACE=0,0 no extra
+space for variables is reserved.
+
+The format of fields can be given by a specification like
+FORMAT=####.##
+
+Permitted range of values is given by LIMITS=&lt;min&gt;,&lt;max&gt;.
+
+Default indices (1,2,3,...) of variables can be altered by a BASE
+specification. For example, BASE=0 implies indices 0,1,2,... and
+BASE=001 indices 001,002,003,...
+
+FILE MAKE is intended primarily for creating frames for simulated
+data sets. For example, commands
+
+FILE MAKE BIN,100,1000
+TRANSFORM BIN BY #UNIFORM(0,2)
+
+generate a sample of size 1000 of 100 Bernoulli(0.5) variables
+X1,X2,...,X100.
+
+  <A HREF="qf1_01.html">D = More information on data management</A> 
+
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

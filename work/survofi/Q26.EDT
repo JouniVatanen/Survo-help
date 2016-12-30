@@ -1,0 +1,244 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q26
+0005|*....................................................................................................
+0006|*LOAD EDQ
+0008|+REGRES? ˛ PRINT CUR+1,E TO q26_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*Linear regression analysis
+0013|*The linear regression model is specified by activating variables in the
+0014|*data set as follows:
+0015|*  Y is the regressand,
+0016|*  X is a regressor,
+0017|*  R is the residual variable (optional, must not be protected),
+0018|*  P is the variable for predicted values (optional, not protected).
+0019|- shadow %: [LINK(q03_13.html)] [/LINK]
+0020|*For general rules of variable selection, see MASK and VARS.
+S   |                                              %%%%
+0022|*The following operations work on this basis:
+0023|- shadow a: [LINK(q26_03.html)]
+0024|*  A = LINREG  (OLS through correlations)
+S   |   a                                    |
+0025|- shadow a: [LINK(q26_04.html)]
+0026|*  B = REGDIAG (OLS by orthogonalization, regression diagnostics)
+S   |   a                                                            |
+0027|- shadow a: [LINK(qkv3_09.html)]
+0028|*  C = MOVREG  (Moving linear regression analysis) (by KV)
+S   |   a                                                     |
+0029|- shadow a: [New][LINK(q26_06.html)]
+0030|d  D = ROBREG  (Least Median of Squares regression analysis) (by Reino Siren)
+S   |   a                                                                        ;
+0031|- shadow a: [LINK(q24_01.html)]
+0032|*  E = ESTIMATE (for non-linear models)
+S   |   a                                  |
+0034|- shadow a: [LINK(q26_02.html)]
+0035|*  U = Sucros for regression analysis (special applications)
+S   |   a                                                       |
+0036|- shadow a: [LINK(q21_01.html)]
+0037|*  S = More information on statistical analysis
+S   |   a                                          |
+0038|E
+0041|+U? ˛ PRINT CUR+1,E TO q26_02.html
+0042|- include HTML40.DEV
+0043|- include Q.DV2
+0044|- [HelpText]
+0045|*Sucros for regression analysis (special applications):
+0047|*/RESTREG ? / for linear regression with linear restrictions (by F. èberg)
+0048|*/STEPREG ? / for stepwise and automatic linear regression (by M.Karpoja)
+0049|*/LM-ANOVA  / for diagnostics and graphics (in Finnish) (by M.Lahdenkari)
+0050|*/LOGREG?   / for logistic regression analysis (by KV)
+0051|*/LMSELECT? / for model selection statistics (by KV)
+0053|- shadow a: [LINK(q26_01.html)]
+0054|*  R = More information on linear regression analysis
+S   |   a                                                |
+0055|- shadow a: [LINK(q21_01.html)]
+0056|*  S = More information on statistical analysis
+S   |   a                                          |
+0057|E
+0059|+LINREG? ˛ PRINT CUR+1,E TO q26_03.html
+0060|- include HTML40.DEV
+0061|- include Q.DV2
+0062|- [HelpText]
+0063|#LINREG data,L
+0064|*performs linear regression analysis on active variables in <data>.
+S   |                                                            <    >
+0065|*The regressand is indicated by mask Y and the regressors by X's.
+0066|*The optional variables for residuals and predicted values of the
+0067|*model are pointed out by masks R and P, respectively.
+0068|*The first line for the results (L) is optional.
+0069|- shadow %: [LINK(q0e_05.html)] [/LINK]
+0070|*If the results level is at least 70 (see RESULTS?), the means, standard
+S   |                                          %%%%%%%
+0071|*deviations and correlations of variables included in the model will be
+0072|*also printed.
+0073|*If several Y variables are given, the same model (with a constant term
+0074|*and X variables) will be computed for each of them. In this case no
+0075|*R and P variable is valid.
+0077|*LINREG saves the regression coefficients in a matrix file REG.M
+0078|- [New]
+0079|*and in the case of one regressand and one regressor also coefficients
+0080|*of an orthogonal regression analysis in a matrix file OREG.M.
+0081|- [/New]
+0083|- shadow a: [LINK(q26_04.html)]
+0084|*  D = Regression diagnostics
+S   |   a                        |
+0085|- shadow a: [LINK(q26_01.html)]
+0086|*  R = More information on regression analysis
+S   |   a                                         |
+0087|E
+0090|+REGDIAG? ˛ PRINT CUR+1,E TO q26_04.html
+0091|- include HTML40.DEV
+0092|- include Q.DV2
+0093|- [HelpText]
+0094|#REGDIAG <data>,L
+S   |         <    >
+0095|*estimates the parameters of a linear regression model by orthogonalizing
+0096|*the design matrix X.
+0097|*These procedure is more accurate than the classical approach of LINREG
+0098|*through moment matrix (correlations).
+0099|*The model is specified by activating variables with Y and X's. The
+0100|*constant term is omitted by setting CONSTANT=0.
+0101|*Furthermore the following masks for special output variables may be used:
+0102|*  R is the residual variable,
+0103|*  P is the variable for predicted values,
+0104|*  H is the diagonal of the hat matrix X*INV(X'*X)*X',
+0105|*  S is the variable for (externally) Studentized residuals,
+0106|*  C is the variable for (signed square roots of) Cook's distances.
+0108|*These output variables provide a basis for regression diagnostics.
+0109|*See Belsley,Kuh&Welsch (1980): Regression Diagnostics, for example.
+S   |                &
+0110|- shadow a: [New][LINK(q26_05.html)]
+0111|d  M = Matrix files created by REGDIAG
+S   |   a                                 ;
+0112|- shadow a: [LINK(q26_01.html)]
+0113|*  R = More information on regression analysis
+S   |   a                                         |
+0114|- shadow a: [LINK(qm6_07.html)]
+0115|*  S = MAT SOLVE (is a similar procedure in the matrix interpreter)
+S   |   a                                                              |
+0116|- shadow a: [New][LINK(q1c_04.html)]
+0117|d  C = Confidence intervals in simple linear regression (in PLOT)
+S   |   a                                                            ;
+0118|- shadow a: [New][LINK(q26_07.html)]
+0119|d  D = Durbin-Watson test statistics and its P-values
+S   |   a                                                ;
+0120|E
+0123|+MATRDIAG? ˛ PRINT CUR+1,E TO q26_05.html
+0124|- include HTML40.DEV
+0125|- include Q.DV2
+0126|- [HelpText]
+0127|- [New]
+0128|*Matrix files created by REGDIAG
+0129|- [/New]
+0131|*The following matrices are available for additional computations:
+0132|*REG.M        vector of regression coefficients
+0133|*REGS.M       regression coeffients and their standard errors
+0134|*REG_CORR.M   correlations of regression coefficients
+0135|*RG.M         vector of miscellaneous scalars (see next page)
+0137|*The covariance matrix of regression coefficients can be computed by
+0138|*/COV REG_COV,REG_CORR.M,REGS.M
+0140|*The vector RG.M has the following contents (when displayed by MAT LOAD).
+0141|*REGDIAG statistics from data DECA
+0142|*RG.M
+0143|*///          REGDIAG
+0144|*n             48.000 / # of cases
+0145|*k              6.000 / # of regression coefficients
+0146|*const          1.000 / 1 if constant term included, 0 otherwise
+0147|*df            42.000 / n-k
+0148|*Yvar       26132.000 / variance of regressand
+0149|*SST      1228203.979 / total sum of squares
+0150|*SSE       445535.121 / residual sum of squares
+0151|*SSR       782668.858 / SST-SSE
+0152|*MSE        10607.979 / mean square error
+0153|*Resvar     10607.979 / MSE
+0154|*R              0.798 / multiple correlation coefficient
+0155|*R2             0.637 / R^2
+0156|*kappa         93.968 / condition number
+0157|*DW             1.246 / Durbin-Watson statistics
+0158|*F             14.756 / Overall F-test: SSR/(k-1)/MSE (only when const is 1)
+0159|*Pr_F           1.000 / P-value of F-test
+0160|E
+0162|+ROBREG? ˛ PRINT CUR+1,E TO q26_06.html
+0163|- include HTML40.DEV
+0164|- include Q.DV2
+0165|- [HelpText]
+0166|#ROBREG <data>, L                                  / Reino Siren
+S   |        <    >
+0167|*Performs a robust estimation of the parameters of a linear regression
+0168|*model by the method of Least Median of Squares (Rousseeuw 1984,
+0169|*Rousseeuw & Leroy 1987). Instead of minimizing the sum of squared
+S   |           &
+0170|*residuals (OLS), the median of squared residuals is minimized, giving
+0171|*estimates which are highly robust to outliers in the data.
+0172|*The model is specified by activating variables with Y and XÔs in the
+0173|*<data>.
+S   | <    >
+0174|*The constant term is omitted by setting CONSTANT=0.
+0175|*The seed number used in subsampling may be specified by SEED=<integer>.
+S   |                                                              <       >
+0176|*It is optional.
+0177|*The number of trials or samples from the data used in the estimation,
+0178|*may be specified by TRIALS=<integer>. The default value is 1500.
+S   |                            <       >
+0180|*ROBREG (continued)
+0182|*Furthermore the following masks for special output variables from the
+0183|*LMS -fit may be used:
+0184|*U is the residual variable,
+0185|*V is the variable for predicted values,
+0186|*T is the variable for the standardized lms-residuals.
+0188|*The printed output includes the LMS estimates of the regression
+0189|*coefficients and the robust error scale estimate.
+0190|*The first line of results (L) is optional.
+0192|*Literature:
+0193|*Rousseeuw, Peter, J. 1984.  Least median of squares regression. J. Am.
+0194|*Stat. Assoc. Vol 79, 871-880.
+0195|*- " - & Leroy, Annick, M. 1987. Robust Regression and Outlier
+S   |       &
+0196|*Detection. Wiley. New York.
+0197|- shadow W: [LINK(http://win-www.uia.ac.be/u/statis/publicat/progress_abstr.html)] [/LINK]
+0198|*http://win-www.uia.ac.be/u/statis/publicat/progress_abstr.html
+S   | WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0200|- shadow a: [LINK(q26_01.html)]
+0201|*  R = More information on regression analysis
+S   |   a                                         |
+0202|E
+0204|+DURBIN? ˛ PRINT CUR+1,E TO q26_07.html
+0205|- include HTML40.DEV
+0206|- include Q.DV2
+0207|- [HelpText]
+0208|*REGDIAG gives the value of the Durbin-Watson statistics for testing
+0209|*the first order autocorrelation of residuals.
+0210|*To get its P-value enter a specification DWN=<integer>
+S   |                                              <       >
+0211|*where <integer> must be at least 10000.
+S   |       <       >
+0212|*Then the P-value will be computed by simulation using <integer>
+S   |                                                       <       >
+0213|*replicates.
+0215|*Also higher-order autocorrelations can be tested by the same method.
+0216|*By MAXLAG=k the order 1,2,...,k autocorrelations of residuals
+0217|*will be tested by using the generalized DW statistics
+0219|*       sum [res(i)-res(i-j)]^2
+0220|*D(j) = -----------------------
+0221|*          sum [res(i)]^2
+0223|*where res(1),...,res(n) are the residuals of the estimated linear
+0224|*regression model
+0225|*   Y = X*beta + eps
+0226|*where X is the n*m design matrix and eps is N(0,sigma^2*I).
+0227|*Then we have res=M*eps where M=I-X*inv(X'X)X'.
+0229|*By making the SVD decomposition X=U*D*V' where U is a n*m matrix
+0230|*the residuals can be computed by 2*m*n multiplications by
+0231|*res=(I-U*U')*eps.
+0233|*In randomized tests DWN replicates of D(j), j=1,2,...,k are
+0234|*computed and the P values are obtained as the proportion of replicates
+0235|*having a lower value than the original one.
+0237|*By using RN specification instead of DWN the randomized tests
+0238|*will be based on autocorrelations instead of DW values.
+0241|- shadow a: [LINK(q24a_01.html)]
+0242|*  E = Estimating regression models with autocorrelated disturbances
+S   |   a                                                               |
+0243|- shadow a: [LINK(q26_04.html)]
+0244|*  R = More about REGDIAG
+S   |   a                    |
+0245|E

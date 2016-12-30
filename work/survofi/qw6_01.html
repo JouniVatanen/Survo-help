@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">DISCR &lt;data&gt;,L                                          /   M.Korhonen
+Discriminant analysis:
+In the discriminant analysis the observations (cases) are divided into
+groups according to the values of a grouping variable. The grouping
+variable may be at nominal scale or it has comparatively few distinct
+values. The purpose of the analysis is to find such classification
+functions that best characterize the differences between the groups.
+These functions, which are linear combinations of the original
+variables, are used for classifying new cases too.
+
+The discriminant analysis usually has the following two phases:
+
+(1) First the classification functions and tests associated with them
+are computed.
+
+(2) Second the cases of the original or another data are classified
+according to these functions.
+The analysis is succesful if few cases of the original data are
+classified into wrong groups. However, we can get optimistic
+results when classification function is used to classify the same
+cases that were used to compute it. This bias may be reduced by
+using cross validation in the classification or another data with
+known groups. The classification may base on the classification
+functions obtained from the discriminant analysis or on the
+original observations.
+
+The general form of the DISCR operation is the following:
+
+    DISCR &lt;data&gt;,L
+    &lt;the definition of the variables in the model&gt; 
+    &lt;options for the printout and methods used&gt; 
+
+The variables used for forming the classification (discriminant)
+functions may be defined either by the VARIABLES specification or
+they can be pointed by masks X or A.
+Correspondingly, the grouping variable may be defined by the
+GROUPING specification or by mask G. The grouping structure of
+the grouping variable is given in the same way as in ANOVA  and
+MEANS operations. If the structure is not given then the program
+will examine the values of the grouping variable from the data file
+and uses all distinct values found (which means one extra pass
+through the data). Example:
+
+DISCR FISHER,END+2
+VARIABLES=sepallen,sepalw,petallen,petalw
+GROUPING=iristype  iristype=1(setosa),2(versicol),3(virginic)
+RESULTS=CROSS
+
+The option CROSS in the RESULTS specification causes the printout of
+the within and between groups crossproducts matrices. Alternatively,
+covariances (COVA) or correlations (CORR) may be printed.
+
+Further information:
+  <A HREF="qw6_03.html">1 = Definitions for grouping variables</A> 
+  <A HREF="qw6_02.html">2 = Classification ot the cases</A> 
+  <A HREF="q21_01.html">D = More on data analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

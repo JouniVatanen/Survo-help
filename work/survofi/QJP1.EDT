@@ -1,0 +1,47 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QJP1
+0004|*LOAD EDQ
+0006|+LOWESS? þ PRINT CUR+1,E TO qjp1_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|#LOWESS <data>,<smooth_level>,<output_matrix>            / J.Puranen 1991,1998
+S   |        <    > <            > <             >
+0011|*smooths a variable activated by `Y' according to the values of another
+0012|*variable activated by `X' using a robust locally weighted regression
+0013|*method (LOWESS = LOcally WEighted Scatterplot Smooth).
+0014|*    The smoothened values are saved into a variable activated by `S'. If
+0015|*no `S' variable exists, the smoothened values (as well as the values of `X'
+0016|*and `Y' variables) are saved into a matrix file given by <output_matrix>.
+S   |                                                          <             >
+0017|*The default name of the matrix is SMOOTH.M . The results are saved in
+0018|*increasing order of the `X' values. The smoothened scatterplot can be
+0019|*plotted by using this matrix file as an input (see the example below).
+0020|*    The <smooth_level> gives the level of smoothing, specified as how
+S   |         <            >
+0021|*many percents of the observations around each point affects the smoothing.
+0022|*A suitable value is 60, which is also the default.
+0023|*    <data> must be sorted by `X' variable before smoothing, if `S' mask
+S   |     <    >
+0024|*is applied.
+0026|*    The number of iterations can be given by ITERATIONS=1 or 2. The default
+0027|*value of 2 should be adequate for almost all situations.
+0028|*    In addition, the deviances from the smoothened values can be saved
+0029|*into a variable activated by `E'. If there are any missing values in <data>,
+S   |                                                                      <    >
+0030|*the `S' and `E' variables must also be initialized with missing values.
+0031|*    The IND and CASES specifications can be used to select observations.
+0033|*Reference: Cleveland, W. (1979). Robust Locally Weighted Regression
+0034|*           and Smoothing Scatterplots. JASA 74, 829-836.
+0036|- shadow %: [LINK(qv5_01.html)] [/LINK]
+0037|*See also SMOOTH?
+S   |          %%%%%%
+0038|*                                                 (Example on the next page)
+0040|*........................................................................
+0041|*Example:
+0042|*LOWESS <data>,60,SMOOTH.M / VARS=<xvar>(X),<yvar>(Y)
+S   |        <    >                    <    >    <    >
+0043|*....................................................
+0044|*GPLOT SMOOTH.M,X,Y,S / YLINE=0 SLINE=1
+0045|*........................................................................
+0046|E

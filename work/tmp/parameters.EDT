@@ -1,0 +1,11 @@
+SURVO 98 edit field:    201       2000       300 (32 bit version)
+0001|*SAVE parameters / Parameters 18.7.2016 Jouni Vatanen
+0004|*Collection of parameters  Update usage of general parameters only for here.
+0006|*DEF parameter1,7,12
+0007|I'text file'
+S   | xxxxxxxxxxx
+0008|NThe whole name of the text file that you want to save. Use without
+0009|*'-characters and with the correct file extension
+0010|Iseuraava komento
+0011|Nseliteteksti„....
+0012|*lis„„s selitysteksti„

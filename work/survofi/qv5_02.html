@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">POWERS &lt;data&gt; / POW_VARS=&lt;List_of_variables&gt;  DEGREE=&lt;d&gt; 
+computes all possible products of powers up to degree &lt;d&gt; 
+of variables in POW_VARS as (new) variables.
+Since the number of new variables may be high, the scope of the
+data file must often be extended by FILE EXPAND operation before using
+POWERS.
+
+Example:
+POWERS D2 / POW_VARS=Height(H),Weight(W) DEGREE=3
+creates and computes variables H2, H1W1, W2, H3, H2W1, H1W2, W3
+where, for example, H2W1 is Height^2*Weight.
+
+The types of new variables are given by TYPE=&lt;1|2|4|8&gt; (default is 8).
+The maximum # of power variables is 10 and the maximum degree is 20.
+Too long names (over 8 characters) like A1B2C3D4F5 are presented as
+X12345. Actual expressions like A^3*B^2*C are given as extensions of
+names.
+
+POWERS is a tool for generating variables for polynomial regression
+analysis and its generalizations (to be computed by LINREG, for
+example).
+   <A HREF="qv1_01.html">1 = Transformation of variables in Survo data sets</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,137 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QMM2
+0005|*................................................................................
+0006|*LOAD EDQMM1
+0008|+CORRTEST? þ PRINT CUR+1,E TO qmm2_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*CORRTEST DATA1(VAR1,VAR2),DATA2(VAR1,VAR2),L
+0013|*tests the equality of correlation coefficients in two samples
+0014|*and
+0015|*CORRTEST DATA(VAR1,VAR2),L
+0016|*tests whether the correlation coefficient in one sample is 0.
+0018|- [New]
+0019|*If only sample correlation coefficient(s) and sample size(s)
+0020|*are available, the following alternative forms of CORRRTEST
+0021|*can be used:
+0022|*CORRTEST TWO-SAMPLE,R1,N1,R2,N2,L
+0023|*tests equality of correlation coefficients R1,R2 from samples
+0024|*of sizes N1,N2, respectively.
+0025|*CORRTEST ONE-SAMPLE,R,N,R0,L
+0026|*tests the hypothesis R=R0 from a sample of size N.
+0027|*Parameters can be given either as numeric constants or through
+0028|*specification like R1=0.5679 .
+0029|*In these alternatives the standard test based on Fisher's
+0030|*z transformation is used. However, in the latter case when
+0031|*R0=0 the standard t test is used.
+0032|- [/New]
+0034|*CORRTEST DATA1(VAR1,VAR2),DATA2(VAR1,VAR2),L
+0035|*for Survo data DATA1 and DATA2 (no IND, CASES, SELECT specifications
+0036|- shadow %: [LINK(qa2_01.html)] [/LINK]
+0037|*are accepted; see COMPARE?)
+S   |                   %%%%%%%
+0038|*compares correlation coefficients in two samples by using the test
+0039|*statistics U=[Fisher(R1,N1)-Fisher(R2,N2)]/sqrt[1/(N1-3)+1/(N2-3)]
+0040|*where R1 and R2 are sample correlation coefficients, N1 and N2 sample sizes,
+0041|*and Fisher(R,N)=0.5*sqrt(N-3)*log[(1+R)/(1-R)] .
+0042|*If the samples are from bivariate normal distributions with the same
+0043|*correlation coefficient, U is asymptotically N(0,1) and this approximation
+0044|*is good already for rather small sample sizes.
+0045|*However, in non-normal cases the normal approximation of U may be poor.
+0046|*Therefore the P value (one-sided test) is calculated also by simulation.
+0047|*Both data sets are standardized (means=0, std.devs=1) and these modified
+0048|*data sets are combined. From this data set of N1+N2 observations N1 pairs
+0049|*of values are taken at random as `sample' 1 and the other pairs form `sample' 2.
+0050|*The U value of this randomized pair of samples is computed and the
+0051|*relative frequency of U's exceeding the original U value is counted
+0052|*while repeating the randomization process.
+0055|*Maximum number of replicates is given by SIMUMAX (default 10000000).
+0056|*The seed number of the random number generator (either 'rand' or 'urand')
+0057|- shadow %: [LINK(qv3_01.html)] [/LINK]
+0058|*is given by RAND (default RAND=rand(123456789). See RAND? .
+S   |                                                     %%%%
+0059|*The process may be interrupted by pressing any key.
+0060|*The results are displayed after each 100 replicates as a table of the form
+0062|*      N           P               Confidence interval (level=0.95)
+0063|*# of replicates   Estimate of P                lower limit
+0064|*            s.e.  Standard error               upper limit
+0066|*The confidence level for P is set by CONF=p (0.8<p<1). Default is CONF=0.95
+S   |                                                 < <
+0068|*...........................................................................
+0069|*Example:
+0070|*DATA K1:(X,Y) 3,3 3,4 2,3 3,4 2,2 1,2 5,6 3,2 END
+0071|*DATA K2:(X,Y) 3,2 5,4 5,2 3,1 2,2 3,4 4,4 2,4 3,2 2,3 END
+0073|*CORRTEST K1(X,Y),K2(X,Y),CUR+1  / RAND=rand(19962)
+0074|*Comparing correlation coefficients in 2 samples:
+0075|*Sample 1: Data K1, Variables X,Y  N1=8 R1=0.83887
+0076|*Sample 2: Data K2, Variables X,Y  N2=10 R2=0.12069
+0077|*Test based on Fisher's z 1.87189 Normal approximation P=0.0306107
+0078|*         N    P       Confidence interval (0.95)
+0079|*   5176600 0.06230228 0.06209407 lower limit
+0080|*      s.e. 0.00010623 0.06251050 upper limit
+0082|*CORRTEST DATA(VAR1,VAR2),L
+0083|*tests on the basis of the sample whether the correlation coefficient is 0.
+0084|*The usage is otherwise similar to the two-sample version.
+0085|*First the standard test based on the transformation to t distribution
+0086|*is performed.
+0087|*In the randomized test the values of the second variable are randomly
+0088|*permuted in each replicate.
+0089|*P values for both 1- and 2-sided tests are computed.
+0091|*...........................................................................
+0092|*DATA K1:(X,Y) 3,3 3,4 2,3 3,4 2,2 1,2 5,6 3,2 END
+0094|*CORRTEST K1(X,Y),CUR+1  / RND=rand(19962)         SIMUMAX=1000000
+0095|*Testing hypothesis correlation coefficient = 0:
+0096|*Sample: Data K1, Variables X,Y  N=8 R=0.83887
+0097|*Standard t test value 3.77492  P=0.00461763 (2-tailed P=0.00923526)
+0098|*           1-tailed test         2-tailed test
+0099|*       N   P          Conf.int.  P          Conf.int.   (0.95)
+0100|*   1000000 0.01772600 0.01746738 0.02131400 0.02103092 lower limit
+0101|*      s.e. 0.00013195 0.01798462 0.00014443 0.02159708 upper limit
+0104|- [NAME(AA)][/NAME] / qmm2_01.html#AA AA?
+0106|- shadow a: [LINK(qmm1_02.html)]
+0107|* 1 = More information on optional multivariate operations
+S   |  a                                                      |
+0108|- shadow a: [LINK(qmr2_01.html)]
+0109|* M = More information on multivariate analysis
+S   |  a                                           |
+0110|- shadow a: [LINK(qa1_01.html)]
+0111|* T = More information on statistical tests
+S   |  a                                       |
+0112|E
+0115|+/CSCAL? þ PRINT CUR+1,E TO qmm2_02.html
+0116|- include HTML40.DEV
+0117|- include Q.DV2
+0118|- [HelpText]
+0119|*Classical multidimensional scaling (Richardson 1938, Torgerson 1952)
+0121|*/CSCAL D,m,CSCAL,CSEIGEN,CSCENT,CSDIST
+0122|*makes classical MDS from a given distance matrix D.
+0124|*Thus D is a n*n matrix of distances or dissimilarities of
+0125|*n objects.
+0126|*m gives the number of dimesions (scales) to be computed.
+0128|*The results are saved in matrix files as follows:
+0129|*                                              default matrix name
+0130|*Scale values (n*m)                     CSCAL          CSCAL.M
+0131|*Eigenvalues (1*n)                      CSEIGEN        CSEIGEN.M
+0132|*Eigenvalues (percentages) (1*n)        CSCENT         CSCENT.M
+0133|*Reproduced distances (n*n)             CSDIST         CSDIST.M
+0135|- shadow a: [LINK(qmr2_12.html)]
+0136|*   M = More information on MDS
+S   |    a                         |
+0137|E
+0139|+DISTC? þ PRINT CUR+1,E TO qmm2_03.html
+0140|- include HTML40.DEV
+0141|- include Q.DV2
+0142|- [HelpText]
+0143|*DIST <data>,CENTERS,CUR+1 / CENTER=<list_of_centers>
+S   |      <    >                        <               >
+0144|*computes the minimal distance of each observation to the closest of the
+0145|*observations given - by their numbers (indices) - in the CENTER
+0146|*list.
+0147|*The distances are computed by using variables activated by 'A's
+0148|*and the distances are saved as a variable activated by 'D'.
+0149|*The index of the center closest to an observation is saved as
+0150|*a variable activated by 'G'.
+0152|*This special form of DIST is used in the /CLARA sucro. See
+0153|*/CLARA
+0155|E

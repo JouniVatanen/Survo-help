@@ -1,0 +1,149 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QW3
+0005|+VANCOVA? þ PRINT CUR+1,E TO qw3_01.html
+0006|- include HTML40.DEV
+0007|- include Q.DV2
+0008|- [HelpText]
+0009|*In the analysis of covariance a part of the independent variables are
+0010|*at nominal scale (grouping variables),  the others being at interval
+0011|*scale (covariates). The grouping variables are given by the GROUPING
+0012|*parameter followed by the definition of their grouping structure.
+0013|*The covariates are defined by the COVARIATES parameter.
+0015|*The main effects and interactions of the grouping variables to be
+0016|*included in the model are defined by the INCLUDED and/or EXCLUDED
+0017|*parameters. The grouping variables are referenced by their initials.
+0018|*The default model is always the model with all possible interactions.
+0020|*A two-way fixed effects analysis of covariance example:
+0022|*  ANOVA IEADATA,30
+0023|*  DEPENDENT=KNOWLDGE
+0024|*  GROUPING=ATTITUDE,SEX
+0025|*  ATTITUDE=1,2,3  SEX=1,2
+0026|*  COVARIATES=MENTALPR,APPLICAT
+0028|*If not otherwise stated the regression coefficients of covariates are
+0029|*estimated in the total group. If the equality of within-groups regression
+0030|*coefficients cannot be assumed then the groups, where separate estimates
+0031|*are wanted, are defined by the parameter SLOPES, e.g. SLOPES=SEX and
+0032|*SLOPES=ATTITUDE,SEX. The latter would produce different estimates in
+0033|*the 3 x 2 groups.
+0035|*Further information:
+0036|- shadow a: [LINK(qw1_02.html)]
+0037|*   1 = More on definitions for grouping variables
+S   |    a                                            |
+0038|- shadow a: [LINK(qw2_02.html)]
+0039|*   2 = More on main effects and interactions to be included in the model
+S   |    a                                                                   |
+0040|- shadow a: [LINK(qw2_05.html)]
+0041|*   3 = Methods of forming hypotheses
+S   |    a                               |
+0042|- shadow a: [LINK(qw2_06.html)]
+0043|*   4 = Error terms transferred or assigned by the user
+S   |    a                                                 |
+0044|- shadow a: [LINK(qw3_02.html)]
+0045|*   E = Estimates of the effects, computing residual and predicted values
+S   |    a                                                                   |
+0046|- shadow a: [LINK(qw1_01.html)]
+0047|*   A = More on ANOVA operations
+S   |    a                          |
+0048|E
+0051|+VESTEFF? þ PRINT CUR+1,E TO qw3_02.html
+0052|- include HTML40.DEV
+0053|- include Q.DV2
+0054|- [HelpText]
+0055|*The models in analysis of variance and covariance are not of full rank.
+0056|*Therefore, if estimates of the effects are wanted, constraints on the
+0057|*estimates must be given. Two kinds of constraints may be given by the
+0058|*parameter CONSTRAINTS:
+0060|* 1  The estimates of a main effect or an interaction is constrained
+0061|*    to zero.
+0062|* 2  The weighted sum of estimates of a main effect or an interaction
+0063|*    is constrained to zero, using sample sizes as weights.
+0065|*If the sample sizes are unequal then estimates can be obtained only
+0066|*for main effects and two-terms interactions.
+0068|*The predicted values of the dependent variable and/or residuals may
+0069|*be saved in the data file. The name of the predicted variable is
+0070|*given by the parameter PREDICTED and the name of the residual variable
+0071|*by RESIDUAL, e.g.
+0072|*    PREDICTED=ESTKNOWL   RESIDUAL=RESKNOWL
+0073|*Note that the residuals or predicted values may be saved only in a data
+0074|*file not in the edit field.
+0076|*Further information:
+0077|- shadow a: [LINK(qw1_02.html)]
+0078|*    1 = More on definitions for grouping variables
+S   |     a                                            |
+0079|- shadow a: [LINK(qw2_01.html)]
+0080|*    2 = More on analysis of variance for multiple factors
+S   |     a                                                   |
+0081|- shadow a: [LINK(qw3_01.html)]
+0082|*    C = More on analysis of covariance
+S   |     a                                |
+0083|- shadow a: [LINK(q27_01.html)]
+0084|*    A = More on ANOVA operations
+S   |     a                          |
+0085|E
+0088|+VMANOVA? þ PRINT CUR+1,E TO qw3_03.html
+0089|- include HTML40.DEV
+0090|- include Q.DV2
+0091|- [HelpText]
+0092|*The effect of grouping variables on several dependent variables may
+0093|*be examined by the multivariate analysis of variance. The dependent
+0094|*variales are given by the parameter DEPENDENT. The grouping
+0095|*variables are defined in the same way as in the univariate case, e.g.
+0096|*    ANOVA IEADATA,20
+0097|*    DEPENDENT=Knowldge,Comprehn,Applicat,Mentalpr
+0098|*    GROUPING=Attitude,Sex  Sex=1(Boys),2(Girls)
+0099|*The interactions in the model may be defined by parameters
+0100|*INCLUDED or EXCLUDED as in univariate case. There are two ways
+0101|*in which hypotheses may formed depending on parameter HFORM:
+0103|*HFORM=0: main effect A is tested after the main effect S
+0104|*         is included in the model, interaction AS is ignored
+0105|*HFORM=1: instead of testing main effect A alone, the interaction
+0106|*         AS is included in the hypothesis as in the univariate case
+0107|*         (DEFAULT).
+0109|*Predicted values of dependent variables or residuals cannot be
+0110|*computed or saved yet!
+0112|*Further information:
+0113|- shadow a: [LINK(qw1_02.html)]
+0114|*    1 = More on definitions of grouping variables
+S   |     a                                           |
+0115|- shadow a: [LINK(qw2_02.html)]
+0116|*    2 = More on main effects and interactions in the model
+S   |     a                                                    |
+0117|- shadow a: [LINK(qw3_04.html)]
+0118|*    M = Multiple comparisons of mean vectors
+S   |     a                                      |
+0119|- shadow a: [LINK(qw4_03.html)]
+0120|*    G = Multivariate analysis of repeated measures
+S   |     a                                            |
+0121|- shadow a: [LINK(qw1_01.html)]
+0122|*    A = More on ANOVA operations
+S   |     a                          |
+0123|E
+0126|+VMVMCP? þ PRINT CUR+1,E TO qw3_04.html
+0127|- include HTML40.DEV
+0128|- include Q.DV2
+0129|- [HelpText]
+0130|*Multiple comparisons of means vectors may be done by the Roy's
+0131|*largest root method, e. g.
+0132|*     ANOVA IEADATA,20
+0133|*     DEPENDENT=Knowldge,Applicat,Mentalpr,Comprehn
+0134|*     GROUPING=Attitude  METHOD=LROOT(s)
+0135|*where the letter S indicates that the significance levels for the
+0136|*test statistics are printed too. Simultaneous confidence intervals
+0137|*may be obtained if the wanted significance level is given instead
+0138|*of the letter S, e.g. LROOT(0.10). The program uses Pillai's
+0139|*approximation for the distribution of largest root of a multivariate
+0140|*beta matrix. Thus large siginificance levels (e.g. >0.20) should
+S   |                                                    >
+0141|*not be used. Further, for some degrees of freedoms the confidence
+0142|*intervals or significance levels printed seems to be too small (0-1 %).
+0144|*Further information:
+0145|- shadow a: [LINK(qw3_03.html)]
+0146|*    M = Multivariate analysis of variance (usual MANOVA model)
+S   |     a                                                        |
+0147|- shadow a: [LINK(qw4_03.html)]
+0148|*    G = Multivariate analysis of repeated measurements
+S   |     a                                                |
+0149|- shadow a: [LINK(qw1_01.html)]
+0150|*    A = More on ANOVA operations
+S   |     a                          |
+0151|E

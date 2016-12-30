@@ -1,0 +1,123 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q112
+0004|*LOAD EDQ113
+0005|+CRTDEV? þ PRINT CUR+1,E TO q112_01.html
+0006|- include HTML40.DEV
+0007|- include Q.DV2
+0008|- [HelpText]
+0009|*The control words appearing in the extra specifications of
+0010|*the GPLOT (PLOT) operations can be defined by the user.
+0011|*All such definitions are saved in a text file (Survo device
+0012|*driver) and maintained easily by the SAVEP and LOADP operations
+0013|*of Survo.
+0015|*The default device driver for the GPLOT operation is given as
+0016|*crt_dev=<name_of_file> in the auxiliary file SURVO.APU in the
+S   |         <            >
+0017|*Survo directory.
+0019|*Most of the specifications in GPLOT schemes can be given like
+0020|*GRID=([RED][line_width(2)]),XY
+0021|*where the driver dependent part has always the form
+0022|*  ([...][...]...[...]),
+0023|*The words in brackets (like [RED] and [line_width(2)]) have to be
+0024|*defined in the driver.
+0026|*To override the default driver, use INCLUDE=<name_of_driver>
+S   |                                             <              >
+0027|*in your GPLOT scheme.
+0029|*New drivers can be built by using default drivers as models.
+0031|- shadow a: [LINK(q11_01.html)]
+0032|*  P = More information on plotting
+S   |   a                              |
+0033|E
+0036|+PALETTE? þ PRINT CUR+1,E TO q112_02.html
+0037|- include HTML40.DEV
+0038|- include Q.DV2
+0039|- [HelpText]
+0040|#PALETTE=<name of a .PAL file>
+S   |         <                   >
+0041|*(specification in GPLOT operation)
+0042|*determines the color palette for the current graph.
+0043|SDefault directory for .PAL files is the current data path
+S   |                                         88888888888888888
+0044|*and secondarily <Survo>\U\SYS .
+S   |                 <     >
+0045|*Each .PAL file is a text file with several lines of the form
+0046|*  <color_index> <Red_intensity> <Green_intensity> <Blue_intensity>
+S   |   <           > <             > <               > <              >
+0047|*where <color_index> is 0,1,... (max 15 for EGA, for example) and
+S   |       <           >
+0048|*intensities are integers from 0 to 1000.
+0049|*The PAL1.PAL file corresponds to the default colors obtained without
+0050|*any PALETTE specification.
+0051|- shadow a: [LINK(q111_02.html)]
+0052|*  G = More information on GPLOT
+S   |   a                           |
+0053|- shadow a: [LINK(q11_01.html)]
+0054|*  P = More information on plotting in general
+S   |   a                                         |
+0055|E
+0058|*  E = Editing palettes (GPLOT /PALETTE operation)
+0059|+EDITPAL? þ PRINT CUR+1,E TO q112_03.html
+0060|- include HTML40.DEV
+0061|- include Q.DV2
+0062|- [HelpText]
+0063|#GPLOT /PALETTE <old_PAL_file>,<new_PAL_file>
+S   |                <            > <            >
+0064|*displays the colors represented by the <old_PAL_file> (with default
+S   |                                        <            >
+0065|*extension .PAL) with their RGB values ranging from 0 to 1000.
+0066|SThe default path for .PAL files is the current data path and
+S   |                                        88888888888888888
+0067|*secondarily <Survo>\U\SYS .
+S   |             <     >
+0069|*The RGB values are rescaled to range from 0 to 63 during editing.
+0070|*The user can edit the RGB values by moving the cursor and increasing
+0071|*and decreasing the values by + and - keys. The colors will be changing
+0072|*accordingly.
+0073|*Finally, by pressing ENTER the edited RGB values will be saved as a
+0074|*<new_PAL_file>. The original scaling from 0 to 1000 will be resumed.
+S   | <            >
+0076|- shadow a: [LINK(q111_02.html)]
+0077|*  G = More information on GPLOT
+S   |   a                           |
+0078|E
+0080|+GPLOTXT? þ PRINT CUR+1,E TO q112_04.html
+0081|- include HTML40.DEV
+0082|- include Q.DV2
+0083|- [HelpText]
+0084|*Any character font in the current Windows environment can be used in
+0085|*SURVO MM screen plots.
+0086|*Names of available fonts and text samples using them is obtained
+0087|*by activating the sucro command
+0088|*/FONTS .
+0089|*Any text item in the graph can be given with a [FONT(font_name,size)]
+0090|*code attribute. For example, using the "Times New Roman" font of size 20 in the
+0091|*plot header and in `red' color and in italics can be indicated by
+0093|*HEADER=[FONT(Times_New_Roman,20)][RED][ITALIC],Steiner_circles
+0095|*Please note that spaces must be replaced by '_'s in these notations.
+0096|*All code attributes for screen plotting are defined in the CRT16.DEV text file
+0097|*(in directory <Survo>\U\SYS).
+S   |               <     >
+0099|*For compability with earlier Survos and PostScript plotting CRT16.DEV includes
+0100|*shorthand ready-made definitions like (this equals to the above HEADER):
+0102|*HEADER=[TimesI(20)][RED],Steiner_circles
+0104|*Similarly [TimesB(12)] is the same as [FONT(Times_New_Roman,12)][BOLD].
+0106|*GPLOT /FRAME  / Load the setup by '+' and activate this line!
+0107|*HEADER=Various_fonts_in_Survo_screen_graphics:_(This_is_[NORMAL]) FRAME=0
+0108|*MODE=EGA Width=640 Height=350-Gap Gap=20
+0109|*R1=Height-1*Gap R5=Height-5*Gap R9=Height-9*Gap
+0110|*R2=Height-2*Gap R6=Height-6*Gap R10=Height-10*Gap
+0111|*R3=Height-3*Gap R7=Height-7*Gap R11=Height-11*Gap
+0112|*R4=Height-4*Gap R8=Height-8*Gap R12=Height-12*Gap
+0113|*TEXTS=T1,T2,T3,T4,S1,S2,S3,S4,C1,C2,C3,L
+0114|*T1=[Times(10)],[Times(10)],Gap,R1   S1=[Swiss(10)],[Swiss(10)],Width/2,R1
+0115|*T2=[Times(15)],[Times(15)],Gap,R2   S2=[Swiss(13)],[Swiss(13)],Width/2,R2
+0116|*T3=[Times(20)],[Times(20)],Gap,R3   S3=[Swiss(17)],[Swiss(17)],Width/2,R3
+0117|*T4=[Times(25)],[Times(25)],Gap,R4-9 S4=[Swiss(22)],[Swiss(22)],Width/2,R4
+0118|*C1=[Courier(10)],[Courier(10)],Gap,R5 C2=[Courier(12)],[Courier(12)],8*Gap,R5
+0119|*C3=[Courier(15)],[Courier(15)],Gap,R6
+0120|*SM=[SMALL],22_Oct_1991/SM_(This_is_[SMALL]),Gap,R8
+0121|*L=[RED][SMALL],#LINES:CUR+7,CUR+15,Gap,R9,12
+0123|- shadow a: [LINK(q111_02.html)]
+0124|*  G = More information on GPLOT
+S   |   a                           |
+0125|E

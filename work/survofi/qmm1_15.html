@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">HCLUSTER &lt;input&gt;,&lt;output_line&gt;                    /    F. Åberg 11.5 1996
+
+Performs hierarchical clustering of observations in the specified data
+or on a distance matrix.
+HCLUSTER let you plot a dendrogram on CRT or a Postscript printer.
+
+When data is used, the variable with the label should be activated with
+letter L, and the variables to compute the distances from with letter A.
+If no L activated variable is found, the first activated variable is
+used if it is of string type.
+If no suitable label is found, the observation numbers are used as labels.
+Note: the label variable must be of string (S) type.
+
+The HCLUSTER module recognizes a distance matrix as input when the name
+ends with the .MAT extension.
+(eg. DIST and DISTV modules by S.Mustonen are useful for making
+distance matrices.)
+
+On next screen about various specifications.
+
+Specification  Diffrent values      Abbrevation      Remarks
+ METHOD         SINGLE_LINKAGE      SIN or 1          (default)
+                COMPLETE_LINKAGE    COM or 2
+                AVERAGE_LINKAGE     AVE or 3
+                WEIGHTED_AVERAGE    WAV or 4
+                CENTROID            CEN or 5
+                WEIGHTED_CENTROID   WCE OR 6
+                MINIMUM_VARIANCE    MIN or 7         Also called Wards method.
+ SAVEDIST       &lt;matrix&gt;                             Default: no saving.
+                &lt;textfile&gt;                           With extension .TXT
+ DISTANCE       SQUARED_EUCLIDIAN   SQU or SQR or 1  (default)
+                EUCLIDIAN           EUC or 2
+                CITY_BLOCK          CIT OR 3
+                CANBERRA_METRIC     CAN or 4
+ TREEDATA       &lt;datafile&gt;                           Default: #TREE#
+                                                     Used also for PS file.
+ RESULTS        0..10                                Short output.
+                &gt;10                                  Long output.
+ PLOT           PS  or  POSTSCRIPT                   Output for PostScript.
+                PS,LANDSCAPE                         Print format: Landscape
+more specifications on next screen.
+
+ SCALING        YES  ( any value will do. )          Performs standardization
+                                                     of variables before com-
+                                                     puting distances.
+                                                     zero mean, unit variance
+ WEIGHTS        &lt;weight matrix&gt;                      Vector with weights.
+                                                     Survo matrix; 1 column
+                                                     m rows, in the same
+                                                     order as the activated
+                                                     variables.
+examples on next screen.
+
+HCLUSTER DECA,CUR+1    /  METHOD=MINIMUM_VARIANCE  SAVEDIST=MAT1
+ The distance matrix is saved in matrix file MAT1.MAT. If n&gt;90 then distances
+ are saved as a text file MAT1.TXT
+
+HCLUSTER D.MAT,CUR+1   /  TREEDATA=C:TMPTREE1  RESULTS=0
+ Performs cluster analysis based on distance matrix D. The data that contains
+ the dendrogram is saved in data file TREE1.SVO in current datapath.
+ Only the lines relevant for plotting the dendrogram are as output.
+ Note that TREEDATA and SAVEDIST can include a path name.
+
+HCLUSTER MYDATA,CUR+1  /  DISTANCE=CIT  PLOT=PS  SAVEDIST=DIST1.TXT
+ Uses method single linkage and the distances are CITY BLOCK measures.
+ The dendrogram is 'printed' to a PostScript file. The name (and path)
+ is the same as in TREEDATA but with the .PS extension.
+ The distance matrix is saved as a textfile in DIST1.TXT (in datapath).
+ Note that the distance matrix is not saved by default.
+
+ More about HCLUSTER on next screen.
+
+The HCLUSTER module uses an agglomerative algorithm.
+Other distance measures can be used by making a
+distance matrix with the DIST module.
+
+Note that HCLUSTER only work with dissimilarity measures.
+
+Literature used for programming the HCLUSTER module:
+ Anderberg Michael R. : Cluster Analysis for Applications, NY &amp; London, 1973
+ Jain Anil K. : Algorithms for Clustering Data, 1988
+ Everitt Brian S. : Cluster Analysis, 1983
+
+ <A HREF="qmm1_02.html">1 = More information on additional multivariate operations</A> 
+ <A HREF="qmr2_01.html">M = More information on multivariate analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

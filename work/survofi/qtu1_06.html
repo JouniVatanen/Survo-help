@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">A sucro can be written in the edit field by using a special sucro language.
+Below a tiny sucro program has been written an saved by a TUTSAVE command:
+  10 *
+  11 *TUTSAVE YEAR_
+  12 / This sucro inserts a new line and writes the current year on it.
+  13 / Insert new line and move the cursor to the beginning of the line:
+  14 *{ins line}{line start}
+  15 / Write and activate TIME command:
+  16 *TIME{act}
+  17 / Return to the beginning of the line and delete 25 first characters:
+  18 *{line start}{del 25}
+  19 / Current year is obtained and the sucro ends:
+  20 *{end}
+Lines starting by /'s are merely comments. The actual program lines contain
+text to be echoed and written to the edit as such (like TIME on line 16).
+There are also various control words and statements written in braces.
+A good way to learn more about sucro programming is to study existing sucros
+(in directories &lt;Survo&gt;\S and &lt;Survo&gt;\TUT, for example)
+by using the TUTLOAD command.
+
+  <A HREF="qtu1_01.html">S = More information on sucros</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

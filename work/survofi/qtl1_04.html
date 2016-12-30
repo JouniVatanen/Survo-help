@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Esiintyy monenlaisia käsityksiä siitä, miten moni pelatessaan
+puhdasta onnenpeliä, kuten Lottoa, pääsee ennen pitkää voitolle.
+Vaikuttaa siltä, että nuo voittomahdollisuudet arvioidaan todellista
+paremmiksi, vaikka tiedetäänkin täysosuman epätodennäköisyys.
+Lotossa voitolle päässeiden suhteellista osuutta säännöllisesti
+peliin (esim. 10 vuoden aikana) osallistuneiden keskuudessa
+ei ole mahdollista selvittää haastattelututkimuksilla, sillä
+se edellyttäisi lottoilijoilta tarkkaa kirjanpitoa toiminnastaan.
+Kysymystä lienee erittäin hankala ratkaista pelkillä teoreettisilla
+laskelmillakaan. Tässä turvaudutaan simulointiin eli mahdollisimman
+monen, kuvitellun lottoilijan vaiheiden seuraamiseen ja tilastointiin.
+Survon LOTTO-ohjelmassa käyttäjän tulee antaa mahdollisimman realistiset
+arviot voittojen suuruuksien vaihtelusta voittoluokittain.
+LOTTO olettaa kunkin pelaajan veikkaavan saman määrän (esim. 12) rivejä
+52 kertaa kunakin tarkkailuvuonna.
+On mahdollista seurata yksittäisen pelaajan tilannetta vaikka kierroksittain.
+Kiinnostavinta on kuitenkin tarkastella suurta pelaajajoukkoa
+ja hahmottaa mm. sitä, kuinka moni seuranta-aikana menestyy Lotossa
+paremmin kuin sijoittamalla vastaavat panokset riskittömästi vaikkapa
+pankkitilille.
+
+LOTTO,L
+seuraa Monte Carlo -menetelmällä (simuloimalla)
+säännöllisesti Lottoa vakiopanoksin pelaavan kohtaloa
+halutulla aikavälillä.
+L on lopullisten tulosten alkurivi. Jos L puuttuu, tulostetaan
+toimituskentän seuraavasta rivistä eteenpäin.
+
+LOTTO-operaatiota ohjataan seuraavilla täsmennyksillä:
+
+V7=&lt;alaraja&gt;,&lt;yläraja&gt;    Voittoluokan 7-oikein voittosumman rajat
+V61=&lt;alaraja&gt;,&lt;yläraja&gt;   Voittoluokan 6-oikein + lisänro rajat
+V6=&lt;alaraja&gt;,&lt;yläraja&gt;    Voittoluokan 6-oikein voittosumman rajat
+V5=&lt;alaraja&gt;,&lt;yläraja&gt;    Voittoluokan 5-oikein voittosumman rajat
+V4=&lt;alaraja&gt;,&lt;yläraja&gt;    Voittoluokan 4-oikein voittosumman rajat
+Jokainen voitto arvotaan tasajakauman mukaisesti ko. väleiltä.
+
+Lisää täsmennyksiä seuraavalla sivulla:
+
+Lisätäsmennyksiä kuvattuna tässä oletusarvoineen:
+
+Rivejä/kierros=12
+Näyttöväli=1 vuotta     Tulostaulukon näyttöväli
+Vuosia=10               Pelin kokonaiskesto vuosina
+V7_lopetus=0            Arvolla 1 peluu loppuu, jos saadaan 7-oikein.
+Tauko=0                 Ei taukoja. Tauko=1 keskeyttää tilapäisesti,
+                        jokaisella näyttövälillä. Tauko=2 keskeyttää
+                        jokaisen kierroksen jälkeen.
+                        Napilla ENTER askel eteenpäin.
+                        Napilla + jatkuvaan näyttöön eli Tauko=0.
+                        Napilla . peli keskeytyy (jos Lottoajia=1)
+Korkokanta=0 %          Pelimaksuille ja -voitoille lasketaan korkoa.
+RND=rand(123456789)     (pseudo)satunnaislukugeneraattori siemenlukuineen
+Lottoajia=1             Useamman pelaajan tapauksessa (Lottoajia&gt;1)
+                        tulokset talletetaan tekstitiedostoon LOTTO.TXT
+                        Kultakin pelaajalta tallentuvat tiedot:
+                        Nro Saldo N7 N61 N6 N5 N4
+                        missä Saldo on yhteenlasketun voittosumman ja
+                        pelimaksujen erotus ja N7 jne. voittojen
+                        lukumäärät voittoluokittain.
+
+.......................................................................
+Esimerkki 1:
+V7=220000,4500000  (vaihteluväli vuosilta 2001-2002)
+V61=4600,82000 (6 + lisänro.)
+V6=600,2700
+V5=23,67
+V4=7,15
+
+Rivejä/kierros=12
+Näyttöväli=5 vuotta Vuosia=5 V7_lopetus=1
+Tauko=0
+Korkokanta=5 %
+
+LOTTO
+(Tämän LOTTO-komennon antama tulostaulukko seuraavalla sivulla)
+
+Vuosia kulunut 5. Lottorivejä veikattu 3120.
+Kierroksia 260. Rivejä kullakin kierroksella 12.    Odotetut määrät
+7 oikein                   0 kpl            0.00 e         0.00020 kpl
+6 oikein + lisänro.        0 kpl            0.00 e            0.00 kpl
+6 oikein                   1 kpl         1234.40 e            0.05 kpl
+5 oikein                   1 kpl           57.77 e            2.11 kpl
+4 oikein                  42 kpl          509.39 e           35.21 kpl
+3 oikein                 266 kpl
+2 oikein                 829 kpl
+1 oikein                1320 kpl
+0 oikein                 661 kpl
+                                         1801.56 = voitot yhteensä
+Korko 5.00%                              2109.92 = maksut yhteensä
+                                         -308.36 = erotus
+
+Esimerkki 2: Kokoava esimerkki voittamisen vaikeudesta
+V7=220000,4500000  V61=4600,82000
+V6=600,2700 V5=23,67 V4=7,15
+Rivejä/kierros=12 V7_lopetus=0
+Näyttöväli=10
+Vuosia=10
+Lottoajia=100000
+Korko=5 %
+LOTTO   / Tämä vie aikaa 1.6 GHz:n koneella noin 40 minuuttia!
+SHOW LOTTO.TXT / Tulokset  Maksut:        4823.67
+
+Kun siirretään kerätyt tiedot Survon datatiedostoon V esim. komennolla
+FILE SAVE LOTTO.TXT TO V    / NAMES=1 FIRST=2
+voidaan analysoida tuloksia.
+
+100000 lottoajaa siis pelasi 10 vuoden ajan 12 rivin viikkopanoksella.
+Kun korkokanta on 5 %, voitolle pääsi 858 eli 0.86 % pelaajista.
+Täysosumia tuli 38 kpl ja niillä ylsi ainakin 300000 e voitolle.
+Tämä sopii hyvin yhteen odotetun täysosumien määrän kanssa, joka on
+100000*10*52*12/C(39,7)=40.5697...
+Yli 1 milj.euron voiton korkoineen saavuttaneita oli 28 kpl.
+Lisäksi 1489-858=631 pelaajaa selvisi nimellisesti voitolle (Saldo&gt;0).
+
+Kaiken kaikkiaan yli 99 %:lle pelaajista lottoaminen oli
+kannattamattomampaa kuin pelipanosten "riskitön sijoittaminen"
+5 %:n korolla.
+
+Suurimmat pelaajakohtaiset tappiot olivat luokkaa 8000 e (korko
+mukaanlukien).
+
+Korkotasolla ei ole sanottavaa vaikutusta pelin "tuloksellisuuteen".
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

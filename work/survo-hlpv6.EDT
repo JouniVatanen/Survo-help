@@ -1,0 +1,1615 @@
+SURVO 98 edit field:    201       2000       300 (32 bit version)
+0001|*SAVE survo-hlpv6 / Survo helppi 18.7.2016 Jouni Vatanen
+0005|*CD S:\Muut\Survo-hlp
+0007|*/OPEN www\
+0010|*/ACTIVATE +
+0013|*WEB PAGE STRUCTURE
+S   |4
+0014|*public_html/
+0015|*  css/
+0016|*  img/
+0017|*  media/
+0018|*  .htaccess
+0019|*  index.html
+0020|*  index.php
+0021|*  + html5 boilerplate files
+0022|*doc/
+0023|*lib/
+0025|*Create libraries
+S   |3
+0026|*webpage-root     ## MD www/public_html
+0027|*css-files        ## MD www/public_html/css
+0028|*images           ## MD www/public_html/img
+0029|*other media      ## MD www/public_html/media
+0030|*javascript       ## MD www/public_html/js
+0031|*documents        ## MD www/docs
+0032|*php-scripts etc. ## MD www/library
+0034|*INDEX
+S   |4
+0035|* - CONVERT TO HTML
+0036|* - CSS FILE
+0037|* - SEARCH BAR CODE
+0038|* - WEB PAGE CONTENT
+0039|* - INDIVIDUAL WEB PAGES
+0041|*..........
+0042|*List about Survo commands and parameters
+S   |3
+0043|*SHOW SurvoR_specs.txt
+0044|*TXTCONV SurvoR_specs.txt,SurvoR_specsv2.txt
+0045|*CONVERSIONS:
+0046|*t ";char(32)/" "char(10)char(32)/"
+0047|*t ";char(32)char(32)/" "char(10)char(32)char(32)/"
+0048|*t ";char(32)" "----------"
+0049|*t ";" "char(10)"
+0050|*END
+0051|*..........
+0052|*TXTCONV Survo _specsv2.txt,SurvoR_specsv3.txt
+0053|*CONVERSIONS:
+0054|*t "----------" ";char(32)"
+0055|*END
+0057|*/OPEN SurvoR_specsv3.txt
+0058|*..........
+0059|*SHOW SurvoR_specsv3.txt
+0061|*FILE SAVE SurvoR_specsv3.txt,SurvoR_specs / DELIMITER=sp
+0065|*..........
+0066|* - CONVERT TO HTML
+S   |4
+0067|*Webpage settings, changes in red
+S   |3
+0068|+SAVEP CUR+1,E>,Q.DV2
+0069|* / Definitions for the HTML version of the inquiry system / kv 1999
+0070|* / define [name1] Help[S]System[S]of[S]Survo
+0071|* / define [name2] [S](World[S]Wide[S]Web[S]edition)
+0072|* define [name1] Help&nbsp;System
+0073|* define [name2] &nbsp;(web&nbsp;edition)
+0074|* define [Name] [name1]
+0075|* [TITLE]SURVO&nbsp;[Name][/TITLE][LF]
+0076|* / [STYLESHEET(../survo.css)]
+0077|* [STYLESHEET(css/main.css)]
+S   |1
+0078|* [META]NAME="Description" CONTENT="SURVO&nbsp;[Name]"[/META][LF]
+0079|* [META]NAME="Classification" CONTENT="help system"[/META][LF]
+0080|* [META]NAME="Keywords" CONTENT="Survo, help, hypertext"[/META][LF]
+0081|* [SCRIPT]SRC="http://code.jquery.com/jquery-2.1.1.min.js">[/SCRIPT][LF]
+S   |1
+0082|* [SCRIPT]SRC="auto-complete.js">[/SCRIPT][LF]
+S   |1
+0083|* [BODY]
+0084|* define [pict1] [IMAGE(../survologo1.gif)]
+0085|* define [pict2] WIDTH="200"[S]HEIGHT="82"[S]ALT="SURVO&nbsp;MM"[/IMAGE]
+0086|* define [Picture] [pict1][pict2]
+0087|* / [H1][Picture]&nbsp;[LINK(mainmenu.html)][Name][/LINK][/H1]
+0088|* / -----------------------------------------------------------------
+0089|* / define [Syntax] [H4]
+0090|* / define [/Syntax] [/H4][RULER]
+0091|* define [HelpText] [LF][P(HelpText)]
+S   |1
+0092|* define [/HelpText] [/P][RULER]
+S   |1
+0093|* define [Example] [%=0] / [RULER(70%)]
+0094|* define [/Example] [%=0] / [RULER(70%)]
+0095|* define [New] [%=0] / [STRONG]
+0096|* define [/New] [%=0] / [/STRONG]
+0097|* define [Mark] <B>
+0098|* define [/Mark] </B>
+0099|* define [Banner1] [LF][DIVCLASS(Details)][SMALL]
+0100|* define [URL] [LINK(http://www.survo.fi/)]
+0101|* define [More] More[S]information[S]on[S]Survo[S]from[S]
+0102|* define [lt] www.survo.fi
+0103|* define [SurvoLink] [More][URL][lt][/LINK][/SMALL]
+0104|* define [SurSys] Survo[S]Systems[S]2001-2012
+0105|* define [wm1] [MAIL(webmaster'at'survo.fi)]
+0106|* define [wm2]       webmaster'at'survo.fi[/MAIL]
+0107|* define [wmail] [wm1][wm2]
+0108|* define [b2a] [SMALL]Copyright[Copyright]
+0109|* define [b2b] [SurSys].[+][wmail][/SMALL][/DIVCLASS]
+0110|* define [Banner2] [b2a][b2b]
+0111|* / control E: [/HelpText][Banner1][SurvoLink][+][Banner2][LF][END]
+S   |1
+0112|* shadow /: [STRONG] [/STRONG]
+0113|* shadow f: [Mark] [/Mark]     / (fixed footnotes)
+0114|* shadow 7: [Mark] [/Mark]
+0115|* shadow 8: [New] [/New]
+0116|* shadow 4: [Mark] [/Mark]
+0117|* shadow 2: [%=0]
+0118|* shadow 3: [%=0]
+0119|* / shadow E: [Mark] [/Mark]
+S   |1
+0120|* shadow ?: [Mark] [/Mark]
+0121|* shadow _: [Mark] [/Mark]
+0122|* shadow N: [Mark] [/Mark]
+0123|* shadow L: [Mark] [/Mark]
+0124|* shadow D: [Mark] [/Mark]
+0125|* shadow ,: [Mark] [/Mark]
+0126|* shadow *: [Mark] [/Mark]
+0127|* shadow {: [Mark] [/Mark]
+0128|* shadow }: [Mark] [/Mark]
+0129|* shadow z: [Mark] [/Mark]
+0130|* shadow w: [Mark] [/Mark]
+0131|* / shadow x: [Mark] [/Mark]
+S   |1
+0132|* shadow |: [%=0] [/LINK]
+0133|* shadow ;: [%=0] [/LINK][/New]
+0134|* control #: [%=0]
+0135|* control ": [%=0]
+0136|* control [LB]: [Example]
+0137|* control [S]: [S][S][S]
+0138|* control [RB]: [/Example]
+0139|* shadow +: [Mark] [/Mark]
+0140|* / control N: [%=0]
+S   |1
+0141|* replace ................. ................. / no replace, that is
+0142|* /
+0143|E
+0145|*HTML40 settings, changes in red
+S   |3
+0146|+SAVEP CUR+1,E>,HTML40.DEV
+0147|* / HTML40.DEV / Survo "printer driver" for HTML  9.3.1995/K.Vehkalahti
+0148|* / HTML 4.0 24.7.1998/kv
+0149|* / Some CSS definitions 24.2.1999/kv
+0150|* / Deprecated elements marked 7.4.1999/kv
+0151|* / SURVO MM driver 24.7.2000/kv
+0152|* / Image positioning tags + minor enhancements 14.2.2001/kv
+0153|* / HTML 4.01 w. dtd 30.8.2001/kv
+0154|* / -------------------------------------------------------------------
+0155|* / This driver outputs HTML 4.01 Transitional under SURVO MM.
+0156|* / Usage:
+0157|* / *PRINT CUR+1,E TO mypage.html
+0158|* / - include HTML40.DEV
+0159|* / * ...
+0160|* / E
+0161|* / -------------------------------------------------------------------
+0162|* / Necessary definitions required for a Survo printer driver:
+0163|* / -------------------------------------------------------------------
+0164|* define [S]         [2/0]
+0165|* define [LF]       [0/10]
+0166|* define [NEL]        [LF]
+0167|* define [LB]       [5/11]
+0168|* define [RB]       [5/13]
+0169|* define [TEXT]      [%=0]
+0170|* define [FORM_FEED] [%=0]
+0171|* define [NEW_PAGE]  [%=0]
+0172|* define [NEWLINE]   [%=0]
+0173|* shadow [S]:        [%=0]
+0174|* / -------------------------------------------------------------------
+0175|* / Actual definitions corresponding to the HTML codes:
+0176|* / -------------------------------------------------------------------
+0177|* define    [TITLE]    <TITLE>
+0178|* define   [/TITLE]   </TITLE>
+0179|* shadow 7: [TITLE]   [/TITLE]
+0180|* define    [H1]       <H1>
+0181|* define   [/H1]      </H1>
+0182|* define    [H2]       <H2>
+0183|* define   [/H2]      </H2>
+0184|* define    [H3]       <H3>
+0185|* define   [/H3]      </H3>
+0186|* define    [H4]       <H4>
+0187|* define   [/H4]      </H4>
+0188|* define    [H5]       <H5>
+0189|* define   [/H5]      </H5>
+0190|* define    [H6]       <H6>
+0191|* define   [/H6]      </H6>
+0192|* define    [HEADER1]  [H1]
+0193|* define   [/HEADER1] [/H1]
+0194|* define    [HEADER2]  [H2]
+0195|* define   [/HEADER2] [/H2]
+0196|* define    [HEADER3]  [H3]
+0197|* define   [/HEADER3] [/H3]
+0198|* define    [HEADER4]  [H4]
+0199|* define   [/HEADER4] [/H4]
+0200|* define    [HEADER5]  [H5]
+0201|* define   [/HEADER5] [/H5]
+0202|* define    [HEADER6]  [H6]
+0203|* define   [/HEADER6] [/H6]
+0204|* shadow j: [HEADER1] [/HEADER1]
+0205|* shadow k: [HEADER2] [/HEADER2]
+0206|* shadow l: [HEADER3] [/HEADER3]
+0207|* shadow m: [HEADER4] [/HEADER4]
+0208|* shadow n: [HEADER5] [/HEADER5]
+0209|* shadow o: [HEADER6] [/HEADER6]
+0210|* define    [P]        <P>
+0211|* define   [/P]       </P>
+0212|* define    [/]        [P]
+0213|* define    [/(align)] <P[S]ALIGN="align"> / deprecated
+0214|* shadow /: [%=0]      [/]
+0215|* control /:           [/]
+0216|* define    [+]        <BR>
+0217|* define    [+(clear)] <BR[S]CLEAR="clear">
+0218|* shadow \: [+]
+0219|* control +:           [+]
+0220|* define    [RULER(x)] <HR[S]WIDTH="x"> / deprecated
+0221|* define    [RULER]    <HR>
+0222|* control =:           [RULER]
+0223|* control |:           [+][+][RULER][+][+]
+0224|* define  [DIV(x)]      <DIV[S]ALIGN="x"> / deprecated
+0225|* define [/DIV]        </DIV>
+0226|* define  [DIVISION(x)] [DIV(x)]
+0227|* define [/DIVISION]   [/DIV]
+0228|* define  [CENTER]      [DIV(center)] / deprecated
+0229|* define [/CENTER]     [/DIV] / deprecated
+0230|* control {:       [CENTER] / deprecated
+0231|* control }:      [/CENTER] / deprecated
+0232|* shadow {:        [CENTER] / deprecated
+0233|* shadow }: [%=0] [/CENTER] / deprecated
+0234|* define  [STRONG]      <STRONG>
+0235|* define [/STRONG]     </STRONG>
+0236|* define  [SUB]         <SUB>
+0237|* define [/SUB]        </SUB>
+0238|* define  [SUP]         <SUP>
+0239|* define [/SUP]        </SUP>
+0240|* define  [DFN]         <DFN>
+0241|* define [/DFN]        </DFN>
+0242|* define  [DEFINITION]  [DFN]
+0243|* define [/DEFINITION] [/DFN]
+0244|* define  [EM]          <EM>
+0245|* define [/EM]         </EM>
+0246|* define  [EMPHASIS]    [EM]
+0247|* define [/EMPHASIS]   [/EM]
+0248|* define  [CITE]        <CITE>
+0249|* define [/CITE]       </CITE>
+0250|* define  [CITATION]    [CITE]
+0251|* define [/CITATION]   [/CITE]
+0252|* define  [CODE]        <CODE>
+0253|* define [/CODE]       </CODE>
+0254|* define  [PRE]         <PRE>
+0255|* define [/PRE]        </PRE>
+0256|* define  [BLOCKQUOTE]  <BLOCKQUOTE>
+0257|* define [/BLOCKQUOTE] </BLOCKQUOTE>
+0258|* define  [Q]           <Q>
+0259|* define [/Q]          </Q>
+0260|* define  [DEL]         <DEL>
+0261|* define [/DEL]        </DEL>
+0262|* define  [SMALL]      <SMALL> / deprecated
+0263|* define [/SMALL]     </SMALL> / deprecated
+0264|* define  [BIG]        <BIG> / deprecated
+0265|* define [/BIG]       </BIG> / deprecated
+0266|* shadow 1: [STRONG]     [/STRONG]
+0267|* shadow 2: [SUB]        [/SUB]
+0268|* shadow 3: [SUP]        [/SUP]
+0269|* shadow 4: [DEFINITION] [/DEFINITION]
+0270|* shadow 6: [EMPHASIS]   [/EMPHASIS]
+0271|* shadow 9: [CITATION]   [/CITATION]
+0272|* shadow x: [CODE]       [/CODE]
+0273|* shadow (: [CODE]
+0274|* shadow ): [/CODE]
+0275|* control (:   [PRE][CODE]
+0276|* control ): [/CODE][/PRE]
+0277|* control <:  [BLOCKQUOTE]
+0278|* control >: [/BLOCKQUOTE]
+0279|* define  [ADDRESS]  <ADDRESS>
+0280|* define [/ADDRESS] </ADDRESS>
+0281|* shadow 8: [LF][ADDRESS] [/ADDRESS]
+0282|* control [LB]:  [ADDRESS]
+0283|* control [RB]: [/ADDRESS]
+0284|* shadow <: &lt;  / The characters  < > &  MUST be painted with the corresponding
+0285|* shadow >: &gt;  / shadow characters, since the code conversion (HTML.BIN) will
+0286|* shadow &: &amp; / remove them. Extra spaces can be removed e.g. by TXTCONV.
+0287|* define [Copyright] [S]&copy;[S]
+0288|* / Links:
+0289|* define [MADEBY(x)] <LINK[S]REV=MADE[S]HREF="mailto:x">
+0290|* define  [MAIL(x)]  <A[S]HREF="mailto:x">
+0291|* define [/MAIL]    </A>
+0292|* define  [NAME(x)]  <A[S]NAME="x">
+0293|* define [/NAME]    </A>
+0294|* define  [JUMP(x)]  <A[S]HREF="#x">
+0295|* define [/JUMP]    </A>
+0296|* define  [LINK(x)]  <A[S]HREF="x">
+0297|* define [/LINK]    </A>
+0298|* shadow |:   [%=0] </A>
+0299|* / Images:
+0300|* define  [IMAGE(URL)]       <IMG[S]SRC="URL"[S]
+0301|* define  [IMAGE_LEFT(URL)]  [IMAGE(URL)]ALIGN="LEFT"[S]
+0302|* define  [IMAGE_RIGHT(URL)] [IMAGE(URL)]ALIGN="RIGHT"[S]
+0303|* define [/IMAGE] >
+0304|* / Miscellaneous header codes:
+0305|* define  [META]        <META[S]
+0306|* define [/META]         >
+0307|* define  [SCRIPT]      <SCRIPT>
+S   |1
+0308|* define [/SCRIPT]      </SCRIPT>
+S   |1
+0309|* define  [GS(x)]       <GCSE:x>
+S   |1
+0310|* define [/GS(x)]       </GCSE:x>
+S   |1
+0311|* define  [DESCRIPTION] [META]NAME="description"[S]CONTENT="
+0312|* define [/DESCRIPTION] ">
+0313|* define  [KEYWORDS]    [META]NAME="keywords"[S]CONTENT="
+0314|* define [/KEYWORDS]    ">
+0315|* shadow ': [%=0] ">
+0316|* / Body building:
+0317|* define  [BODY]     </HEAD>[LF]<BODY>[LF]
+0318|* define  [BODY_DEF] </HEAD>[LF]<BODY[S]
+0319|* define [/BODY_DEF] >[LF]
+0320|* define [END]       </BODY>[LF]</HTML>
+0321|* control E: [LF][END][LF] / end of the document
+0322|* / Shortcuts for basic backgrounds (deprecated):
+0323|* define [Black]  "#000000"
+0324|* define [White]  "#FFFFFF"
+0325|* define [WhiteBody] </HEAD>[LF]<BODY[S]BGCOLOR=[White][S]TEXT=[Black]> / deprecated
+0326|* define [BlackBody] </HEAD>[LF]<BODY[S]BGCOLOR=[Black][S]TEXT=[White]> / deprecated
+0327|* / Lists:
+0328|* define   [LIST]     <UL>
+0329|* define  [/LIST]    </UL>
+0330|* define  [NLIST]     <OL>
+0331|* define [/NLIST]    </OL>
+0332|* define  [NLIST(x)]  <OL[S]TYPE="x">
+0333|* define     [L]         <LI>
+0334|* define     [L(x)]      <LI[S]TYPE="x">
+0335|* define     [/L]        </LI>
+S   |1
+0336|* shadow L:  [L]
+0337|* control L: [L]         [/L]
+S   |1
+0338|* define  [DLIST]     <DL>
+0339|* define  [DLIST(x)]  <DL[S]COMPACT> / deprecated
+0340|* define [/DLIST]    </DL>
+0341|* define     [T]      <DT>
+0342|* shadow I:  [T]
+0343|* control I: [T]
+0344|* define     [D]         <DD>
+0345|* shadow N:  [D]
+0346|* control N: [D]
+0347|* / Fonts (ALL deprecated, use CSS instead):
+0348|* define    [FONT_SIZE(size)]   <FONT[S]SIZE="size"> / deprecated
+0349|* define    [FONT_COLOR(color)] <FONT[S]COLOR="color"> / deprecated
+0350|* define    [FONT(size,color)]  <FONT[S]SIZE="size"[S]COLOR="color"> / deprecated
+0351|* define   [/FONT]             </FONT> / deprecated
+0352|* shadow +: [FONT_SIZE(+1)]    [/FONT] / deprecated
+0353|* shadow -: [FONT_SIZE(-1)]    [/FONT] / deprecated
+0354|* / Tables:
+0355|* define  [TABLE]         <TABLE>
+0356|* define  [TABLE(BORDER)] <TABLE[S]BORDER>
+0357|* define  [TABLE_DEF]     <TABLE[S]
+0358|* define [/TABLE_DEF]     >
+0359|* define [/TABLE]        </TABLE>
+0360|* define  [TABLE_ROW]         <TR[S]
+0361|* define [/TABLE_ROW]         >
+0362|* control r:              <TR>
+0363|* shadow r:               <TR>
+0364|* control R:              [TABLE_ROW]ALIGN="right"[/TABLE_ROW]
+0365|* define  [TABLE_HEADER]      <TH
+0366|* define [/TABLE_HEADER]      >
+0367|* define  [TABLE_HEADER(x,y)] <TH[S]ROWSPAN="x"[S]COLSPAN="y">
+0368|* shadow H: [%=0] [TABLE_HEADER]ALIGN="left"[/TABLE_HEADER]
+0369|* define  [TABLE_CELL]        <TD[S]
+0370|* define [/TABLE_CELL]        >
+0371|* define  [TABLE_CELL(x,y)]   <TD[S]ROWSPAN="x"[S]COLSPAN="y">
+0372|* shadow e: [%=0] [TABLE_CELL]ALIGN="right"[/TABLE_CELL]
+0373|* shadow E: [%=0] [TABLE_CELL]ALIGN="left"[/TABLE_CELL]
+0374|* control c: [TABLE_CELL]ALIGN="right"[/TABLE_CELL]
+S   |1
+0375|* control C: [TABLE_CELL]ALIGN="left"[/TABLE_CELL]
+S   |1
+0376|* define    [TABLE_CAPTION]        <CAPTION>
+0377|* define    [TABLE_CAPTION(align)] <CAPTION[S]ALIGN="align"> / deprecated
+0378|* define   [/TABLE_CAPTION]       </CAPTION>
+0379|* shadow ": [TABLE_CAPTION] [/TABLE_CAPTION]
+0380|* / Forms:
+0381|* define  [FORM(x,y)] <FORM[S]METHOD="x"[S]ACTION="y">
+0382|* define [FORM]      <FORM>
+S   |1
+0383|* define [/FORM]     </FORM>
+0384|* define  [FORM_DEF]  <FORM[S]
+0385|* define [/FORM_DEF]  >
+0386|* define  [INPUT(x,y)] <INPUT[S]NAME="x"[S]TYPE="y"[S]
+0387|* define [/INPUT]     >
+0388|* define  [SELECT_DEF(name)] <SELECT[S]NAME="name"[S]
+0389|* define [/SELECT_DEF]       >
+0390|* define  [SELECT(name)]     [SELECT_DEF(name)][/SELECT_DEF]
+0391|* define [/SELECT]          </SELECT>
+0392|* define    [OPTION]   <OPTION>
+0393|* shadow O: [OPTION]
+0394|* define    [SELECTED] <OPTION[S]SELECTED>
+0395|* shadow S: [SELECTED]
+0396|* define  [TEXT_DEF(name)] <TEXTAREA[S]NAME="name"[S]
+0397|* define [/TEXT_DEF]       >
+0398|* define  [TEXT(name)]     [TEXT_DEF(name)][/TEXT_DEF]
+0399|* define [/TEXT]          </TEXTAREA>
+0400|* / Miscellaneous:
+0401|* shadow !: [%=0] >
+0402|* shadow ?: [LF]<!--[S] [S]-->[LF]
+0403|* / Maps and areas:
+0404|* define [MAP(name)] <MAP[S]NAME="name">[LF]
+0405|* define [/MAP] </MAP>[LF]
+0406|* define [AREA(URL)] <AREA[S]HREF="URL"[S]
+0407|* define [/AREA] >
+0408|* / Frames: (7/98) (not a part of the DTD given below, not recommended)
+0409|* define  [FRAMES_DEF]  <FRAMESET[S]
+0410|* define [/FRAMES_DEF]  >
+0411|* define [/FRAMES]     </FRAMESET>
+0412|* define  [FRAME_DEF(URL,name)] <FRAME[S]SRC="URL"[S]NAME="name"[S]
+0413|* define [/FRAME_DEF]          >
+0414|* define  [NOFRAMES]    <NOFRAMES>
+0415|* define [/NOFRAMES]   </NOFRAMES>[LF]</HTML>
+0416|* define [/HEAD]       </HEAD>
+0417|* define [LINK2(URL,frame)] <A[S]HREF="URL"[S]TARGET="frame">
+0418|* / Cascading Style Sheets: (2/99)
+0419|* define  [STYLESHEET(URL)] <LINK[S]REL="stylesheet"[S]HREF="URL"[S]TYPE="text/css">[LF]
+0420|* define  [STYLE]               <STYLE[S]TYPE="text/css">[LF][S][S]<!--[LF]
+0421|* define [/STYLE] [S][S]-->[LF]</STYLE>[LF]
+0422|* define  [SPAN(x)] <SPAN[S]CLASS="x">
+0423|* define [/SPAN]   </SPAN>
+0424|* / Classified elements: (CSS) (4/99)
+0425|* define  [DIVCLASS(x)]         <DIV[S]CLASS="x">
+0426|* define [/DIVCLASS]           </DIV>
+S   |1
+0427|* define [DIVID(x)]             <DIV[S]ID="x">
+S   |1
+0428|* define [/DIVID]               </DIV>
+S   |1
+0429|* define [UL(x)]               <UL[S]CLASS="x">
+S   |1
+0430|* define [LI(x)]               <LI[S]CLASS="x">
+S   |1
+0431|* define [CODE(x)]             <CODE[S]CLASS="x">
+0432|* define [STRONG(x)]         <STRONG[S]CLASS="x">
+0433|* define [EM(x)]                 <EM[S]CLASS="x">
+0434|* define [PRE(x)]               <PRE[S]CLASS="x">
+0435|* define [H1(x)]                 <H1[S]CLASS="x">
+0436|* define [H2(x)]                 <H2[S]CLASS="x">
+0437|* define [H3(x)]                 <H3[S]CLASS="x">
+0438|* define [H4(x)]                 <H4[S]CLASS="x">
+0439|* define [H5(x)]                 <H5[S]CLASS="x">
+0440|* define [H6(x)]                 <H6[S]CLASS="x">
+0441|* define [CITE(x)]             <CITE[S]CLASS="x">
+0442|* define [P(x)]                   <P[S]CLASS="x">
+0443|* define [BLOCKQUOTE(x)] <BLOCKQUOTE[S]CLASS="x">
+0444|* define [CITATION(x)] [CITE(x)]
+0445|* define [EMPHASIS(x)] [EM(x)]
+0446|* define [HEADER1(x)]  [H1(x)]
+0447|* define [HEADER2(x)]  [H2(x)]
+0448|* define [HEADER3(x)]  [H3(x)]
+0449|* define [HEADER4(x)]  [H4(x)]
+0450|* define [HEADER5(x)]  [H5(x)]
+0451|* define [HEADER6(x)]  [H6(x)]
+0452|* / End of definitions; remove border lines and convert to ISO-Latin-1
+0453|* / 18.2.1999: remove   < > &   altogether (use corresponding shadows!)
+0454|* replace .................
+0455|*  <!DOCTYPE html>[LF]
+S   |1
+0456|*  <html>[LF]
+S   |1
+0457|* <HEAD>[LF]
+0458|* <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">[LF]
+0459|* <META NAME="Generator" CONTENT="SURVO MM">[LF]
+0460|* codes HTML.BIN
+0461|E
+0462|*........................................................................................................................................................................................................
+0463|* - CSS FILE
+S   |4
+0464|*Search bar, menu and responsiveness
+S   |3
+0466|+SAVEP CUR+2,E> www\public_html\css\main.css
+0467|*/OPEN www\public_html\css\main.css
+0468|*BODY, CODE, DIV, EM, H1, HTML, IMG, P, STRONG, PRE, SMALL, ul {
+0469|*  background: transparent;
+0470|*  text-decoration: none;
+0471|*  margin: 0;
+0472|*  padding: 0;
+0473|*  border: 0;
+0474|*}
+0475|*BODY {
+0476|*  max-width: 960px;
+0477|*  margin: auto;
+0478|*  color: #001030;
+0479|*  background: #FFF
+0480|*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+0481|*  background: #fff;
+0482|*}
+0483|*P {
+0484|*  margin: 0 0 0.6em 0;
+0485|*}
+0486|*img {
+0487|*  0;
+0488|*}
+0489|*A {
+0490|*/*text-decoration: none;*/
+0491|*}
+0492|*A:link {
+0493|*  color: #001030;
+0494|*  background: transparent none;
+0495|*}
+0496|*A:visited {
+0497|*  color: #660066;
+0498|*  background: transparent none;
+0499|*}
+0500|*A:active {
+0501|*  color: #001090;
+0502|*  background: transparent none;
+0503|*}
+0504|*A:hover {
+0505|*  color: #0010F0;
+0506|*  background: #CCCCCC;
+0507|*}
+0508|*PRE,
+0509|*CODE {
+0510|*  padding:  ;
+0511|*  font-family: "Lucida Console", Monaco, monospace;
+0512|*}
+0513|*.Banner {
+0514|*  font-family: Arial, Verdana, sans-serif;
+0515|*  font-size: smaller;
+0516|*  color: #990000;
+0517|*  background: transparent;
+0518|*  text-align: center;
+0519|*}
+0520|*.Details {
+0521|*  font-family: Arial, Verdana, sans-serif;
+0522|*  font-size: smaller;
+0523|*  text-align: center;
+0524|*}
+0525|*A STRONG {
+0526|*  text-decoration: none;
+0527|*}
+0528|*H1 {
+0529|*  font-family: Arial, Verdana, sans-serif;
+0530|*  font-size: x-large;
+0531|*  margin: 0;
+0532|*  padding: 0;
+0533|*  color: #006991;
+0534|*  background: transparent none;
+0535|*}
+0536|*H2 {
+S   |1
+0537|*  font-family: Arial, Verdana, sans-serif;
+0538|*  font-size:large;
+S   |1
+0539|*  margin: 0.9em 0 0.3em 0;
+0540|*  padding: 0;
+S   |1
+0541|*  color: #006991;
+S   |1
+0542|*  background: transparent none;
+S   |1
+0543|*  text-transform: uppercase;
+0544|*}
+S   |1
+0545|*H3 {
+0546|*  font-family: Arial, Verdana, sans-serif;
+0547|*  font-size: medium;
+0548|*  margin: 0.9em 0 0.3em 0;
+0549|*  padding: 0;
+0550|*  color: #666666;
+0551|*  background: transparent none;
+0552|*}
+0553|*H4 {
+0554|*  font-family: Arial, Verdana, sans-serif;
+0555|*  font-size: medium;
+0556|*  margin: 0.6em 0 0 0;
+0557|*  padding: 0;
+0558|*  color: #006991;
+0559|*  background: transparent none;
+0560|*  border-bottom: solid;
+0561|*}
+0562|*.content {
+0563|*  margin: 0.3em;
+0564|*/*overflow: auto;*/
+0565|*}
+0566|*td {
+0567|*  vertical-align: top;
+0568|*  padding-bottom: 0.6em;
+0569|*}
+0571|*/*List for Parameters - Add Responsiveness Later!*/
+S   |1
+0572|*dl {
+0573|*  padding: 0 0 0 0;
+0574|*}
+0575|*dt {
+0576|*  float: left;
+0577|*  clear: left;
+0578|*  width: 100px;
+0579|*  text-align: left;
+0580|*/*font-weight: bold;*/
+0581|*/*text-decoration: underline;*/
+0582|*}
+0583|*dt:after {
+0584|*/*content: ":";*/
+0585|*}
+0586|*dd {
+0587|*  margin: 0 0 0 110px;
+0588|*  padding: 0 0 0.5em 0;
+0589|*}
+0591|*/*Search - Needs to be updated!*/
+S   |1
+0592|*/*#keyword {
+0593|*  width: 200px;
+0594|*  font-size: 1em;
+0595|*}*/
+0596|*#results {
+0597|*  width: 204px;
+0598|*  position: absolute;
+0599|*  border 1px solid #c0c0c0;
+0600|*  display: none;
+0601|*}
+0602|*#results .item:last-child {
+0603|*  border-bottom: 0px;
+0604|*}
+0605|*#results .item:hover {
+0606|*  background-color: #f2f2f2;
+0607|*  cursor: pointer;
+0608|*}
+0610|*/*Menu*/
+0611|*ul.menu{
+0612|*  margin: 40px auto;
+0613|*  max-width: 960px;
+0614|*  display: block;
+0615|*  height: 70px;
+0616|*  background-color: #61666d;
+0617|*  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+0618|*  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+0619|*  box-shadow: 0 1px 2px rgba(0,0,0,.25);
+0620|*  background-image: -webkit-linear-gradient(bottom, #54585f, #70747b);
+0621|*  background-image: -moz-linear-gradient(bottom, #54585f, #70747b);
+0622|*  background-image: -o-linear-gradient(bottom, #54585f, #70747b);
+0623|*  background-image: -ms-linear-gradient(bottom, #54585f, #70747b);
+0624|*  background-image: linear-gradient(to top, #54585f, #70747b);
+0625|*}
+0627|*/*Dropdowns*/
+0628|*ul.menu ul {
+0629|*  display:none;
+0630|*}
+0631|*ul.menu li:hover>ul {
+0632|*  display:block
+0633|*}
+0634|*ul.menu ul {
+0635|*  position: absolute;
+0636|*  left:0px;
+0637|*  top:98%;
+0638|*}
+0639|*ul.menu ul ul{
+0640|*  position: absolute;
+0641|*  left:98%;
+0642|*  top:-20px;
+0643|*}
+0644|*ul.menu ul {
+0645|*  background-color: #333;
+0646|*  z-index: 5000;
+0647|*}
+0649|*/*List Items*/
+0650|*ul.menu li{
+0651|*  display:block;
+0652|*  margin: 0px;
+0653|*  float:left;
+0654|*  border-right: 1px solid #555;
+0655|*  -webkit-box-shadow: 1px 0px 0px rgba(255,255,255,.15);
+0656|*  -moz-box-shadow: 1px 0px 0px rgba(255,255,255,.15);
+0657|*  box-shadow: 1px 0px 0px rgba(255,255,255,.15);
+0658|*}
+0659|*ul.menu ul li {
+0660|*  float:none;
+0661|*  margin: 5px 0;
+0662|*}
+0664|*/* Regular Links*/
+0665|*ul menu a:active, ul.menu a:focus {
+0666|*  outline-style:none;
+0667|*}
+0668|*ul.menu a {
+0669|*  height: 70px;
+0670|*  display:block;
+0671|*  line-height: 56px;
+0672|*  background: none;
+0673|*  text-shadow: 0 1px 0 rgba(0,0,0,.50);
+0674|*  padding: 0px 16px;
+0675|*  text-decoration: none;
+0676|*  color: #fff;
+0677|*  margin: 0px;
+0678|*  font-weight: bold;
+0679|*  font-size: 18px;
+0680|*  text-transform: uppercase;
+0681|*  font-weight: condensed;
+0682|*  font-family: 'Open Sans Condensed', "HelveticaNeue-CondensedBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+0683|*}
+0684|*ul.menu a em {
+0685|*  font-size: 12px;
+0686|*  display: block;
+0687|*  margin-top: -38px;
+0688|*  text-shadow: none;
+0689|*  color: #000;
+0690|*  opacity: 0.50;
+0691|*  text-transform: lowercase;
+0692|*  font-style: italic;
+0693|*  font-weight: bold;
+0694|*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+0695|*}
+0697|*/*Multi-level Links*/
+0698|*ul.menu ul a {
+0699|*  margin: 0px;
+0700|*  height: 40px;
+0701|*  line-height: 40px;
+0702|*  font-size: 14px;
+0703|*}
+0704|*ul.menu span{
+0705|*  overflow:hidden;
+0706|*}
+0707|*ul.menu ul a {
+0708|*  text-align:left;
+0709|*  white-space:nowrap;
+0710|*}
+0711|*ul.menu li:hover{
+0712|*  position:relative;
+0713|*}
+0715|*/*Active State*/
+0716|*ul.menu li.active a, ul.menu li.active:hover a {
+0717|*  background-color: #e4ac35;
+0718|*  background-image: -webkit-linear-gradient(bottom, #de9f2b, #e7b544);
+0719|*  background-image: -moz-linear-gradient(bottom, #de9f2b, #e7b544);
+0720|*  background-image: -o-linear-gradient(bottom, #de9f2b, #e7b544);
+0721|*  background-image: -ms-linear-gradient(bottom, #de9f2b, #e7b544);
+0722|*  background-image: linear-gradient(to top, #de9f2b, #e7b544);
+0723|*  -webkit-box-shadow: none;
+0724|*  -moz-box-shadow: none;
+0725|*  box-shadow: none;
+0726|*}
+0728|*/*Hover State*/
+0729|*ul.menu li:hover>a {
+0730|*  color: #fff;
+0731|*  background-color: #52565c;
+0732|*  -webkit-box-shadow: 0 1px rgba(255,255,255,.10), inset 0 1px 1px rgba(0,0,0,.50);
+0733|*  -moz-box-shadow: 0 1px rgba(255,255,255,.10), inset 0 1px 1px rgba(0,0,0,.50);
+0734|*  box-shadow: 0 1px rgba(255,255,255,.10), inset 0 1px 1px rgba(0,0,0,.50);
+0735|*  text-decoration:none;
+0736|*}
+0738|*ul.menu ul li:hover>a {
+0739|*  color: #fff;
+0740|*  background-color: #52565c;
+0741|*  -webkit-box-shadow: none;
+0742|*  -moz-box-shadow: none;
+0743|*  box-shadow: none;
+0744|*}
+0746|*ul.menu li a:hover{
+0747|*  position:relative;
+0748|*}
+0750|*/*Arrow Images*/
+0751|*ul.menu span{
+0752|*  display:block;
+0753|*  background-image:url(./arrow-1.png);
+0754|*  background-position:right center;
+0755|*  background-repeat: no-repeat;
+0756|*  padding-right:18px;}
+0757|*ul.menu li:hover>a>span{
+0758|*  background-image:url(./arrow-1a.png);
+0759|*}
+0760|*ul.menu a:hover span {
+0761|*  background-image:url(./arrow-1a.png)
+0762|*}
+0763|*ul.menu ul span,ul.menu a:hover table span {
+0764|*  background-image:url(./arrow-2.png)
+0765|*}
+0766|*ul.menu ul li:hover > a span {
+0767|*  background-image:url(./arrow-2a.png);
+0768|*}
+0769|*ul.menu table a:hover span,ul.menu table a:hover a:hover span,ul.menu table a:hover a:hover a:hover span {
+0770|*  background-image:url(./arrow-1.png)
+0771|*}
+0772|*ul.menu table a:hover table span,ul.menu table a:hover a:hover table span {
+0773|*  background-image:url(./arrow-1.png)
+0774|*}
+0776|*/*Search Field*/
+0777|*ul.menu .search {
+0778|*  float: right;
+0779|*  width: 250px;
+0780|*  height: 42px;
+0781|*  padding: 4px 0 0 0;
+0782|*  margin: 12px;
+0783|*  background-color: #52565c;
+0784|*  -webkit-box-shadow: 0 1px 1px rgba(255,255,255,.10), inset 0 1px 2px rgba(0,0,0,.50);
+0785|*  -moz-box-shadow: 0 1px 1px rgba(255,255,255,.10), inset 0 1px 2px rgba(0,0,0,.50);
+0786|*  box-shadow: 0 1px 1px rgba(255,255,255,.10), inset 0 1px 2px rgba(0,0,0,.50);
+0787|*}
+0788|*ul.menu .search input[type=text] {
+0789|*  background: none;
+0790|*  border: none;
+0791|*  text-decoration: none;
+0792|*  color: #ccc;
+0793|*  font-weight: normal;
+0794|*  font-size: 14px;
+0795|*  width: 175px;
+0796|*  padding: 10px 5px 5px 12px;
+0797|*}
+0798|*ul.menu .search input[type=text]:focus {
+0799|*  outline: none;
+0800|*}
+0801|*ul.menu .search-button {
+0802|*  float: right;
+0803|*  margin:  2px 6px 0 6px;
+0804|*}
+0806|*/*Ei toimi?*/
+S   |1
+0807|*@media screen and (max-width: 640px) {
+0808|*  menu {
+0809|*    display: none;
+0810|*  }
+0811|*}
+0812|E
+0814|*........................................................................................................................................................................................................
+0815|* - SEARCH BAR CODE
+S   |4
+0816|*Look examples
+S   |3
+0817|*Basic example - part1        ## /OPEN http://markonphp.com/autocomplete-php-jquery-mysql-part1/
+0818|*Basic example - part2        ## /OPEN http://markonphp.com/autocomplete-php-jquery-mysql-part2/
+0819|*Basic example - part3        ## /OPEN http://markonphp.com/autocomplete-php-jquery-mysql-part3/
+0820|*About autocomplete           ## /OPEN http://www.pontikis.net/blog/jquery-ui-autocomplete-step-by-step
+0822|*Code examples
+S   |3
+0823|*Basic example - partial code ## /OPEN http://markonphp.com/files/auto-complete-tutorial_part1.zip
+0824|*Basic example - full code    ## /OPEN http://markonphp.com/files/auto-complete-tutorial_part2.zip
+0825|*Another example - full code  ## /OPEN http://www.w3schools.com/php/php_ajax_livesearch.asp
+0826|*jQuery autocomplete          ## /OPEN https://jqueryui.com/autocomplete/
+0827|*Protect from SQL-injection   ## /OPEN http://www.webreference.com/programming/php/search/3.html
+0829|*Quick version powered by GoogleSearch
+S   |3
+0830|*Add - this code below the textbox in HTML menu
+0831|*Add - in html inside form id="frmSearch"
+0832|*Add - in html inside input id="txtSearch"
+0834|*<script type="text/javascript">
+0835|*    document.getElementById('frmSearch').onsubmit = function() {
+0836|*        window.location = 'http://www.google.com/search?q=site:www.survo.fi/help/ ' + document.getElementById('txtSearch').value;
+0837|*        return false;
+0838|*    }
+0839|*</script>
+0841|*Advanced version: PHP, Javascript, jQuery, Autofill, MySQL
+S   |3
+0842|*constant.php
+0843|*database.php
+0844|*auto-complete.js
+0845|*auto-complete.php
+0847|*Part1: auto-complete.php v1
+S   |3
+0848|*SAVEP CUR+2,E> www\public_html\auto-complete.php
+0850|*<?php
+0851|*$data = array("alpaca", "buffalo", "cat", "tiger");
+0852|*echo json_encode($data);
+0853|*?>
+0854|E
+0855|*Part2: auto-complete.js (works!)
+S   |3
+0856|+SAVEP CUR+2,E> www\public_html\auto-complete.js
+0858|*var MIN_LENGTH = 3;
+0860|*$( document ).ready(function() {
+0861|*          $("#keyword").keyup(function() {
+0862|*                    var keyword = $("#keyword").val();
+0863|*                    if (keyword.length >= MIN_LENGTH) {
+0864|*                              $.get( "auto-complete.php", { keyword: keyword } )
+0865|*                              .done(function( data ) {
+0866|*                                        $('#results').html('');
+0867|*                                        var results = jQuery.parseJSON(data);
+0868|*                                        $(results).each(function(key, value) {
+0869|*                                                  $('#results').append('<div class="item">' + value + '</div>');
+0870|*                                        })
+0872|*                                  $('.item').click(function() {
+0873|*                                        var text = $(this).html();
+0874|*                                        $('#keyword').val(text);
+0875|*                                  })
+0877|*                              });
+0878|*                    } else {
+0879|*                              $('#results').html('');
+0880|*                    }
+0881|*          });
+0883|*    $("#keyword").blur(function(){
+0884|*                    $("#results").fadeOut(500);
+0885|*          })
+0886|*        .focus(function() {
+0887|*              $("#results").show();
+0888|*          });
+0890|*});
+0891|E
+0896|*Part3: link to jQuery in server (option: add to own server)
+S   |3
+0897|*http://code.jquery.com/jquery-2.1.1.min.js (version 3.0. exists)
+0898|*SAVEP CUR+2,E> www\public_html\jquery.min.js
+0900|*Is empty
+S   |2
+0901|E
+0902|*Part4: constant.php
+S   |3
+0903|+SAVEP CUR+2,E> www\public_html\constant.php
+0905|*<?php
+0906|*// Database constants
+0907|*define('DB_SERVER', "localhost");
+0908|*define('DB_USER', "root");
+0909|*define('DB_PASSWORD', "123");
+0910|*define('DB_DATABASE', "countries");
+0911|*define('DB_DRIVER', "mysql");
+0912|*?>
+0913|E
+0914|*Part5: database.php
+S   |3
+0915|+SAVEP CUR+2,E> www\public_html\database.php
+0917|*<?php
+0919|*// We will use PDO to execute database stuff.
+0920|*// This will return the connection to the database and set the parameter
+0921|*// to tell PDO to raise errors when something bad happens
+0922|*function getDbConnection() {
+0923|*  $db = new PDO(DB_DRIVER . ":dbname=" . DB_DATABASE . ";host=" . DB_SERVER, DB_USER, DB_PASSWORD);
+0924|*  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+0925|*  return $db;
+0926|*}
+0929|*// This is the 'search' function that will return all possible rows starting with the keyword sent by the user
+0930|*function searchForKeyword($keyword) {
+0931|*    $db = getDbConnection();
+0932|*    $stmt = $db->prepare("SELECT name_en as country FROM `countries` WHERE name_en LIKE ? ORDER BY country");
+0934|*    $keyword = $keyword . '%';
+0935|*    $stmt->bindParam(1, $keyword, PDO::PARAM_STR, 100);
+0937|*    $isQueryOk = $stmt->execute();
+0939|*    $results = array();
+0941|*    if ($isQueryOk) {
+0942|*      $results = $stmt->fetchAll(PDO::FETCH_COLUMN);
+0943|*    } else {
+0944|*      trigger_error('Error executing statement.', E_USER_ERROR);
+0945|*    }
+0947|*    $db = null;
+0949|*    return $results;
+0950|*}
+0951|*?>
+0952|E
+0953|*Part 6: auto-complete.php
+S   |3
+0954|+SAVEP CUR+2,E> www\public_html\auto-complete.php
+0956|*<?php
+0957|*require('constant.php');
+0958|*require('database.php');
+0960|*if (!isset($_GET['keyword'])) {
+0961|*          die();
+0962|*}
+0964|*$keyword = $_GET['keyword'];
+0965|*$data = searchForKeyword($keyword);
+0966|*echo json_encode($data);
+0967|*?>
+0968|E
+0969|*Part 7: index.php
+S   |3
+0970|*Here comes the connection to other php files
+0971|*SAVEP CUR+2,E> www\public_html\index.php
+0973|*<?php
+0977|*?>
+0978|*........................................................................................................................................................................................................
+0979|* - WEB PAGE CONTENT
+S   |4
+0980|*Menu
+S   |3
+0981|aDEF menu,a+1,A
+0982|- include HTML40.DEV
+0983|- include Q.DV2
+0984|- [UL(menu)][LI(active)]
+0985|- [LINK(#)]
+0986|- LOGO
+S   |     |
+0987|- / [IMAGE(http://www.survo.fi/SURVO-logo-2013.png)][/IMAGE][/LINK]
+0988|- [/L][L][LINK(#)]
+0989|*ABOUT
+S   |     |
+0990|- [/L][L][LINK(#)]
+0991|*COMMANDS
+S   |        |
+0992|- [LIST][L][LINK(#)]
+0993|*Basic commands
+S   |              |
+0994|- [/L][L][LINK(#)]
+0995|*Commands by keyword
+S   |                   |
+0996|- [/L][L][LINK(#)]
+0997|*All commands
+S   |            |
+0998|-[/LIST][/L][L][LINK(#)]
+0999|*MANUALS
+S   |       |
+1000|- [/L][L][DIVCLASS(search)]
+1001|- [SCRIPT]
+1002|*  (function() {
+1003|*    var cx = '010896179039517952376:nay7kuxzphw';
+1004|*    var gcse = document.createElement('script');
+1005|*    gcse.type = 'text/javascript';
+1006|*    gcse.async = true;
+1007|*    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+1008|*    var s = document.getElementsByTagName('script')[0];
+1009|*    s.parentNode.insertBefore(gcse, s);
+1010|*  })();
+1011|- [/SCRIPT]
+1012|- [DIVCLASS(GS)][GS(searchbox)][/GS(searchbox)][/DIV]
+1013|-
+1014|-
+1016|- / [FORM][DIVCLASS(search)][INPUT(search_text,text)]
+1017|- / id="keyword" placeholder="Search" value=""
+1018|- / onclick="this.value='';" onfocus="this.select()"
+1019|- / onblur="this.value=!this.value?'Search':this.value;"
+1020|- / [/INPUT][INPUT(search_button,image)]
+1021|- / class="search-button" src="img/search-icon.png"
+1022|- / [/INPUT][DIVID(results)]
+1023|- / [/DIV][/DIV][/FORM]
+1024|- [/DIV][/L][/LIST][DIVCLASS(content)][GS(searchresults)][/GS(searchresults)]
+1025|A
+1027|*General parameters
+S   |3
+1028|bDEF select,b+1,B-1
+1029|ISELECT
+S   | xxxxxx
+1030|NSELECT=<Boolean expression>
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxx
+1031|*selects observations satisfying the conditions given by
+1032|*<Boolean expression>=A+B+C+... (read A or B or C or ...) or
+1033|*A*B*C*...  (read A and B and C and ...).
+1034|*Each condition A,B,C,... must be given as a specification of the
+1035|*form
+1036|*     A1=<variable>,<lower_limit>,<upper_limit>
+1037|*or
+1038|*     A1=<string_variable>:<case1>,<case2>,...
+1039|*Any words can be used in place of A,B,C.
+1041|/Example:
+1042|*SELECT=North*Over10000+South*Over20000
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1043|*North=Province:OUL,LAP South=Province:UUS,KYM,TUR
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1044|*Over10000=Popul,10000,500000  Over20000=Popul,20000,500000
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1045|/selects cases where
+1046|*    either  Province is OUL or LAP         and  Popul>=10000
+1047|*    or      Province is UUS or KYM or TUR  and  Popul>=20000
+1049|/The SELECT specification can also be written with negations
+1050|*(a `!' in front of a Boolean expression)
+1051|*and with parentheses.
+1052|*For details read more about
+1053|- [LINK(#)]
+1054|*select observations and/ or variables.
+S   |                                     |
+1055|B
+1056|cDEF vars,c+1,C-1
+1057|IVARS
+S   | xxxx
+1058|NVARS=<list of variables>
+S   | xxxxxxxxxxxxxxxxxxxxxxxx
+1059|*is a specification which selects the variables into statistical analysis.
+1060|*Another way to do that is to use a MASK specification, but VARS always
+1061|*overrides MASK and permanent activation status in the data file.
+1062|/For example,
+1063|*VARS=Height,Weight,Test1
+S   | xxxxxxxxxxxxxxxxxxxxxxxx
+1064|*selects the variables Height,Weight and Test1 which all are activated
+1065|*by 'A' in the current data file; other variables will be passive.
+1066|*VARS=ALL means that all variables are to be selected.
+1067|*VARS=ALL,-Name,-Test1 means that all variables except Name and Test1 are
+1068|*to be selected.
+1069|*The task of each variable can be given in parentheses in the VARS list.
+1070|/For example, in the LINREG operation
+1071|*VARS=Height(X),Weight(X),Test1(Y),Residual(R)
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1072|*selects the variables and indicates their roles in the analysis as well.
+1074|*The influence of VARS is only temporary and does not change the
+1075|*activation status in the data file.
+1076|C
+1077|dDEF mask,d+1,D-1
+1078|IMASK
+S   | xxxx
+1079|NMASK without parameters is an operation which leads to the activation
+S   | xxxx
+1080|*procedure for the fields of any Survo data file.
+1082|*After return from MASK procedure to normal edit mode the current
+1083|*line will contain a MASK specification of the form
+1084|*MASK=--XX-A-YX-R---AA- (for example)
+S   | xxxxxxxxxxxxxxxxxxxxxx
+1085|*indicating the activated fields in the current data file.
+1086|*If a MASK specification appears in the current subfield,
+1087|*when a statistical operation like CORR,LINREG,TAB etc. is activated,
+1088|*it determines the roles of the variables in the analysis.
+1089|*However, a possible VARS specification always overrides MASK in
+1090|*statistical operations.
+1092|*By activation of a MASK line with a given mask string (MASK=--XX-A-- ,
+1093|*for example) the selection of the fields determined by that string will
+1094|*be shown for a selected file and this selection may be adjusted. After
+1095|*return to edit mode again the MASK line will show the latest selection.
+1097|*Since a data file can contain several optional mask columns (default
+1098|*number is 7), any of them can be used to indicate the selected vari-
+1099|*ables by giving its number #1,#2,#3,,, as MASK=#7.
+1100|*A partial selection according to a mask column is also possible. For
+1101|*example, MASK=#7(XY) selects the fields indicated by X or Y in mask
+S   |          xxxxxxxxxxx
+1102|*column 7.
+1103|*Activation of a MASK line of this type will lead to a file activation
+1104|*display of that mask column for additional changes.
+1105|D
+1106|*List of general parameters
+1107|*SELECT
+1108|*VARS
+1109|*MASK
+1110|*IND   (yksityiskohta selecting observations)
+1111|*CASES (yksityiskohta selecting observations)
+1112|*PRIND
+1113|*RESULTS
+1114|*SIMUMAX
+1115|*OUTFILE
+1116|*ITERATIONS
+1117|*RND
+1118|*SEED
+1119|*WEIGHT
+1120|*WEIGHTS
+1121|*METHOSD
+1122|*RAND
+1123|*VARIABLES
+1124|*EPS
+1125|*MATCH
+1126|*LABEL
+1127|*TYPE
+1128|*JITTER
+1129|*CONSTANT
+1130|*CONSTANTS
+1131|*FORMAT
+1132|*DELIMITER
+1133|*MISSING
+1134|*MODE
+1135|*SIZE
+1136|*SORT
+1137|*CONF
+1138|*TEST
+1139|*MIN
+1140|*MAX
+1142|*........................................................................................................................................................................................................
+1143|* - INDIVIDUAL WEB PAGES
+S   |4
+1144|*SAVE TO www-folder ## REPLACE "PRINT CUR+2,E> TO ","PRINT CUR+2,E> TO www\" / LINES=CUR+2,END
+1145|*SAVE TO root       ## REPLACE "PRINT CUR+2,E> TO www\","PRINT CUR+2,E> TO " / LINES=CUR+1,END
+1147|+PRINT CUR+2,E> TO www\public_html\index.html
+1148|*/OPEN www\public_html\index.html
+1149|- include NULL.DEV
+1150|- chapter menu
+1151|*Help system
+S   | kkkkkkkkkkk
+1152|*Don't worry. This help system will solve your problems.
+1153|*You can either use search bar or click these list.
+1155|/You will find
+1156|- [LINK(http://www.survo.fi/books)]
+1157|*Survo manuals. Check also
+S   |             |
+1158|- [LINK(http://www.survo.fi/demos/)]
+1159|*Survo demos.
+S   |           |
+1162|*Commands by keyword
+S   | lllllllllllllllllll
+1163|*Basics
+S   | mmmmmm
+1164|- [LINK(#)]
+1165|*Manage your work
+S   |                |
+1166|- [LINK(#)]
+1167|*Basic commands
+S   |              |
+1168|- [LINK(#)]
+1169|*...
+S   |   |
+1171|*Data
+S   | mmmm
+1172|- [LINK(#)]
+1173|*Basic commands
+S   |              |
+1174|- [LINK(#)]
+1175|*Basic commands
+S   |              |
+1176|- [LINK(#)]
+1177|*Basic commands
+S   |              |
+1178|- [LINK(#)]
+1179|*Basic commands
+S   |              |
+1181|*Others
+S   | mmmmmm
+1184|E
+1185|*Could index have all the necessary parts except?
+1187|*PRINT CUR+2,E> TO www\public_html\commands.html
+1188|*/OPEN www\public_ht l\commands.html
+1192|E
+1197|+PRINT CUR+2,E> TO www\public_html\file-save.html
+1198|*/OPEN www\public_html\file-save.html
+1199|- include NULL.DEV
+1200|- chapter menu
+1201|*File save
+S   | kkkkkkkkk
+1202|*Description
+S   | lllllllllll
+1203|*FILE SAVE saves contents of a text file to Survo data file.
+S   | xxxxxxxxx
+1205|*Usage
+S   | lllll
+1206|/FILE SAVE 'text file' TO NEW 'Survo data file'
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1207|/'text file' is the whole name of the text file that you want to save. Use without
+S   | xxxxxxxxxxx
+1208|*'-characters and with the correct file extension
+1209|*'Survo data file' is name of the file where the data will be saved. Use without '-characters.
+S   | xxxxxxxxxxxxxxxxx
+1210|*NEW is optional and deletes the existing Survo data file.
+S   | xxx
+1212|*Parameters
+S   | llllllllll
+1213|- [DLIST]
+1214|INAMES
+S   | xxxxx
+1215|NNAMES=names_line gives  he line for the variable names in Survo data
+S   | xxxxxxxxxxxxxxxx
+1216|*file. Default (if no NAMES given): variable names X1, X2, ... are used.
+1217|*NAMES=DEFAULT maps the columns of a text file to the active variables of
+S   | xxxxxxxxxxxxx
+1218|*Survo data file.
+1220|IDELIMITER
+S   | xxxxxxxxx
+1221|NDELIMITER=char(number) separates the columns of the text file. Default:
+S   | xxxxxxxxxxxxxxxxxxxxxx
+1222|*one or more blank (space) characters. Possible values are denoted by
+1223|*char(i), i=1,...,255. Keyword TAB may be used instead of char(9).
+1225|IFIRST
+S   | xxxxx
+1226|NFIRST=first_line. The first line to be copied from the text file.
+S   | xxxxxxxxxxxxxxxx
+1227|*Default: 1.
+1229|ILAST
+S   | xxxx
+1230|NLAST=last_line. The last line to be copied from the text file.
+S   | xxxxxxxxx xxxx
+1231|*Default: last line of the text file.
+1233|IMISSING
+S   | xxxxxxx
+1234|NMISSING=string treats string as a missing value. Default: spaces and/or '-'.
+S   | xxxxxxxxxxxxxx
+1236|- chapter select
+1237|- chapter vars
+1238|- chapter mask
+1240|IMAXFIELDS
+S   | xxxxxxxxx
+1241|NMAXFIELDS=# of fields defines maximum number of fields in the text file.
+S   | xxxxxxxxxxxxxxxxxxxxx
+1242|*Default: 300.
+1244|IENCODING
+S   | xxxxxxxx
+1245|Nencoding of the text file spesifies, how to encode the text
+1246|*file. This spesification is used only if the system doesn't regognize
+1247|*encoding. ENCODING=UTF-8 encodes UTF-8 text files. Default: DEFAULT.
+S   |           xxxxxxxxxxxxxx
+1249|I>R
+S   | >x
+1250|N>R'R data frame' transforms R data frame to Survo data. Use without '-characters.
+S   | >xxxxxxxxxxxxxxx
+1252|ISKIP
+S   | xxxx
+1253|NSKIP=list_of_characters skips unwanted charcters.
+S   | xxxxxxxxxxxxxxxxxxxxxxx
+1255|IFIELDS
+S   | xxxxxx
+1256|NFIELDS specification makes difficult text file structures readable to a Survo data files.
+S   | xxxxxx
+1257|*For more information check
+1258|- [LINK(file-save-with-fields.html)]
+1259|*FILE SAVE with FIELDS.
+S   |                     |
+1261|IMATCH
+S   | xxxxx
+1262|NOnly to use with FIELDS specification. For more information check
+1263|- [LINK(file-save-with-fields)]
+1264|*FILE SAVE WITH FIELDS.
+S   |                     |
+1266|ISKIP_ERRORS
+S   | xxxxxxxxxxx
+1267|NDoes not interrupt saving the text file when the line has too few
+1268|*fields. SKIP_ERRORS=1 deletes incomplete lines. SKIP_ERRORS=2 creates a
+S   |         xxxxxxxxxxxxx                           xxxxxxxxxxxxx
+1269|*data record from an incomplete line and assumes that missing fields are
+1270|*at the end of the text line
+1272|ICHECK_VAR_NAMES
+S   | xxxxxxxxxxxxxxx
+1273|NCHECK_VAR_NAMES=0 treats variable names as is instead of altering the 8th character
+S   | xxxxxxxxxxxxxxxxx
+1274|*if duplicate variable names are encountered.
+1276|IREMOVE_QUOTES
+S   | xxxxxxxxxxxxx
+1277|NREMOVE_QUOTES=1 converts double quotes within text to ''.
+S   | xxxxxxxxxxxxxxx
+1279|IFORMAT
+S   | xxxxxx
+1280|NFORMAT=WORD,'variable','delimiters' saves the words of a text file to a selected variable.
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1281|*Default for delimiters: ' ,.:;?!-'.
+1282|NFORMAT=CHAR,'variable','length' save the character of a text file to a selected variable.
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1283|*Default for length: 1. Spaces are skipped.
+1284|*FORMAT=0 avoids collison with wrong format-lists like NOFORMAT=1.
+S   | xxxxxxxx                                              xxxxxxxxxx
+1286|INOFORMAT
+S   | xxxxxxxx
+1287|NNOFORMAT=1 avoids collison with wrong format-lists like FORMAT=0.
+S   | xxxxxxxxxx                                              xxxxxxxx
+1289|IFILTER
+S   | xxxxxx
+1290|NFILTER=conversion file converses a text file to a Survo data file with
+S   | xxxxxxxxxxxxxxxxxxxxxx
+1291|*specific conversion rules. For making code conversion files check
+1292|- [LINK(#)]
+1293|*code conversion.FILTER=#DOTCOMMA FILTER=#COMMADOT replaces
+S   |               | xxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx
+1294|*dots with commas and vice versa. FILTER=#SEMICOMMA replaces semicommas
+S   |                                  xxxxxxxxxxxxxxxxx
+1295|*with commas.
+1297|INOFIELDS
+S   | xxxxxxxx
+1298|NNOFIELDS avoids collision with wrong field-lists.
+S   | xxxxxxxx
+1300|INEWSPACE
+S   | xxxxxxxx
+1301|NNEWSPACE=m,n creates a Survo data file with space for m records and n
+S   | xxxxxxxxxxxx
+1302|*variables. NEWSPACE=0,0 creates a Survo data file with no extra space.
+S   |            xxxxxxxxxxxx
+1304|IDEC
+S   | xxx
+1305|NDEC=character specifies the decimal character used. Default: . (dot).
+S   | xxxxxxxxxxxxx
+1307|IMODEL
+S   | xxxxx
+1308|NMODEL=# of a line allows to give 'model-line'.???
+1309|- [/DLIST]
+1310|*Details
+S   | lllllll
+1311|/Before creating the Survo data file, FILE SAVE scans the entire text
+S   |                                      xxxxxxxxx
+1312|*file. It detects whether the field is a string or a numeric field. If it
+1313|*appears as the first line in the text file and the labels are strings
+1314|*(not starting by digits), these labels will appear as names of fields in
+1315|*the new Survo data file.
+1317|/Names of variables in Survo data files consist of max. 8 character
+1318|*identifier and of its extension (more accurate description, format,
+1319|*etc.). The identifier part must be started by a letter and other
+1320|*characters are typically letters and numbers. Characters like
+1321|*+-*/()[]{},!"'?>< should be avoided.
+1323|/The maximum line length in the text file is at least 100 000. Longer
+1324|*records has to be divided into several lines.
+1326|*See also
+S   | llllllll
+1327|- [LINK(file-save-with-fields.html)]
+1328|*FILE SAVE with FIELDS,
+S   |                     |
+1329|- [LINK(#)]
+1330|*FILE STATUS,
+S   |           |
+1331|- [LINK(#)]
+1332|*FILE UPDATE,
+S   |           |
+1333|- [LINK(#)]
+1334|*FILE LOAD,
+S   |         |
+1335|- [LINK(#)]
+1336|*TXTCONV,
+S   |       |
+1337|- [LINK(#)]
+1338|*TXTRIM,
+S   |      |
+1339|- [LINK(#)]
+1340|*FILE SAVE MAT
+S   |             |
+1342|*Examples
+S   | llllllll
+1343|(FILE SAVE data1.txt TO data / DELIMITER=TAB
+1344|*..........
+1345|)
+1346|/
+1347|(FILE SAVE data1.txt TO data / NAMES=1 FIRST=2 LAST=10
+1348|*..........
+1349|)
+1350|/
+1351|(FILE SAVE data1.txt TO data / SKIP=";|
+1352|*..........
+1353|)
+1354|/
+1355|(FILE SAVE data1.txt TO data / DELIMITER=TAB NAMES=1 FIRST=2
+1356|)
+1357|- [/DIV]
+1358|E
+1360|+PRINT CUR+2,E> TO www\public_html\file-save-with-fields.html
+1361|*/OPEN www\public_html\file-save-with-fields.html
+1362|- include NULL.DEV
+1363|- chapter menu
+1364|*File save with fields
+S   | kkkkkkkkkkkkkkkkkkkkk
+1365|*Description
+S   | lllllllllll
+1366|*FILE SAVE WITH FIELDS saves contents of a text file to Survo data file.
+1367|*FILE SAVE WITH FIELD works like FILE SAVE.
+1369|*Usage
+S   | lllll
+1370|(FILE SAVE 'text file' TO 'Survo data file'
+1371|*FIELDS:
+1372|*1  <name of a field in Survo data file or '-'> <length or delimiters>
+1373|*2  <name of a field in Survo data file or '-'> <length or delimiters>
+1374|*- - -
+1375|*K  <name of a field in Survo data file or '-'> <length or delimiters>
+1376|*END
+1377|)
+1378|/'text file' is the whole name of the text file that you want to save. Use without
+S   | xxxxxxxxxxx
+1379|*characters and with the correct file extension.'Survo data file' is
+S   |                                                xxxxxxxxxxxxxxxxx
+1380|*the name of the file where the data will be saved. Use without '-characters.
+1381|*K is the number of fields in one text file. NEW deletes the existing Survo data file.
+S   | x                                           xxx
+1384|*Parameters
+S   | llllllllll
+1385|- [DLIST]
+1386|INAMES
+S   | xxxxx
+1387|NNAMES=names_line gives the line for the variable names in Survo data
+1388|*file. Default (if no NAMES given): variable names X1, X2, ... are used.
+1389|*NAMES=DEFAULT maps the columns of a text file to the active variables of
+S   | xxxxxxxxxxxxx
+1390|*Survo data file.
+1392|IDELIMITER
+S   | xxxxxxxxx
+1393|NDELIMITER=char(number) separates the columns of the text file. Default:
+S   | xxxxxxxxxxxxxxxxxxxxxx
+1394|*one or more blank (space) characters. Possible values are denoted by
+1395|*char(i), i=1,...,255. Keyword TAB may be used instead of char(9).
+1396|**
+1397|IFIRST
+S   | xxxxx
+1398|NFIRST=first line. The first line to be copied from the text file.
+S   | xxxxxxxxxxxxxxxx
+1399|*Default: 1.
+1401|ILAST
+S   | xxxx
+1402|NLAST=last line. The last line to be copied from the text file.
+S   | xxxxxxxxxxxxxx
+1403|*Default: last line of the text file.
+1405|IMISSING
+S   | xxxxxxx
+1406|NMISSING=string treats string as a missing value. Default: spaces and/or '-'.
+S   | xxxxxxxxxxxxxx
+1408|- chapter select
+1409|- chapter vars
+1410|- chapter mask
+1412|IMAXFIELDS
+S   | xxxxxxxxx
+1413|NMAXFIELDS=# of fields defines maximum number of fields in the text file.
+S   | xxxxxxxxxxx
+1414|*Default: 300.
+1416|IENCODING
+S   | xxxxxxxx
+1417|NENCODING=encoding of the text file spesifies, how to encode the text
+S   | xxxxxxxxxxxxxxxxx
+1418|*file. This spesification is used only if the system doesn't regognize
+1419|*encoding. ENCODING=UTF-8 encodes UTF-8 text files. Default: DEFAULT.
+S   |           xxxxxxxxxxxxxx
+1421|I>R
+S   | >x
+1422|N>R'R data frame' transforms R data frame to Survo data. Use without '-characters.
+S   | >x
+1424|ISKIP
+S   | xxxx
+1425|NSKIP=list_of_characters skips unwanted charcters.
+S   | xxxxxxxxxxxxxxxxxxxxxxx
+1427|IMATCH
+S   | xxxxx
+1428|N
+1431|ISKIP_ERRORS
+S   | xxxxxxxxxxx
+1432|NDoes not interrupt saving the text file when the line has too few
+1433|*fields. SKIP_ERRORS=1 deletes incomplete lines. SKIP_ERRORS=2 creates a
+S   |         xxxxxxxxxxxxx                           xxxxxxxxxxxxx
+1434|*data record from an incomplete line and assumes that missing fields are
+1435|*at the end of the text line.
+1437|ICHECK_VAR_NAMES
+S   | xxxxxxxxxxxxxxx
+1438|NCHECK_VAR_NAMES=0 treats variable names as is instead of altering the 8th character
+S   | xxxxxxxxxxxxxxxxx
+1439|*if duplicate variable names are encountered.
+1441|IREMOVE_QUOTES
+S   | xxxxxxxxxxxxx
+1442|NREMOVE_QUOTES=1 converts double quotes within text to ''.
+S   | xxxxxxxxxxxxxxx
+1444|IFORMAT
+S   | xxxxxx
+1445|NFORMAT=0 avoids collison with wrong format-lists like NOFORMAT=1.
+S   | xxxxxxxx                                              xxxxxxxxxx
+1447|INOFORMAT
+S   | xxxxxxxx
+1448|NNOFORMAT=1 avoids collison with wrong format-lists like FORMAT=0.
+S   | xxxxxxxxxx                                              xxxxxxxx
+1450|IFILTER
+S   | xxxxxx
+1451|NFILTER=conversion file converses a text file to a Survo data file with
+S   | xxxxxxxxxxxxxxxxxxxxxx
+1452|*specific conversion rules. For making code conversion files check
+1453|- [LINK(#)]
+1454|*code conversion. FILTER=#DOTCOMMA FILTER=#COMMADOT replaces
+S   |               |  xxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx
+1455|*dots with commas and vice versa. FILTER=#SEMICOMMA replaces semicommas
+S   |                                  xxxxxxxxxxxxxxxxx
+1456|*with commas.
+1458|INOFIELDS
+S   | xxxxxxxx
+1459|NNOFIELDS avoids collision with wrong field-lists.
+S   | xxxxxxxx
+1461|INEWSPACE
+S   | xxxxxxxx
+1462|NNEWSPACE=m,n creates a Survo data file with space for m records and n
+S   | xxxxxxxxxxxx
+1463|*variables. NEWSPACE=0,0 creates a Survo data file with no extra space.
+S   |            xxxxxxxxxxxx
+1465|IDEC
+S   | xxx
+1466|NDEC=character specifies the decimal character used. Default: . (dot).
+S   | xxxxxxxxxxxxx
+1468|IMODEL
+S   | xxxxx
+1469|NMODEL=# of a line allows to give 'model-line'.???
+S   | xxxxxxxxxxxxxxxxx
+1471|- [/DLIST]
+1472|*Details
+S   | lllllll
+1473|/where K is the number of fields in one logical record in the text file,
+1474|*copies a part of a text file to a Survo data file.
+1475|*If the Survo data file does not exist, a new file will be created.
+1476|*The fields of the text file are mapped to various Survo data fields
+1477|*according to the list. Fields which are not copied from the text file
+1478|*are indicated by a '-' in the list.
+1479|*If <length or delimiters> is not given, the field is assumed to be ter-
+1480|*minated by one or several spaces in the text file. However,
+1481|*the last field in each record must be terminated by a line feed.
+1482|*Other fields ending with line feed should be indicated by LF in the
+1483|*list. For example, 10 test3 LF
+1484|*The <length or delimiters> parameter can also be an integer giving the
+1485|*fixed length of the corresponding field in the text file or it can
+1486|*be a sequence of delimiter characters.
+1487|*For example, 11 test6 5
+1488|*             12 test7 :/
+1489|*defines test6 as a field of 5 characters and test7 as a field of
+1490|*next characters ending by : or / or space. A delimiter can also
+1491|*be given in the form [decimal_value]. For example,
+1492|*             13 test8 [50][51]
+1493|*defines test8 to be terminated by one or several '1's or '2's.
+1494|*Please, note that
+1495|*             13 test8 12
+1496|*would define test8 to be a field of 12 characters.
+1498|/The default mode (MODE=1), when interpreting the text file, considers
+1499|*spaces as delimiters also when other symbols are given as delimiters.
+1500|*Thus fields consisting of several words are not treated correctly.
+1501|*In such cases a apecification MODE=2 should be given. Then also
+1502|*empty fields terminating with LF will be accepted.
+1504|*See also
+S   | llllllll
+1505|- [LINK(file-save.html)]
+1506|*FILE SAVE
+S   |         |
+1507|- [LINK(file-status.html)]
+1508|*FILE STATUS,
+S   |           |
+1509|- [LINK(file-update.html)]
+1510|*FILE UPDATE,
+S   |           |
+1511|- [LINK(file-create.html)]
+1512|*FILE CREATE,
+S   |           |
+1513|- [LINK(file-load.html)]
+1514|*FILE LOAD,
+S   |         |
+1515|- [LINK(txtconv.html)]
+1516|*TXTCONV,
+S   |       |
+1517|- [LINK(txtrim.html)]
+1518|*TXTRIM,
+S   |      |
+1519|- [LINK(file-save-mat.html)]
+1520|*FILE SAVE MAT
+S   |             |
+1522|*Examples
+S   | llllllll
+1523|(FILE SAVE data1.txt TO data / DELIMITER=TAB
+1524|*..........
+1525|)
+1526|/
+1527|(FILE SAVE data1.txt TO data / NAMES=1 FIRST=2 LAST=10
+1528|*..........
+1529|)
+1530|/
+1531|(FILE SAVE data1.txt TO data / SKIP=";|
+1532|*..........
+1533|)
+1534|/
+1535|(FILE SAVE data1.txt TO data / DELIMITER=TAB NAMES=1 FIRST=2
+1536|)
+1537|- [/DIV]
+1538|E

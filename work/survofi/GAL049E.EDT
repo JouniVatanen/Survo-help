@@ -1,0 +1,42 @@
+SURVO 98 edit field: 101 1000 500 (32 bit version)
+0001|*SAVE GAL049E / Edit field
+0002|*LOAD GAL049
+0004|*SAVE AQUARIUM / Four fish in an aquarium
+0005|*                                                             *GLOBAL*
+0006|*HEADER= XDIV=0,1,0 YDIV=0,1,0 FRAME=0  pi=3.141592653589793
+0007|*SIZE=1700,1700  HOME=50,50  XSCALE=-100,400 YSCALE=-300,300
+0008|*.......................................................................
+0009|*The aquarium:
+S   | 1111111111111
+0010|*FRAMES=F F=0,0,1700,1700,-1 [FILL-1]=0.6,0.6,0,0.4
+0011|*PLOT /FRAME        / LINETYPE=[RED][line_width(0.3)]    DEVICE=PS,K1.PS
+S   | 77777777777
+0012|*.......................................................................
+0013|*The fish:         C=8.2
+S   | 111111111
+0014|*X=R+B*cos(sin(T)) Y=B*sin(cos(T))
+0015|*T=0,9*pi/5,pi/40  R=-7,9.5,0.25
+0016|*A=R*R*R*(-1)*C*C  B=if(A<0)then(sqrt(-A))else(sqrt(A))
+S   |                         <
+0017|*PLOT X(T)=X,Y(T)=Y / LINETYPE=[RED][line_width(0.3)]    DEVICE=PS,K2.PS
+S   | 777777777777777777
+0018|*PLOT X(T)=X,Y(T)=Y / LINETYPE=[GREEN][line_width(0.3)]  DEVICE=PS,K3.PS
+S   | 777777777777777777
+0019|*PLOT X(T)=X,Y(T)=Y / LINETYPE=[YELLOW][line_width(0.3)] DEVICE=PS,K4.PS
+S   | 777777777777777777
+0020|*PLOT X(T)=X,Y(T)=Y / LINETYPE=[CYAN][line_width(0.3)]   DEVICE=PS,K5.PS
+S   | 777777777777777777
+0021|*.......................................................................
+0022|*A combination by rotating and scaling:
+S   | 11111111111111111111111111111111111111
+0023|*PRINT CUR+1,CUR+6 TO K.PS
+0024|- picture K1.PS,0200,0200,1.00,1.00
+0025|- picture K2.PS,0140,0380,1.00,1.00,354
+0026|- picture K3.PS,1900,1300,0.40,0.75,175
+0027|- picture K4.PS,0700,0100,0.50,0.40,067
+0028|- picture K5.PS,1420,1010,0.40,0.50,014
+0029|- %SURVO 84C Graphics END[LF]
+0031|*EPS K.PS K.EPS
+0032|*PRINT CUR+1,CUR+1 TO K.PS
+0033|- epsfile K.EPS,100,100,0.7,0.7
+0035|*/GV-SHOW K.PS

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">The grouping variables are given by the GROUPING parameter:
+         GROUPING=&lt;gr.vble1&gt;,&lt;gr.vble2&gt;, ...
+For each grouping variable the grouping structure may be given in the
+form
+         &lt;gr.vble&gt;=value1(label1),value2(label2), ...
+The labels given in parenthesis are optional. If the grouping values
+are given in ascending order then they are considered as cutpoints
+for forming groups, e.g.
+          KNOWLDGE=20,50,80,110,140
+Values greater than the last cutpoint are treated as missing values.
+The list above could be shortened by the notation 20(30)140.
+
+You can use string variables as grouping variables. The grouping
+structure of a string variable is given in the form
+          &lt;gr.vble&gt;=symbol1,symbol2, ...
+Note that only the first 8 characters of a string variable are
+significant.
+
+If the grouping structure of a grouping variable is not given then
+the all existing values of that variable are used.
+
+Theoretically at most 6 grouping variables may be given. The maximum
+number of groups for each grouping variable is 32 (can be altered by
+the parameter setting MAXNCL=&lt;new limit&gt;). In practice these values
+are considerably limited by the space available. The space requirement
+is appr. proportional to the product of the number of classes.
+
+      <A HREF="qw1_01.html">A = More information on ANOVA operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

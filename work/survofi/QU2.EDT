@@ -1,0 +1,197 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QU2
+0004|*LOAD EDQU1
+0006|+TABT? þ PRINT CUR+1,E TO qu2_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Management and editing of multiway tables
+0012|- shadow a: [LINK(qu2_09.html)]
+0013|*  G = General structure of multiway tables
+S   |   a                                      |
+0014|- shadow a: [LINK(qu2_02.html)]
+0015|*  S = Change the number of row classifiers (TABS)
+S   |   a                                             |
+0016|- shadow a: [LINK(qu2_03.html)]
+0017|*  M = Change positions of two classifiers (TABM)
+S   |   a                                            |
+0018|- shadow a: [LINK(qu2_04.html)]
+0019|*  I = Change positions of two classes of a classifier (TABI)
+S   |   a                                                        |
+0020|- shadow a: [LINK(qu2_05.html)]
+0021|*  D = Delete a classifier (collapsing) (TABD)
+S   |   a                                         |
+0022|- shadow a: [LINK(qu2_06.html)]
+0023|*  J = Combine two classes of a classifier (TABJ)
+S   |   a                                            |
+0024|- shadow a: [LINK(qu2_07.html)]
+0025|*  A = Arithmetical operations on elements of multiway tables
+S   |   a                                                        |
+0026|- shadow a: [LINK(qu2_10.html)]
+0027|*  B = Structure of a multiway table (TABDIM)
+S   |   a                                        |
+0029|- shadow a: [LINK(q22_01.html)]
+0030|*  T = Computing multiway frequency tables (TAB)
+S   |   a                                           |
+0031|- shadow a: [LINK(qu1_02.html)]
+0032|*  F = Analysis of multiway tables (TABFIT)
+S   |   a                                      |
+0033|- shadow a: [LINK(q21_01.html)]
+0034|*  X = More information on data analysis
+S   |   a                                   |
+0036|E
+0039|+TABS? þ PRINT CUR+1,E TO qu2_02.html
+0040|- include HTML40.DEV
+0041|- include Q.DV2
+0042|- [HelpText]
+0043|#TABS <table>,K,L
+S   |      <     >
+0044|*displays <table> with K row classifiers (K=0,1,2,...,n).
+S   |          <     >
+0045|*L is the first output line in the edit field and the name of the new
+0046|*table is <name of the old table>+'S'.
+S   |          <                     >
+0048|- shadow a: [LINK(qu2_01.html)]
+0049|*  T = More information on TAB operations
+S   |   a                                    |
+0050|E
+0053|+TABM? þ PRINT CUR+1,E TO qu2_03.html
+0054|- include HTML40.DEV
+0055|- include Q.DV2
+0056|- [HelpText]
+0057|#TABM <table>,A,B,L
+S   |      <     >
+0058|*changes the positions of the classifiers A and B.
+0059|*L is the first output line in the edit field and the name of the new
+0060|*table is <name of the old table>+'M'.
+S   |          <                     >
+0062|- shadow a: [LINK(qu2_01.html)]
+0063|*  T = More information on TAB operations
+S   |   a                                    |
+0064|E
+0067|+TABI? þ PRINT CUR+1,E TO qu2_04.html
+0068|- include HTML40.DEV
+0069|- include Q.DV2
+0070|- [HelpText]
+0071|#TABI <table>,C,C1,C2,L
+S   |      <     >
+0072|*changes the positions of classes C1 and C2 for classifier C.
+0073|*L is the first output line in the edit field and the name of the new
+0074|*table is <name of the old table>+'I'.
+S   |          <                     >
+0076|- shadow a: [LINK(qu2_01.html)]
+0077|*  T = More information on TAB operations
+S   |   a                                    |
+0078|E
+0080|+TABD? þ PRINT CUR+1,E TO qu2_05.html
+0081|- include HTML40.DEV
+0082|- include Q.DV2
+0083|- [HelpText]
+0084|#TABD <table>,C,L
+S   |      <     >
+0085|*deletes classifier C.
+0086|SIn a frequency table the elements of the modified table are the
+S   |      444444444444444
+0087|*marginal sums of C-classification; In this case TABD means collapsing
+0088|*over classifier C and the results is an (n-1)-dimensional table.
+0089|SIn a data table the C-classification will be changed to N-classifi-
+S   |      4444444444
+0090|*cation where the C-class names are replaced by indices 1,2,...
+0091|*The modified table is still n-dimensional and has the old structure
+0092|*and contents; only the name C is replaced by N.
+0093|*If TABD is applied to a data table which already includes an N-classi-
+0094|*fication, the C-classification will be united to the N-classification
+0095|*and now the dimension of the table decreases by 1 but the number of
+0096|*elements remains the same.
+0098|- shadow a: [LINK(qu2_01.html)]
+0099|*  T = More information on TAB operations
+S   |   a                                    |
+0100|E
+0102|+TABJ? þ PRINT CUR+1,E TO qu2_06.html
+0103|- include HTML40.DEV
+0104|- include Q.DV2
+0105|- [HelpText]
+0106|#TABJ <F-table>,C,C1,C2,C0,L
+S   |      <       >
+0107|*combines (in a frequency table) the classes C1 and C2 of the classifier
+0108|*C and calls the combined class by name C0. The class C0 takes the
+0109|*position of C1 and C2-class will be cancelled.
+0111|- shadow a: [LINK(qu2_01.html)]
+0112|*  T = More information on TAB operations
+S   |   a                                    |
+0113|E
+0115|+TAB+? þ PRINT CUR+1,E TO qu2_07.html
+0116|- include HTML40.DEV
+0117|- include Q.DV2
+0118|- [HelpText]
+0119|#TAB+ <table1>,<table2>,L
+S   |      <      > <      >
+0120|*makes a new multiway table whose elements are sums of corresponding
+0121|*elements in tables <table1> and <table2>. Tables concerned must have
+S   |                    <      >     <      >
+0122|*the same structure.
+0123|*Operations
+0124|*TAB- <table1>,<table2>,L
+S   |      <      > <      >
+0125|*TAB* <table1>,<table2>,L
+S   |      <      > <      >
+0126|*TAB/ <table1>,<table2>,L
+S   |      <      > <      >
+0127|*compute differences, products and ratios of elements.
+0128|*In all above operations <table2> may be replaced by a constant value.
+S   |                         <      >
+0129|*For example, TAB/ SAMPLE1,100,23   divides all the elements of table
+0130|*SAMPLE1 by 100, writes the modified table from line 23 onwards
+0131|*and labels it as TABLE SAMPLE1/ .
+0133|- shadow a: [LINK(qu2_01.html)]
+0134|*  T = More information on TAB operations
+S   |   a                                    |
+0135|E
+0137|+EE? þ PRINT CUR+1,E TO qu2_08.html
+0138|- include HTML40.DEV
+0139|- include Q.DV2
+0140|- [HelpText]
+0142|- shadow a: [LINK(qu2_01.html)]
+0143|*  T = More information on TAB operations
+S   |   a                                    |
+0144|E
+0147|+TABLES? þ PRINT CUR+1,E TO qu2_09.html
+0148|- include HTML40.DEV
+0149|- include Q.DV2
+0150|- [HelpText]
+0151|*Multiway tables consisting of frequencies or data values can be repre-
+0152|*sented in the edit field in the following way:
+0154|*   3 *
+0155|*   4 *TABLE TEST,5,11,F
+0156|*   5 *        A  A1       A2       A3
+0157|*   6 *        B  B1 B2 B3 B1 B2 B3 B1 B2 B3
+0158|*   7 * C   D  **
+0159|*   8 * C1  D1     1  5  9 13 17 21 25 29 33
+0160|*   9 *     D2     2  6 10 14 18 22 26 30 34
+0161|*  10 * C2  D1     3  7 11 15 19 23 27 31 35
+0162|*  11 *     D2     4  8 12 16 20 24 28 32 36
+0163|*  12 *
+0165|*Above a 4-dimensional (3x3x2x2) table is written on edit lines 5-11.
+0166|*The TABLE line (4) gives the name (TEST), lines (5,11) and type (F).
+0167|*This table has two row classifiers (C,D) and two column classifiers (A,B).
+0168|*Frequency tables are of type F and data tables of type X.
+0169|*Input and output tables of TAB operations have this structure.
+0171|- shadow a: [LINK(qu2_01.html)]
+0172|*  T = More information on TAB operations
+S   |   a                                    |
+0173|E
+0175|+TABDIM? þ PRINT CUR+1,E TO qu2_10.html
+0176|- include HTML40.DEV
+0177|- include Q.DV2
+0178|- [HelpText]
+0179|#TABDIM <table>
+S   |        <     >
+0180|*writes after the command information about the table in the form
+0181|*TABDIM <table> / nc nrc type names_of_classifiers
+S   |        <     >
+0182|*where nc=# of classifiers, nrc=# of column classifiers,
+0183|*type=F or X.
+0185|- shadow a: [LINK(qu2_01.html)]
+0186|*  T = More information on TAB operations
+S   |   a                                    |
+0187|E

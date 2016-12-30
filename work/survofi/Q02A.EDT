@@ -1,0 +1,276 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q02A
+0005|+OPER? þ PRINT CUR+1,E TO q02a_01.html
+0006|- include HTML40.DEV
+0007|- include Q.DV2
+0008|- [HelpText]
+0009|*Survo operations and commands can be typed on any line in the edit field.
+0010|*Each operation consists of an operator designator (word) and of a list of
+0011|*parameters. In more complicated operations, extra specifications of the form
+0012|*<specification designator>=<list of parameters>  may appear in the field.
+S   | <                        > <                  >
+0014|*For example,
+0016|*11 *PRINT 21,100    /  Print lines 21-100.
+0017|*12 *LOAD PART1      /  Load edit file PART1 to edit field.
+0018|*13 *SORT A,B,K      /  Sort lines A-B according to a mask on image line K.
+0019|*14 *PLOT MALES      /  Plot data MALES as a bar chart.
+0020|*15 */DATE           /  Type the current date.
+0021|*16 *                   (Text after an isolated '/' is a comment.)
+0023|*are typical operations. The last one (/DATE) is not an original Survo command
+0024|*but a user-defined sucro command made by using the macro language of
+0025|*Survo. '/' in front of the command word always refers to a sucro.
+0026|*It is strongly recommendable to type command words like PRINT, LOAD, SAVE
+0027|*in upper case letters (not Print, print).
+0029|*A command or operation is activated either by a double-click of the mouse or
+0030|*by moving the cursor to the command line and by pressing key ESC.
+0032|*Please note that a double-click of the RIGHTmost mouse button leads
+0033|*to the help system (showing information about the word indicated by the mouse).
+0035|*Continuous activation:
+0036|*To carry out a series of consecutive operations (run mode), press first
+0037|*F2:PREFIX and then ESC. Such a series must not contain sucro commands.
+0039|*In Survo operations, lines of the edit field are referred to by
+0040|*their indices (1,2,3,...) or by their labels. A label is a single
+0041|*character (like A,X,a,x) placed in the control column. Also END
+0042|*(END+3, END-5) are possible line labels, END indicating the last non-
+0043|*empty line in the field. Similarly CUR refers to the current line
+0044|*indicated by the cursor.
+0045|*Thus CUR, CUR+5, A, A-5 are permitted line labels.
+0046|*Example:
+0047|*PRINT CUR+1,END  /  Print lines below the current line.
+0049|*To specify columns in Survo operations, the column indices are not
+0050|*used in general. The columns are indicated by various masks
+0051|*(images, patterns) on image lines. For instance, image line in
+0052|- shadow %: [LINK(q0b_02.html)] [/LINK]
+0053|*numerical sort (see SORT) has the structure "    12345     "
+S   |                     %%%%
+0054|*where the location of the mask 12345 corresponds to the sort key
+0055|*column.
+0056|*In statistical operations, the data sets to be analyzed may be located
+0057|*either in the edit field or in special data files and they are referred
+0058|*to by their names given usually by a DATA definition.
+0059|- shadow %: [LINK(q23_01.html)] [/LINK]
+0060|*(See DATA,FILE)
+S   |      %%%%
+0062|- shadow a: [LINK(qtu6_01.html)]
+0063|*  S = Using ready-made sucros
+S   |   a                         |
+0064|- shadow a: [LINK(q02a_03.html)]
+0065|*  U = User-defined operations
+S   |   a                         |
+0066|- shadow a: [LINK(q03_01.html)]
+0067|*  C = Information on control operations
+S   |   a                                   |
+0068|- shadow a: [LINK(q23_01.html)]
+0069|*  D = Data in statistical operations
+S   |   a                                |
+0070|- shadow a: [LINK(q07_06.html)]
+0071|*  X = Extra specifications in Survo operations
+S   |   a                                          |
+0072|- shadow a: [New][LINK(q07_09.html)]
+0073|d  B = Border and fence lines
+S   |   a                        ;
+0074|- shadow a: [LINK(q07_08.html)]
+0075|*  H = Hidden commands
+S   |   a                 |
+0076|- shadow a: [New][LINK(q02a_05.html)]
+0077|d  L = Working with large data sets
+S   |   a                              ;
+0078|- shadow a: [LINK(q01_02.html)]
+0079|*  E = More information on EDITOR
+S   |   a                            |
+0080|E
+0082|+ACTIV? þ PRINT CUR+1,E TO q02a_02.html
+0083|- include HTML40.DEV
+0084|- include Q.DV2
+0085|- [HelpText]
+0086|*A command or operation is activated either by a double-click of the mouse or
+0087|*by moving the cursor to the command line and by pressing key ESC.
+0089|*Please note that a double-click of the RIGHTmost mouse button leads
+0090|*to the help system (showing information about the word indicated by the mouse).
+0092|*Continuous activation:
+0093|*To carry out a series of consecutive operations (run mode), press first
+0094|*F2:PREFIX and then ESC. Such a series must not contain sucro commands.
+0096|*In Survo operations, lines of the edit field are referred to by
+0097|*their indices (1,2,3,...) or by their labels. A label is a single
+0098|*character (like A,X,a,x) placed in the control column. Also END
+0099|*(END+3, END-5) are possible line labels, END indicating the last non-
+0100|*empty line in the field. Similarly CUR refers to the current line
+0101|*indicated by the cursor.
+0102|*Thus CUR, CUR+5, A, A-5 are permitted line labels.
+0103|*Example:
+0104|*PRINT CUR+1,END  /  Print lines below the current line.
+0106|*To specify columns in Survo operations, the column indices are not
+0107|*used in general. The columns are indicated by various masks
+0108|*(images, patterns) on image lines. For instance, image line in
+0109|- shadow %: [LINK(q0b_02.html)] [/LINK]
+0110|*numerical sort (see SORT) has the structure "    12345     "
+S   |                     %%%%
+0111|*where the location of the mask 12345 corresponds to the sort key
+0112|*column.
+0113|*In statistical operations, the data sets to be analyzed may be located
+0114|*either in the edit field or in special data files and they are referred
+0115|*to by their names given usually by a DATA definition.
+0116|- shadow %: [LINK(q23_01.html)] [/LINK]
+0117|*(See DATA,FILE)
+S   |      %%%%
+0119|- shadow a: [LINK(qtu6_01.html)]
+0120|*  S = Using ready-made sucros
+S   |   a                         |
+0121|- shadow a: [LINK(q02a_03.html)]
+0122|*  U = User-defined operations
+S   |   a                         |
+0123|- shadow a: [LINK(q03_01.html)]
+0124|*  C = Information on control operations
+S   |   a                                   |
+0125|- shadow a: [LINK(q23_01.html)]
+0126|*  D = Data in statistical operations
+S   |   a                                |
+0127|- shadow a: [LINK(q07_06.html)]
+0128|*  X = Extra specifications in Survo operations
+S   |   a                                          |
+0129|- shadow a: [New][LINK(q07_09.html)]
+0130|d  B = Border and fence lines
+S   |   a                        ;
+0131|- shadow a: [LINK(q07_08.html)]
+0132|*  H = Hidden commands
+S   |   a                 |
+0133|- shadow a: [New][LINK(q02a_05.html)]
+0134|d  L = Working with large data sets
+S   |   a                              ;
+0135|- shadow a: [LINK(q01_02.html)]
+0136|*  E = More information on EDITOR
+S   |   a                            |
+0137|E
+0140|+USERF? þ PRINT CUR+1,E TO q02a_03.html
+0141|- include HTML40.DEV
+0142|- include Q.DV2
+0143|- [HelpText]
+0144|*The user can extend Survo by new operations. There are three main
+0145|*alternatives:
+0147|*1. The new operation is programmed in C. Information can be found in
+0148|*   the report  S.Mustonen: Programming SURVO 84 in C .
+0149|*   Information about programming SURVO MM program modules
+0150|*   can be obtained from S.Mustonen on request.
+0152|*2. The new function is constructed as a sucro by using existing
+0153|*   operations as building blocks.
+0155|*3. Matrix chains
+0157|- shadow a: [LINK(qtu1_01.html)]
+0158|*  S = Sucros
+S   |   a        |
+0159|- shadow a: [LINK(qmr1_01.html)]
+0160|*  M = Matrix chains (MATRUN)
+S   |   a                        |
+0161|- shadow a: [LINK(q01_02.html)]
+0162|*  E = more information on the Survo Editor
+S   |   a                                      |
+0163|E
+0165|+ESC? þ PRINT CUR+1,E TO q02a_04.html
+0166|- include HTML40.DEV
+0167|- include Q.DV2
+0168|- [HelpText]
+0169|*The ESC key is the traditional key for activating commands and operations
+0170|*in Survo.
+0171|*In SURVO MM it is also possible to activate commands simply by
+0172|*a double-click of the mouse (leftmost button).
+0174|*A command or operation is activated either by a double-click of the mouse or
+0175|*by moving the cursor to the command line and by pressing key ESC.
+0177|*Please note that a double-click of the RIGHTmost mouse button leads
+0178|*to the help system (showing information about the word indicated by the mouse).
+0180|*Continuous activation:
+0181|*To carry out a series of consecutive operations (run mode), press first
+0182|*F2:PREFIX and then ESC. Such a series must not contain sucro commands.
+0184|*In Survo operations, lines of the edit field are referred to by
+0185|*their indices (1,2,3,...) or by their labels. A label is a single
+0186|*character (like A,X,a,x) placed in the control column. Also END
+0187|*(END+3, END-5) are possible line labels, END indicating the last non-
+0188|*empty line in the field. Similarly CUR refers to the current line
+0189|*indicated by the cursor.
+0190|*Thus CUR, CUR+5, A, A-5 are permitted line labels.
+0191|*Example:
+0192|*PRINT CUR+1,END  /  Print lines below the current line.
+0194|*To specify columns in Survo operations, the column indices are not
+0195|*used in general. The columns are indicated by various masks
+0196|*(images, patterns) on image lines. For instance, image line in
+0197|- shadow %: [LINK(q0b_02.html)] [/LINK]
+0198|*numerical sort (see SORT) has the structure "    12345     "
+S   |                     %%%%
+0199|*where the location of the mask 12345 corresponds to the sort key
+0200|*column.
+0201|*In statistical operations, the data sets to be analyzed may be located
+0202|*either in the edit field or in special data files and they are referred
+0203|*to by their names given usually by a DATA definition.
+0204|- shadow %: [LINK(q23_01.html)] [/LINK]
+0205|*(See DATA,FILE)
+S   |      %%%%
+0207|- shadow a: [LINK(qtu6_01.html)]
+0208|*  S = Using ready-made sucros
+S   |   a                         |
+0209|- shadow a: [LINK(q02a_03.html)]
+0210|*  U = User-defined operations
+S   |   a                         |
+0211|- shadow a: [LINK(q03_01.html)]
+0212|*  C = Information on control operations
+S   |   a                                   |
+0213|- shadow a: [LINK(q23_01.html)]
+0214|*  D = Data in statistical operations
+S   |   a                                |
+0215|- shadow a: [LINK(q07_06.html)]
+0216|*  X = Extra specifications in Survo operations
+S   |   a                                          |
+0217|- shadow a: [New][LINK(q07_09.html)]
+0218|d  B = Border and fence lines
+S   |   a                        ;
+0219|- shadow a: [LINK(q07_08.html)]
+0220|*  H = Hidden commands
+S   |   a                 |
+0221|- shadow a: [New][LINK(q02a_05.html)]
+0222|d  L = Working with large data sets
+S   |   a                              ;
+0223|- shadow a: [LINK(q01_02.html)]
+0224|*  E = More information on EDITOR
+S   |   a                            |
+0225|E
+0227|+LARGE? þ PRINT CUR+1,E TO q02a_05.html
+0228|- include HTML40.DEV
+0229|- include Q.DV2
+0230|- [HelpText]
+0231|*Working with large data sets
+0233|*In normal usage Survo is fairly verbose by telling on the screen
+0234|*various details about current events when commands and operations
+0235|*are activated. By default it also saves results of many operations
+0236|*as text in a special output file (text file) given by 'eout'
+0237|*in SURVO.APU (default is <Survo>\TMP\RESULTS).
+S   |                          <     >
+0238|*When working with large data sets (especially in simulation experiments)
+0239|*these subsidiary effects may be very time-consuming. Then, to spare time,
+0240|*certain special settings are recommended.
+0242|*Saving results to a text file is disabled by the command
+0243|- shadow %: [LINK(q0e_02.html)] [/LINK]
+0244|*OUTPUT -   (See OUTPUT?).
+S   |                 %%%%%%
+0246|*Unessential display of intermediate results in many operations is removed
+0247|*by using a specification PRIND=0 and/or setting prind=0 in SURVO.APU.
+0249|*In certain operations RESULTS=0 also eliminates unnecessary output.
+0251|*See an example on the next page!
+0253|*.......................................................................
+0254|*Example: Correlations with different output options
+0255|*Creating a sample of 10000 observations
+0256|*from a 200-dimensional multivariate normal distribution:
+0257|*p=200 r=0.7
+0258|*MAT R=IDN(p,p,1-r)+CON(p,p,r)
+0259|*MNSIMUL R,*,TEST,10000,0
+0260|*.......................................................................
+0261|*TIME COUNT START        / Calculations on a 366 MHz Pentium
+0262|*CORR TEST / PRIND=1     / In all cases results saved in CORR.M and MSN.M
+0263|*TIME COUNT END   39.870 / Temporary display of correlations took 20 sec.
+0264|*.......................................................................
+0265|*OUTPUT -  / Activate this before CORR!
+0266|*TIME COUNT START
+0267|*CORR TEST / PRIND=1
+0268|*TIME COUNT END   10.270 / Listing of case numbers took almost 4 sec.
+0269|*.......................................................................
+0270|*OUTPUT -  / Activate this before CORR!
+0271|*TIME COUNT START
+0272|*CORR TEST / PRIND=0
+0273|*TIME COUNT END   6.370  / Time when unessential displays are removed
+0274|E

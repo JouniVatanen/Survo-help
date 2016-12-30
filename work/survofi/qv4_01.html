@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">LINCO &lt;data&gt;,&lt;matrix_of_coefficients&gt; 
+computes and saves linear combinations of variables in &lt;data&gt; into
+the same data (file). &lt;matrix_of_coefficients&gt; is a standard MAT
+file with following properties:
+The names of variables to be used in linear combinations are the
+row labels (8 first characters will be matched) of the matrix.
+An additive constant must be indicated by row label 'constant' or
+'-'.
+The names of the linear combinations are the column labels of the
+matrix. New variables (of 4 bytes) are created when necessary.
+
+Lagged variables may be used by giving in the matrix an extra
+column with label '#lag' and with integer elements. In this column
+negative values refer to lags and positive to leads.
+
+LINCO will be an important auxiliary operation when computing
+various derived variables in linear models, multivariate analysis, etc.
+Several statistical modules generate their own matrices of coeffi-
+cients to be used in LINCO. For example, LINREG gives the regression
+coefficients (REG.M) to be used in computing predicted values of
+the model (See also <A HREF="q0e_01.html">OUTCNTRL</A>?).
+
+Example:  11 *              w=1/5
+          12 *MATRIX MOV5
+          13 *///      %2   #lag
+          14 *%1        w    -2
+          15 *%1        w    -1
+          16 *%1        w     0
+          17 *%1        w     1
+          18 *%1        w     2
+          19 *
+          20 *MAT SAVE MOV5
+          21 *LINCO DATA1,MOV5(Temp,Ave5)
+LINCO on line 21 computes and saves a five term moving average 'Ave5'
+of variable 'Temp' in data 'DATA1'. The matrix of coefficients 'MOV5'
+has to be saved by MAT SAVE MOV5 on line 20 before activating LINCO.
+The matrix of coefficients may have replaceable parameters %1,%2,...
+as column and row labels, too. In this example MOV5(Temp,Ave5) means
+that %1 will be replaced by 'Temp' and %2 by 'Ave5'. Hence, the same
+matrix may be used for different applications.
+  <A HREF="qv1_01.html">V = More information on transformations (VAR)</A> 
+  <A HREF="q0e_06.html#MATRES">O = Output matrices (giving coefficients)</A> 
+  <A HREF="q21_01.html">S = More information on statistical operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">LINREG data,L
+performs linear regression analysis on active variables in &lt;data&gt;.
+The regressand is indicated by mask Y and the regressors by X's.
+The optional variables for residuals and predicted values of the
+model are pointed out by masks R and P, respectively.
+The first line for the results (L) is optional.
+If the results level is at least 70 (see <A HREF="q0e_05.html">RESULTS</A>?), the means, standard
+deviations and correlations of variables included in the model will be
+also printed.
+If several Y variables are given, the same model (with a constant term
+and X variables) will be computed for each of them. In this case no
+R and P variable is valid.
+
+LINREG saves the regression coefficients in a matrix file REG.M
+and in the case of one regressand and one regressor also coefficients
+of an orthogonal regression analysis in a matrix file OREG.M.
+
+  <A HREF="q26_04.html">D = Regression diagnostics</A> 
+  <A HREF="q26_01.html">R = More information on regression analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

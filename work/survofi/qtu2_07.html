@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">The 'prompt' statement in sucros has the general form (all lines are starting
+by '-' in the control column):
+
+  - prompt &lt;Question text ?&gt; {}
+  -   default &lt;default answer, text or tutstack word&gt; 
+  -   answer  &lt;name of tutstack word for the answer (optional)&gt; 
+  -   length  &lt;max. length of the answer&gt; 
+  -   wait    &lt;max. waiting time in 0.1 seconds, integer or tutstack word&gt; 
+
+The prompt line displays the text intended as a question.
+The optional answer line gives the place of the answer in the tutstack.
+If the answer line is missing, the answer is appended as the last word
+to the tutstack.
+If the user gives no answer, the sucro waits until the time qiven on
+the wait line is over and accepts the default answer which also can
+be a tutstack word.
+Although the question and the answer are displayed on the screen in
+the current context of the edit field, they are not permanently written
+into the edit field.
+The prompt can be interrupted by the ESC key. Then the text '(break)'
+will appear as an answer.
+
+Example:
+This part of a sucro prompts the user to give his/her age and writes
+a sentence as a comment of the answer.
+
+ 12 - prompt Your age ?                        / question
+ 13 -   default 0                              / default answer
+ 14 -   answer W1                              / place for the answer
+ 15 -   length 3                               / length of the answer
+ 16 -   wait 1000                              / max. waiting time
+ 17 - if W1 &lt; 3 then goto Too_young            / comparing answer W1
+ 18 - if W1 &gt; 99 then goto Too_old             / with 3 and 99
+ 19 *{R}
+ 20 *Your age is {print W1}.{goto End}         / displaying answer
+ 21 + Too_young: {R}
+ 22 *Are you so young really?{goto End}
+ 23 + Too_old: {R}
+ 24 *Hard to believe that you are so old!
+ 25 + End: {end}
+
+   <A HREF="qtu2_06.html">U = More information on user interaction</A> 
+   <A HREF="qtu3_01.html">C = Code words and statements in sucros</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

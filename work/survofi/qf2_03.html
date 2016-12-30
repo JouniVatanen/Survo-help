@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">The current edit field can be always saved in an edit file by a
+SAVE &lt;name of edit file&gt; operation which normally is located on
+the first line of the edit field.
+Any edit file formed in this way may be loaded back to the edit
+field by a LOAD &lt;name of edit file&gt; operation and the former contents
+of the edit field will then be lost. To load parts of edit files
+on the empty lines of the edit field without spoiling the current
+situation, use a SHOW &lt;name of edit file&gt; operation.
+
+Edit files are almost like text files, but with a rigid structure
+(constant line length) and lines saved without cr,lf ending.
+An edit file name has the default extension .EDT.
+
+An edit file can be converted to a text file by first loading it to
+the edit field and then saving it using COPY L1,L2 TO &lt;text file&gt; 
+where L1-L2 are the edit lines to be saved. Observe that COPY
+appends lines L1-L2 to the end of &lt;text file&gt;.
+To copy in the opposite direction from a text file to the edit field,
+use the SHOW &lt;text file&gt; operation which enables scrolling of the
+text file in a temporary window and loading of any lines from it.
+
+Data sets typed in the edit field can be saved in Survo data files
+first by saving the edit field in a text file (by COPY for example)
+and the by using the FILE SAVE &lt;text_file&gt;,&lt;Survo_data_file&gt; 
+operation.
+For data lists and tables with a DATA header, a straighforward method
+for this task is the FILE COPY operation:
+FILE COPY &lt;data_list_or_table&gt;,&lt;Survo_data_file&gt; 
+
+Survo provides various additional formats for files of sucros, matrices,
+results, etc.
+
+  <A HREF="qf1_01.html">D = More information on data management</A> 
+
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

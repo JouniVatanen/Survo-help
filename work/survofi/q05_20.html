@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">LINEDEL offers various ways for systematic removal of lines in the
+current edit field. LINEDEL does not save the edit field after
+the removal; it must be done by the user if needed.
+
+LINEDEL L1,L2 / deletes lines L1-L2.
+LINEDEL L1,L2,EMPTY   / deletes empty lines from lines L1-L2.
+LINEDEL L1,L2,EMPTY,k / works similarly but when n consecutive empty lines
+                        are encountered, min(n,k) of them will be preserved.
+                        For example, if k=1, just one empty line will left
+                        in sequencies of empty lines.
+LINEDEL L1,L2,&lt;string&gt; 
+deletes lines having any of characters in &lt;string&gt; 
+in the control column from lines L1-L2.
+LINEDEL L1,L2,"&lt;string&gt;" / (&lt;string&gt; may contain shadow characters)
+deletes lines containing &lt;string&gt; from lines L1-L2.
+LINEDEL L1,L2,"&lt;word1&gt;","&lt;word2&gt;",...
+deletes lines containing all the words &lt;word1&gt;,&lt;word2&gt;,...
+LINEDEL L1,L2,STEP,s
+deletes lines L1,L1+s,L1+2s,L1+3s,... from lines L1-L2.
+LINEDEL / without parameters
+deletes empty lines below the command line to the first non-empty line.
+
+In all forms of LINEDEL (except in the second one "EMPTY") the deleted
+lines can be saved in a selected (new) edit file by giving the
+specification DEL_SAVE=&lt;name_of_edit_file&gt;.
+This option enables making smart selections of edit lines.
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

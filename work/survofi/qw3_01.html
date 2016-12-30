@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">In the analysis of covariance a part of the independent variables are
+at nominal scale (grouping variables),  the others being at interval
+scale (covariates). The grouping variables are given by the GROUPING
+parameter followed by the definition of their grouping structure.
+The covariates are defined by the COVARIATES parameter.
+
+The main effects and interactions of the grouping variables to be
+included in the model are defined by the INCLUDED and/or EXCLUDED
+parameters. The grouping variables are referenced by their initials.
+The default model is always the model with all possible interactions.
+
+A two-way fixed effects analysis of covariance example:
+
+  ANOVA IEADATA,30
+  DEPENDENT=KNOWLDGE
+  GROUPING=ATTITUDE,SEX
+  ATTITUDE=1,2,3  SEX=1,2
+  COVARIATES=MENTALPR,APPLICAT
+
+If not otherwise stated the regression coefficients of covariates are
+estimated in the total group. If the equality of within-groups regression
+coefficients cannot be assumed then the groups, where separate estimates
+are wanted, are defined by the parameter SLOPES, e.g. SLOPES=SEX and
+SLOPES=ATTITUDE,SEX. The latter would produce different estimates in
+the 3 x 2 groups.
+
+Further information:
+   <A HREF="qw1_02.html">1 = More on definitions for grouping variables</A> 
+   <A HREF="qw2_02.html">2 = More on main effects and interactions to be included in the model</A> 
+   <A HREF="qw2_05.html">3 = Methods of forming hypotheses</A> 
+   <A HREF="qw2_06.html">4 = Error terms transferred or assigned by the user</A> 
+   <A HREF="qw3_02.html">E = Estimates of the effects, computing residual and predicted values</A> 
+   <A HREF="qw1_01.html">A = More on ANOVA operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

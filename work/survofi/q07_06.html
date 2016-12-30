@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Specifications and subfields
+
+In many operations activated by ESC or a double-click of the mouse,
+additional information may be entered by means of extra specifications
+having the form
+&lt;keyword&gt;=&lt;list_of_parameters&gt; 
+and written in the same edit field within the current text.
+For example, in PLOT operation specifications HOME=200,0 and SIZE=300,300
+specify the home and the size of the graph.
+If some extra specification is not given by the user, certain default
+values will be used depending on the current operation and other extra
+specifications.
+
+The order of the extra specifications is immaterial. However, if the
+same &lt;keyword&gt; appears with = several times in the current edit field,
+the order of selection will be:
+  1) the first one on the current line
+  2) the first one in the edit field (current subfield).
+To avoid confusions with neighbouring operations and their specifica-
+tions, special border lines of the form *.......... (asterisk in the
+control column followed by at least 10 dots) may be used to separate
+different operations and computational schemes. The search for the extra
+specifications is always limited to the current subfield (ie. to the
+lines between the nearest border lines from the current position).
+
+The first subfield in the edit field can be used as a common source
+for extra specifications by writing *GLOBAL* on some line in it.
+Then the effective specifications will be selected in the following
+precedence order:
+  1) current line
+  2) current subfield
+  3) *GLOBAL* subfield (must be the first subfield)
+  4) default value of the specification
+
+*GLOBAL* subfield is useful especially when several related actions
+(like PLOT operations with a similar structure) are defined in one edit
+field.
+SPECS specification is a new option from ver. 3.26 (SPECS?)
+
+Long specifications may be written on several consecutive lines by using
+&amp; as a terminator for intermediate lines.
+For example,
+       XSCALE=0,0.001,0.002,0.003,&amp; 
+              0.005,0.007,1
+is equivalent to
+       XSCALE=0,0.001,0.002,0.003,0.005,0.007,1
+The maximum length of text in those specifications is 999 characters.
+
+
+<A NAME="EXTRA2"></A>Symbolic or brief notations for specifications (*specifications)
+To avoid repetition of long specification texts in related plotting schemes
+etc., symbolic notations with an `*' as the leading character
+can be used as shown in the following example:
+................................................................................
+ *one_cycle=[BLACK][line_width(1)],-pi:-pi,0,pi:pi pi=3.141592653589793
+ *from-1to1=[BLACK][line_width(1)],-1(0.5)1
+ *red_thick=[RED][line_width(5)]
+GPLOT Y(X)=SIN(X)
+XSCALE=*one_cycle YSCALE=*from-1to1
+LINETYPE=*red_thick
+................................................................................
+It is typical to place *specifications in the *GLOBAL* subfield so that
+any of them are easily available in various subfields.
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

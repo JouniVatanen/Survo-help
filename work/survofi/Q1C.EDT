@@ -1,0 +1,89 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q1C
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+CONTOUR? þ PRINT CUR+1,E TO q1c_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|#CONTOUR=eps1,eps2,... BINORM=E(X),E(Y),S(X),S(Y),Corr(X,Y)
+0013|*(in PLOT operation for scatter diagrams) determines the contour
+0014|*ellipses to be plotted on levels eps1,eps2,... on the basis of the
+0015|*two-dimensional normal distribution defined by a BINORM specification.
+0016|*If BINORM is missing, the parameters are selected according to the plot-
+0017|*ted data. The parameters eps1,eps2,... refer to the probabilities of
+0018|*an observation to be found inside the ellipse. Particularly, eps1=0
+0019|*causes the principal axes to be plotted.
+0020|*Example: CONTOUR=0,0.5,0.9,0.99 BINORM=0,0,1,1,0.707
+0022|- shadow a: [LINK(qkv0_05.html)]
+0023|*  S = Simultaneous contour ellipses for subgroups of data (/DCONTOUR)
+S   |   a                                                                 |
+0024|- shadow a: [LINK(q11c_01.html)]
+0025|*  C = General contour plots (TYPE=CONTOUR)
+S   |   a                                      |
+0026|- shadow a: [LINK(q11_01.html)]
+0027|*  P = More information on plotting in general
+S   |   a                                         |
+0028|E
+0031|+TREND? þ PRINT CUR+1,E TO q1c_02.html
+0032|- include HTML40.DEV
+0033|- include Q.DV2
+0034|- [HelpText]
+0035|#TREND=C1,C2,...
+0036|*(in PLOT operation for scatter diagrams) determines lines parallel to
+0037|*a linear trend to be plotted. If the trend is Y=aX+b and the residual
+0038|*variance is s^2, then the lines Y=aX+b+Cs and Y=aX+b-Cs will be plotted
+0039|*for C=C1,C2,... For example, TREND=0 causes the trend itself to be
+0040|*drawn. The trend is estimated by the OLS method from the plotted data.
+0041|*However, if a BINORM specification is given, the trend will be computed
+0042|*according to the corresponding bivariate normal distribution.
+0044|- [New]
+0045|*If X appears in the TREND list, also the trend line X=a'Y+b' will
+0046|*be plotted. Example: TREND=0,X plots the both trends.
+0047|- [/New]
+0049|- [New]
+0050|*By TREND=O a trend line according to orthogonal regression is drawn.
+0051|- [/New]
+0053|- shadow a: [LINK(q11_01.html)]
+0054|*  P = More information on plotting in general
+S   |   a                                         |
+0055|E
+0058|+MATRIX? þ PRINT CUR+1,E TO q1c_03.html
+0059|- include HTML40.DEV
+0060|- include Q.DV2
+0061|- [HelpText]
+0062|- shadow a: [LINK(qm2_01.html)]
+0063|*  1 = Matrix computations (MAT operations)
+S   |   a                                      |
+0064|- shadow a: [LINK(q11c_03.html)]
+0065|*  2 = Matrix diagrams
+S   |   a                 |
+0066|E
+0069|+CONFBAND? þ PRINT CUR+1,E TO q1c_04.html
+0070|- include HTML40.DEV
+0071|- include Q.DV2
+0072|- [HelpText]
+0073|*In scatter diagrams done by PLOT operation,
+0074|Sconfidence bands for simple linear regression are obtained
+S   | 888888888888888888888888888888888888888888888
+0075|*by following specifications: (These options suggested by Simo Puntanen)
+0077|*The confidence intervals for the average is plotted by
+0078|*CONF_BAND1=<list of confidence levels>.
+S   |            <                         >
+0079|*Prediction intervals for a single observation is plotted by
+0080|*CONF_BAND2=<list of confidence levels>.
+S   |            <                         >
+0081|*The Working-Hotelling confidence band is plotted by
+0082|*CONF_BAND3=<list of confidence levels>.
+S   |            <                         >
+0083|*References:
+0084|*Section 6.1.3 in
+0085|*Seber, George A.F. and Lee, Alan J. (2003).
+0086|*Linear Regression Analysis. Second Edition. Wiley, New York.
+0087|*Section 1.7 in
+0088|*Weisberg, Sanford (1985). Applied Linear Regression. Second Edition.
+0089|*Wiley, New York.
+0091|- shadow a: [LINK(q12_02.html)]
+0092|* P = Plotting of scatter diagrams
+S   |  a                              |
+0093|E

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText"><STRONG>The FEDIT keyboard</STRONG> 
+
+The cursor moves from one field to another field on a form from left
+to right and from top to bottom. However, the fields belonging to the
+same selection group are passed before other fields. The location of
+the first field in a selection group defines the order of that group
+compared to other fields or groups.
+
+The following list summarizes the special keys used in FEDIT. Note
+that some keys have slightly different meanings in standard and selec-
+tion fields.
+
+Cursor Right  <EM>Standard fields</EM>: Moves the cursor one character to the
+              rigth in the field or to the next field if the right
+              margin of the field is exceeded.
+              <EM>Selection fields</EM>: Moves the cursor to the next
+              selection field.
+Cursor Down   Moves the cursor to the next standard or selection
+              field in the form.
+Cursor Left   <EM>Standard fields</EM>: Moves the cursor one character to the
+              left in the field, or to the previous field if the left
+              margin of the field is exceeded.
+              <EM>Selection fields</EM>: Moves the cursor to the previous
+              selection field.
+Cursor up     Moves the cursor to the previous field in the form.
+
+PgDn          The cursor is moved down by "one page" in the form, to the
+              next form or to the next observation. If selection fields
+              in one group extend over several pages, moving is done
+              done within the same group.
+PgUp          The cursor is moved up by "one page" in the same form or
+              to the previous form. If the cursor is on the first page
+              of the first form, then <EM>PgUp</EM> moves the cursor in the first
+              form of the previous observation. If the cursor is in a
+              "long" selection group, moving is done within the same
+              group.
+Ctrl PgDn     The cursor is moved to the first form of the next
+              observation.
+Ctrl PgUp     The cursor is moved to the first form of the previous
+              observation.
+
+HOME          The cursor is moved to the first field on the current form.
+END           The cursor is moved to that last field on the current form.
+
+INS           Insert/overwrite mode toggle.
+DEL           Standard fields: Deletes character at the cursor.
+              Selection fields: Deletes the selection at the cursor. All
+              lower order selections are deleted too. E.g. if the first
+              selection is deleted, then all other selections will be
+              deleted, too.
+ESC           Interrupts the selection in one group (without
+              entering the maximum number of selections).
+
+BACKSPACE     First the character to the left of the cursor is erased
+              and then the cursor is moved one character to the left.
+
+ALT F5        Searches for a value of the variable indicated by the
+              cursor or moves to the given observation defined
+              by its sequence number. An old search may be repeat-
+              ed by using the Cursor Up key (the last 9 searches are
+              saved).
+ALT F9        Inserts observations after the current observation.
+ALT F10       Deletes observations including the current observation.
+F2 - P        The current form is copied in the edit field.
+F1            Help for keys. The content of the help window depends
+              on the type of the field indicated by the cursor.
+F8            Exit
+
+<A HREF="qw71_01.html">M = More information on FEDIT operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

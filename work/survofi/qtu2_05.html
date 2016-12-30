@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Several alternatives can be processed simultaneously by a 'switch'
+statement:
+Assume that current weekday has been obtained in W1 as one of the
+abbreviations Sun,Mon,...  The following part of a sucro writes
+a proper sentence 'Today is Sunday.', etc.
+
+Example:
+ 11 *Today is
+ 12 - switch W1
+ 13 -   case Sun: goto Sun
+ 14 -   case Mon: goto Mon
+ 15 -   case Tue: goto Tue
+ 16 -   case Wed: goto Wed
+ 17 -   case Thu: goto Thu
+ 18 -   case Fri: goto Fri
+ 19 -   case Sat: goto Sat
+ 20 + Sun:  Sunday{goto End}
+ 21 + Mon:  Monday{goto End}
+ 22 + Tue:  Tuesday{goto End}
+ 23 + Wed:  Wednesday{goto End}
+ 23 + Thu:  Thursday{goto End}
+ 25 + Fri:  Friday{goto End}
+ 26 + Sat:  Saturday{goto End}
+ 27 + End: .{end}
+
+   <A HREF="qtu2_01.html">S = More information on conditional statements</A> 
+   <A HREF="qtu3_01.html">C = Code words and statements in sucros</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

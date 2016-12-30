@@ -1,0 +1,162 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q21
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+STATIS? þ PRINT CUR+1,E TO q21_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*Statistical operations in Survo
+0013|- shadow a: [LINK(q23_01.html)]
+0014|*  D = Representation of data sets (DATA specification)
+S   |   a                                                  |
+0015|- shadow a: [LINK(q21_02.html)]
+0016|*  S = Selecting variables and observations
+S   |   a                                      |
+0017|- shadow a: [LINK(q0e_01.html)]
+0018|*  O = Results of statistical analyses
+S   |   a                                 |
+0019|- shadow a: [LINK(qv1_01.html)]
+0020|*  V = Transformations of variables (VAR,TRANSFORM,CLASSIFY,LINCO,SMOOTH)
+S   |   a                                                                    |
+0021|- shadow a: [LINK(q1a_01.html)]
+0022|*  H = Frequency distributions, histograms, fitting distributions (HISTO)
+S   |   a                                                                    |
+0023|- shadow a: [LINK(q22_02.html)]
+0024|*  M = Multiway tables (TAB)
+S   |   a                       |
+0025|- shadow a: [LINK(q27_01.html)]
+0026|*  A = Analysis of variance (ANOVA)
+S   |   a                              |
+0027|- shadow a: [LINK(qu1_01.html)]
+0028|*  L = Generalised Linear Models (TABFIT,GENREG)
+S   |   a                                           |
+0029|- shadow a: [LINK(q29_01.html)]
+0030|S  B = Basic statistics (STAT, STATMSF, MINSTAT, Making samples)
+S   |   a                                    8888888  88888888888888|
+0031|- shadow a: [LINK(q21_03.html)]
+0032|*  C = Means, standard deviations and correlations (CORR)
+S   |   a                                                    |
+0033|- shadow a: [New][LINK(q21_04.html)]
+0034|d  J = Probability distributions
+S   |   a                           ;
+0035|- shadow a: [LINK(qa1_01.html)]
+0036|*  T = Statistical tests
+S   |   a                   |
+0037|- shadow a: [LINK(q26_01.html)]
+0038|*  R = Linear regression analysis (LINREG,REGDIAG)
+S   |   a                                             |
+0039|- shadow a: [LINK(q24_01.html)]
+0040|*  E = Nonlinear estimation and regression analysis (ESTIMATE)
+S   |   a                                                         |
+0041|- shadow a: [LINK(qmr2_01.html)]
+0042|*  P = Multivariate analysis
+S   |   a                       |
+0043|- shadow a: [LINK(qt1_01.html)]
+0044|S  U = Time series analysis, Survival analysis
+S   |   a                         8888888888888888|
+0045|- shadow a: [LINK(q11_01.html)]
+0046|*  G = Graphical methods (PLOT)
+S   |   a                          |
+0047|- shadow a: [LINK(q01_02.html)]
+0048|*  X = General information on the Survo Editor
+S   |   a                                         |
+0049|E
+0052|+VARCNTRL? þ PRINT CUR+1,E TO q21_02.html
+0053|- include HTML40.DEV
+0054|- include Q.DV2
+0055|- [HelpText]
+0056|*Selecting variables and observations in statistical analysis
+0057|- shadow a: [LINK(q03_11.html)]
+0058|*  1 = Selecting variables into analysis
+S   |   a                                   |
+0059|- shadow a: [LINK(q07_02.html)]
+0060|*  2 = Selecting observations into analysis
+S   |   a                                      |
+0061|- shadow a: [LINK(q28_01.html)]
+0062|*  3 = Scale types of variables
+S   |   a                          |
+0063|- shadow a: [LINK(q21_01.html)]
+0064|*  S = General information on statistical operations
+S   |   a                                               |
+0065|E
+0068|+CORR? þ PRINT CUR+1,E TO q21_03.html
+0069|- include HTML40.DEV
+0070|- include Q.DV2
+0071|- [HelpText]
+0072|#CORR <data>,L
+S   |      <    >
+0073|*computes the means, standard deviations and correlations of all active
+0074|*variables and observations in <data>. Specifications like VARS, MASK,
+S   |                               <    >
+0075|*CASES and IND may be used for selecting variables and observations.
+0076|*Observations with missing values at least in one of the active
+0077|Svariables are omitted. For incomplete data CORRMV can be used.
+S   |                        888888888888888888888888888888888888888
+0079|*The results will appear from line L onwards. If L is missing, results
+0080|- shadow %: [LINK(q0e_02.html)] [/LINK]
+0081|*are not displayed in the edit field. If an output file (see OUTPUT) is
+S   |                                                             %%%%%%
+0082|*selected, the results are appended to the end of that file. Printing of
+0083|*results may be completely left out by entering RESULTS=0.
+0085|*In any case the results (in full precision) are saved in matrix files
+0086|*    CORR.M correlations
+0087|*    MSN.M col.1=means col.2=stddevs col.3=number of observations
+0088|*on the current data disk.
+0089|*Their names can be changed by the OS command >REN, for example.
+S   |                                              >
+0090|*Many operations in multivariate analysis and linear models can use
+0091|*matrix files CORR.M and MSN.M as a basis for their work.
+0092|*/COV computes the covariance matrix COV.M from current CORR.M and MSN.M.
+0094|*All the computations are carried out in double precision. When computing
+0095|*the moments the values of the first observation are used as temporary
+0096|*means. If a variable is a constant, no error message is given, but all
+0097|*the correlations (including the diagonal element, which normally is 1)
+0098|*are set to 0 for that variable.
+0100|*If specification RESULTS=-1 is given, only means and standard deviations
+0101|*(and matrix MSN.M) are computed.
+0103|*Specification RESULTS=0 cancels saving of results in the output file
+0104|*but the matrix files CORR.M and MSN.M are computed even in this case.
+0106|*When the number of variables is high, the best way to study the corre-
+0107|*lation matrix obtained by CORR is to activate
+0108|*/MATSHOW CORR.M or /MATSHOW CORR.M,12.123 (for example).
+0110|*The correlation matrix can also be loaded into the edit field in a
+0111|*partitioned form with significant elements highlighted by
+0112|*/LOADCORR
+0113|*Before activating /LOADCORR it is usually necessary to increase the
+0114|*# of lines and shadow lines by REDIM.
+0116|*LOADM is the general operation used by /MATSHOW and /LOADCORR.
+0117|- shadow a: [LINK(q26_03.html)]
+0118|*  L = LINREG
+S   |   a        |
+0119|- shadow a: [LINK(qmr2_01.html)]
+0120|*  M = Multivariate analysis
+S   |   a                       |
+0121|- shadow a: [LINK(q21_01.html)]
+0122|*  S = General information on statistical operations
+S   |   a                                               |
+0123|E
+0126|+DISTRIB? þ PRINT CUR+1,E TO q21_04.html
+0127|- include HTML40.DEV
+0128|- include Q.DV2
+0129|- [HelpText]
+0130|*Probability distributions
+0132|- shadow a: [LINK(ql2_01.html)]
+0133|*  1 = Computing values of functions related to standard distributions
+S   |   a                                                                 |
+0134|- shadow a: [LINK(qv3_01.html)]
+0135|*  2 = Simulation of distributions
+S   |   a                             |
+0136|- shadow a: [LINK(qa1_01.html)]
+0137|*  3 = Statistical tests
+S   |   a                   |
+0138|- shadow a: [LINK(qmc1_02.html)]
+0139|*  4 = Distributions in combinatorics
+S   |   a                                |
+0140|- shadow a: [New][LINK(q21c_01.html)]
+0141|d  5 = Central limit theorem
+S   |   a                       ;
+0143|- shadow a: [LINK(q21_01.html)]
+0144|*  S = More information on statistical operations
+S   |   a                                            |
+0146|E

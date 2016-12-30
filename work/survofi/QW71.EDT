@@ -1,0 +1,473 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QW71
+0004|+VFEDIT? þ PRINT CUR+1,E TO qw71_01.html
+0005|- include HTML40.DEV
+0006|- include Q.DV2
+0007|- [HelpText]
+0008|*The FEDIT operation   written by Markku Korhonen (HUCC)
+S   | 7777777777777777777
+0010|*The function of the FEDIT operation is to display values in a SURVO
+0011|*84C data file on forms. The old values can be edited or new values
+0012|*can be entered in the data file, too.
+0014|*Further information:
+0015|- shadow a: [LINK(qw71_02.html)]
+0016|* 1 = Introduction
+S   |  a              |
+0017|- shadow a: [LINK(qw71_03.html)]
+0018|* 2 = Fields on forms
+S   |  a                 |
+0019|- shadow a: [LINK(qw71_04.html)]
+0020|* 3 = Options in the FEDIT operation
+S   |  a                                |
+0021|- shadow a: [LINK(qw7_05.html)]
+0022|* 4 = Validity checks of field values (FEDIT and MFEDIT)
+S   |  a                                                    |
+0023|- shadow a: [LINK(qw71_05.html)]
+0024|* 5 = Designing the forms in FEDIT
+S   |  a                              |
+0025|- shadow a: [LINK(qw71_06.html)]
+0026|* 6 = Conditional forms
+S   |  a                   |
+0027|- shadow a: [LINK(qw71_07.html)]
+0028|* 7 = The FEDIT keyboard
+S   |  a                    |
+0029|- shadow a: [LINK(qw7_07.html)]
+0030|* 8 = Transformations in FEDIT and MFEDIT
+S   |  a                                     |
+0032|- shadow a: [LINK(q21_01.html)]
+0033|* D = More on data analysis
+S   |  a                       |
+0034|- shadow a: [LINK(q01_02.html)]
+0035|* E = More information on SURVO 84 EDITOR
+S   |  a                                     |
+0037|E
+0041|+VFINTRO? þ PRINT CUR+1,E TO qw71_02.html
+0042|- include HTML40.DEV
+0043|- include Q.DV2
+0044|- [HelpText]
+0045|*Introduction
+S   | 111111111111
+0047|*The function of the FEDIT operation is to display values in a SURVO
+0048|*84C data file on forms. The old values can be edited or new values
+0049|*can be entered in the data file, too. The size of a form is not limited
+0050|*by the size of the screen. Several forms may correspond to one obser-
+0051|*vation in the Survo data file. One can set conditions for displaying a
+0052|*form. If the conditions are not met, then the form is skipped. When
+0053|*new values are entered then FEDIT automatically checks that the val-
+0054|*ues are not in contradiction with the type of field. Additional validity
+0055|*checks may be defined, e.g. by listing valid values for some fields.
+0057|*The following example clarifies the idea of the form design. A ques-
+0058|*tionnaire starts as follows:
+0060|*
+S   | (
+0061|*  Company: .....................................................
+0062|*  Contact person: ..............................................
+S   |                 1
+0063|*  Address: ......................................................
+S   |          1
+0064|*  Telefon: ................   Telefax: ...............
+S   |          1
+0066|*  etc ...
+S   |                                                                  )
+0068|*The questionnaire is completed by assigning each field to a variable in
+0069|*the data file:
+0071|*
+S   | (
+0072|*  Company: &Company
+S   |            &
+0073|*  Contact person: &Contname
+S   |                 1 &
+0074|*  Address: &Address
+S   |          1 &
+0075|*  Telephone: &Tel                Telefax: &Fax
+S   |            1 &                            &
+0077|*  etc ...
+S   |                                                                  )
+0079|*The form of the FEDIT operation is
+0081|*FEDIT <Survo data file>,<form file>
+S   |       <               > <         >
+0082|*<options>
+S   | <       >
+0084|*The SURVO 84C data file
+S   | 111111111111111111111111111
+0086|*If the Survo data file exists, then FEDIT uses it. If the Survo data
+0087|*file does not exist, then FEDIT creates a new one by using the infor-
+0088|*mation in the form file.
+0090|*The form file
+S   | 111 1111 1111
+0092|*The form file is an ASCII text file. Its maximum record length is 253
+0093|*characters. The form file can be created, for example, by the SAVEP
+0094|*operation of SURVO 84C. If the form file does not exist, then a de-
+0095|*fault form file can be created on the basis of the information on va-
+0096|*riables saved in the SURVO data file.
+0097|*Options
+S   | 1111111
+0099|*The option CAPS equates the lowercase letters with capitals. Other
+0100|*options are needed very rarely, e.g. for increasing the maximum number
+0101|*of selection fields.
+0103|*Fields on the forms
+S   | 1111111111111111111
+0105|*Two types of fields may exist on forms:
+0106|*(1) Standard fields.
+0107|*(2) Selection fields.
+0109|*The size of a form
+S   | 111111111111111111111
+0111|*If the form file exists, then FEDIT estimates the number of columns and
+0112|*rows needed on the basis of the information given by the form file. The
+0113|*form having the maximum width defines the width used for all forms.
+0114|*However, at least 50 columns are used. The length of a form may vary.
+0116|- shadow a: [LINK(qw71_01.html)]
+0117|*   M = More information on FEDIT operation
+S   |    a                                     |
+0118|E
+0121|+VFIELDS? þ PRINT CUR+1,E TO qw71_03.html
+0122|- include HTML40.DEV
+0123|- include Q.DV2
+0124|- [HelpText]
+0125|*Fields on forms: There are two kind of fields that may exist on forms:
+S   | 111111111111111
+0127|*  (1) standard fields and
+S   |   1111111111111111111
+0128|*  (2) selection fields.
+S   |   111 1111111111111111
+0130|*In standard fields, each field corresponds to a variable in a Survo
+S   |    666666666666666
+0131|*data file. The desired value of the variable is written on the field.
+0132|*The field length is defined by the type of the variable.
+0134|*In the case of selection fields, the alternatives for values of a
+S   |                6666666666666666
+0135|*(group of) variable(s) are written on the form. The user selects one or
+0136|*more of the alternatives by pressing the Return key. The number of
+S   |                                          666666
+0137|*selections in a selection group equals to the number of variables in
+0138|*the Survo data file assigned to this selection group. Free selection
+S   |                                                       1111
+0139|*fields may be used for those situations where all possible choices
+0140|*cannot be written out.
+0142|- shadow a: [LINK(qw71_01.html)]
+0143|*   M = More information on FEDIT operation
+S   |    a                                     |
+0144|E
+0147|+VFOPTS? þ PRINT CUR+1,E TO qw71_04.html
+0148|- include HTML40.DEV
+0149|- include Q.DV2
+0150|- [HelpText]
+0151|(Options in the FEDIT operation
+S   | 111111111111111111111111111111
+0153|*The option FIRSTOBS defines the starting observation. By default,
+S   |            11111111
+0154|*FEDIT assumes that new observations will be entered.
+0156|*If the form file doesn't exist or the program fails to estimate the
+0157|*form width, the maximum size of a form may be given by the MAXCOLS
+0158|*and MAXROWS options. MAXCOLS defines the number of the ordinary
+S   |                      1111111
+0159|*columns in a form (max. 253). If the form file does not exist, then
+0160|*the default size is 78. Two additional cxolumns are needed for the
+0161|*frame. The maximum number of the ordinary rows in the form is given
+0162|*by the MAXROWS option. If the form file does not exist, then the
+S   |        1111111
+0163|*default is 60 rows. The values given by the options MAXCOLS and MAXROWS
+0164|*must meet the requirement:
+0165|*      (maxcols+3)*(maxrows+2) < 32766
+S   |                               <
+0166|*The option CAPS defines the default behaviour when small letters are
+S   |            1111
+0167|*entered. If CAPS=1 is stated, then lower case letters are changed to
+0168|*capital ones if not otherwise stated in the RESTR statement.
+0170|*By the option INTDEF one can define the default display length of the
+S   |               111111
+0171|*integer variable in the form. This default value can be overridden for
+0172|*given variables by an INT statement.
+0173|*The program estimates the maximum number of selection groups in one
+0174|*form. If the form file does not exist, then the default maximum number
+0175|*of selection groups is 50. The user may give this maximum value by the
+0176|*option MAXGROUPS. The option MAXCHOICES can be used to define
+S   |        111111111             1111111111
+0177|*the maximum number of alternatives in one selection group (default 50).
+0179|*The maximum number of standard fields plus the number of selection
+0180|*fields in selection groups is 300. This upper limit cannot be increased.
+0181|*The FEDIT operation can be used with Survo data files having 1200 va-
+0182|*riables at most!
+0184|- shadow a: [LINK(qw71_01.html)]
+0185|*   M = More information on FEDIT operation
+S   |    a                                     |
+0186|E
+0189|+VFRMDSG? þ PRINT CUR+1,E TO qw71_05.html
+0190|- include HTML40.DEV
+0191|- include Q.DV2
+0192|- [HelpText]
+0193|*Designing forms in FEDIT
+S   | 111111111111111111111111
+0195|*The form definitions are given by the form file. The SURVO 84C editor
+0196|*can be used to create it (use the SAVEP operation). FEDIT is able
+0197|*to generate a default form file if all necessary variables are already
+0198|*defined in the Survo data file. Then you can load (use LOADP) the
+0199|*created file in the edit field for further editing.
+0201|*The principle is that the forms are written in the form file as they
+0202|*should be displayed to the user. The program adds frames around the
+0203|*form. The fields on forms are denoted in a predetermined way. Besides
+0204|*the definition of the ordinary form, conditions for displaying the form
+0205|*as well field checks may be defined. These functions require additional
+0206|*statements before or after the ordinary form. The structure of the
+0207|*definitions is the following (obligatory statements are shown by bold
+0208|*letters):
+0209|*FORM(the name of the form):
+S   | 111111111111111111111111111
+0210|*COND: <conditions for the usage of this form>
+S   |       <                                     >
+0211|*ENCOND;
+0212|*STRING: <names and lengths of string variables>;
+S   |         <                                     >
+0213|*REAL: <names and display lengths of real variables>;
+S   |       <                                           >
+0214|*INT: <names and display lengths of integer variables>;
+S   |      <                                              >
+0215|*SELECT:
+0216|*   < definition of variables corresponding each (multi)selection group>
+S   |    <                                                                  >
+0217|*ENDSELECT;
+0218|*TEXT:
+S   | 11111
+0219|*      <definition of the ordinary form>
+S   |       <                               >
+0220|*ENDTEXT;
+S   | 11111111
+0221|*RESTR:
+0222|*      <definition of valid variable values>
+S   |       <                                   >
+0223|*ENDRESTR;
+0224|*ENDFORM;
+S   | 111111111
+0226|*FORM(the name of the next form):
+S   | 11111
+0227|*...
+0228|*ENDFORM;
+S   | 11111111111
+0229|*..
+0230|*ENDOFFILE;
+S   | 1111111111
+0231|*An example with one form only:
+0233|*FORM(Flats):
+0234|*STRING: City(9),Subcity(12),Seller(16),Sauna(1),Type(8),Kitchen(2);
+0235|*REAL: Area(5), Dist1(5), Dist2(5);
+0236|*TEXT:
+0238|* City: &City
+S   |        &
+0239|* Subsection: &Subcity
+S   |              &
+0240|* Type of the flat: &Type      Number of rooms: &Rooms
+S   |                    &                           &
+0241|* Kitchen/Kitchenette (K/KN): &Kitchen
+S   |                              &
+0242|* Sauna (S=yes/E=no): &Sauna
+S   |                      &
+0243|* Area of the flat: &Area
+S   |                    &
+0244|* Selling price: &Price
+S   |                 &
+0245|* Debt: &Debt              Completion year of the flat: &Year
+S   |        &                                               &
+0246|* Seller: &Seller
+S   |          &
+0247|* Distance from centre of Helsinki to nearest railway station: &Dist1
+S   |                                                               &
+0248|* Distance from flat to nearest railway station: &Dist2
+S   |                                                 &
+0249|*ENDTEXT;
+0250|*ENDFORM;
+0251|*ENDOFFILE;
+0252|*STRING and REAL statements are necessary only if the Survo data file
+S   | 111111     1111
+0253|*does not exist. The maximum length of a field (in characters) is given
+0254|*in parentheses after the corresponding variable name. The values of va-
+0255|*riables Area, Dist1 and Dist2 may have decimals, so they are declared
+S   |         6666  66666     66666
+0256|*as real variables. The numbers in parentheses concern the field length
+0257|*in the form. If the corresponding variable does not exist in the Survo
+0258|*data file, then it is created as a 4 byte numeric variable. For string
+0259|*variables, the given lengths are used if the variable is a new one. The
+0260|*display length of integer variables can be defined by the INT state-
+S   |                                                           111
+0261|*ments in the same way. New integer variables are created as one or
+0262|*two byte variables depending on the given length.
+0264|*New variables (not existing in the Survo data file) not mentioned in
+0265|*STRING, REAL or INT statements are assumed to be integers and two
+0266|*bytes are reserved for each of them in the Survo data file (however,
+0267|*if the default display length of an integer variable is defined to be
+0268|*one by the option INTDEF, then only one byte is reserved). For old
+0269|*variables,  the information saved in the Survo data file is used  to de-
+0270|*fine the field length.
+0271|*The ordinary form is defined by the lines between the key words TEXT
+S   |                                                                 1111
+0272|*and ENDTEXT. The left margin of a standard field is given by the
+S   |     1111111                       66666666 66666
+0273|*character & followed by the variable name. The length of the field is
+S   |           &
+0274|*defined by the length of the variable. A one byte numeric variable may
+0275|*vary between 0 and 254, so a field length of 3 is used for it. Corre-
+0276|*spondingly for a two byte numeric variable a field length of 6 is used
+0277|*(values from -32768 to 32766). For real types of numeric variables a
+0278|*default field of length 7 (4 byte variable) or 14 (8 byte variable) is
+0279|*used. The field length of a string variable is the maximum length of
+0280|*the variable defined in the Survo data file if the length is not given
+0281|*in the STRING statement.
+0282|*A form with selection fields:
+0284|*FORM(F3):
+0285|*STRING: Dmost1(12),Dmost2(12),Dmost3(12);
+0286|aSELECT:  @F1 3 TO Dmost1,Dmost2,Dmost3;
+0287|*ENDSELECT;
+0288|*TEXT:
+0289|* 3. Which are the three most important export countries for your company?
+0290|*    Select the countries in the order of importance:
+0292|a    @F1<Sweden>          @F1<Norway>
+S   |        <      >             <      >
+0293|a    @F1<Denamrk>         @F1<Germany>
+S   |        <       >            <       >
+0294|a    @F1<England>         @F1<France>
+S   |        <       >            <      >
+0295|a    @F1<Russia>          @F1<Italy>
+S   |        <      >             <     >
+0296|a    @F1<Spain>           @F1<?>
+S   |        <     >              < >
+0297|a    @F1<Japan>           @F1<?>
+S   |        <     >              < >
+0298|a    @F1<United States>   @F1<?>
+S   |        <             >      < >
+0300|*ENDTEXT;
+0301|*ENDFORM;
+0302|*ENDOFFILE;
+0304|*If the form includes selection fields, then a SELECT statement is
+S   |                      666666666 666666         111111
+0305|*needed to declare the names for the variables, where the selected
+0306|*values will be saved. The statement starts with a symbol of the
+0307|aselection group. The symbol must start with the character @ and it must
+S   |                                                           1
+0308|*be a short name. A form may involve several groups of selection fields.
+0309|*Therefore, the groups are identified by a symbol. The name of the
+0310|*selection group is followed by the number of selections allowed. In the
+0311|*example, the user may choose 3 countries. The selections are saved in
+0312|*the order they have been done. The SELECT statement ends with the
+0313|*key word ENDSELECT.
+0315|*In the TEXT statement, a selection field starts with the symbol of the
+0316|*corresponding selection group and the corresponding value to be saved
+0317|*is given between the characters < and >.   Free selection fields are
+S   |                                 <     >
+0318|*given by <?>. The field length of a selection field is defined by the
+S   |          < >
+0319|*type of the corresponding variable.
+0321|- shadow a: [LINK(qw71_01.html)]
+0322|*M = More information on FEDIT operation
+S   | a                                     |
+0323|E
+0325|+VCONDF? þ PRINT CUR+1,E TO qw71_06.html
+0326|- include HTML40.DEV
+0327|- include Q.DV2
+0328|- [HelpText]
+0329|*Conditional forms
+0331|*The conditions for displaying a form are defined by logical statements
+0332|*given between COND and ENDCOND statements. Logical statments have
+0333|*the structure:
+0335|*<logical statement> AND <logical statement> AND ...;
+S   | <                 >     <                 >
+0336|*         or
+0337|*<logical statement> OR <logical statement> OR ...;
+S   | <                 >    <                 >
+0339|*Examples:
+0341|*COND:  City='HELSINKI'  ENDCOND;
+0342|*COND:  Year=1991 AND Rooms>3  ENDCOND;
+S   |                           >
+0343|*COND:  City <> 'ESPOO' AND Area<=90  ENDCOND;
+S   |             <>                 <
+0344|*COND:  Vble1>=Vble2  OR  Vble1=0  ENDCOND;
+S   |             >
+0345|*The relational operators in the COND statements are:
+S   |     11111111111111111111
+0347|*>   "greater than"
+S   | >
+0348|*>=  "greater than or equal to"
+S   | >
+0349|*=   "equal to"
+0350|*<=  "less than or equal to"
+S   | <
+0351|*<   "less than"
+S   | <
+0352|*<>  "not equal"
+S   | <>
+0353|*!=       -"-
+0355|- shadow a: [LINK(qw71_01.html)]
+0356|*M = More information on FEDIT operation
+S   | a                                     |
+0357|E
+0360|+VFKEYS? þ PRINT CUR+1,E TO qw71_07.html
+0361|- include HTML40.DEV
+0362|- include Q.DV2
+0363|- [HelpText]
+0364|*The FEDIT keyboard
+S   | 111111111111111111
+0366|*The cursor moves from one field to another field on a form from left
+0367|*to right and from top to bottom. However, the fields belonging to the
+0368|*same selection group are passed before other fields. The location of
+0369|*the first field in a selection group defines the order of that group
+0370|*compared to other fields or groups.
+0372|*The following list summarizes the special keys used in FEDIT. Note
+0373|*that some keys have slightly different meanings in standard and selec-
+0374|*tion fields.
+0376|*Cursor Right  Standard fields: Moves the cursor one character to the
+S   |               666666666666666
+0377|*              rigth in the field or to the next field if the right
+0378|*              margin of the field is exceeded.
+0379|*              Selection fields: Moves the cursor to the next
+S   |               6666666666666666
+0380|*              selection field.
+0381|*Cursor Down   Moves the cursor to the next standard or selection
+0382|*              field in the form.
+0383|*Cursor Left   Standard fields: Moves the cursor one character to the
+S   |               666666666666666
+0384|*              left in the field, or to the previous field if the left
+0385|*              margin of the field is exceeded.
+0386|*              Selection fields: Moves the cursor to the previous
+S   |               6666666666666666
+0387|*              selection field.
+0388|*Cursor up     Moves the cursor to the previous field in the form.
+0390|*PgDn          The cursor is moved down by "one page" in the form, to the
+0391|*              next form or to the next observation. If selection fields
+0392|*              in one group extend over several pages, moving is done
+0393|*              done within the same group.
+0394|*PgUp          The cursor is moved up by "one page" in the same form or
+0395|*              to the previous form. If the cursor is on the first page
+0396|*              of the first form, then PgUp moves the cursor in the first
+S   |                                       6666
+0397|*              form of the previous observation. If the cursor is in a
+0398|*              "long" selection group, moving is done within the same
+0399|*              group.
+0400|*Ctrl PgDn     The cursor is moved to the first form of the next
+0401|*              observation.
+0402|*Ctrl PgUp     The cursor is moved to the first form of the previous
+0403|*              observation.
+0405|*HOME          The cursor is moved to the first field on the current form.
+0406|*END           The cursor is moved to that last field on the current form.
+0408|*INS           Insert/overwrite mode toggle.
+0409|*DEL           Standard fields: Deletes character at the cursor.
+0410|*              Selection fields: Deletes the selection at the cursor. All
+0411|*              lower order selections are deleted too. E.g. if the first
+0412|*              selection is deleted, then all other selections will be
+0413|*              deleted, too.
+0414|*ESC           Interrupts the selection in one group (without
+0415|*              entering the maximum number of selections).
+0417|*BACKSPACE     First the character to the left of the cursor is erased
+0418|*              and then the cursor is moved one character to the left.
+0420|*ALT F5        Searches for a value of the variable indicated by the
+0421|*              cursor or moves to the given observation defined
+0422|*              by its sequence number. An old search may be repeat-
+0423|*              ed by using the Cursor Up key (the last 9 searches are
+0424|*              saved).
+0425|*ALT F9        Inserts observations after the current observation.
+0426|*ALT F10       Deletes observations including the current observation.
+0427|*F2 - P        The current form is copied in the edit field.
+0428|*F1            Help for keys. The content of the help window depends
+0429|*              on the type of the field indicated by the cursor.
+0430|*F8            Exit
+0432|- shadow a: [LINK(qw71_01.html)]
+0433|*M = More information on FEDIT operation
+S   | a                                     |
+0434|E

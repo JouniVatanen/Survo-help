@@ -1,0 +1,155 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q1D
+0004|*LOAD EDQ
+0006|+PLOTM? þ PRINT CUR+1,E TO q1d_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Plotting multivariate data
+0012|- shadow a: [LINK(q1d_02.html)]
+0013|*  1 = Andrews' function plots
+S   |   a                         |
+0014|- shadow a: [LINK(q1e_01.html)]
+0015|*  2 = Chernoff's faces
+S   |   a                  |
+0016|- shadow a: [LINK(q1e_03.html)]
+0017|*  3 = Star symbol plots
+S   |   a                   |
+0018|- shadow a: [LINK(q1e_04.html)]
+0019|*  4 = Profile symbol plots
+S   |   a                      |
+0020|- shadow a: [LINK(q1d_03.html)]
+0021|*  5 = Draftsman's display (simultaneous scatter plots)
+S   |   a                                                  |
+0022|- shadow a: [LINK(q11_01.html)]
+0023|*  P = More information on plotting
+S   |   a                              |
+0024|E
+0027|+ANDREWS? þ PRINT CUR+1,E TO q1d_02.html
+0028|- include HTML40.DEV
+0029|- include Q.DV2
+0030|- [HelpText]
+0031|#PLOT <data> / TYPE=ANDREWS
+S   |      <    >
+0032|*plots each observation of a multivariate data set as a curve
+0034|*  Y(t)=X1/sqr(2)+X2*sin(t)+X3*cos(t)+X4*sin(2t)+X5*cos(2t)+...
+0035|*                                               (-pi<t<pi)
+S   |                                                    < <
+0036|*where X1,X2,... are (scaled) variables selected from <data>.
+S   |                                                      <    >
+0037|*The variables involved as well as their scalings are determined by
+0038|*a list following the PLOT operation:
+0040|*VARIABLES:    A    B   Term
+0041|*<name of X1>  A1   B1  1/sqr(2)
+S   | <          >
+0042|*<name of X2>  A2   B2  sin(t)
+S   | <          >
+0043|*<name of X3>  A3   B3  cos(t)
+S   | <          >
+0044|*  etc.
+0045|*END
+0047|*Each variable Xi will be scaled by using it in the form Xi'=(Xi-Ai)/Bi.
+0048|*If Ai is replaced by a '*', the mean of the variable in the current data
+0049|*will be used. Similarly a '*' as Bi implies the standard deviation to
+0050|*be selected. A fixed scaling with constant Ai and Bi values A,B can be
+0051|*given by a specification FSCALING=A,B and it overrides the values in
+0052|*the VARIABLES list. For example, FSCALING=0,1 means that all the
+0053|*variables are used without rescaling.
+0054|*If the PLOT operation (with TYPE=ANDREWS) is activated without a
+0055|*VARIABLES list, a model of such a list will be written in the edit
+0056|*field below the PLOT line on request.
+0058|*The PLOT operation for Andrews' curves is supported by the typical
+0059|*extra specifications used in curve plotting (like HEADER,HOME,SIZE,FRAME,
+0060|*XDIV,YDIV,GRID,TICK,XSCALE,YSCALE,XLABEL,YLABEL).
+0061|*However, neither scale transformations nor fills are permitted.
+0063|*LABEL=<label variable>,<step>,<shift>
+S   |       <              > <    > <     >
+0064|*is an extra specification determining a label variable (name) for
+0065|*identifying each curve by a label to be printed on the curve with
+0066|*regular intervals specified in # of plotting steps by <step>.
+S   |                                                       <    >
+0067|*To avoid overlapping of labels, <shift> gives the distance between the
+S   |                                 <     >
+0068|*labels of consecutive curves in # of plotting steps. Parameters <step>
+S   |                                                                 <    >
+0069|*and <shift> are optional and their default values are 30 and 4,
+S   |     <     >
+0070|*respectively.
+0072|#PLOT <data> / TYPE=ANDREWS,POLAR,c
+S   |      <    >
+0073|*draws the Andrews' curves in polar coordinates and gives the results
+0074|*in a layout similar to Chernoff's faces. Then the FSIZE and LABEL
+0075|*specifications are used as in Chernoff's faces.
+0076|*Parameter c is an optional additive constant in Y(t). Default is c=0.
+0078|- shadow a: [LINK(q1d_01.html)]
+0079|*  M = more information on multivariate plotting
+S   |   a                                           |
+0080|E
+0083|+DRAFTS? þ PRINT CUR+1,E TO q1d_03.html
+0084|- include HTML40.DEV
+0085|- include Q.DV2
+0086|- [HelpText]
+0087|#PLOT <data> / TYPE=DRAFTS
+S   |      <    >
+0088|*plots the draftsman's display, i.e. all pairwise scatter plots of m
+0089|*active variables as an m x m array of graphs.
+0090|*The output can be limited to the upper triangle of the array by
+0091|*TYPE=DRAFTS,UPPER or to the lower triangle by TYPE=DRAFTS,LOWER .
+0093|*All normal specifications related to the size and the location of
+0094|*the graph are available. Also the POINT specification can be used
+0095|- shadow %: [LINK(q15_04.html)] [/LINK]
+0096|*as in standard scatter plots (see POINT?).
+S   |                                   %%%%%
+0098|*The scaling of variables is determined automatically according to
+0099|*the minimum and maximum values of the current data.
+0100|*Discrete variables with few possible values (normally producing
+0101|*uninformative plots because many points overlap) can be jittered
+0102|*(scattered) by entering a specification JITTER=k. Then variables with at
+0103|*most k distinct values are randomized uniformly around the true values
+0104|*within a total interval (jitter step) of (max-min)/(h-1) where h is the
+0105|*number of distinct values.
+0107|*The ranges of the variables and their jitter steps can be saved
+0108|*in a text file by a specification OUTSCALE=<name_of_file>. The automatic
+S   |                                            <            >
+0109|*settings of ranges and jitter setps may be changed by editing this file
+0110|*and reproducing the plots with a specification INSCALE=<name_of_file>.
+S   |                                                        <            >
+0112|*OUTSCALE and INSCALE are also helpful when partial data sets with
+0113|*different point symbols are to be overlaid as seen from the following
+0114|*example. (Activate the GPLOT schemes on the next page in the given order.)
+0116|*Example of a draftsman's display
+0117|*................................................................................
+0118|*Plotting the whole data (spefifying scalings and jittering):
+0119|*GPLOT FINLAND  / TYPE=DRAFTS OUTSCALE=SCALES.TXT JITTER=30
+0120|*XDIV=0,1,0 YDIV=0,1,0 HEADER= MASK=--AAAAAAAAAA-A
+0121|*................................................................................
+0122|*Plotting small communes (black dots by default):
+0123|*GPLOT FINLAND  / TYPE=DRAFTS HEADER= XDIV=0,1,0 YDIV=0,1,0
+0124|*INSCALE=SCALES.TXT MASK=--AAAAAAAAAA-A IND=Popul,0,8000  OUTFILE=A
+0125|*................................................................................
+0126|*Plotting large communes (red dots added to the previous graph):
+0127|*GPLOT FINLAND  / TYPE=DRAFTS HEADER= XDIV=0,1,0 YDIV=0,1,0
+0128|*INSCALE=SCALES.TXT MASK=--AAAAAAAAAA-A IND=Popul,8001,500000
+0129|*POINT=[RED],0,0 INFILE=A OUTFILE=A
+0130|*................................................................................
+0131|*Plotting one particular case (large green dots on the previous graph):
+0132|*GPLOT FINLAND  / TYPE=DRAFTS HEADER= XDIV=0,1,0 YDIV=0,1,0
+0133|*INSCALE=SCALES.TXT MASK=--AAAAAAAAAA-A CASES=Commune:Helsinki
+0134|*POINT=[GREEN],0,3 INFILE=A   (This can be replotted for any other cases.)
+0135|*................................................................................
+0136|- shadow a: [LINK(q1d_01.html)]
+0137|*  M = more information on multivariate plotting
+S   |   a                                           |
+0138|E
+0141|+JITTER? þ PRINT CUR+1,E TO q1d_04.html
+0142|- include HTML40.DEV
+0143|- include Q.DV2
+0144|- [HelpText]
+0145|*Jittering of observations in scatter plots:
+0146|- shadow a: [LINK(q12_08.html)]
+0147|*  1 = Standard scatter plots
+S   |   a                        |
+0148|- shadow a: [LINK(q1d_03.html)]
+0149|*  2 = Scatter plot matrices (draftsman's plots)
+S   |   a                                           |
+0150|E

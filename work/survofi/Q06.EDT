@@ -1,0 +1,179 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q06
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+TRIM? þ PRINT CUR+1,E TO q06_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*Adjustment of the line length by TRIM commands:
+0014|- shadow a: [LINK(q06_02.html)]
+0015|*   1 = TRIM commands for fixed pitch fonts
+S   |    a                                     |
+0016|- shadow a: [LINK(q08c_02.html)]
+0017|*   2 = /TRIMP sucro for variable pitch fonts
+S   |    a                                       |
+0018|- shadow %: [LINK(q06_07.html)] [/LINK]
+0019|*See also WORDS2?
+S   |          %%%%%%
+0021|E
+0022|#SELECT
+0024|+TRIM0? þ PRINT CUR+1,E TO q06_02.html
+0025|- include HTML40.DEV
+0026|- include Q.DV2
+0027|- [HelpText]
+0028|#TRIM L1,L2,C (alternative form T L1,L2,C)
+0029|*makes up the lines L1-L2 using the line width C. The words will not
+0030|*be splitted (use T3 or TRIM3 for that purpose).
+0031|*When new lines are needed, they will be automatically inserted and,
+0032|*on the other hand, unnecessary lines will be deleted.
+0033|*After TRIM only one space if left between the 'words' and the right
+0034|*edge is not necessarily aligned. To achieve this, use TRIM2 (=T2)
+0035|*after TRIM.
+0036|*The lines after an empty line and lines starting by a space will be
+0037|*preserved as new lines.
+0039|*See also
+0040|*WORDS (command) to get a constant number of 'words' / line.
+0043|#TRIM2 L1,L2,C (alternative form T2 L1,L2,C)
+0044|*makes the right edge of the lines L1-L2 straight in the column position
+0045|*C. The lines will be not broken or connected. Only extra spaces are
+0046|*inserted when necessary to achieve equal line length C.
+0047|*If the line is short for more than 6 characters, nothing will be
+0048|*changed.
+0049|#TRIM3 L1,L2,C (alternative form T3 L1,L2,C)
+0050|*works like TRIM, but splits the words when needed according to the
+0051|*rules of the Finnish language. TRIM3 operates rather satisfactorily
+0052|*also in other languages.
+0053|*All TRIM operations may also be written without line labels L1,L2,
+0054|*i.e. in the form TRIM3 C or T3 C etc.
+0055|*Then the next chapter up to the first empty line in the edit field
+0056|*will be processed.
+0057|*The line width C has default value 72 and may be omitted.
+0058|E
+0060|+C? þ PRINT CUR+1,E TO q06_03.html
+0061|- include HTML40.DEV
+0062|- include Q.DV2
+0063|- [HelpText]
+0064|#C+ L1,L2,K
+0065|*where K is label of an image line of the form "  XXXX  XXX XX  123.12  "
+0066|*computes the sum of the XXX columns to the column indicated by a numeric
+0067|*mask (like 123.12) for the lines L1-L2.
+0068|#C* L1,L2,K
+0069|*works as C+, but the product of XXX columns is computed.
+0070|#C- L1,L2,K
+0071|*where K is label of an image line of the form "  XXXX  YYY  123.12"
+0072|*subtracts the YYY column from the XXXX column.
+0073|#C/ L1,L2,K
+0074|*where K is label of an image line of the form "  XXXX  YYY  123.12"
+0075|*divides the XXXX column by the YYY column.
+0077|#C% L1,L2,K
+0078|*where K is label of an image line of the form "  XXXX  YYY  123.12"
+0079|*computes the ratio of the XXX and YYY columns in percentages.
+0080|#C+log L1,L2,K
+0081|*computes the sum of the logarithms of the XXXX columns.
+0082|*Other functions available are: sqrt,exp,sin,cos,tan,arctan,int and abs.
+0083|*The same functions may be included in C-,C*,C/ and C% as well.
+0085|- shadow a: [LINK(q0a_01.html)]
+0086|*  T = More information on table management
+S   |   a                                      |
+0087|E
+0090|+L? þ PRINT CUR+1,E TO q06_04.html
+0091|- include HTML40.DEV
+0092|- include Q.DV2
+0093|- [HelpText]
+0094|#L+ L1,L2,K,L
+0095|*where K is label of an image line of the form "  12.123   12.1   1.123  "
+0096|*computes the sum of lines L1-L2 for the columns indicated by the numeric
+0097|*masks on the image line K and writes the sums on the line L acoording to
+0098|*the same images.
+0099|#L* L1,L2,K,L
+0100|*works as L+, but computes products.
+0101|#L- L1,L2,K,L
+0102|*computes the difference of lines L1 and L2 to line L.
+0103|#L/ L1,L2,K,L
+0104|*computes the ratio of lines L1 and L2 to line L.
+0105|#L% L1,L2,K,L
+0106|*computes the ratio of lines L1 and L2 in percentages to line L.
+0107|#L+log L1,L2,K,L
+0108|*computes the sums of the logarithms of lines L1-L2.
+0109|*Other functions available are: sqrt,exp,sin,cos,tan,arctan,int and abs.
+0110|*The same functions may be included in L-,L*,L/ and L% as well.
+0112|- shadow a: [LINK(q0a_01.html)]
+0113|*  T = More information on table management
+S   |   a                                      |
+0114|E
+0117|+WAIT? þ PRINT CUR+1,E TO q06_05.html
+0118|- include HTML40.DEV
+0119|- include Q.DV2
+0120|- [HelpText]
+0121|#WAIT <time in seconds>
+S   |      <               >
+0122|*gives a pause. WAIT is useful in automatic sequences of operations.
+0123|- shadow a: [LINK(q03_01.html)]
+0124|*  C = More information on control operations
+S   |   a                                        |
+0125|E
+0128|+WORDS? þ PRINT CUR+1,E TO q06_06.html
+0129|- include HTML40.DEV
+0130|- include Q.DV2
+0131|- [HelpText]
+0132|*Select
+0133|- shadow a: [LINK(q02_15.html)]
+0134|*  1 = WORDS key (alt-F2)
+S   |   a                    |
+0135|- shadow a: [New][LINK(q06_07.html)]
+0136|d  2 = WORDS command
+S   |   a               ;
+0138|E
+0140|+WORDS2? þ PRINT CUR+1,E TO q06_07.html
+0141|- include HTML40.DEV
+0142|- include Q.DV2
+0143|- [HelpText]
+0144|- [New]
+0145|*WORDS L1,L2,<n>
+S   |             < >
+0146|- [/New]
+0147|*splits the text on edit lines L1-L2 so that each line consists of
+0148|*<n> words. On the last line the number of words may be less than <n>.
+S   | < >                                                              < >
+0150|*WORDS L1,L2
+0151|*counts the number of words etc. on lines L1,L2 so that the results
+0152|*will be displayed on the command line in the form
+0153|*WORDS L1,L2 // #words=xx #chars=xx (#letters,#digits,#punct,#special)
+0154|*where #punct is the number of punctuation characters (.,;: etc.).
+0155|*A system file CHARTYPE.BIN classifies characters to above categories.
+0157|*In the latter form a more extensive summary of the text by words
+0158|*can be made by entering a SAVE=<text_file_name> specification.
+S   |                                <              >
+0159|*Then a new text file contains the words and their lengths as lines.
+0160|*The summary may be extended by giving CHARS=xyz...
+0161|*where xyz... is a list of characters to be counted for each word.
+0162|*The first line of the text file gives labels of the variables in the form
+0163|*word   len x y z . . .
+0165|*The characters may be filtered by FILTER=<file.BIN>.
+S   |                                          <        >
+0166|*For example, FILTER=LOWCASE.BIN maps upper case letters to lower case
+0167|*and preserves non-letter charaters while FILTER=LETTERS.BIN does the
+0168|*same thing but replaces non-letter characters by a space.
+0170|- [New]
+0171|- shadow %: [LINK(q06_08.html)] [/LINK]
+0172|*See also CHARS?
+S   |          %%%%%
+0173|- [/New]
+0174|E
+0176|+CHARS? þ PRINT CUR+1,E TO q06_08.html
+0177|- include HTML40.DEV
+0178|- include Q.DV2
+0179|- [HelpText]
+0180|- [New]
+0181|*CHARS L1,L2,xyz
+0182|- [/New]
+0183|*counts the number of characters xyz (a sequence of any printable
+0184|*characters except , and space) on edit lines L1-L2.
+0185|*Example:
+0186|*CHARS CUR+1,CUR+1,IV / # of characters IV is 38.
+0187|*I II III IV V VI VII VIII IX X XI XII XIII XIV XV XVI XVII XVIII XIX XX
+0189|- shadow %: [LINK(q06_06.html)] [/LINK]
+0190|*See also WORDS?
+S   |          %%%%%
+0191|E

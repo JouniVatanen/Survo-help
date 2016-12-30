@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">CANON &lt;data&gt;,L
+computes canonical correlations and variables for two sets of variables.
+The first set (X variables) should be denoted by 'X' masks and the
+second set (Y variables) by 'Y' masks.
+IND and CASES specifications are allowed for selecting observations.
+
+CANON gives the results from line L (optional) onwards. Furthermore
+the following matrix files are produced by CANON:
+  LCAN.M   vector of canonical correlations
+  XCAN.M   correlations of canonical variables with X variables
+  YCAN.M   correlations of canonical variables with Y variables
+  XCOEFF.M coefficients for the first set of canonical variables
+  YCOEFF.M coefficients for the second set of canonical variables
+
+Values of canonical variables can be computed afterwards by using
+XCOEFF.M and YCOEFF.M in the LINCO operation.
+For example, LINCO &lt;data&gt;,XCOEFF.M(C1,C2).
+
+The calculations needed are based on orthogonalized data matrices (not
+on correlations).
+For educational purposes (showing usage of MAT operations) also a sucro
+/CANCORR is available. To see its usage, activate /CANCORR without
+parameters.
+
+Optionally confounding variables, whose effects on X and Y variables
+are removed by linear regression, may be included. Confounding variables
+are to be activated by 'Z'. All the results obtained then from CANON
+are related to the transformed X and Y data sets.
+
+CANON creates several work matrices (names initiated by &amp;). These are
+automatically deleted, unless RESULTS=100 is given. All the work
+matrices are on the current data disk.
+
+The MATRUN operations CANON2 and CANON3 work on the same basis as CANON.
+See e.g.
+MATRUN CANON2?
+  <A HREF="qmr2_01.html">M = More information on multivariate analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

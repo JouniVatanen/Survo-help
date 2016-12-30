@@ -1,0 +1,201 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q29
+0004|*LOAD EDQ21
+0006|+STATI? þ PRINT CUR+1,E TO q29_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Basic statistics
+0012|- shadow a: [LINK(q29_03.html)]
+0013|*  1 = STAT operation
+S   |   a                |
+0014|- shadow a: [LINK(qmm1_14.html)]
+0015|*  2 = STATMSF operation
+S   |   a                   |
+0016|- shadow a: [LINK(q29_06.html)]
+0017|*  3 = MINSTAT operation
+S   |   a                   |
+0019|- shadow a: [New][LINK(q2a_01.html)]
+0020|d  X = Making samples in Survo
+S   |   a                         ;
+0022|- shadow a: [LINK(q21_01.html)]
+0023|*  S = More information on statistical operations
+S   |   a                                            |
+0024|E
+0026|+A? þ PRINT CUR+1,E TO q29_02.html
+0027|- include HTML40.DEV
+0028|- include Q.DV2
+0029|- [HelpText]
+0030|- shadow a: [LINK(q29_01.html)]
+0031|*  S = More information on basic statistics
+S   |   a                                      |
+0032|E
+0034|+STAT? þ PRINT CUR+1,E TO q29_03.html
+0035|- include HTML40.DEV
+0036|- include Q.DV2
+0037|- [HelpText]
+0038|#STAT <data>,L
+S   |      <    >
+0039|*computes certain basic statistics and summaries for active variables in
+0040|*<data> and forms a frequency distribution for each of them according to
+S   | <    >
+0041|*an automatic classification.
+0042|*L (optional) is the first line for the results.
+0043|*The IND, CASES and SELECT specifications may limit the observations and the
+0044|*missing values are recorded for each variable separately.
+0045|*The main application of STAT is give an crude, overall account on
+0046|*the behaviour of active variables. On the basis of the STAT results
+0047|*decisions about more refined analysis can be done.
+0049|*The basic statistics given by STAT include, for example, min, max,
+0050|*mean, stddev, skewness, kurtosis, first order autocorrelation,
+0051|*median, quartiles and entropy.
+0052|*The selection of statistics depends, however, on the scale type of the
+0053|*variable. Certain statistics (like autocorrelation) are also omitted,
+0054|*if no information seems to be gained (autocorrelation<2/sqrt(N)).
+S   |                                                      <
+0056|- [New]
+0057|*Sums, sums of squares, etc. are computed by giving a specification
+0058|*SUMS=<integer> where <integer>=1,2,3, or 4.
+S   |      <       >       <       >
+0059|*Thus by SUMS=1 plain sums are computed and displayed as sum1=<value>.
+S   |                                                              <     >
+0060|- [/New]
+0062|*Special means of the form ((X1^k+X2^k+...+XN^k)/N)^(1/k) will be
+0063|*computed for positive variables X and for various values of the
+0064|*exponent k=k1,k2,... by entering a specification MEANS=k1,k2,...
+0065|*Thus Quadratic means are obtained by k=2 or k=Q, Harmonic means by
+0066|*k=-1 or k=H, Arithmetic means by k=1 or k=A, and Geometric means by
+0067|*k=0 or k=G. For example, all these means plus a power mean with the
+0068|*exponent k=2.5 are obtained by MEANS=A,G,H,Q,2.5
+0070|*More fractiles are computed (from automatically grouped data) by
+0071|*the specification FRACTILES=p1,p2,... where 0<p<1, for p=p1,p2,...
+S   |                                              < <
+0072|*Order statistics are not given if (due to an outlier etc.) most of
+0073|*the data values are accumulated into a single class.
+0075|- [New]
+0076|*Confidence intervals for means (under normality assumption) are obtained
+0077|*by specification CONFMEAN, (Example: CONFMEAN=0.95).
+0078|- [/New]
+0080|*In frequency distributions, maximum number of classes is given by the
+0081|*CLASSMAX=<#_of_classes> specification (default CLASSMAX=30)
+S   |          <            >
+0082|*When making frequency distributions, STAT first tries to keep record
+0083|*on each variable for each distinct value up to the limit CLASSMAX.
+0084|*If it is not possible, a classification with equal class widths is
+0085|*selected on the basis of values found so far. This classification
+0086|*will be further redefined, by doubling the class widths, if values
+0087|*outside the current range is found.
+0088|- [New]
+0089|*Values of string variables are considered up to # of characters given by
+0090|*the MAXSTRING specification (default MAXSTRING=8).
+0091|- [/New]
+0092|*The printout of frequency distributions is omitted if RESULTS<=30.
+S   |                                                              <
+0093|- shadow %: [LINK(q1a_01.html)] [/LINK]
+0094|*For grouped distributions with user-defined classes see HISTO and TAB.
+S   |                                                         %%%%%
+0096|- shadow a: [New][LINK(qmm1_14.html)]
+0097|d  A = Simple statistics (means, stddevs, frequency distributions)
+S   |   a                                                             ;
+0098|- shadow a: [LINK(q29_01.html)]
+0099|*  B = Basic statistics
+S   |   a                  |
+0100|- shadow a: [LINK(q21_01.html)]
+0101|*  S = general information on statistical operations
+S   |   a                                               |
+0102|- shadow a: [LINK(qf5_02.html)]
+0103|*  F = STAT command for giving information about the status of the data file
+S   |   a                                                                       |
+0104|- shadow a: [New][LINK(q29_04.html)]
+0105|d  M = Results of STAT as a matrix file STAT.M
+S   |   a                                         ;
+0106|E
+0108|+STATM? þ PRINT CUR+1,E TO q29_04.html
+0109|- include HTML40.DEV
+0110|- include Q.DV2
+0111|- [HelpText]
+0112|*From SURVO MM ver.3.06 certain results of STAT are also saved as
+0113|*a matrix file in the following form.
+0114|*Example: STAT DECA / VARS=Height,Weight
+0116|*MAT LOAD STAT.M'
+0117|*MATRIX STAT.M'
+0118|*Basic_statistics_of_DECA'
+0119|*///        Height   Weight
+0120|*mean      186.958   85.563
+0121|*stddev      5.090    6.848
+0122|*N          48.000   48.000
+0123|*min       173.000   68.000
+0124|*max       198.000  105.000
+0125|*N_miss      0.000    0.000
+0126|*skewness   -0.448   -0.042
+0127|*kurtosis    0.327    1.201
+0128|*lower_Q   184.000   82.000
+0129|*median    188.000   86.000
+0130|*upper_Q   190.000   90.000
+0132|*Elements of this matrix can be obtained e.g. for editorial computing as
+0133|*MAT_STAT.M(Height,kurtosis)=0.32694177614304
+0134|E
+0136|+SUMS? þ PRINT CUR+1,E TO q29_05.html
+0137|- include HTML40.DEV
+0138|- include Q.DV2
+0139|- [HelpText]
+0140|*Sums of statistical or other variables in Survo data sets can be
+0141|*computed in various ways.
+0142|*The simplest alternative is to use the STAT operation with SUMS=1
+0143|*specification.
+0144|*Example:
+0145|*STAT COUNTRIES,CUR+1 / VARS=Popul,Area SUMS=1
+0147|- shadow a: [LINK(q29_03.html)]
+0148|*  1 = More information about STAT
+S   |   a                             |
+0149|- shadow a: [LINK(q27_02.html)]
+0150|*  2 = More information about computation of means etc.
+S   |   a                                                  |
+0151|- shadow a: [LINK(q21_01.html)]
+0152|*  3 = More information on statistical operations in general
+S   |   a                                                       |
+0153|E
+0155|+MINSTAT? þ PRINT CUR+1,E TO q29_06.html
+0156|- include HTML40.DEV
+0157|- include Q.DV2
+0158|- [HelpText]
+0159|#MINSTAT <data>,L
+S   |         <    >
+0160|*computes basic statistics of active variables for selected observations
+0161|*and lists the results in a tabular form
+0163|*Variable   mean      stddev          N  minimum   maximum
+0165|*Furthermore the table of results is saved as a matrix file STAT.M
+0166|*in the current data path.
+0168|*By giving specification JITTER=<integer> the table as well as the matrix
+S   |                                <       >
+0169|*file STAT.M is extended by two extra columns '#val' and 'jitter'
+0170|*giving the number of distinct values of each variable when that number
+0171|*does not exceed <integer>. Otherwise '#val' is set 0.
+S   |                 <       >
+0172|*'jitter' is computed as ('maximum'-'minimum')/('#val'-1) giving
+0173|*suitable jitter steps for XJITTER and YJITTER specifications
+0174|- shadow %: [LINK(q12_01.html)] [/LINK]
+0175|*in scatter plots (See SCAT?).
+S   |                       %%%%
+0176|*                                       See an example on the next page!
+0178|*DATA TEST2
+0179|* Height Weight
+0180|* 174     61
+0181|* 171     60
+0182|* 171     60
+0183|* 171     64
+0184|* 173     60
+0185|* 173     60
+0186|* 170     60
+0187|* 173     61
+0188|* 171     62
+0190|*MINSTAT TEST2,CUR+1 / JITTER=5
+0191|*Basic statistics of data TEST2 N=9
+0192|*Variable   mean      stddev          N  minimum   maximum   #val  jitter
+0193|* Height    171.8889  1.364225        9  170.0000  174.0000     4  1.3333
+0194|* Weight    60.88889  1.364225        9  60.00000  64.00000     4  1.3333
+0196|*MAT_STAT.M(Weight,minimum)=60
+0198|- shadow a: [LINK(q29_01.html)]
+0199|*  S = More information on basic statistics
+S   |   a                                      |
+0200|E

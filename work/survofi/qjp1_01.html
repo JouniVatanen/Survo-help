@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">LOWESS &lt;data&gt;,&lt;smooth_level&gt;,&lt;output_matrix&gt;            / J.Puranen 1991,1998
+smooths a variable activated by `Y' according to the values of another
+variable activated by `X' using a robust locally weighted regression
+method (LOWESS = LOcally WEighted Scatterplot Smooth).
+    The smoothened values are saved into a variable activated by `S'. If
+no `S' variable exists, the smoothened values (as well as the values of `X'
+and `Y' variables) are saved into a matrix file given by &lt;output_matrix&gt;.
+The default name of the matrix is SMOOTH.M . The results are saved in
+increasing order of the `X' values. The smoothened scatterplot can be
+plotted by using this matrix file as an input (see the example below).
+    The &lt;smooth_level&gt; gives the level of smoothing, specified as how
+many percents of the observations around each point affects the smoothing.
+A suitable value is 60, which is also the default.
+    &lt;data&gt; must be sorted by `X' variable before smoothing, if `S' mask
+is applied.
+
+    The number of iterations can be given by ITERATIONS=1 or 2. The default
+value of 2 should be adequate for almost all situations.
+    In addition, the deviances from the smoothened values can be saved
+into a variable activated by `E'. If there are any missing values in &lt;data&gt;,
+the `S' and `E' variables must also be initialized with missing values.
+    The IND and CASES specifications can be used to select observations.
+
+Reference: Cleveland, W. (1979). Robust Locally Weighted Regression
+           and Smoothing Scatterplots. JASA 74, 829-836.
+
+See also <A HREF="qv5_01.html">SMOOTH</A>?
+                                                 (Example on the next page)
+
+........................................................................
+Example:
+LOWESS &lt;data&gt;,60,SMOOTH.M / VARS=&lt;xvar&gt;(X),&lt;yvar&gt;(Y)
+....................................................
+GPLOT SMOOTH.M,X,Y,S / YLINE=0 SLINE=1
+........................................................................
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,178 @@
+SURVO 98 edit field:    101       1000       500 (32 bit version)
+0001|*SAVE GAL049 / Survo Graphics Gallery
+0002|*LOAD GAL050
+0003|*LOAD GAL049E / Edit field
+0004|*LOAD GAL049S / ToimituskenttÑ
+0006|*DD gallery
+0007|*DD galleria
+0009|*/activate ~
+S   | èèèèèèèèèèè
+0010|*/IE  gallery/049.html
+0011|*/IE galleria/049.html
+0012|*....................................................................................................
+0013|~PRINT CUR+2,E TO i.i
+0014|~TXTCONV i.i gallery/049.html
+0015|- include HTML40.DEV
+0016|*Survo graphics: the power of the graphical language of Survo
+S   | 777777777777777777777777777777777777777777777777777777777777
+0017|- include GALLERY.DV2
+0018|*Survo graphics: the power of the graphical language of Survo
+S   | """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+0019|- [Body]
+0020|- chapter Header in INDEX
+0021|- [Arrows049]
+0022|*Four fish in an aquarium
+S   | kkkkkkkkkkkkkkkkkkkkkkkk
+0023|*K.Vehkalahti (1999)
+S   | NNNNNNNNNNNNNNNNNNN
+0024|- [Graph(049,c)] / [Size(450,320)] ??
+S   |                 _________________5555
+0025|*Four fish in an aquarium
+S   | ////////////////////////
+0026|-
+0027|- chapter Field in GAL049
+0028|-
+0029|- include GALLERY2.DV2
+0030|- [Arrows049]
+0031|- include SHADOWS.DV2
+0032|- / shadow g: [Off] [/Off]
+0033|- include LINKS2.DV2
+0034|- [Banner(2008-10-20)]
+0035|E
+0036|*....................................................................................................
+0037|~PRINT CUR+2,E TO i.i
+0038|~TXTCONV i.i galleria/049.html
+0039|- include HTML40.DEV
+0040|*Survon kuvagalleria: esimerkkejÑ Survon graafisen kielen voimasta
+S   | 77777777777777777777777777777777777777777777777777777777777777777
+0041|- include GALLERIA.DV2
+0042|*Survon kuvagalleria: esimerkkejÑ Survon graafisen kielen voimasta
+S   | """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+0043|- [Body]
+0044|- chapter Otsikko in INDEX
+0045|- [Nuolet049]
+0046|*NeljÑ kalaa akvaariossa
+S   | kkkkkkkkkkkkkkkkkkkkkkk
+0047|*K.Vehkalahti (1999)
+S   | NNNNNNNNNNNNNNNNNNN
+0048|- [Graph(049,c)] / [Size(450,320)] ??
+S   |                 _________________5555
+0049|*NeljÑ kalaa akvaariossa
+S   | ///////////////////////
+0050|-
+0051|- chapter KenttÑ in GAL049
+0052|-
+0053|- include GALLERIA2.DV2
+0054|- [Nuolet049]
+0055|- include VARJOT.DV2
+0056|- / shadow g: [Off] [/Off]
+0057|- include LINKIT2.DV2
+0058|- [Banner(2008-10-20)]
+0059|E
+0060|*....................................................................................................
+0061|*CONVERSIONS:
+0062|*t "./" "../"
+0063|*t "&lt; "  "&lt;"
+0064|*t "&gt; "  "&gt;"
+0065|*t "&amp; " "&amp;"
+0066|*END
+0068|*DEF Field  a,e
+0069|*DEF KenttÑ b,e
+0070|a
+0071|{
+0072|- chapter Headline in INDEX
+0073|- shadow 1: [CODE(shadow1)] [/CODE] / CSS-tyylit: survo.css
+S   |         1              1
+0074|[   1 *SAVE AQUARIUM / Four fish in an aquarium
+0075|*   2 *                                                             *GLOBAL*
+0076|*   3 *HEADER= XDIV=0,1,0 YDIV=0,1,0 FRAME=0  pi=3.141592653589793
+0077|*   4 *SIZE=1700,1700  HOME=50,50  XSCALE=-100,400 YSCALE=-300,300
+0078|*   5 *.......................................................................
+0079|*   6 *The aquarium:
+S   |       1111111111111
+0080|*   7 *FRAMES=F F=0,0,1700,1700,-1 [FILL-1]=0.6,0.6,0,0.4
+0081|*   8 *PLOT /FRAME        / LINETYPE=[RED][line_width(0.3)]    DEVICE=PS,K1.PS
+S   |       77777777777
+0082|*   9 *.......................................................................
+0083|*  10 *The fish:         C=8.2
+S   |       111111111
+0084|*  11 *X=R+B*cos(sin(T)) Y=B*sin(cos(T))
+0085|*  12 *T=0,9*pi/5,pi/40  R=-7,9.5,0.25
+0086|*  13 *A=R*R*R*(-1)*C*C  B=if(A<0)then(sqrt(-A))else(sqrt(A))
+S   |                               <
+0087|*  14 *PLOT X(T)=X,Y(T)=Y / LINETYPE=[RED][line_width(0.3)]    DEVICE=PS,K2.PS
+S   |       777777777777777777
+0088|*  15 *PLOT X(T)=X,Y(T)=Y / LINETYPE=[GREEN][line_width(0.3)]  DEVICE=PS,K3.PS
+S   |       777777777777777777
+0089|*  16 *PLOT X(T)=X,Y(T)=Y / LINETYPE=[YELLOW][line_width(0.3)] DEVICE=PS,K4.PS
+S   |       777777777777777777
+0090|*  17 *PLOT X(T)=X,Y(T)=Y / LINETYPE=[CYAN][line_width(0.3)]   DEVICE=PS,K5.PS
+S   |       777777777777777777
+0091|*  18 *.......................................................................
+0092|*  19 *A combination by rotating and scaling:
+S   |       11111111111111111111111111111111111111
+0093|*  20 *PRINT CUR+1,CUR+6 TO K.PS
+0094|*  21 - picture K1.PS,0200,0200,1.00,1.00
+0095|*  22 - picture K2.PS,0140,0380,1.00,1.00,354
+0096|*  23 - picture K3.PS,1900,1300,0.40,0.75,175
+0097|*  24 - picture K4.PS,0700,0100,0.50,0.40,067
+0098|*  25 - picture K5.PS,1420,1010,0.40,0.50,014
+0099|*  26 - %SURVO 84C Graphics END[LF]
+0100|*  27 *
+0102|]
+0103|- chapter Softkeys in INDEX
+0104|}
+0105|e
+0106|*....................................................................................................
+0107|b
+0108|{
+0109|- chapter Headline in INDEX
+0110|- shadow 1: [CODE(shadow1)] [/CODE] / CSS-tyylit: survo.css
+S   |         1              1
+0111|[   1 *SAVE AKVAARIO / NeljÑ kalaa akvaariossa
+0112|*   2 *                                                             *GLOBAL*
+0113|*   3 *HEADER= XDIV=0,1,0 YDIV=0,1,0 FRAME=0  pi=3.141592653589793
+0114|*   4 *SIZE=1700,1700  HOME=50,50  XSCALE=-100,400 YSCALE=-300,300
+0115|*   5 *.......................................................................
+0116|*   6 *Akvaario:
+S   |       111111111
+0117|*   7 *FRAMES=F F=0,0,1700,1700,-1 [FILL-1]=0.6,0.6,0,0.4
+0118|*   8 *PLOT /FRAME        / LINETYPE=[RED][line_width(0.3)]    DEVICE=PS,K1.PS
+S   |       77777777777
+0119|*   9 *.......................................................................
+0120|*  10 *Kalat:            C=8.2
+S   |       111111
+0121|*  11 *X=R+B*cos(sin(T)) Y=B*sin(cos(T))
+0122|*  12 *T=0,9*pi/5,pi/40  R=-7,9.5,0.25
+0123|*  13 *A=R*R*R*(-1)*C*C  B=if(A<0)then(sqrt(-A))else(sqrt(A))
+S   |                               <
+0124|*  14 *PLOT X(T)=X,Y(T)=Y / LINETYPE=[RED][line_width(0.3)]    DEVICE=PS,K2.PS
+S   |       777777777777777777
+0125|*  15 *PLOT X(T)=X,Y(T)=Y / LINETYPE=[GREEN][line_width(0.3)]  DEVICE=PS,K3.PS
+S   |       777777777777777777
+0126|*  16 *PLOT X(T)=X,Y(T)=Y / LINETYPE=[YELLOW][line_width(0.3)] DEVICE=PS,K4.PS
+S   |       777777777777777777
+0127|*  17 *PLOT X(T)=X,Y(T)=Y / LINETYPE=[CYAN][line_width(0.3)]   DEVICE=PS,K5.PS
+S   |       777777777777777777
+0128|*  18 *.......................................................................
+0129|*  19 *YhdistelmÑ kierroilla ja skaalauksilla:
+S   |       111111111111111111111111111111111111111
+0130|*  20 *PRINT CUR+1,CUR+6 TO K.PS
+0131|*  21 - picture K1.PS,0200,0200,1.00,1.00
+0132|*  22 - picture K2.PS,0140,0380,1.00,1.00,354
+0133|*  23 - picture K3.PS,1900,1300,0.40,0.75,175
+0134|*  24 - picture K4.PS,0700,0100,0.50,0.40,067
+0135|*  25 - picture K5.PS,1420,1010,0.40,0.50,014
+0136|*  26 - %SURVO 84C Graphics END[LF]
+0137|*  27 *
+0139|]
+0140|- chapter Softkeys in INDEX
+0141|}
+0142|e
+0143|*....................................................................................................
+0148|*Ks. toim.kenttien kuvien sijoittelua ja kokoa!
+0149|*Po. nÑkyvÑ ikkuna 72 ja vasen osa 8, vrt. myîs
+0150|*headline
+0151|*>lynx gallery/049.html
+0152|*Toisaalta tilaa turha tuhlata vasempaan reunaan,
+0153|*esimerkeissÑ harvoin rivinumerot > 999 !

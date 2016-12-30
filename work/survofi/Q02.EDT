@@ -1,0 +1,422 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q02
+0005|*................................................................................
+0007|+KEYS? þ PRINT CUR+1,E TO q02_01.html
+0008|- include HTML40.DEV
+0009|- include Q.DV2
+0010|- [HelpText]
+0011|*Keys, mouse and their functions
+0013|- shadow a: [LINK(q02f_01.html)]
+0014|*  F = Function keys (template)
+S   |   a                          |
+0015|- shadow a: [LINK(q02_03.html)]
+0016|*  G = Function keys (list with explanations)
+S   |   a                                        |
+0017|- shadow a: [LINK(q0d_01.html)]
+0018|*  P = Key codes after pressing F2:PREFIX
+S   |   a                                    |
+0019|- shadow a: [LINK(q02_02.html)]
+0020|*  K = Other keys and key combinations
+S   |   a                                 |
+0022|- shadow a: [New][LINK(q0c_10.html)]
+0023|d  M = Using the mouse in SURVO MM
+S   |   a                             ;
+0024|E
+0026|+KEYS2? þ PRINT CUR+1,E TO q02_02.html
+0027|- include HTML40.DEV
+0028|- include Q.DV2
+0029|- [HelpText]
+0030|*Various special keys and key combinations:
+0032|* ESC activates the operation on the current line.
+0033|* ENTER moves the cursor to the start of the next line.
+0034|* END moves the cursor to the end of the line.
+0035|* CTRL-END erases the line from the current position to the right.
+0036|*      If shadow characters occur, the shadows are erased first.
+0037|* (RIGHT) moves the cursor one step to the right.
+0038|* (LEFT) moves the cursor one step to the left.
+0039|* (UP) moves the cursor one step upwards.
+0040|* (DOWN) moves the cursor one step downwards.
+0042|* HOME moves cursor primarily to the first column, then to the first
+0043|*      line and finally to the first position in the edit field.
+0045|* TAB moves the cursor to the next tab position which is defined
+0046|*      by the T characters on the first edit line having a 'T' in
+0047|*      its control column. If no T line is found, columns 11,21,31,41,...
+0048|*      are the default tab positions. After TAB is pressed, numbers to
+0049|*      be typed will be correctly aligned to form straight columns.
+0050|- shadow a: [LINK(q0d_01.html)]
+0051|*  P = Key codes after pressing PREFIX
+S   |   a                                 |
+0052|- shadow a: [LINK(q02_03.html)]
+0053|*  F = Function keys
+S   |   a               |
+0054|- shadow a: [LINK(q01_02.html)]
+0055|*  E = more information on the Survo Editor
+S   |   a                                      |
+0056|E
+0058|+FKLIST? þ PRINT CUR+1,E TO q02_03.html
+0059|- include HTML40.DEV
+0060|- include Q.DV2
+0061|- [HelpText]
+0062|*Function keys:
+0063|*ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป
+0064|*บ F1 บ  บ F2 บ  บ F3 บ  บ F4 บ  บ F5 บ  บ F6 บ  บ F7 บ  บ F8 บ  บ F9 บ  บ F10บ
+0065|*บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ
+0066|*ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ
+0067|*HELP    PREFIX  TOUCH   DISK    FORM    MERGE   REF     EXIT    INSERT  DELETE
+0070|- shadow a: [LINK(q02b_01.html)]
+0071|- shadow b: [LINK(q02_06.html)]
+0072|*  1 = F1:HELP(PREFIX)         2 = F2:PREFIX
+S   |   a                 |         b           |
+0073|- shadow a: [LINK(q02_07.html)]
+0074|- shadow b: [LINK(q02_08.html)]
+0075|*  3 = F3:TOUCH                4 = F4:DISK
+S   |   a          |                b         |
+0076|- shadow a: [LINK(q02_09.html)]
+0077|- shadow b: [LINK(q02_10.html)]
+0078|*  5 = F5:FORM                 6 = F6:MERGE
+S   |   a         |                 b          |
+0079|- shadow a: [LINK(q02_11.html)]
+0080|- shadow b: [LINK(q02_12.html)]
+0081|*  7 = F7:REF                  8 = F8:EXIT
+S   |   a        |                  b         |
+0082|- shadow a: [LINK(q02_13.html)]
+0083|- shadow b: [LINK(q02_13.html)]
+0084|*  9 = F9:INSERT               0 = F10:DELETE
+S   |   a           |               b            |
+0085|- shadow a: [LINK(q02_04.html)]
+0086|*  A = Tasks of function keys when ALT is pressed at the same time
+S   |   a                                                             |
+0087|- shadow a: [New][LINK(q02_22.html)]
+0088|d  F = Function keys F11 and F12 (Sucro keys)
+S   |   a                                        ;
+0089|- shadow a: [LINK(q02_01.html)]
+0090|*  K = Keys in general
+S   |   a                 |
+0092|*Information can also be obtained by F1? F2? etc.
+0094|E
+0096|+AF? þ PRINT CUR+1,E TO q02_04.html
+0097|- include HTML40.DEV
+0098|- include Q.DV2
+0099|- [HelpText]
+0100|*Function keys when ALT is pressed at the same time:
+0101|*ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป  ษออออป
+0102|*บ F1 บ  บ F2 บ  บ F3 บ  บ F4 บ  บ F5 บ  บ F6 บ  บ F7 บ  บ F8 บ  บ F9 บ  บ F10บ
+0103|*บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ  บ    บ
+0104|*ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ  ศออออผ
+0105|*SOFT    WORDS   COPY    BLOCK   SEARCH  FILE    CODE      -     LINE    LINE
+0106|*BUTTONS                                    ACT                     INS     DEL
+0108|- shadow a: [New][LINK(q02_14.html)]
+0109|- shadow b: [LINK(q02_15.html)]
+0110|S  1 = ALT-F1:SOFT BUTTONS     2 = ALT-F2:WORDS
+S   |   a                     |     b              ;
+0111|- shadow a: [LINK(q02_16.html)]
+0112|- shadow b: [LINK(q02_17.html)]
+0113|*  3 = ALT-F3:COPY LINE        4 = ALT-F4:BLOCK
+S   |   a                  |        b              |
+0114|- shadow a: [LINK(q02_18.html)]
+0115|- shadow b: [LINK(q02_19.html)]
+0116|*  5 = ALT-F5:SEARCH           6 = ALT-F6:FILE ACT
+S   |   a               |           b                 |
+0117|- shadow a: [LINK(q02_20.html)]
+0118|- shadow b: [LINK(q02_05.html)]
+0119|*  7 = ALT-F7:CODE             8 = ALT-F8:(no function)
+S   |   a             |             b                      |
+0120|- shadow a: [LINK(q02_21.html)]
+0121|- shadow b: [LINK(q02_21.html)]
+0122|*  9 = ALT-F9:LINE INS         0 = ALT-F10:LINE DEL
+S   |   a                 |         b                  |
+0123|- shadow a: [LINK(q02_03.html)]
+0124|*  A = Tasks of function keys without ALT
+S   |   a                                    |
+0125|- shadow a: [New][LINK(q02_22.html)]
+0126|d  F = Function keys F11 and F12 (Sucro keys)
+S   |   a                                        ;
+0127|- shadow a: [LINK(q02_01.html)]
+0128|*  K = Keys in general
+S   |   a                 |
+0130|*Information can also be obtained by AF1? AF2? etc.
+0132|E
+0133|+AFX? þ PRINT CUR+1,E TO q02_05.html
+0134|- include HTML40.DEV
+0135|- include Q.DV2
+0136|- [HelpText]
+0137|*This key has not yet (any) function in Survo!
+0138|E
+0140|+F2? þ PRINT CUR+1,E TO q02_06.html
+0141|- include HTML40.DEV
+0142|- include Q.DV2
+0143|- [HelpText]
+0144|*F2:PREFIX
+0145|*  PREFIX is a prefix key which alters the functions of other keys
+0146|- shadow %: [LINK(q0d_01.html)] [/LINK]
+0147|*     temporarily. See PREFIX.
+S   |                       %%%%%%
+0148|- shadow a: [LINK(q0d_01.html)]
+0149|*  P = Key codes after pressing F2:PREFIX
+S   |   a                                    |
+0150|E
+0151|+F3? þ PRINT CUR+1,E TO q02_07.html
+0152|- include HTML40.DEV
+0153|- include Q.DV2
+0154|- [HelpText]
+0155|*F3:TOUCH
+0156|*  TOUCH enters the touch mode
+0157|- shadow a: [LINK(qmt_01.html)]
+0158|*  T = Information on the touch mode
+S   |   a                               |
+0159|E
+0160|+F4? þ PRINT CUR+1,E TO q02_08.html
+0161|- include HTML40.DEV
+0162|- include Q.DV2
+0163|- [HelpText]
+0164|*F4:DISK
+0165|- shadow %: [LINK(q03_07.html)] [/LINK]
+0166|*  DISK selects the data disk/path. See also DISK?
+S   |                                             %%%%
+0167|- shadow a: [LINK(q03_07.html)]
+0168|*  D = DISK
+S   |   a      |
+0169|E
+0170|+F5? þ PRINT CUR+1,E TO q02_09.html
+0171|- include HTML40.DEV
+0172|- include Q.DV2
+0173|- [HelpText]
+0174|*F5:FORM
+0175|*  FORM selects various display attributes, colors etc.
+0176|- shadow a: [LINK(q04_12.html)]
+0177|*  S = Information on display attributes
+S   |   a                                   |
+0178|E
+0179|+F6? þ PRINT CUR+1,E TO q02_10.html
+0180|- include HTML40.DEV
+0181|- include Q.DV2
+0182|- [HelpText]
+0183|*F6:MERGE
+0184|*  MERGE splits the current line into two lines from the position of the
+0185|*     cursor (provided that the next line is empty)
+0186|*     or if the current line to the right from the cursor is empty,
+0187|*     the next line will be connected to the current line.
+0188|E
+0189|+F7? þ PRINT CUR+1,E TO q02_11.html
+0190|- include HTML40.DEV
+0191|- include Q.DV2
+0192|- [HelpText]
+0193|*F7:REF
+0194|*  REF defines the current cursor position as a reference point.
+0195|*     If REF is pressed another time while the cursor is indicating
+0196|*     another point, the display corresponding to the reference point
+0197|*     will be restored.
+0198|*     If REF is pressed another time when the cursor is in the reference
+0199|*     point, the current reference point is released and another may
+0200|*     be selected.
+0201|*     The reference point is explicitly released by PREFIX D .
+0202|- [New]
+0203|*     A new reference point is explicitely set by ctrl-F7 which
+0204|*     is a shortcut for PREFIX D REF.
+0205|- [/New]
+0206|E
+0207|+F8? þ PRINT CUR+1,E TO q02_12.html
+0208|- include HTML40.DEV
+0209|- include Q.DV2
+0210|- [HelpText]
+0211|*F8:EXIT
+0212|*  EXIT terminates the Survo session.
+0213|*  If Survo is in the display-off mode (set by PREFIX L o), EXIT
+0214|*  only restores the normal display.
+0215|E
+0216|+F9? þ PRINT CUR+1,E TO q02_13.html
+0217|- include HTML40.DEV
+0218|- include Q.DV2
+0219|- [HelpText]
+0220|*F9:INSERT
+0221|*  INSERT selects/deselects the insert mode.
+0223|*F10:DELETE
+0224|*  DELETE deletes the current character.
+0225|E
+0227|+AF1? þ PRINT CUR+1,E TO q02_14.html
+0228|- include HTML40.DEV
+0229|- include Q.DV2
+0230|- [HelpText]
+0231|*ALT-F1:SOFT BUTTONS
+0232|*makes the soft buttons (below the main window of SURVO MM) visible.
+0233|*F2 ALT-F1 makes them invisible.
+0234|E
+0236|+AF2? þ PRINT CUR+1,E TO q02_15.html
+0237|- include HTML40.DEV
+0238|- include Q.DV2
+0239|- [HelpText]
+0240|*ALT-F2:WORDS
+0241|*  WORDS initiates the definition of a sequence of words (sentence)
+0242|*      either to be moved to another place or deleted.
+0243|*      Prompts for alternative actions will appear on the bottom line.
+0244|*      The sequence of words is defined by indicating the first letter
+0245|*      of the first word by WORDS and the last letter of the last word
+0246|*      by WORDS again.
+0247|*      Thereafter the sequence is deleted by CTRL-END or moved to another
+0248|*      place indicated by the cursor by WORDS. In the latter case the
+0249|*      cursor should usually point to a space between two words.
+0250|*      To preserve the sequence in its original position, enter insert
+0251|*      mode before pressing WORDS. In any case, the sequence is saved
+0252|*      in a special file and it can be copied to any place later
+0253|*      by pressing WORDS in that place 4 times.
+0254|*                                               (continued on next page)
+0256|*  WORDS (continued)
+0257|*      The text chapters are also automatically adjusted if a model
+0258|*      for a suitable TRIM operation is given by a line of the form
+0259|*          autotrim=TRIM3 72
+0260|- shadow %: [LINK(q0b_10.html)] [/LINK]
+0261|*      in the SURVO.APU file (See APU?).
+S   |                                  %%%
+0262|- shadow %: [LINK(q02_17.html)] [/LINK]
+0263|*      (See also BLOCK?)
+S   |                 %%%%%
+0264|E
+0265|+AF3? þ PRINT CUR+1,E TO q02_16.html
+0266|- include HTML40.DEV
+0267|- include Q.DV2
+0268|- [HelpText]
+0269|*ALT-F3:COPY LINE
+0270|*  COPY LINE copies a line to the current cursor position.
+0271|*  (Prompt 'Line to be copied?' appears on the bottom line.)
+0273|- [New]
+0274|*  When copying lines in a large edit field (long line numbers)
+0275|*  a line to be copied can be temporarily marked by pressing F2 -
+0276|*  and then it can be copied to any other line by giving character -
+0277|*  as a line label.
+0278|- [/New]
+0280|- [New]
+0281|*  (As suggested by Reijo Sund) several lines (lines L1-L2) may be copied
+0282|*  entering in the prompt:
+0283|*    Line to be copied? L1,L2
+0284|- [/New]
+0285|E
+0286|+AF4? þ PRINT CUR+1,E TO q02_17.html
+0287|- include HTML40.DEV
+0288|- include Q.DV2
+0289|- [HelpText]
+0290|*ALT-F4:BLOCK
+0291|*  BLOCK initiates a sequence of key strokes for defining a rectangular
+0292|*      block in the current edit field. Prompts for alternative actions
+0293|*      will appear on the bottom line. A block is defined by indicating
+0294|*      its two opposite corners (by BLOCK) and it can then be copied
+0295|*      to various places (by BLOCK) and/or it can be erased (by CTRL-END).
+0296|*      To interrupt these actions after BLOCK has pressed, press DELETE.
+0297|*      If the insert mode is not on, the blocks will overwrite existing
+0298|*      parts of the edit field.
+0299|*      If the insert mode is on, new lines will be automatically inserted
+0300|*      below the current line and the block is copied to these lines.
+0301|- shadow %: [LINK(q06_06.html)] [/LINK]
+0302|*      (See also WORDS?)
+S   |                 %%%%%
+0303|*      When a block defined by the BLOCK (alt-F4) key has been moved or
+0304|*      erased at least once, it is also saved in a temporary file
+0305|*      <Survo>\TMP\SURVO.BLO .
+S   |       <     >
+0306|*      The latest block (although not anymore highlighted in the edit field)
+0307|*      can then be copied to the current edit field simply by pressing
+0308|*      the BLOCK key four times.
+0310|- [New]
+0311|- shadow %: [LINK(q0c_17.html)] [/LINK]
+0312|*      These tasks can also be performed by the mouse (See MOUSE6?).
+S   |                                                           %%%%%%
+0313|- [/New]
+0315|E
+0316|+AF5? þ PRINT CUR+1,E TO q02_18.html
+0317|- include HTML40.DEV
+0318|- include Q.DV2
+0319|- [HelpText]
+0320|*ALT-F5:SEARCH
+0321|*  SEARCH initiates a search in the edit field. The user is
+0322|*      prompted to enter the characters of the search string one after
+0323|*      another and the first occurrence of the string is shown
+0324|*      immediately in each stage. The process is interrupted until the
+0325|*      given string is not found anymore or by pressing ENTER.
+0326|*      During the search, other cases are found by pressing ESC.
+0327|- shadow %: [LINK(q05_13.html)] [/LINK]
+0328|*      (See also FIND?)
+S   |                 %%%%
+0329|- [New]
+0330|*      F2 | works similarly but limits the search for words starting
+0331|*      from the first column in the edit field.
+0332|- [/New]
+0333|*F2 ALT-F5:
+0334|*      works as ALT-F5 but the search goes backwards in the edit field.
+0335|*      (See also -FIND?)
+0337|*      A search can be started from a ready-typed keyword touched
+0338|*      by the cursor. Then after ALT-F5 or F2 ALT-F5 press ALT-F5 again.
+0339|*      A search can also be started from the keyword used in the previous
+0340|*      search by pressing F5 after ALT-F5 or F2 ALT-F5.
+0341|*      HOME takes to the beginning/end of the edit field, depending on
+0342|*      the direction of the search.
+0343|E
+0344|+AF6? þ PRINT CUR+1,E TO q02_19.html
+0345|- include HTML40.DEV
+0346|- include Q.DV2
+0347|- [HelpText]
+0348|*ALT-F6:FILE ACT
+0349|*  FILE_ACT initiates activation of fields in Survo data files.
+0351|- [New]
+0352|*PREFIX ALT-F6: {pre}{file act}
+0353|*   activates a 'new' data file to be selected by the user.
+0354|- [/New]
+0356|- shadow a: [LINK(qf1_01.html)]
+0357|*  F = FILE operations
+S   |   a                 |
+0358|E
+0359|+AF7? þ PRINT CUR+1,E TO q02_20.html
+0360|- include HTML40.DEV
+0361|- include Q.DV2
+0362|- [HelpText]
+0363|*ALT-F7:CODE
+0364|*  CODE types characters not readily available on the keyboard.
+0365|*     At first prompt 'CODE?' is displayed and the decimal value
+0366|*     of the character is entered. CODE holds this character until
+0367|*     it is changed by pressing PREFIX and then CODE.
+0368|*     If no code value is given, CODE will be the current character
+0369|*     indicated by the cursor. Another way to type special characters
+0370|- shadow %: [LINK(q0d_01.html)] [/LINK]
+0371|*     is provided by the key combination PREFIX P. (See PREFIX)
+S   |                                                        %%%%%%
+0372|E
+0373|+AF9? þ PRINT CUR+1,E TO q02_21.html
+0374|- include HTML40.DEV
+0375|- include Q.DV2
+0376|- [HelpText]
+0377|*ALT-F9:LINE INS
+0378|* ALT-INSERT inserts an empty new line.
+0379|*ALT-F10:LINE DEL
+0380|* ALT-DELETE deletes the current line.
+0381|E
+0383|+F11? þ PRINT CUR+1,E TO q02_22.html
+0384|- include HTML40.DEV
+0385|- include Q.DV2
+0386|- [HelpText]
+0387|*Function keys F11 and F12 are available as shortcut keys for
+0388|*activation of important sucros selected by the user.
+0389|*The functions (names of sucros) are given by `sucro_key' lines
+0390|*in the SURVO.APU file as follows:
+0391|*                                        alternative key
+0392|*  sucro_key1=<sucro for F11>            Ctrl-A
+S   |              <             >
+0393|*  sucro_key2=<sucro for F12>            Ctrl-B
+S   |              <             >
+0394|*  sucro_key3=<sucro for shift-F11>
+S   |              <                   >
+0395|*  sucro_key4=<sucro for shift-F12>      Ctrl-D
+S   |              <                   >
+0396|*  sucro_key5=<sucro for ctrl-F11>       Ctrl-E
+S   |              <                  >
+0397|*  sucro_key6=<sucro for ctrl-F12>       Ctrl-F
+S   |              <                  >
+0398|*  sucro_key7=<sucro for alt-F11>        Ctrl-G
+S   |              <                 >
+0399|*  sucro_key8=<sucro for alt-F12>
+S   |              <                 >
+0401|*For example, one possible selection could be:
+0402|*  sucro_key1=V            / Show the current menu of Survo jobs
+0403|*  sucro_key2=SURVO-START  / Show the main menu of Survo
+0404|*  sucro_key3=SURVO-SETUP  / Show the menu of system parameters setting
+0405|*The easiest way to see the current list of sucro keys and to maintain it
+0406|*is to use the /SURVO-SETUP sucro (which also should have a place
+0407|*in that list; see the preceding example).
+0408|E

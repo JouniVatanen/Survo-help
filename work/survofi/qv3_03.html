@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">VAR &lt;y_variable&gt;=#&lt;function&gt;(&lt;expression&gt;) TO &lt;data&gt; 
+makes various special transformations of &lt;expression&gt; to &lt;y_variable&gt;.
+In most cases &lt;expression&gt; is simply a variable.
+The following #&lt;functions&gt; are available:
+      #RANK   (ranks of values, tied observations with average rank)
+      #NRANK  (ranks of values, tied observations with lowest rank)
+      #NORMAL (normalized values with original mean and variance)
+      #STD    (standardized values with mean=0, std.dev=1)
+      #CENTER (centered values with mean=0)
+      #PROPORTION (values divided by their total sum)
+      #PERCENT    (100 times values divided by their total sum)
+      #TRUNCP (outliers specified by P are replaced by missing values)
+      #WINSP  (outliers specified by P are replaced by border values)
+      #TRUNCL (outliers specified by LEVEL are replaced by missing values)
+      #WINSL  (outliers specified by LEVEL are replaced by border values)
+
+In #TRUNCP and #WINSP 100(1-P)% of the observations are considered
+outliers. P is given by the specification P=&lt;value&gt; and default is 0.95.
+In #TRUNCL and #WINSL an observation X is an outlier if
+abs(X-mean) &gt; level*stddev.
+Level is given by the specification LEVEL=&lt;level&gt; and default is 1.96.
+
+For example,
+VAR Y=#PERCENT(X) TO DATA1 / gives Y values as 100*X/Sum_of_X's
+VAR Y=#NORMAL(X) TO DATA1  / computes normalized X values as variable Y.
+
+  <A HREF="qv1_01.html">V = More information on VAR operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

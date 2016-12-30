@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">CLUSTER &lt;data_file&gt;,L
+performs cluster analysis on the selected variables and observations
+of the Survo &lt;data_file&gt;.
+The clustering criterion is Wilks' lambda and the stepwise procedure
+for efficient computation of lambda values is based on the algorithm
+presented by Pekka Korhonen in his doctoral dissertation "A stepwise
+procedure for multivariate clustering", Computing Centre, University
+of Helsinki, Research Reports N:o 7, Helsinki 1979.
+In the CLUSTER module, the dual procedure of Korhonen's stepwise
+method is applied.
+For general information on cluster analysis, see e.g.
+M.R.Anderberg: "Cluster Analysis for Applications", Academic Press,
+New York and London, 1973.
+
+The active observations of &lt;data_file&gt; are defined by IND and CASES
+specifications.
+The variables used in the analysis are all active variables in
+&lt;data_file&gt;, except those activated by 'G' or 'I'.
+
+The stepwise clustering procedure is always based on some initial
+grouping of observations. The user has to give the number (g) of clusters
+by the GROUPS=g specification. GROUPS=2 is the default.
+The initial grouping is given by a variable activated by 'I' and the
+values of this variable must be integers 1,2,..,g. If the initial
+grouping of observations is not given (no mask 'I' exists), a random
+initial grouping based on uniform distribution over 1,2,...,g is applied
+automatically.
+The initial grouping (defined by the 'I' mask variable) can also be
+incomplete (with missing values or values outside the permitted ones
+1,2,...,g). In this case it is assumed that the user has indicated
+at least one observation in each group. Then, the initial grouping
+will be selected on this basis by using the "nearest neighbour"
+principle in the standardized data matrix X (with the property X'X=I).
+
+The main result of CLUSTER is the optimal clustering based on
+the Wilk's lambda criterion and it is saved in the first variable
+of &lt;data_file&gt; activated by 'G'.
+If more 'G' variables exist, the CLUSTER module will save as many of the
+best solutions found, provided that a specification TRIALS=n where n is
+&gt;1 is given.
+The possibility for several trials is important in more complicated
+cases where different initial groupings may lead to different solutions.
+
+Other options in CLUSTER:
+There are no limits for the size of the data file. The highest number
+of variables and groups depends on the available memory space.
+However, it is seldom reasonable to use more than 10-20 variables in one
+cluster analysis.
+To speed up the iterative process where the data values are scanned
+several times, CLUSTER saves the active part of the data set in a
+special file SURVO.CLU on the path of the temporary files (defined
+by the line tempdisk in SURVO.APU).
+This file (path) can be replaced by another (on a RAM disk, for example)
+by giving a specification TEMPFILE=&lt;filename&gt;.
+In randomizations for initial groupings, the seed number of
+the random number generator is selected according to current time.
+To use a fixed generator (in order to have the possibility to repeat
+an experiment), a specification of the form SEED=&lt;integer&gt; can be
+given.
+
+Example:
+  Two samples from bivariate normal distribution with different means
+  but same covariance matrix are generated:
+................................................................................
+<B>FILE CREATE N2,32,10,64,7,100</B> 
+FIELDS:
+1 N 4 X
+2 N 4 Y
+END
+
+<B>VAR X,Y TO N2</B> 
+X=if(ORDER&lt;51)then(X1)else(X2) Y=if(ORDER&lt;51)then(Y1)else(Y2)
+X1=Z1     Y1=r*Z1+s*Z2      r=0.8 s=sqrt(1-r*r)
+X2=Z1+2   Y2=r*Z1+s*Z2-2
+Z1=probit(rnd(2)) Z2=probit(rnd(2))
+................................................................................
+<B>VAR G1:1,G2:1,G3:1 TO N2</B> 
+  G1=0 G2=0 G3=0
+................................................................................
+(Continued on next page)
+
+(Example continued)
+  The CLUSTER operation with 10 trials, 2 groups, and random number
+  generator 2 gives two different solutions:
+
+MASK=AAGGG    TRIALS=10  GROUPS=2 SEED=2
+<B>CLUSTER N2,CUR+1</B> 
+Stepwise cluster analysis by Wilks' Lambda criterion
+Data N2  N=100
+Variables: X, Y
+Best clusterings found in 10 trials are saved as follows:
+ Lambda     freq  Grouping var
+ 0.04496      6   G1
+ 0.14945      4   G2
+
+................................................................................
+The result can be checked by plotting the graph:
+<B>GPLOT N2,X,Y</B> / HEADER=Samples_from_bivariate_normal_distributions
+POINT=G1  (G2 gives the inferior clustering)
+................................................................................
+  <A HREF="qmr1_03.html">C = More information on cluster analysis</A> 
+  <A HREF="qmr2_01.html">M = More information on multivariate analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

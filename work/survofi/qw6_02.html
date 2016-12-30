@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">THE CLASSIFICATION ANALYSIS
+
+(1) The classification method used is selected by the METHOD
+specification:
+
+METHOD=CLASSIC  (default)
+METHOD=BAYES
+METHOD=MAHAL   classification based on the Mahalanobis distance only
+
+(2) The classification may be performed by using the classification
+functions based on the discriminant analysis (DSPACE=1, default) or
+on the original data (DSPACE=2).
+
+(3) The group covariance matrices may be assumed to be equal
+(default) or the classification may be done without that assumption
+(METHOD=UNEQC).
+By combining these three features several formulas for forming
+the classification scores can be obtained. By default, the prior
+probability that a case belongs to a group is assumed to be
+proportional to the sample size. The user may give his own prior
+probabilities by the PRIOR specification, e.g. PRIORS=0.25,0.5,0.25.
+
+The program classifies each case into the group with the highest
+posterior probability. By default, the results are presented in a
+summary table. Casewise classification results may be obtained by
+the LIST specification. For each case the printout contains the
+Mahalanobis distances and posterior probabilities for belonging to
+each group:
+
+LIST=ALL      All observations
+LIST=INCORR   Only missclassified observations are reported
+LIST=i,j      The printout starts from i'th observation and ends
+              with the j'th observation.
+The scores of the discriminant functions for each case may be
+saved in the Survo data file by giving the names of these new
+variables in the CANONICAL specification or they can be pointed
+by masks C. The number of these canonical variables is
+min(g-1,p), where g is the number of groups and p is the number
+of variables used for forming the functions. Only the named
+canonical variables are saved. The predicted group may be saved
+in the Survo data file by the PREDICTED specification or by mask
+P.
+
+If the same data is used for computing the classification functions
+and for classifying the cases, then the classification results
+may be too optimistic. This may be avoided either by using another
+data for classification or by using cross validation methods.
+The use of another data file is pointed by the CLFDATA specification,
+e.g.
+
+    DISCR FISHER1,END+2
+    VARIABLES=sepallen,sepalw,petallen,petalw
+    GROUPING=iristype  iristype=1(setosa),2(versicol),3(virginic)
+    PREDICTED=prediris
+    CLFDATA=fisher2
+    CANONICAL=Cano1,Cano2
+
+Note! The new canonical variables Cano1 and Cano2 are saved in
+both Survo data files. The predicted group in the data file
+fisher2 only.
+
+The cross validation method is used if option CROSSV is stated
+in the METHOD parameter and it may be used only if DSPACE=2.
+In cross validation, when a case is to be classified the the
+the effect of this case is removed from the classification formulas.
+Further information:
+  <A HREF="qw6_03.html">1 = Definitions for grouping variables</A> 
+  <A HREF="qw6_01.html">A = More on the discriminant analysis</A> 
+  <A HREF="q21_01.html">D = More on data analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,798 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q0B
+0005|*................................................................................
+0006|*LOAD EDQ
+0007|+CC? þ PRINT CUR+1,E TO q0b_01.html
+0008|- include HTML40.DEV
+0009|- include Q.DV2
+0010|- [HelpText]
+0011|- shadow a: [LINK(q03_01.html)]
+0012|*  C = More information on control operations
+S   |   a                                        |
+0013|E
+0015|+SORT? þ PRINT CUR+1,E TO q0b_02.html
+0016|- include HTML40.DEV
+0017|- include Q.DV2
+0018|- [HelpText]
+0019|#SORT L1,L2,K
+0020|*sorts the lines L1-L2 in alphabetic order according to a sort key
+0021|*defined by a mask of the form XXXXX on the image line K.
+0022|*If the mask is of the form 11111, sorting will be numeric in ascending
+0023|*order.
+0025|#-SORT L1,L2,K
+0026|*sorts the lines L1-L2 in descending order in case of a numeric mask
+0027|*on the image line K.
+0028|#SORT L1,L2,K
+0029|*sorts the lines L1-L2 in alphabetic order according to a sort key
+0030|*specified on the image line K and consisting of several fields
+0031|*of the form  BBB AACC. Here AA is the primary key, BBB the secondary
+0032|*key etc.
+0033|*In alphabetic sorting the order of various characters is determined
+0034|*by the file SORTCODE.BIN. This file can be edited by using the CODES LOAD
+0035|- shadow %: [LINK(q0c_01.html)] [/LINK]
+0036|*(and CODES SAVE) operation (see CODES). It can also be replaced by
+S   |                                 %%%%%
+0037|*another .BIN file by entering a specification FILTER=<name_of_file>.
+S   |                                                      <            >
+0038|*The default path for .BIN files is >Survo>\U\SYS .
+S   |                                    >     >
+0039|*For example, FILTER=SORTLOW.BIN defines the order AaBbCc...Ž„™” where
+0040|*'A' and 'a' are considered distinct and 'A' precedes 'a'.
+0042|- [New]
+0043|*SORT L1,L2,K,S (as well as other modes of SORT)
+0044|*with an extra parameter `S' observe also shadow lines and
+0045|*move them accordingly with the sorted lines.
+0046|- [/New]
+0048|- shadow %: [LINK(qf4_02.html)] [/LINK]
+0049|*For sorting of data files, see FSORT.
+S   |                                %%%%%
+0050|E
+0052|+CHANGE? þ PRINT CUR+1,E TO q0b_03.html
+0053|- include HTML40.DEV
+0054|- include Q.DV2
+0055|- [HelpText]
+0056|#CHANGE XY   (X and Y line labels)
+0057|*exchanges two chapters in the edit field. The first chapter starts
+0058|*from the first line labelled with X and ends on the next X line.
+0059|*The second chapter is defined by the Y lines in a similar way.
+0061|#CHANGE L1,L2,K
+0062|*where K is label of an image line of the form "   XXXX   YYYYYYYY   "
+0063|*interchages the XXXX and YYYY columns on the lines L1-L2.
+0064|E
+0065|+MOVE? þ PRINT CUR+1,E TO q0b_04.html
+0066|- include HTML40.DEV
+0067|- include Q.DV2
+0068|- [HelpText]
+0069|#MOVE xyz   (x,y,z stand for any distinct special characters)
+0070|*copies a rectangular array indicated by x in the left upper corner
+0071|*and y in the right lower corner to a place indicated by z so that
+0072|*x will be copied on z.
+0073|*A usually simpler method for moving blocks of rectangular shape is
+0074|*to press key BLOCK and follow instructions given on the bottom line.
+0076|#MOVE L1,L2,C1,C2 FROM <text or edit file> TO L,C
+S   |                       <                 >
+0077|*copies a rectangular array from a text or edit file to the current edit
+0078|*field. The array to be copied consists of lines L1-L2 and columns C1-C2.
+0079|*C1 and C2 are optional (default entire lines). The left upper corner
+0080|*of the array will be copied to line L and column C in the edit field
+0081|*(C being optional with default value 1).
+0082|E
+0084|+REVERSE? þ PRINT CUR+1,E TO q0b_05.html
+0085|- include HTML40.DEV
+0086|- include Q.DV2
+0087|- [HelpText]
+0088|*REVERSE L1,L2
+0089|*changes the words on each line (L1-L2) in opposite order.
+0090|*REVERSE L1,L2,1
+0091|*changes lines L1-L2 in opposite order.
+0092|*REVERSE L1,L2,2
+0093|*changes the characters on each line (L1-L2) in opposite order.
+0094|*REVERSE L1,L2,2,k
+0095|*changes characters on each line L1-L2 in chunks of k bytes in opposite order.
+0096|E
+0098|+ERASE? þ PRINT CUR+1,E TO q0b_06.html
+0099|- include HTML40.DEV
+0100|- include Q.DV2
+0101|- [HelpText]
+0102|#ERASE <string>
+S   |       <      >
+0103|*erases all characters occuring in <string> from the edit field.
+S   |                                   <      >
+0104|*For example, ERASE +-.0123456789 erases all numbers.
+0105|#ERASE L1,L2,<string>
+S   |             <      >
+0106|*works similarly but erases characters on the lines L1-L2 only.
+0107|E
+0109|+SYS2? þ PRINT CUR+1,E TO q0b_07.html
+0110|- include HTML40.DEV
+0111|- include Q.DV2
+0112|- [HelpText]
+0113|*Changing Survo system parameters
+0114|- shadow a: [LINK(q0b_08.html)]
+0115|*   1 = SYSTEM command for temporary changes
+S   |    a                                      |
+0116|- shadow a: [LINK(q0b_09.html)]
+0117|*   2 = SYS    command for permanent changes
+S   |    a                                      |
+0118|E
+0120|+SYS3? þ PRINT CUR+1,E TO q0b_08.html
+0121|- include HTML40.DEV
+0122|- include Q.DV2
+0123|- [HelpText]
+0124|*SYSTEM <parameter>=<value>
+S   |        <         > <     >
+0125|*changes the value of certain system parameters. Accepted parameters
+0126|*are, for example, scale_check, accuracy, results.
+0127|*The effects of SYSTEM are valid in the current session only.
+0128|*For permanent changes the SYS command must be used.
+0129|*Example: SYSTEM accuracy=16
+0131|*Also macros denoted by M<character>=<text> can be changed and more
+S   |                         <         > <    >
+0132|*such macros defined.  Examples: SYSTEM M8=PRINT CUR+1,END
+0133|- [New]
+0134|*SYSTEM M9=/MY_APPL! / `!' means that /MY_APPL is written and activated.
+0135|- [/New]
+0136|*Settings by the SYSTEM command are not permanent. They are valid during
+0137|*the current Survo session only.
+0138|*For permanent changes, use the /SURVO-SETUP sucro, for example.
+0140|*SYSTEM <parameter>
+S   |        <         >
+0141|*shows the current value of <parameter>.
+S   |                            <         >
+0142|*CLEAR SYSTEM <pathname_of_SURVO.APU>,<parameter>
+S   |              <                     > <         >
+0143|*shows the value of system <parameter> in SURVO.APU.
+S   |                           <         >
+0145|*Certain tutorials change some system parameters. To ensure restoring
+0146|*values of those parameters after the tutorial, two special forms
+0147|*of the SYSTEM command are available.
+0148|*SYSTEM SAVE
+0149|*saves system parameters
+0150|*videomode, accuracy, help_window, gplot_layout, eout
+0151|*and the size of the main window (# of lines and columns)
+0152|*in a text file SUR_SYS.SYS on the path of temporary Survo files.
+0153|*SYSTEM RESTORE
+0154|*restores the setting saved by SYSTEM SAVE.
+0155|- shadow a: [LINK(q03_01.html)]
+0156|*  C = More information on control operations
+S   |   a                                        |
+0157|E
+0159|+SYS? þ PRINT CUR+1,E TO q0b_09.html
+0160|- include HTML40.DEV
+0161|- include Q.DV2
+0162|- [HelpText]
+0163|*Survo system parameters are changed permanently by SYS command.
+0164|*SYS <word>=<value>
+S   |     <    > <     >
+0165|*sets a new line <word>=<value> in the SURVO.APU file. If the <word>
+S   |                 <    > <     >                               <    >
+0166|*line already exists, it's value is replaced by the new one.
+0167|*SYSDEL <word>
+S   |        <    >
+0168|*deletes the <word>=<value> line from SURVO.APU.
+S   |             <    > <     >
+0169|*After SYS and SYSDEL the new contents of SURVO.APU is valid
+0170|*when Survo is started again or a SETUP SURVO.APU command is given.
+0172|*For temporary changes (valid in the current Survo session only) the
+0173|*SYSTEM command should be used.
+0175|- shadow a: [LINK(q03_01.html)]
+0176|*  C = More information on control operations
+S   |   a                                        |
+0177|E
+0179|+SYSTEM? þ PRINT CUR+1,E TO q0b_10.html
+0180|- include HTML40.DEV
+0181|- include Q.DV2
+0182|- [HelpText]
+0183|*The default values of the Survo system parameters are given in the
+0184|*system file SURVO.APU which is a standard text file and saved in the
+0185|*current Survo system directory.
+0187|*In normal use of Survo, it is not necessary to know the details
+0188|*related to this system file and alter its contents.
+0189|*The simplest way for studying current settings of system parameters and
+0190|*for changing them is to call sucro /SURVO-SETUP.
+0192|*The whole set of system parameters may be changed during the Survo
+0193|*session by the SETUP command
+0194|#SETUP <system_file>
+S   |       <           >
+0195|*which also erases the current contents of the edit field.
+0196|*Certain system parameters can also be changed temporarily by the
+0197|*SYSTEM <parameter>=<value>
+S   |        <         > <     >
+0198|*command. This command does not alter anything in the edit field.
+0200|- shadow a: [LINK(q0b_11.html)]
+0201|*  P = System parameters
+S   |   a                   |
+0202|- shadow a: [New][LINK(q0b_28.html)]
+0203|d  W = New system parameters in SURVO MM
+S   |   a                                   ;
+0204|- shadow a: [LINK(q0b_07.html)]
+0205|*  S = Changing system parameters (SYSTEM and SYS commands)
+S   |   a                                                      |
+0206|- shadow a: [LINK(q03_01.html)]
+0207|*  C = More information on control operations
+S   |   a                                        |
+0208|E
+0209|XSHOW G:\E\U\SURVO.APU
+S   | 777777777777777777777
+0210|+P? þ PRINT CUR+1,E TO q0b_11.html
+0211|- include HTML40.DEV
+0212|- include Q.DV2
+0213|- [HelpText]
+0214|*System parameters in SURVO.APU:
+0216|- shadow a: [LINK(q0b_12.html)]
+0217|*  1 = ep4, llength, lname ('fixed' parameters for edit field control)
+S   |   a                                                                 |
+0218|- shadow a: [LINK(q0b_13.html)]
+0219|*  2 = ed1, ed2, ed3       (size of the edit field)
+S   |   a                                              |
+0220|- shadow a: [LINK(q0b_14.html)]
+0221|*  3 = er3, ec3            (size of the Survo main window)
+S   |   a                                                     |
+0222|- shadow a: [LINK(q0b_15.html)]
+0223|*  4 = speclist, specmax   (space for extra specifications)
+S   |   a                                                      |
+0224|- shadow a: [LINK(q0b_16.html)]
+0225|*  5 = edisk, tempdisk, ...(paths for data and temporary files)
+S   |   a                                                          |
+0226|- shadow a: [LINK(q0b_17.html)]
+0227|*  6 = qpath, sucropath, measures (various paths)
+S   |   a                                            |
+0228|- shadow a: [LINK(q0b_18.html)]
+0229|*  7 = eout                (output file for results of Survo operations)
+S   |   a                                                                   |
+0230|- shadow a: [LINK(q0b_19.html)]
+0231|*  8 = printer, ...        (printers and drivers)
+S   |   a                                            |
+0232|- shadow a: [LINK(q0b_20.html)]
+0233|*  9 = scale_check, accuracy, results (control of statistical operations)
+S   |   a                                                                    |
+0234|- shadow a: [LINK(q0b_21.html)]
+0235|*  A = insert_type, ...    (control of insert mode)
+S   |   a                                              |
+0236|- shadow a: [LINK(q111_05.html)]
+0237|*  B = videomode           (logical size of graphics windows)
+S   |   a                                                        |
+0238|- shadow a: [LINK(q0b_22.html)]
+0239|*  C = autosave, autotrim  (automatic saving, automatic text trimming)
+S   |   a                                                                 |
+0240|- shadow a: [LINK(q0b_23.html)]
+0241|*  D = Macros
+S   |   a        |
+0242|- shadow a: [LINK(q0b_24.html)]
+0243|*  E = Shadow characters
+S   |   a                   |
+0244|- shadow a: [LINK(q0b_25.html)]
+0245|*  F = alarm               (setting alarm)
+S   |   a                                     |
+0246|- shadow a: [LINK(q0b_26.html)]
+0247|*  G = start_sucro         (sucro starting the Survo session)
+S   |   a                                                        |
+0248|- shadow a: [LINK(q0b_27.html)]
+0249|*  H = crt_palette         (colors in screen graphics)
+S   |   a                                                 |
+0251|E
+0253|+EP4? þ PRINT CUR+1,E TO q0b_12.html
+0254|- include HTML40.DEV
+0255|- include Q.DV2
+0256|- [HelpText]
+0257|*'Fixed' parameters for edit field control:
+0259|*Max. number of columns on a line:
+0260|*Parameter `ep4' has several related tasks. When the user activates Survo
+0261|*operations, the system has to interpret edit lines consisting of several
+0262|*words separated by spaces and commas. Also when reading tables written
+0263|*in the edit field, the system must `see' the number of columns etc. In
+0264|*many cases `ep4' is the maximum number of such words or numbers on one
+0265|*edit line. In certain statistical analyses it will be the maximum number
+0266|*of variables. Example: ep4=300 .
+0268|*Max. lengths of lines and names:
+0269|*Parameter `llength' (=1000) corresponds to the maximum line length in
+0270|*edit fields. It cannot be changed by the user; the entire system must be
+0271|*recompiled if this parameter is changed. Parameter `lname' (=256) has
+0272|*also a fixed value in the same sense. It is the maximum allowed length
+0273|*of a pathname in Survo functions.
+0274|E
+0276|+ED1? þ PRINT CUR+1,E TO q0b_13.html
+0277|- include HTML40.DEV
+0278|- include Q.DV2
+0279|- [HelpText]
+0280|*Size of the edit field:
+0282|*The size of the edit field is controlled by parameters `ed1', `ed2' and
+0283|*`ed3'. `ed1' is the field width (control character included), `ed2' is
+0284|*the number of edit lines and `ed3' is the maximum number of shadow
+0285|*lines. These values seldom have practical meaning since each edit field
+0286|*loaded from disk resets their values (as the START field when Survo is
+0287|*entered). The REDIM or INIT command is used to select new values for
+0288|*`ed1', `ed2' and `ed3' for the current edit field.
+0289|*Example: ed1=101 ed2=100 ed3=20 .
+0290|E
+0292|+ER3? þ PRINT CUR+1,E TO q0b_14.html
+0293|- include HTML40.DEV
+0294|- include Q.DV2
+0295|- [HelpText]
+0296|*Window size:
+0297|*The size of the visible part of the edit field (the window size) is
+0298|*determined by parameters `er3' and `ec3'. `er3' is # of lines and `ec3' #
+0299|*of columns. Example: er3=23 ec3=72 (traditional values)
+0300|*During a Survo session the window size can be changed by
+0301|*RESIZE <er3>,<ec3>.
+S   |        <   > <   >
+0303|- [New]
+0304|*The physical size (fonts) and locaction of the Survo Main window
+0305|*is changed most conveniently by soft buttons SYSTEM -> WINDOW.
+S   |                                                      >
+0306|- [/New]
+0307|E
+0309|+SP? þ PRINT CUR+1,E TO q0b_15.html
+0310|- include HTML40.DEV
+0311|- include Q.DV2
+0312|- [HelpText]
+0313|*Space for extra specifications:
+0314|*Parameters `speclist' and `specmax' limit the amount of extra
+0315|*specifications. When a Survo operation is activated, all specification
+0316|*text (consisting of specifications in the curren subfield and in the
+0317|*potential *GLOBAL* subfield) are collected to a list having a length of
+0318|*`speclist' characters at most and consisting of `specmax' items at most.
+0319|*Example: speclist=1000000 specmax=10000
+0321|*In SURVO MM values of parameters speclist and specmax are defined
+0322|*automatically.
+0324|*Using very large edit fields (say over 20000 lines) in SURVO MM
+0325|*may slow down certain activities depending on specifications.
+0326|*To increase the speed in such situations automatic detection of
+0327|*proper speclist and specmax values may be overridden by setting
+0328|*the 1st control character (in front of the 1st edit line) to ' ' (space).
+0329|*Then values given in SURVO.APU (or altered by SYSTEM commands)
+0330|*will be valid. Also extra border lines in suitable places
+0331|*speeds up operations when the first control character is ' '.
+0332|E
+0334|+EDISK? þ PRINT CUR+1,E TO q0b_16.html
+0335|- include HTML40.DEV
+0336|- include Q.DV2
+0337|- [HelpText]
+0338|*Paths for data and temporary files:
+0340|*Parameter `edisk' is the default data disk path. `last_disk' is the last
+0341|*available diskdrive in current installation. Example: edisk=C:\E\D\
+0342|Slast_disk=F: .  Default for edisk is edisk=<Survo_path>\D\ .
+S   |                 888888888888888888888888888<8888888888>888
+0343|*    Parameter `paths' defines a sequence of predetermined Survo data
+0344|- shadow %: [%=0]
+0345|*paths (see PATHS?). It is valid only when last_disk=Z:. Example:
+S   |            %%%%%
+0346|*paths=C:\E\D\,D:,D:\DATA\,E:
+0347|*    `tempdisk' defines the path for temporary files created during a
+0348|SSurvo session. If `tempdisk' is not given, subdirectory TMP of Survo
+S   |                                            8888888888888888
+0349|*is used for temporary files. Example: tempdisk=D:\TEMP\
+0350|E
+0352|+HELP? þ PRINT CUR+1,E TO q0b_17.html
+0353|- include HTML40.DEV
+0354|- include Q.DV2
+0355|- [HelpText]
+0356|*Inquiry system:
+0357|*Parameter `qpath' (for example, qpath=<Survo>\Q\EDQ) selects the path of
+S   |                                       <     >
+0358|*the default inquiry system (<Survo>\Q\) and the common forepart (EDQ) for
+S   |                             <     >
+0359|*the files which belong to this inquiry system. The same Survo
+0360|*installation may keep several inquiry systems one of which is active at
+0361|*a time. QPATH is a Survo command for reselecting the inquiry system
+0362|Sduring the session. Default for qpath is <Survo_path>\Q\EDQ .
+S   |                     888888888888888888888<8888888888>888888
+0364|*Path for sucros:
+0365|*Parameter `sucropath' tells the path where the user's own sucros are
+0366|*saved. Example: sucropath=D:\SUCROS\
+0368|*Path for measurement units:
+0369|*Parameter `measures' gives the pathname for the edit file containing the
+0370|*alphabetic list of measures used in numerical conversions. Default is
+0371|- shadow %: [LINK(qc1_01.html)] [/LINK]
+0372|*<Survo>\U\SYS\MEASURES.EDT (see CONV?).
+S   | <     >                         %%%%
+0373|E
+0375|+OUT? þ PRINT CUR+1,E TO q0b_18.html
+0376|- include HTML40.DEV
+0377|- include Q.DV2
+0378|- [HelpText]
+0379|*Output file:
+0380|*The name of the output file/device is given by parameter `eout'. It is
+0381|*changed during a Survo session by the OUTPUT command.
+0382|SExample: eout=F:RESULTS   Default is <Survo>\U\TMP\RESULTS .
+S   |                           88888888888<88888>88888888888888
+0383|*Setting in SURVO.APU
+0384|*eout=
+0385|*no output file is in use (it is disabled).
+0386|*During a Survo session the output file is changed by the command
+0387|*OUTPUT <pathname>
+S   |        <        >
+0388|*and disabled by
+0389|*OUTPUT -
+0390|E
+0392|+PRINT? þ PRINT CUR+1,E TO q0b_19.html
+0393|- include HTML40.DEV
+0394|- include Q.DV2
+0395|- [HelpText]
+0396|- shadow %: [LINK(q0b_31.html)] [/LINK]
+0397|*Printer: See also PRINTER?
+S   |                   %%%%%%%
+0398|*Parameter `printer' gives the printer port or name for the default printer.
+0399|*Examples: printer=LPT1: printer="HP LaserJet 4M Plus"
+0400|*    Parameter `print_dev' specifies the default device driver in the
+0401|*PRINT operation. Example: print_dev=PS.DEV .
+0402|*    Parameter `plot_mode' tells the default device in PLOT operations.
+0403|*The DEVICE specification always dominates this setting. Example:
+0404|*plot_mode=PostScript .
+0405|*    Parameter `printdef' gives the maximum amount of bytes for
+0406|*definitions of control words in the PRINT operation. Default is 60000.
+0409|*Drivers for plotting:
+0410|*The device drivers for PLOT operations are selected by parameters
+0411|*ps_dev       for PostScript (ps_dev=PS.DEV)
+0412|*crt_dev      for the screen (crt_dev=CRT16.DEV)
+0413|E
+0415|+STAT? þ PRINT CUR+1,E TO q0b_20.html
+0416|- include HTML40.DEV
+0417|- include Q.DV2
+0418|- [HelpText]
+0419|*Control parameters in statistical operations:
+0420|*Parameters `scale_check', `accuracy' and `results' are related to
+0421|*control of statistical operations. Use keywords SCALES?, ACCURACY? and
+0422|*RESULTS? to acquire more information.
+0423|*Example: scale_check=2 accuracy=7 results=70 .
+0424|E
+0426|+INS? þ PRINT CUR+1,E TO q0b_21.html
+0427|- include HTML40.DEV
+0428|- include Q.DV2
+0429|- [HelpText]
+0430|*Insert mode:
+0431|*Parameter `insert_type' determines the function of the
+0432|*INSERT key in text editing. Value 1 implies that INSERT merely
+0433|*selects/deselects the insert mode. Value 0 implies that each INSERT
+0434|*stroke adds one space at the current cursor position.
+0435|*    When typing text between existing lines, an automatic line insertion
+0436|*mode is adopted (i.e. a new line is inserted when the current becomes
+0437|*full) when parameter `insert_lines' is 1. If it is 0, lines are not
+0438|*inserted automatically. This setting can also be adjusted during the Survo
+0439|*session. To toggle the insert line mode on, press PREFIX A . To put it
+0440|*off, press PREFIX a .
+0441|E
+0443|+AUTO? þ PRINT CUR+1,E TO q0b_22.html
+0444|- include HTML40.DEV
+0445|- include Q.DV2
+0446|- [HelpText]
+0447|*Automatic saving of the edit field:
+0448|*By setting autosave=n, the current edit field will be saved in the
+0449|*SURVO.EDT file in the Survo directory of temporary files once in every n
+0450|*minutes. Then, if by accident the contents of the edit field is lost,
+0451|*the last spare copy will be found by the (sucro) command /AUTOLOAD or it
+0452|*can be scanned by /AUTOSHOW . To omit temporary savings, set autosave=0.
+0454|*Automatic trimming:
+0455|*`autotrim' gives a TRIM command which is to be used for automatic
+0456|*formatting when text chapters are moved by the WORDS (alt-F2) key.
+0457|*Example: autotrim=TRIM3 72 .
+0458|E
+0460|+MACRO? þ PRINT CUR+1,E TO q0b_23.html
+0461|- include HTML40.DEV
+0462|- include Q.DV2
+0463|- [HelpText]
+0464|*Macros:
+0465|*Simple macros for typing commonly used commands and other
+0466|*texts are defined by system parameters M1,M2,...,M9.
+0467|*Macros are defined in the SURVO.APU file as lines of the form
+0468|*M#=<macro_text>.
+S   |    <          >
+0470|*Each macro is activated by pressing the F2:PREFIX key and then # of
+0471|*the macro. Macros of this type are for typing of text only. No special
+0472|*characters are allowed.
+0474|- shadow %: [LINK(qtu6_01.html)] [/LINK]
+0475|SKey sucros offer much more general possibilities (see SUCROS?)
+S   | 888888888888888888888888888888888888888888888888888888%%%%%%88
+0477|*Examples: M1=SCRATCH
+0478|*          M7=3.141592653589793 .
+0479|*`!' at the end of macro means activating it as a command.
+0480|E
+0482|+SHAD? þ PRINT CUR+1,E TO q0b_24.html
+0483|- include HTML40.DEV
+0484|- include Q.DV2
+0485|- [HelpText]
+0486|*Shadow characters:
+0487|*The shadows list gives the attribute bytes (in decimal code) for various
+0488|*Survo display modes. The colors corresponding to possible values (0-255)
+0489|*can be displayed by the Survo command COLOR ALL. The 10 selected
+0490|*attribute values in the shadows list correspond to the shadow characters
+0491|*<space>, 1, 2, 3, 4, 5, 6, 7, 8, 9
+S   | <     >
+0492|*according to the table below.
+0494|*The colors (and background colors) in the second column are those corre-
+0495|*sponding to shadows=112,116,120,113,23,240,114,159,30,246 .
+0497|*shadow display                 printer           value in shadows list
+0498|*                                                 normal bright
+0499|*space  black (white)           normal            112    240
+0500|*    1  red (white)             bold              116    252
+0501|*    2  grey (white)            subscript         120    248
+0502|*    3  blue (white)            superscript       113    241
+0503|*    4  white (blue)            underline          23     23
+0504|*    5  bright white or yellow  dotting           240    224
+0505|*    6  green (white)           italics           114    242
+0506|*    7  white (light blue)      reversed          159    159
+0507|*    8  yellow (blue)           -                  30     30
+0508|*    9  beige (white)           -                 246    246
+0510|*When selecting colors for display modes their characteristic differences
+0511|*should be observed. Survo uses them in many special functions
+0512|*(inquiries, touch mode etc.) and relies on the descriptions given above.
+0513|*The easiest way to maintain display colors is to activate /SURVO-SETUP .
+0514|E
+0516|+ALARM? þ PRINT CUR+1,E TO q0b_25.html
+0517|- include HTML40.DEV
+0518|- include Q.DV2
+0519|- [HelpText]
+0520|*alarm (system parameter in SURVO.APU):
+0521|*Parameter `alarm' gives the time in the form 09:15:30 for an alarm. When
+0522|*the clock of the computer reaches this time point, the user is alarmed
+0523|*by a beep and by a message
+0524|SALARM!!!   Press #
+S   | 5555555555555555555
+0526|*The message stays until the user presses the # key. Survo alarms only
+0527|*when it is updating the clock on the top line of the edit field. Thus,
+0528|*an alarm may be delayed when a long Survo function is operating.
+0529|*Example: alarm=09:15 .
+0531|*An alarm can be set temporarily (valid during current Survo session only) by
+0532|*SYSTEM alarm=hh:mm:ss
+0534|*To set a permanent alarm, insert a line of type
+0535|*alarm=hh:mm:ss
+0536|*in the SURVO.APU file.
+0537|E
+0539|+START? þ PRINT CUR+1,E TO q0b_26.html
+0540|- include HTML40.DEV
+0541|- include Q.DV2
+0542|- [HelpText]
+0543|*Start sucro:
+0544|*Parameter start_sucro=<pathname of a sucro> specifies a sucro which
+S   |                       <                   >
+0545|*initiates the Survo session on the current installation. Example:
+0546|*start_sucro= SURVO-START selects the menu-based start for Survo.
+0547|E
+0549|+COLOR? þ PRINT CUR+1,E TO q0b_27.html
+0550|- include HTML40.DEV
+0551|- include Q.DV2
+0552|- [HelpText]
+0553|*Colors in screen graphics:
+0554|*`crt_palette' gives the default color palette in screen graphics.
+0555|*If this parameter is missing, the original Survo palette is selected.
+0556|*Other alternatives are crt_palette=<file> where
+S   |                                    <    >
+0557|*<file> is a palette file name with default extension .PAL and path
+S   | <    >
+0558|*<Survo>\U\SYS .
+S   | <     >
+0559|*    Example: crt_palette=VGAGRAY.PAL (gives shades of gray on the VGA
+0560|*screen).
+0561|E
+0564|+MMSYS? þ PRINT CUR+1,E TO q0b_28.html
+0565|- include HTML40.DEV
+0566|- include Q.DV2
+0567|- [HelpText]
+0568|*New SURVO MM system parameters in SURVO.APU:
+0570|- shadow a: [LINK(q111_05.html)]
+0571|*  1 = videomode    (Logical dimensions of a graph)
+S   |   a                                              |
+0572|- shadow a: [LINK(q111_07.html)]
+0573|*  2 = gplot_layout (Locations and sizes of Survo graphics windows)
+S   |   a                                                              |
+0574|- shadow a: [LINK(q0b_29.html)]
+0575|*  3 = soft_keys    (Soft keys below the SURVO MM main window)
+S   |   a                                                         |
+0576|- shadow a: [LINK(q0b_30.html)]
+0577|*  4 = edit_font, help_font, os_font (Sizes and fonts of SURVO MM windows)
+S   |   a                                                                     |
+0578|- shadow a: [LINK(q0b_31.html)]
+0579|*  5 = printer      (Default PostScript printer)
+S   |   a                                           |
+0580|- shadow a: [LINK(q0b_32.html)]
+0581|*  6 = cursor       (Size of the cursor)
+S   |   a                                   |
+0582|- shadow a: [LINK(q0b_33.html)]
+0583|*  7 = help_window  (using a separate window for help texts)
+S   |   a                                                       |
+0584|- shadow a: [LINK(q0b_34.html)]
+0585|S  8 = trim_width,trim_tolerance (for TRIM commands)
+S   |   a              88888888888888                   |
+0586|- shadow a: [LINK(q0b_35.html)]
+0587|*  9 = close_graphs (closing Survo graphics windows on exit)
+S   |   a                                                       |
+0588|- shadow a: [LINK(q0b_36.html)]
+0589|*  A = sucro_speed  (default speed in tutorials)
+S   |   a                                           |
+0590|- shadow a: [LINK(q0b_37.html)]
+0591|*  B = language     (working language)
+S   |   a                                 |
+0592|- shadow a: [New][LINK(qs1_09.html)]
+0593|d  C = session_tmp  (control of subdirectories for temporary files)
+S   |   a                                                              ;
+0595|- shadow a: [LINK(q0b_10.html)]
+0596|*  S = General information on Survo system parameters
+S   |   a                                                |
+0599|E
+0601|+SOFT? þ PRINT CUR+1,E TO q0b_29.html
+0602|- include HTML40.DEV
+0603|- include Q.DV2
+0604|- [HelpText]
+0605|*Soft keys:
+0606|*'soft_keys' (in SURVO.APU)
+0607|*defines the edit field and the list of default soft keys (buttons)
+0608|*appearing below the SURVO MM main window.
+0609|*Typical setting is
+0610|*soft_keys=SUR_SOFT,A,SUR-SOFT,A
+0611|*where the two first parameters refer to the Finnish version and two
+0612|*last to the English version of soft buttons.
+0613|*The edit fields (SUR_SOFT,SUR-SOFT) are in the SURVO MM main program
+0614|*directory (<Survo>\U) and the various lists of soft buttons (as A above)
+S   |            <     >
+0615|*are defined in these edit fields. More information is found by studying
+0616|*SUR_SOFT.EDT (or SUR-SOFT.EDT).
+0617|*During the Survo session, rows of visible soft buttons can be changed by
+0618|*SOFTKEYS <edit_field>,<name_of_list>
+S   |          <          > <            >
+0619|*command. This command is typically activated by sucros controlling
+0620|*soft button applications.
+0621|*In certain applications the soft buttons may become invisible.
+0622|*To refresh the original setting defined by 'soft_keys' in SURVO.APU,
+0623|*press the alt-F1 key or activate SOFTKEYS (without parameters).
+0624|*(F2 alt-F1 makes the soft buttons invisible).
+0625|E
+0627|+FONTMM? þ PRINT CUR+1,E TO q0b_30.html
+0628|- include HTML40.DEV
+0629|- include Q.DV2
+0630|- [HelpText]
+0631|*System parameters (in SURVO.APU) for Survo windows and fonts:
+0633|- [New]
+0634|*window=18,0,0  / in Windows XP (and possibly 2000,NT)
+0635|*gives the font size (here 18) and the position (here 0,0) of the main
+0636|*window of the Survo editor. According to the Windows convention, the
+0637|*position coordinates refer to the top-left corner of the window.
+0638|- [/New]
+0640|*edit_font=8,12,0,0  / in Windows 9X
+0641|*gives the font size (here 8x12) and the position (here 0,0) of the main
+0642|*window of the Survo editor.
+0643|*help_font=8,12,0,400 / in Windows 9X
+0644|*gives the size and position of the HELP window in a similar way.
+0645|*os_font=8,12,0,420   / in Windows 9X
+0646|*gives the properties of the window of OS commands in a similar way.
+0648|*In Windows XP,2000,NT font sizes and locations of these windows are
+0649|*changed most easily by soft buttons SYSTEM -> WINDOW.
+S   |                                             >
+0651|*Properties of Survo graphics windows are controlled by the GPLOT /LAYOUT
+0652|- shadow %: [LINK(q111_07.html)] [/LINK]
+0653|*command (See GLAYOUT?).
+S   |              %%%%%%%
+0654|E
+0656|*cursor=30,80    Kohdistimen "paksuus" normaalissa kirjoitustilassa
+0657|*                ja lis„ystilassa prosentteina maksimiarvosta 100.
+0658|*                Huom. poikkeaa aikaisempien Survojen asetuksesta.
+0660|+PRINTER? þ PRINT CUR+1,E TO q0b_31.html
+0661|- include HTML40.DEV
+0662|- include Q.DV2
+0663|- [HelpText]
+0664|*The default PostScript printer is selected in SURVO.APU by
+0665|*printer="<Windows name of a PostScript printer>"
+S   |          <                                    >
+0666|*Example: printer="HP LaserJet 4M Plus"
+0668|*Names of valid printers are in the list of Windows printers available
+0669|*in the current installation (Start->Settings->Printers),
+S   |                                    >         >
+0670|*or you can list them to the edit field e.g. by the command
+0671|*INDEX /PRINTERS,END+2
+0673|*PRINT L1,L2 uses the default PostScript printer.
+0674|*PRINT L1,L2 TO "<Windows name of a PostScript printer>"
+S   |                 <                                    >
+0675|*redirects the output to another PostScript printer.
+0676|- [New]
+0677|*PRINT L1,L2 TO <file>
+S   |                <    >
+0678|- [/New]
+0679|*merely creates a PostScript file. This file can be printed also by any
+0680|*(non-PostScript) Windows printer by means of various Windows programs
+0681|*like Ghostscript or Adobe Acrobat (Distiller).
+0683|- shadow a: [New][LINK(q08_14.html)]
+0684|d  G = Printouts and previews by Ghostscript and Acrobat Reader
+S   |   a                                                          ;
+0685|- shadow a: [LINK(q08_13.html)]
+0686|*  A = Printouts and previews by Adobe Acrobat
+S   |   a                                         |
+0687|- shadow a: [LINK(q08_01.html)]
+0688|*  P = PRINT operation
+S   |   a                 |
+0689|- shadow a: [LINK(q0b_28.html)]
+0690|*  S = New system parameters
+S   |   a                       |
+0691|E
+0693|+CURSOR? þ PRINT CUR+1,E TO q0b_32.html
+0694|- include HTML40.DEV
+0695|- include Q.DV2
+0696|- [HelpText]
+0697|*cursor=30,80 sets the size of the cursor in the Survo main window.
+0698|*The parameters are percentages of the maximum height and the first
+0699|*one (30) refers to the size in overtype mode and the latter (80)
+0700|*in insert mode.
+0701|E
+0703|+HLP? þ PRINT CUR+1,E TO q0b_33.html
+0704|- include HTML40.DEV
+0705|- include Q.DV2
+0706|- [HelpText]
+0707|*help_window=1 (in SURVO.APU)
+0708|*tells that help texts will be shown in a separate window defined by
+0709|*'help_font' in SURVO.APU.
+0710|*help_window=0
+0711|*implies the setting of earlier Survo systems where help texts appear
+0712|*in the main Survo window.
+0713|*help_window=1 is default.
+0714|E
+0716|+TRIMW? þ PRINT CUR+1,E TO q0b_34.html
+0717|- include HTML40.DEV
+0718|- include Q.DV2
+0719|- [HelpText]
+0720|*trim_width=<integer> (in SURVO.APU)
+S   |            <       >
+0721|*tells the default line width for TRIM commands.
+0722|*Default is trim_width=72 (traditional width of the Survo main window).
+0724|- [New]
+0725|*trim_tolerance=<integer> (in SURVO.APU)
+S   |                <       >
+0726|- [/New]
+0727|*gives the shortest permitted length of the start of a hyphenated word
+0728|*at the end of the line when using the TRIM3 command.
+0729|*Default is 2. Other suitable values are 3,4,...
+0730|E
+0732|+DELG? þ PRINT CUR+1,E TO q0b_35.html
+0733|- include HTML40.DEV
+0734|- include Q.DV2
+0735|- [HelpText]
+0736|*close_graphs=1 (in SURVO.APU)
+0737|*means that all open graphics windows (created by GPLOT commands)
+0738|*will be closed on exit from Survo.
+0739|*close_graphs=0 leave them open.
+0740|E
+0742|+SPEEDS? þ PRINT CUR+1,E TO q0b_36.html
+0743|- include HTML40.DEV
+0744|- include Q.DV2
+0745|- [HelpText]
+0746|*sucro_speed=<integer> (in SURVO.APU)
+S   |             <       >
+0747|*sets the default waiting time in tutorials made as sucros.
+0748|*Default is sucro_speed=10.
+0749|*During a tutorial, pressing of '+' decreases sucro_speed by 1, i.e.
+0750|*makes it to run faster. Pressing of '-' increases sucro_speed by 1.
+0751|E
+0753|+LANG? þ PRINT CUR+1,E TO q0b_37.html
+0754|- include HTML40.DEV
+0755|- include Q.DV2
+0756|- [HelpText]
+0757|*language=<1 or 2> (in SURVO.APU)
+S   |          <      >
+0758|*selects the working language in Survo.
+0759|*language=1 selects Finnish.
+0760|*language=2 selects English.
+0761|*The working language can be changed during a Survo session by soft
+0762|*buttons SYSTEM -> LANGUAGE.
+S   |                 >
+0763|E
+0767|*key_sleep=10
+0768|*display_keys=0
+0769|*prind=0
+0770|*exit_warning=1
+0771|*save_warning=0
+0774|*Break sucro:
+0775|*Parameter break_sucro=<pathname of a sucro> gives the name of a sucro
+S   |                       <                   >
+0776|*which is called whenever a sucro is interrupted by the . key. Break
+0777|*sucros are intended for Survo installations used for demonstrations
+0778|*only. In such applications, the break sucro leads the user automatically
+0779|*to the main menu of the application, for example.
+0781|*NOT IN USE ANYMORE:
+0783|*Halting in operations:
+0784|*`space_break' controls the possibility of halting the temporary output
+0785|*on the screen given by various Survo operations. If space_break=1, the
+0786|*user can halt the output by pressing the space bar. If space_break=0,
+0787|*halting is not possible.
+0788|*    `child_wait' gives the waiting time (in sec.) between the exit from
+0789|*a child process (Survo operation) and continuation of the parent process
+0790|*(the editor). The normal setting is child_wait=0. Other values are
+0791|*useful, for example, in testing new C modules. Then there is time to see
+0792|*error messages which appear only temporarily on the screen before the
+0793|*editor rewrites the display.

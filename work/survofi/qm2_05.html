@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">MAT G=MPINV(A) computes the Moore-Penrose inverse G of any m*n matrix A.
+If m&lt;n, G is computed as MPINV(A')'.
+Let the singular value decomposition of A be A=U*D*V'
+where D is the diagonal matrix of singular values d1&gt;=d2&gt;=,...,&gt;=dm&gt;=0.
+Then MPINV(A)=V*INV_D*U' where INV_D is a diagonal matrix of numbers
+ei, i=1,2,...,m where e1=1/di if di&gt;=eps*d1 and e1=0 otherwise.
+eps is given by a specification EPS. By default eps=1e-15.
+
+G is the only generalized inverse of A satisfying the conditions
+AGA=A, GAG=G, (AG)'=AG, (GA)'=GA.
+
+Certain useful MAT expressions (proposed by Simo Puntanen):
+
+MAT P=A*MPINV(A)
+is the orthogonal projector (with respect to standard inner product)
+onto the column space of A.
+
+MAT C=A*MPINV(A'*V*A)*A'*V
+is the orthogonal projector (with respect to inner product matrix V)
+onto the column space of A.
+
+MAT P=IDN(m,m)-BASIS(A)*(BASIS(A))'.
+is the orthogonal projector (with respect to standard inner product)
+onto the orthocomplement of the column space of A.
+
+MAT Z=BASIS(IDN(m,m)-BASIS(A)*(BASIS(A))').
+is the orthonormal basis of the orthocomplement of the column space of
+A.
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

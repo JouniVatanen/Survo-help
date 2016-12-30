@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Simulation of Markov chains by TRANSFORM
+
+TRANSFORM &lt;data&gt; BY #MARKOV(P)
+                    makes random values according to a Markov chain.
+                    Each observation (variables X1,X2,...,Xm)
+                    will contain one realization of the chain
+                    and starts from state given by START=i (i=1,2,...).
+                    Default is START=1.
+                    The transition probabilities are given as
+                    a square matrix P.
+
+TRANSFORM &lt;data&gt; BY #MARKOV(P,&lt;var&gt;,&lt;n&gt;)
+                    works as the previous operation but only
+                    saves the state of the chain in &lt;var&gt; 
+                    after &lt;n&gt; steps.
+
+Also Markov chains of degrees 2,3,...,8 can be simulated by the two
+TRANSFORM operations above. Then the P matrix has dimensions m^k,m,
+k=2,3,...,8. The start state is in these cases always the first one.
+See an example on the next page!
+
+.......................................................................
+Example: Simulation of a 3-state Markov chain of degree 2:
+MATRIX P93
+///    A   B   C
+AA     0.6 0.4 0
+AB     0   1   0
+AC     0.2 0.2 0.6
+BA     0.6 0.2 0.2
+BB     0.2 0.2 0.6
+BC     0.2 0.2 0.6
+CA     1   0   0
+CB     0   0   1
+CC     0   0   1     / This is a final state!
+
+MAT SAVE P93
+FILE MAKE TEST,30,1000,L,S        / Space for 1000 chains of length 30
+TRANSFORM TEST BY #MARKOV(P93)    / Generating the chains RND=1111
+FILE LOAD -TEST / DELIMITER=NULL  / Loading the chains (3 first shown)
+ ABBCAABBAABBAABBAAAABBBCCCCCCC
+ AAAABBBAAAABBACCCCCCCCCCCCCCCC
+ BBABBAABBAABBCBCBCBCCCCCCCCCCC
+
+  <A HREF="qm10_01.html">M = More information on Markov chains</A> 
+  <A HREF="qv1_01.html">V = More information on transformations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

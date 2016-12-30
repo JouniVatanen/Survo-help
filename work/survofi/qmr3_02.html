@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">   Factor analysis can be performed in following steps:
+
+1) Compute the correlations of selected variables and observations
+   by the CORR operation.
+   This gives the correlation matrix CORR.M and the matrix MSN.M
+   of means and standard deviations.
+   The correlation matrix can be loaded by the sucro command
+   /LOADCORR
+   The significant correlations are then highlighted.
+   More information by activating /LOADCORR ?
+
+2) If you like to save these results more permanently, copy them by
+   MAT R=CORR.M
+   MAT M=MSN.M
+   for example.
+
+Factor analysis (continued)
+3) Initial solution:
+   Select the number of factors (say k) and activate
+   FACTA CORR.M,k,L
+   This gives the maximum likelihood solution as the factor matrix
+   FACT.M with k factors. The result is written from line L onwards.
+
+   Another alternative is:
+   MATRUN PFACT,R,k
+   gives the principal axes solution as factor matrix PFACT.M .
+   The difference in estimated and computed communalities is displayed
+   and the computed communalities are placed on the diagonal of R.
+   MATRUN PFACT,R,k can be reactivated several times until
+   the process has converged.
+   The communalities and efficiencies of the factors can be computed
+   afterwards by MATRUN SUM2,PFACT.M
+
+Factor analysis (continued)
+4) To rotate the maximum likelihood solution FACT.M (or the principal
+   axes solution PFACT.M), activate
+   ROTATE FACT.M,k
+   This gives the Varimax solution AFACT.M and the corresponding
+   rotation matrix TFACT.M with k factors.
+   Other methods (graphical rotation etc.) can be selected by the
+   ROTATION specification (See <A HREF="qmr3_08.html">ROTATE</A>?).
+   The communalities and efficiencies of the factors can be computed
+   (also) afterwards by MATRUN SUM2,AFACT.M .
+
+   The (rotated) factor matrix is displayed in a more legible form by
+   /LOADFACT
+   More information by activating
+   /LOADFACT ?
+
+Factor analysis (continued)
+5) The factor scores are computed in two steps.
+   At first the factor score coefficients are computed by
+   /FCOEFF,AFACT.M,MSN.M .
+   This gives the matrix of coefficients FCOEFF.M .
+   If an oblique rotation has been used, the loadings for the factor
+   scores are computed by /FTCOEFF,AFACT.M,TFACT.M,MSN.M .
+
+6) Finally, factor scores are obtained by
+   LINCO &lt;data&gt;,FCOEFF.M(F1,F2,...)
+   where &lt;data&gt; is the original (or corresponding) Survo data (file)
+   and F1,F2 are (possibly new) variables for factor scores.
+   Thereafter the factor scores can be analyzed like any other data
+   in Survo.
+
+  <A HREF="qmr3_01.html">F = More information on factor analysis</A> 
+  <A HREF="qmr2_01.html">M = More information on multivariate analysis</A> 
+  <A HREF="q21_01.html">S = More information on statistical analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

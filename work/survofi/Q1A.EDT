@@ -1,0 +1,95 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q1A
+0004|*LOAD EDQ
+0006|+HISTO? þ PRINT CUR+1,E TO q1a_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|#HISTO <data>,<variable>,L
+S   |       <    > <        >
+0011|*GHISTO <data>,<variable>,L  / for graphic screen
+S   |        <    > <        >
+0012|*forms the frequency distribution and plots the histogram of <variable>
+S   |                                                             <        >
+0013|*in <data> according to a classification given by
+S   |    <    >
+0014|*  <variable>=<lower limit>(<step>)<upper limit>
+S   |   <        > <           > <    > <           >
+0016|*L (optional parameter) is the first line for the table of the frequency
+0017|*distribution. The results are saved also in an output file, if that is
+0018|- shadow %: [LINK(q0e_02.html)] [/LINK]
+0019|*specified (see OUTPUT).
+S   |                %%%%%%
+0020|*Furthermore the frequency distribution is saved in file FREQ.F on
+0021|*the data disk and it can be used later by a HISTO operation of the form
+0022|*HISTO data>F,<variable>,L.
+S   |           >  <        >
+0023|*Especially histograms of large data files are replotted faster by this
+0024|*option thus permitting fitting of various theoretical distributions to
+0025|- shadow %: [%=0]
+0026|*the same frequency distribution (see FIT below).
+S   |                                      %%%
+0028|*Example: HISTO DATA1,Weight  / Weight=40(2)100
+0029|*         Classes of Weight will be  1: 40<Weight<=42
+S   |                                          <      <
+0030|*                                    2: 42<Weight<=44
+S   |                                          <      <
+0031|*                                    -------
+0032|*                                   30: 98<Weight<=100
+S   |                                          <      <
+0033|*Various theoretical distributions may be fitted and the corresponding
+0034|*frequency curve is plotted on the histogram by using a specification
+0035|*of the form FIT=<name of the distribution>.
+S   |                 <                        >
+0036|*The following distributions are available:
+0037|*NORMAL(mean,variance)       X is N(mean,variance)
+0038|*LOGNORMAL(mean,variance)    log X is N(mean,variance)
+0039|*UNIFORM(a,b)                X has uniform distribution on (a,b)
+0040|*BINOMIAL(N,p)               X is Bin(N,p)
+0041|*POISSON(mean)               X is Poisson(mean)
+0043|*The user may also define his/her own distribution (see below).
+0046|*If the parameters of the distribution are not given, the maximum
+0047|*likelihood estimates computed from the frequency distribution are
+0048|*used. Examples: FIT=NORMAL(175,36.5)  FIT=NORMAL
+0049|*If FIT is used, the results will also include the fitted frequencies and
+0050|*the common Chi-square test. In this test consecutive classes are com-
+0051|*bined when necessary to meet the condition
+0052|*       expected frequency >= min
+S   |                           >
+0053|*where <min> is given by MINF=<min>. Default is MINF=5.
+S   |       <   >                  <   >
+0055|*When using FIT for discrete distributions the <variable> specification
+S   |                                               <        >
+0056|*must be of the form <variable>=-0.5(1)<max.value+0.5>.
+S   |                     <        >        <             >
+0058|- [New]
+0059|*In continuous distributions, theoretical frequencies are computed by
+0060|*numerical integration using a step length <step>/2. To replace this
+S   |                                           <    >
+0061|*by <step>/K, a specification STEPDIVISOR=K must be given.
+S   |    <    >
+0062|- [/New]
+0064|*Other extra specifications of HISTO are
+0065|*HOME, SIZE, XDIV, YDIV, PEN, LINETYPE, XSCALE, YSCALE, FRAME, GRID, TICK,
+0066|SHEADER, XLABEL, YLABEL, TEXT, IND, VALUES
+S   |                                    888888
+0067|*being mostly the same as those of the PLOT operation for scatter
+0068|*diagrams.
+0069|*The bars in the histogram are filled with the shading [FILL1] defined
+0070|*in the current plotting driver. Redefinition like [FILL1]=[FILL4] is
+0071|*allowed in the HISTO scheme. By FILL=NO bars are not filled at all.
+0072|*In PostScript plotting the color for bars can be selected, for example,
+0073|*by setting [FILL-1]=1,1,0.5,0 (cmyk components) FILL=-1 .
+0075|- [New]
+0076|*By default, an error message is given if no observations are
+0077|*accepted. This message is removed by ACCEPT=0.
+0078|*Also an error message appears when all observations belong to the
+0079|*same class. This message is removed by ACCEPT=1 (or ACCEPT=0).
+0080|- [/New]
+0082|- shadow a: [LINK(q1b_01.html)]
+0083|*  U = User-defined distributions for HISTO
+S   |   a                                      |
+0084|- shadow a: [LINK(q12_01.html)]
+0085|*  S = Information on scatter diagrams
+S   |   a                                 |
+0086|E

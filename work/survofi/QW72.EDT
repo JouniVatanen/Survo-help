@@ -1,0 +1,100 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QW72
+0004|+VMFCOPY? þ PRINT CUR+1,E TO qw72_01.html
+0005|- include HTML40.DEV
+0006|- include Q.DV2
+0007|- [HelpText]
+0008|*The MFCOPY operation   written by Markku Korhonen (HUCC)
+S   | 77777777777777777777
+0010|*With the MFCOPY operation several related Survo data files can be
+0011|*combined into one new Survo data file. The relation between Survo
+0012|*data files is indicated by key variables exactly in the same way as in
+0013|*the MFEDIT operation.
+0015|*The form of the MFCOPY operation is
+0017|*MFCOPY <output Survo data file>
+S   |        <                      >
+0018|*FILE1=<Survo data file>(<list of keys>)
+S   |       <               > <            >
+0019|*FILE2=<Survo data file>(<list of keys>)
+S   |       <               > <            >
+0020|*...
+0021|*<subset definitions>
+S   | <                  >
+0022|*<options>
+S   | <       >
+0024|*Survo data files
+S   | 1111111111111111
+0026|*Input Survo data files are given in the order defined by their
+0027|*hierarchy (if one exists) exactly as in the MFEDIT operation.
+0028|*After the name of the data file the keys defining the relation
+0029|*between files are given in parentheses in such an order that the
+0030|*primary keys are given first. Up to 7 input Survo data files can
+0031|*be defined by the FILEn specifications. They can have up to 10
+0032|*different key variables.
+0034|*All active variables are copied into the new Survo data file. However,
+0035|*the key variables are copied only once. The names of active non-key
+0036|*variables must be unique. The output Survo data file is created
+0037|*automatically.
+0038|*Example:
+0040|*MFCOPY Combined
+0041|*FILE1=Society(Scode)
+0042|*FILE2=Persons(Personid)
+0043|*FILE3=Members(Scode,Personid)
+0045|*If an observation in the Members file has no counterpart, for
+S   |                          6666666
+0046|*instance, in the Society file, then the corresponding fields in
+0047|*the output file are filled with missing values. For each input
+0048|*file an indicator variable can be created in the output file. The
+0049|*names for the indicator variables are given by the INDn
+0050|*specifications, e.g. cations, e.g.
+0052|*IND1=Isociety  IND2=Ipersons
+0053|*Subset definitions
+0055|*A subset of observations can be selected with the following kind of
+0056|*specifications depending on the type of the variable. For numeric
+0057|*variables one can define limits for variable values:
+0059|*<variable name>=<lower limit>,<upper limit>
+S   | <             > <           > <           >
+0061|*The default value for the upper limit is the lower limit. If one wants to
+0062|*exclude observations between a certain range, then a prefix operator ^
+0063|*("not") can be used.
+0064|*For string variables the restrictions have the form:
+0066|*<variable name>=<string 1>,<string 2>, ....
+S   | <             > <        > <        >
+0068|*The strings are given without apostrophes. If a string ends with an aster
+0069|*isk (*), only the given characters are taken in account when strings
+0070|*are compared. If several strings are listed in a specification, the OR
+0071|*operation is applied (string 1 OR string 2 OR ...). If a prefix operator
+0072|*is placed in front of the first string, then the list consists of unwante
+0073|*strings.
+0075|*Note that missing values result always to a false condition. There can
+0076|*be up to 20 specifications. An observation is written to the output file
+0077|*only if it meets all conditions given by the different specifications.
+0079|*Example 3.2: Consider the previous example. The user wants that the
+S   | 111111111111
+0080|*output Survo data file contains only those persons, who are members
+0081|*of the society 051, whose member type is neither R nor R+, who were
+0082|*born in the years 1962-1992 and who have in their address a postal
+0083|*code which starts with a zero (variable Zip is a string variable).
+S   |                                         666
+0085|*MFCOPY Combined
+0086|*FILE1=Society(Scode)
+0087|*FILE2=Persons(Personid)
+0088|*FILE3=Members(Scode,Personid)
+0089|*Scode=051   Brthyear=1962,1992
+0090|*Memtype=^R,R+  Zip=0*
+0092|*The order of observations
+S   | 1111111111111111111111111
+0094|*The observations are written in the output file either in the order de-
+0095|*fined by the keys of the file  which is lowermost in the hierarchy
+0096|*(Members in the previous example), or in the order of appearance in
+S   |  6666666
+0097|*that file. The latter is chosen if ORDER=ORIG is specified. If there
+0098|*is not enough memory for sort indices for the files, then the original
+0099|*order is used.
+0101|- shadow a: [LINK(q21_01.html)]
+0102|* D = More on data analysis
+S   |  a                       |
+0103|- shadow a: [LINK(q01_02.html)]
+0104|* E = More information on SURVO 84 EDITOR
+S   |  a                                     |
+0106|E

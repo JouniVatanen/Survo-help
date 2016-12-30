@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Control commands for Survo graphics windows:
+
+Each graphics window of SURVO MM can be freely moved, resized, minimized
+maximized, and deleted by the mouse.
+Modifications can be done also by special GPLOT control commands.
+These are useful tools especially when making graphical applications
+of Survo as sucros.
+
+GPLOT /DEL ALL
+closes all existing SURVO MM graphics windows.
+GPLOT /DEL &lt;integer&gt; 
+closes the window having the given number in its title bar.
+GPLOT /SHOW MIN &lt;integer&gt; 
+minimizes the given Survo graphics window.
+GPLOT /SHOW NORMAL &lt;integer&gt; 
+restores the window to its earlier size and position (after /SHOW MIN)
+GPLOT /SHOW MAX &lt;integer&gt; 
+maximizes the given Survo graphics window. In sucros use WIN MIN to
+to overlap the main window (edit field) by the picture.
+
+Control commands for Survo graphics windows: (continued)
+
+GPLOT /NEXT &lt;integer&gt; 
+selects the next graphics window to be the one with the order &lt;integer&gt; 
+in the current layout.
+GPLOT /PREV
+selects the previous graphics window for the next graph. This command
+(with IN- and OUTFILE specifications) provides a simple way for
+making overlay graphics (in sucros).
+GPLOT /FIX &lt;integer&gt; 
+selects a fixed graphics window with order &lt;integer&gt; for all subsequent graphs.
+This command is helpful in the same way as GPLOT /PREV.
+GPLOT /DEL ALL and GPLOT /NEXT &lt;integer&gt; commands cancel the /FIX setting.
+GPLOT /WHICH
+tells the number of the next graphics window to be used by typing that
+number after the command. Again useful feature in sucros and in connection
+with GPLOT /FIX &lt;integer&gt;, for example.
+
+GPLOT /FIRST &lt;integer&gt; 
+limits rotation of graphics windows. For example, if # of windows
+(according the current layout) is 8 and GPLOT /FIRST 5 is activated,
+the windows of subsequent GPLOT's will be rotating according to sequence
+5,6,7,8,5,6,7,8,5,6,7,8,... thus leaving windows 1,2,3,4 intact.
+
+
+  <A HREF="q111_02.html">G = More information on GPLOT</A> 
+  <A HREF="q111_01.html">P = More information on plotting in general</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

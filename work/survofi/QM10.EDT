@@ -1,0 +1,210 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QM10
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+MARKOV? þ PRINT CUR+1,E TO qm10_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0013|S Operating with Markov chains in Survo
+S   | ///////////////////////////////////////
+0015|- shadow a: [LINK(qm10_02.html)]
+0016|*   1 = Generating Markov chains by Shannon's technique (MARKOV)
+S   |    a                                                          |
+0017|- shadow a: [LINK(qm10_04.html)]
+0018|*   2 = Steady-state probabilities of an irreducible chain (/MARKOV-STEADY)
+S   |    a                                                                     |
+0019|- shadow a: [LINK(qv3_05.html)]
+0020|*   3 = Generating Markov chains by TRANSFORM
+S   |    a                                       |
+0021|- shadow a: [LINK(qm10_05.html)]
+0022|*   4 = Structure of the chain and steady-state probabilities (MARKOV STUDY)
+S   |    a                                                                      |
+0023|- shadow a: [New][LINK(qm10_06.html)]
+0024|d   5 = Computing transition probabilities between 2 given states (MARKOV PROB)
+S   |    a                                                                         ;
+0025|- shadow a: [New][LINK(qm10_07.html)]
+0026|d   6 = Generating and working with Markov chains of higher order
+S   |    a                                                           ;
+0028|- shadow a: [LINK(qm1_01.html)]
+0029|*   M = More information on mathematical operations
+S   |    a                                             |
+0031|E
+0033|+MARKOV1? þ PRINT CUR+1,E TO qm10_02.html
+0034|- include HTML40.DEV
+0035|- include Q.DV2
+0036|- [HelpText]
+0037|*MARKOV L1,L2,L / ORDER=<integer>
+S   |                        <       >
+0038|*simulates the behaviour of a Markov chain by a method presented by
+0039|*Claude Shannon. The states are symbols (digits, letters, etc.)
+0040|*and a sample of the chain is given as a stream of such characters
+0041|*on edit lines L1-L2. The simulated results generated according to
+0042|*this sample are listed as a new stream of characters from line L
+0043|*onwards. The order of the Markov chain is given by the ORDER
+0044|*specification. Default is ORDER=1.
+0046|*Another alternatives are offered by certain spcial forms of the
+0047|- shadow %: [LINK(qv3_05.html)] [/LINK]
+0048|*TRANSFORM operation (See MARKOVD?)
+S   |                          %%%%%%%
+0050|- shadow a: [LINK(qm10_01.html)]
+0051|*   M = More information on Markov chains
+S   |    a                                   |
+0052|E
+0054|+M? þ PRINT CUR+1,E TO qm10_03.html
+0055|- include HTML40.DEV
+0056|- include Q.DV2
+0057|- [HelpText]
+0059|- shadow a: [LINK(qm10_01.html)]
+0060|*   M = More information on Markov chains
+S   |    a                                   |
+0061|E
+0063|+MARKOV2? þ PRINT CUR+1,E TO qm10_04.html
+0064|- include HTML40.DEV
+0065|- include Q.DV2
+0066|- [HelpText]
+0067|*/MARKOV-STEADY P
+0068|*computes the steady-state probabilities of an irreducible Markov chain
+0069|*by direct solution of the homogeneous system of linear equations.
+0070|*This works only for irreducible chains.
+0071|*The transition probabilities P must be given as (square) matrix file
+0072|*P and the steady-state probabilities will be saved in a matrix file
+0073|*PI.M
+0075|- shadow a: [LINK(qm10_01.html)]
+0076|*   M = More information on Markov chains
+S   |    a                                   |
+0077|E
+0079|+MARKOV4? þ PRINT CUR+1,E TO qm10_05.html
+0080|- include HTML40.DEV
+0081|- include Q.DV2
+0082|- [HelpText]
+0083|*MARKOV STUDY P,L
+0084|*where P is a matrix file of transition probabilities determines the
+0085|*class structure of the Markov chain and gives the results from the
+0086|*edit line L onwards as shown in the following example:
+0087|*MATRIX P
+0088|*///  T1  T2  T3  T4  T5
+0089|*T1   0.4 0   0   0   0.6
+0090|*T2   0.9 0   0   0.1 0
+0091|*T3   0   0   0.2 0.8 0
+0092|*T4   0   0   0.8 0.2 0
+0093|*T5   0.7 0   0   0   0.3
+0095|*MAT SAVE P
+0096|*MARKOV STUDY P,CUR+1
+0097|*Structure of Markov chain P of 5 states:
+0098|*Class structure saved in matrix file MCLASS.M
+0099|*2 recurrent classes of states:
+0100|*1 (2): T1 T5
+0101|*2 (2): T3 T4
+0102|*1 transient state:
+0103|* T2
+0105|*By default the results are obtained by finding the transitive closure
+0106|*of the digraph determined by P.
+0107|*By using the specification SVD=1 the same task is accomplished by
+0108|*computing the singular value decomposition of I-P. Then also the
+0109|*steady-state probabilities for each recurrent classes are calculated
+0110|*and given as the second column of matrix MCLASS.M
+0111|*In the above example this gives
+0113|*LOADM MCLASS.M,(C7),CUR+1
+0114|*Class_structure_of_P_(Transient_states=0)
+0115|*           Class    Prob
+0116|*T1             1 0.53846
+0117|*T2             0 0.00000
+0118|*T3             2 0.50000
+0119|*T4             2 0.50000
+0120|*T5             1 0.46154
+0123|- shadow a: [LINK(qm10_01.html)]
+0124|*   M = More information on Markov chains
+S   |    a                                   |
+0125|E
+0127|+MARKOV5? þ PRINT CUR+1,E TO qm10_06.html
+0128|- include HTML40.DEV
+0129|- include Q.DV2
+0130|- [HelpText]
+0131|#MARKOV PROB P,i,j,n,PN
+0132|*from a transition probability matrix P of a Markov chain
+0133|*computes k-step transition probabilities from state i to j
+0134|*for k=1,2,...,n and saves them as a new vector PN.
+0136|- shadow a: [LINK(qm10_01.html)]
+0137|*   M = More information on Markov chains
+S   |    a                                   |
+0138|E
+0140|+MARKOVH? þ PRINT CUR+1,E TO qm10_07.html
+0141|- include HTML40.DEV
+0142|- include Q.DV2
+0143|- [HelpText]
+0145|S Operating with Markov chains of higher order
+S   | //////////////////////////////////////////////
+0147|- shadow a: [LINK(qm10_08.html)]
+0148|*   1 = Generating Markov chains of order 1,2,3,...
+S   |    a                                             |
+0149|- shadow a: [LINK(qm10_10.html)]
+0150|*   2 = Estimating transition probabilities from a given sample
+S   |    a                                                         |
+0152|- shadow a: [LINK(qm10_01.html)]
+0153|*   M = More information on Markov chains
+S   |    a                                   |
+0155|E
+0157|+MARKOVH1? þ PRINT CUR+1,E TO qm10_08.html
+0158|- include HTML40.DEV
+0159|- include Q.DV2
+0160|- [HelpText]
+0161|*Generating Markov chains of order 1,2,3,...
+0163|*When the matrix of transition probabilities is given as a Survo matrix file,
+0164|*samples of the chain may be generated
+0166|*either by the MARKOV command of the form
+0167|*MARKOV L1,L2 BY P
+0168|*where P is the transition matrix and L1 is the first line and L2 the
+0169|*last line for the generated sequence (see example on the next page)
+0171|- shadow %: [LINK(qv3_05.html)] [/LINK]
+0172|*or by a special form of the TRANSFORM operation (see MARKOVD?).
+S   |                                                      %%%%%%%
+0174|*The following tutorial shows more examples:
+0175|*/MARKOV-DEMO2
+0177|*Generating a Markov chain of order 3 with two states A,B:
+0178|*MATRIX P82
+0179|*///   A    B
+0180|*AAA   0    1
+0181|*AAB   0.5  0.5
+0182|*ABA   0.3  0.7
+0183|*ABB   0.9  0.1
+0184|*BAA   0    1
+0185|*BAB   0.5  0.5
+0186|*BBA   0.2  0.8
+0187|*BBB   0.1  0.9
+0189|*MAT SAVE P82 / Saving the matrix of transition probabilities
+0190|*MARKOV CUR+1,CUR+5 BY P82 / Generate a sample to next 5 lines!
+0191|*BABABABABBAABBABABBABBABABAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBABAABBAABABBAA
+0192|*BBABBABBABAABBABBABBABABBAABABBABABAABBABBABABABABAABABAABABABABABABBBB
+0193|*BBBBBBAABABABBABAABBABAABBAABBAABABBABBABABABBBBBBBBBBBBABBABAABAABBABB
+0194|*BBBBBBBBBBBBABBAABABBABBAABBABABABAABBABABABABBABBABAABBAABAABAABABABAA
+0195|*BABBABBAABBABBABABBAABBABBABBABABABAABABBABABBABBABBABAABAABAABBABBABBA
+0197|- shadow a: [LINK(qm10_07.html)]
+0198|*   H = More information on Markov chains of higher order
+S   |    a                                                   |
+0199|E
+0201|+MH? þ PRINT CUR+1,E TO qm10_09.html
+0202|- include HTML40.DEV
+0203|- include Q.DV2
+0204|- [HelpText]
+0206|- shadow a: [LINK(qm10_07.html)]
+0207|*   H = More information on Markov chains of higher order
+S   |    a                                                   |
+0208|E
+0210|+MARKOVH2? þ PRINT CUR+1,E TO qm10_10.html
+0211|- include HTML40.DEV
+0212|- include Q.DV2
+0213|- [HelpText]
+0214|*Estimating transition probabilities from a given sample
+0216|*MARKOV L1,L2 / MATRIX=<matrix> STATES=<list_of_states> ORDER=<integer>
+S   |                       <      >        <              >       <       >
+0217|*estimates <matrix> of transition probabilities on the basis of a sample
+S   |           <      >
+0218|*sequence of one-character state names on edit lines L1-L2.
+0219|*The STATES specification tells the list of the state names.
+0221|*An example of this operation is found in the tutorial
+0222|*/MARKOV-DEMO2
+0224|- shadow a: [LINK(qm10_07.html)]
+0225|*   H = More information on Markov chains of higher order
+S   |    a                                                   |
+0226|E

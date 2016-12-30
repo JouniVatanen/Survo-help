@@ -1,0 +1,178 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q08A
+0004|*LOAD EDQ08B
+0006|+PP? þ PRINT CUR+1,E TO q08a_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|- shadow a: [LINK(q08_02.html)]
+0011|*  P = More information on PRINT
+S   |   a                           |
+0012|E
+0015|+PRINTINC? þ PRINT CUR+1,E TO q08a_02.html
+0016|- include HTML40.DEV
+0017|- include Q.DV2
+0018|- [HelpText]
+0019|*A control line (with a '-' in the control column) in the print list
+0020|*and having the form
+0021|*  - include <text_file>
+S   |             <         >
+0022|*specifies lines of a text file to be included as control lines.
+0023|*The default directory for <text_file> is the current data directory
+S   |                           <         >
+0024|*and secondarily, <Survo>\U\SYS on the system disk.
+S   |                  <     >
+0025|*There is no default extension in the file name, but .DEV is recommended
+0026|*for proper device drivers.
+0028|*<text_file> usually contains define and shadow lines which describe
+S   | <         >
+0029|*the features of the current printer for the PRINT program. Such a
+0030|*text file can be considered a device driver, since all the information
+0031|*about the printer has to be supplied by means of a series of - define,
+0032|*- shadow, and other control lines.
+0034|*The system file SURVO.APU defines the default device driver for
+0035|Sprinting as print_dev=PS.DEV (for example) and then the lines
+S   |             7777777777777777
+0036|*of the text file (device driver) PS.DEV are processed by the PRINT
+0037|*operation as control lines before processing of lines in the print list.
+0038|*Thus the task of the driver file is to teach the PRINT program all the
+0039|*control words and codes of the current printer.
+0040|*The default device driver is replaced by another by using a control line
+0041|*of the form
+0042|*  - include <text_file.DEV>
+S   |             <             >
+0043|Sas the first line (L1) in the print list of PRINT L1,L2.
+S   |        44444
+0045|*The features described in device drivers are usually activated by
+0046|*control lines of the form
+0047|* - [word1][word2][word3]
+0048|*where strings in brackets are control words and macros defined
+0049|*by - define lines in the print list or in include files (drivers).
+0050|*For example,
+0051|* - [Times(12)][line_spacing(14)]
+0052|*selects (according to PS.DEV) the 12 point Times-Roman font ([Times(12)])
+0053|*and line spacing of 14 points ([line_spacing(14)]).
+0055|*The user can make new device drivers for various printers by using any
+0056|*existing Survo printer driver as a model or the user may modify and
+0057|*enlarge the existing ones. For example, all the control words can be
+0058|*translated to another language.
+0060|*Please, note also that by referring to additional include files (for logos,
+0061|*etc.) in the print list, the user can easily enter various enhancements
+0062|*without the need to rewrite them completely.
+0063|- shadow a: [LINK(q08_02.html)]
+0064|*  P = More information on PRINT
+S   |   a                           |
+0065|E
+0067|+PRINTDEF? þ PRINT CUR+1,E TO q08a_03.html
+0068|- include HTML40.DEV
+0069|- include Q.DV2
+0070|- [HelpText]
+0071|*A control line (with a '-' in the control column) in the print list
+0072|*or in an include file (driver) and having the form
+0073|*  - define [new_word] [word1][word2]...
+0074|*defines a new control word [new_word] as a combination (concatenation)
+0075|*of previously defined words [word1][word2]...
+0076|*The only predefined 'words' are the characters and character codes
+0077|*in hexadecimal form in brackets. Thus [a/b] corresponds to decimal
+0078|*code 16*a+b. All other words must be composed from characters and
+0079|*from words already defined. Observe that any word can be redefined
+0080|*later and all words depending on this word will be interpreted there-
+0081|*after according to this new definition.
+0082|*For example:
+0083|*      - define [SP] [2/0]
+0084|*      - define [three_spaces] [SP][SP][SP]
+0085|*      - define [AA] A[three_spaces]A
+0086|*Any control word thus defined can be used on a control line (having
+0087|*a '-' in the control column). For example line
+0088|*      - [AA][SP][AA]
+0089|*will produce same output as a normal edit line
+0090|*      *A   A A   A
+0092|*The maximum amount of text in control word definitions of PRINT
+0093|*is by default limited to 60000 bytes.
+0094|*This value can be altered by giving a line
+0095|*    printdef=<size>
+S   |              <    >
+0096|*in the control file SURVO.APU.
+0097|- shadow a: [LINK(q08_02.html)]
+0098|*  P = More information on PRINT
+S   |   a                           |
+0099|E
+0101|+PRINTSHA? þ PRINT CUR+1,E TO q08a_04.html
+0102|- include HTML40.DEV
+0103|- include Q.DV2
+0104|- [HelpText]
+0105|*A control line (with a '-' in the control column) in the print list
+0106|*or in an include file (driver) and having the form
+0107|*  - shadow <shadow_character>: [pre_code] [post_code]
+S   |            <                >
+0108|*where [pre_code] and (optional) [post_code] are defined earlier
+0109|*defines the function of the <character> of the shadow line in the PRINT
+S   |                             <         >
+0110|*operation.
+0111|*Thus when printing a character, say A, having <shadow_character> on
+S   |                                               <                >
+0112|*the shadow line, the following sequence will be printed:
+0113|*      [pre_code]A[post_code]
+0114|*For example, the subscripts may be printed by defining '2' (which is
+0115|*the standard attribute for subscripts) as a shadow character as
+0116|*  - shadow 2: [INDEX][half_line_down] [MAIN][half_line_up]
+0117|*provided that the control words appearing in the definition are
+0118|*properly specified earlier.
+0119|- shadow a: [LINK(q08_02.html)]
+0120|*  P = More information on PRINT
+S   |   a                           |
+0121|E
+0123|+PRINTCOD? þ PRINT CUR+1,E TO q08a_05.html
+0124|- include HTML40.DEV
+0125|- include Q.DV2
+0126|- [HelpText]
+0127|*A control line (with a '-' in the control column) in the print list
+0128|*or in an include file (driver) and having the form
+0129|*  - codes <character_code_conversion_file>
+S   |           <                              >
+0130|*specifies the character conversion code for the PRINT operation.
+0131|- shadow %: [LINK(q0c_01.html)] [/LINK]
+0132|SSee also CODES?
+S   |          %%%%%7
+0133|*If no - codes control line appear in the print list or in the include
+0134|*files, no conversion takes place.
+0135|- shadow a: [LINK(q08_02.html)]
+0136|*  P = More information on PRINT
+S   |   a                           |
+0137|E
+0139|+PRINTCON? þ PRINT CUR+1,E TO q08a_06.html
+0140|- include HTML40.DEV
+0141|- include Q.DV2
+0142|- [HelpText]
+0143|*A control line (with a '-' in the control column) in the print list
+0144|*or in an include file (driver) and having the form
+0145|*  - control <control_character>: [code]
+S   |             <                 >
+0146|*where [code] is defined earlier, causes [code] be printed always when a
+0147|*line having <control_character> in the control column of the edit field
+S   |             <                 >
+0148|*is encountered. After [code] the line itself will be printed.
+0150|*For example,
+0151|* - control W: --------------------------------------------------[CR]
+0152|*overwrites the 50 first characters of the current line with '-'s.
+0154|- shadow a: [LINK(q08_02.html)]
+0155|*  P = More information on PRINT
+S   |   a                           |
+0156|E
+0158|+DRIVER2? þ PRINT CUR+1,E TO q08a_07.html
+0159|- include HTML40.DEV
+0160|- include Q.DV2
+0161|- [HelpText]
+0162|*Current Survo device drivers for PRINT/PLOT operations:
+0164|*PS.DEV                 PostScript
+0165|*EPSON.DEV              Epson printers  (PRINT only)
+0166|*DESKJET.DEV            HP DeskJet      (PRINT only)
+0167|*LASERJET.DEV           HP LaserJet     (PRINT only)
+0169|*For PostScript printing (PS.DEV), supplementary drivers are
+0170|*GCHAR.DV2   for graphic characters (box graphics),
+0171|*MATH.DV2    for mathematical symbols.
+0172|*PSFONTS.DV2 for various extra fonts (Bookman,NewCenturySchlbk, etc.)
+0174|- shadow a: [LINK(q08_02.html)]
+0175|*  P = More information on PRINT
+S   |   a                           |
+0176|E

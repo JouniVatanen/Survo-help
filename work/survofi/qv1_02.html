@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">VAR &lt;variable&gt;=&lt;expression&gt; TO &lt;data in data file&gt; 
+is an operation setting values for a numeric &lt;variable&gt; in &lt;data file&gt; 
+as a function of other variables according to &lt;expression&gt;.
+&lt;variable&gt; may be defined earlier (by FILE CREATE or FILE UPDATE) or it
+may be a new one. In case of a new variable, its type may be given in the
+form &lt;variable&gt;:&lt;type&gt;=&lt;expression&gt; where &lt;type&gt; is 1,2,4 or 8.
+&lt;variable&gt;:4 is default.
+Also &lt;variable&gt;:S&lt;len&gt;=&lt;expression&gt; is permitted for new string variables.
+&lt;expression&gt; may be any function of variables in &lt;data&gt; and written
+according to the rules of editorial computing (see <A HREF="qm1_03.html">ARIT</A>?).
+Examples:
+VAR Sum=Test1+2*Test2 TO DATA1
+VAR Lincome=log(Income) TO ECON
+VAR Number:2=ORDER TO FILE_A   / 'Number' will be a two-byte variable
+In the last example ORDER is a predefined variable whose value is the
+number (1,2,...) of the current observation. Likewise predefined
+variables N=number of observations, MISSING (missing value) and
+RND=random value in (0,1) can be used in &lt;expression&gt;.
+
+  <A HREF="qv1_01.html">V = More information on VAR operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

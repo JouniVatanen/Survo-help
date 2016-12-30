@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">COLX
+COLX performs various modifications in the edit field.
+COLX col1,col2 exchanges columns col1 and col2 for the
+lines below the command (COLX) line.
+Default is col1=0, col2=last column; i.e. the control
+column and the last column are exchanged.
+
+COLX Ri,Cj (where i and j are integers)
+modifies the visible part of the edit field in such a way
+that i lines and j columns are displayed. Typically
+i&lt;=23 and j&lt;=80.
+
+COLX Scol1,col2 copies characters in column col2 to
+shadow characters of column col1.
+
+COLX Li,col,j copies characters of line i to characters
+in column col starting from line j.
+
+Changing and hiding shadow effects (colors) in the edit field
+
+COLX s&lt;shadow_code&gt;,&lt;new_code&gt; 
+displays characters with &lt;shadow_code&gt; with another shadow code &lt;new_code&gt;.
+The codes are given in decimal form, i.e. shadow `1' (red) is code 49
+obtained by conversion 1(ascii:10)=49 .
+For example, COLX s49,32 (red-&gt;blank) hides effects of shadows `1'.
+
+COLX s,&lt;BIN_file&gt; 
+converts all shadow codes according to a 256 byte binary file.
+Default path for the file is &lt;Survo&gt;\U\SYS and extension is .BIN .
+Binary files are maintained by CODES SAVE and CODES LOAD commands.
+For example, COLX s,SHADKILL hides all shadow effects, i.e. maps
+all shadow codes to blank (32).
+COLX s
+restores original setting.
+
+COLX w
+displays the current size of the main window in the form
+COLX w 30 80 (window size)
+where 30 is # of lines and 80 is # of columns. (See also <A HREF="q03_17.html">RESIZE</A>?).
+
+COLX W&lt;integer&gt; 
+gives the coefficient for waiting times in sucros. Default is COLX W10.
+In tutorials (sucros) this coefficient can be changed temporarily by
+'+' and '-' keys. '+' decreases and '-' increases its value.
+
+COLX APU &lt;word&gt;=&lt;value&gt; 
+sets a new line &lt;word&gt;=&lt;value&gt; in the SURVO.APU file. If the &lt;word&gt; 
+line already exists, it's value is replaced by the new one.
+COLX APUDEL &lt;word&gt; 
+deletes the &lt;word&gt;=&lt;value&gt; line from SURVO.APU.
+After COLX APU and COLX APUDEL the new contents of SURVO.APU is valid
+when Survo is started again or a SETUP SURVO.APU command is given.
+Alternatively, SYS is the same as COLX APU and SYSDEL is the same
+as COLX APUDEL.
+
+  <A HREF="q03_01.html">C = More information on control operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

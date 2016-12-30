@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">FILE AGGR &lt;data&gt; BY &lt;aggr_variable&gt; TO &lt;new_data_file&gt; 
+allows only one &lt;aggr_variable&gt;.
+In certain applications a combination of several variables is needed
+for this purpose. Although such a combination can be created by
+concatenating string variables (see <A HREF="qv2_04.html">VARSTR</A>?), a more direct method
+is to use a specification
+KEY_SAVED=&lt;string_variable&gt; 
+in the FILE SORT operation which normally precedes FILE AGGR since
+the data must be sorted by &lt;aggr_variable&gt;.
+KEY_SAVED in FILE SORT creates a &lt;string_variable&gt; if needed
+in the &lt;new_data_file&gt; and saves the combined sort keys in it.
+All components of the sort key must in this case be string variables.
+If not, it is easy to make string variables from numeric ones
+(by VAR XS:S3=X TO &lt;data&gt;, for example).
+
+The example on the next page shows how this works with data file
+FINLAND.
+
+KEY_SAVED=AIS / Sort keys to be saved as variable AIS
+FILE SORT FINLAND BY Agri,Industry,Service TO FIN2
+
+FILE AGGR FIN2 BY AIS TO FIN_AGGR
+VARIABLES:
+AIS:S3 FIRST AIS
+N:2    N     -
+Mean:4 MEAN  Tax
+END
+................................................................................
+FILE LOAD FIN_AGGR / IND=ORDER,1,5          5 first cases loaded
+DATA FIN_AGGR*
+ AIS      N        Mean
+ 018      2      15.000
+ 027      5      15.700
+ 035      5      16.200
+ 036     10      16.325
+ 044      7      15.657
+
+  <A HREF="qf7_06.html">A = More information on FILE AGGR</A> 
+  <A HREF="qf1_01.html">D = More information on data management</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

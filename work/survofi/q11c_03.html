@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">PLOT &lt;data&gt;  / TYPE=MATRIX
+(with DEVICE=PS or DEVICE=G or as GPLOT)
+makes a matrix plot of the active part of &lt;data&gt; as a raster image.
+
+In the graph, the active variables appear as columns and active obser-
+vations as rows. For each data value, a box with a color depending on
+the value of the current variable in the current observation will be
+drawn.
+By default (NORM=C), the values are scaled by columns (i.e. separately for
+each variable). Other alternatives are indicated by NORM=R (scaling
+by rows) and NORM=T (uniform scaling over entire data).
+After scaling, the highest values are set to 1 and lowest to 0.
+These values are mapped to various colors or shades of gray (see
+description in contour plots PLOTCONT?).
+The color for missing values can be given by MISSING=x where 0&lt;=x&lt;=1.
+Default is MISSING=0.
+
+In matrix plots, the columns are labelled by names of active variables
+and rows by names of cases as in HBAR plots (see <A HREF="q11_02.html">PLOTBAR</A>?).
+The setting of labels is adjusted by specifications
+ROWLABELS=1,&lt;number_of_label_columns&gt;,&lt;max.length_of_label&gt; 
+COLUMNLABELS=1,&lt;number_of_label_rows&gt; 
+
+In both specifications, the second parameter is an integer (default 1).
+Its purpose is to give more space for otherwise too tight setting of
+labels.
+The labels are omitted completely by giving ROWLABELS=0, COLUMNLABELS=0.
+
+Example:
+................................................................................
+DATA CHESS
+_ C1 C2 C3 C4 C5 C6 C7 C8  _
+R1 -  0  -  0  -  0  -  0  .2
+R2 0  -  0  -  0  -  0  -  .3
+R3 -  0  -  0  -  0  -  0  .4
+R4 0  -  0  -  0  -  0  -  .5
+R5 -  0  -  0  -  0  -  0  .6
+R6 0  -  0  -  0  -  0  -  .7
+R7 -  0  -  0  -  0  -  0  .8
+R8 0  -  0  -  0  -  0  -  .9
+_ .2 .3 .4 .5 .6 .7 .8 .9  1
+
+GPLOT CHESS / TYPE=MATRIX  NORM=T  MODE=EGA
+PALETTE=VGAGRAY    MISSING=.1
+ROWLABELS=[MAGENTA],1,4,2
+COLUMNLABELS=[MAGENTA],1,2
+................................................................................
+   <A HREF="q11_01.html">P = More information on PLOT</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

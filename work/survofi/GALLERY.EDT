@@ -1,0 +1,849 @@
+SURVO 98 edit field:    151       2000       2000 (32 bit version)
+0001|*SAVE GALLERY / Survo Graphics Gallery (ver.2 for www.survo.fi)  I. English
+0002|*LOAD GALLERIA / suomeksi
+0003|*LOAD GAL001   / kuvasivut
+0004|*LOAD GALSUK   / gallerian sukrot
+0006|*/activate ~
+S   | èèèèèèèèèèè
+0007|*SHADOW 124,27
+0008|~SAVEP CUR+1,E-1,GALLERY.DV2
+S   | 777777777777777777777777777
+0009|* / Style file for graphics gallery / kv 25.5.2001
+0010|* /
+0011|* [STYLESHEET(./survo.css)]
+0012|* include SURVO.DV2
+0013|* /
+0014|* replace ................. ................. / = don't replace, actually
+0015|* define [author] [P][SMALL][LF]<!--[S]Copyright[S](c)[S]-->[S]
+S   |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+0016|* define [/author] [LF][/SMALL][+]
+0017|* shadow N: [author] [/author]
+S   |         N
+0018|* define [PreEditField] [H3]Edit[S]field:[/H3]
+0019|* define [PostEditField] [+][+]
+0020|* control {: [PreEditField]
+0021|* control }: [PostEditField]
+0022|* define [ArrowsName] [SMALL]Survo[S]Graphics[S]Gallery:[S][/SMALL]
+0023|* define [ind] [LINK(index.html)]Index[/LINK]
+S   |                                 33333
+0024|* define [cat] [LINK(catalog.html)]Catalog[/LINK]
+S   |                                   3333333
+0025|* define [cata] [LF][S][S][S][SMALL][ind][/SMALL][LF][S]|[S][SMALL][cat][/SMALL][LF][S]|[S]
+0026|* /
+0027|* define [Arrows001] [Arrows(073.html,002.html)]
+0028|* define [Arrows002] [Arrows(001.html,003.html)]
+0029|* define [Arrows003] [Arrows(002.html,004.html)]
+0030|* define [Arrows004] [Arrows(003.html,005.html)]
+0031|* define [Arrows005] [Arrows(004.html,006.html)]
+0032|* define [Arrows006] [Arrows(005.html,007.html)]
+0033|* define [Arrows007] [Arrows(006.html,008.html)]
+0034|* define [Arrows008] [Arrows(007.html,009.html)]
+0035|* define [Arrows009] [Arrows(008.html,010.html)]
+0036|* define [Arrows010] [Arrows(009.html,011.html)]
+0037|* define [Arrows011] [Arrows(010.html,012.html)]
+0038|* define [Arrows012] [Arrows(011.html,013.html)]
+0039|* define [Arrows013] [Arrows(012.html,014.html)]
+0040|* define [Arrows014] [Arrows(013.html,015.html)]
+0041|* define [Arrows015] [Arrows(014.html,016.html)]
+0042|* define [Arrows016] [Arrows(015.html,017.html)]
+0043|* define [Arrows017] [Arrows(016.html,018.html)]
+0044|* define [Arrows018] [Arrows(017.html,019.html)]
+0045|* define [Arrows019] [Arrows(018.html,020.html)]
+0046|* define [Arrows020] [Arrows(019.html,021.html)]
+0047|* define [Arrows021] [Arrows(020.html,022.html)]
+0048|* define [Arrows022] [Arrows(021.html,023.html)]
+0049|* define [Arrows023] [Arrows(022.html,024.html)]
+0050|* define [Arrows024] [Arrows(023.html,025.html)]
+0051|* define [Arrows025] [Arrows(024.html,026.html)]
+0052|* define [Arrows026] [Arrows(025.html,027.html)]
+0053|* define [Arrows027] [Arrows(026.html,028.html)]
+0054|* define [Arrows028] [Arrows(027.html,029.html)]
+0055|* define [Arrows029] [Arrows(028.html,030.html)]
+0056|* define [Arrows030] [Arrows(029.html,031.html)]
+0057|* define [Arrows031] [Arrows(030.html,032.html)]
+0058|* define [Arrows032] [Arrows(031.html,033.html)]
+0059|* define [Arrows033] [Arrows(032.html,034.html)]
+0060|* define [Arrows034] [Arrows(033.html,035.html)]
+0061|* define [Arrows035] [Arrows(034.html,036.html)]
+0062|* define [Arrows036] [Arrows(035.html,037.html)]
+0063|* define [Arrows037] [Arrows(036.html,038.html)]
+0064|* define [Arrows038] [Arrows(037.html,039.html)]
+0065|* define [Arrows039] [Arrows(038.html,040.html)]
+0066|* define [Arrows040] [Arrows(039.html,041.html)]
+0067|* define [Arrows041] [Arrows(040.html,042.html)]
+0068|* define [Arrows042] [Arrows(041.html,043.html)]
+0069|* define [Arrows043] [Arrows(042.html,044.html)]
+0070|* define [Arrows044] [Arrows(043.html,045.html)]
+0071|* define [Arrows045] [Arrows(044.html,046.html)]
+0072|* define [Arrows046] [Arrows(045.html,047.html)]
+0073|* define [Arrows047] [Arrows(046.html,048.html)]
+0074|* define [Arrows048] [Arrows(047.html,049.html)]
+0075|* define [Arrows049] [Arrows(048.html,050.html)]
+0076|* define [Arrows050] [Arrows(049.html,051.html)]
+0077|* define [Arrows051] [Arrows(050.html,052.html)]
+0078|* define [Arrows052] [Arrows(051.html,053.html)]
+0079|* define [Arrows053] [Arrows(052.html,054.html)]
+0080|* define [Arrows054] [Arrows(053.html,055.html)]
+0081|* define [Arrows055] [Arrows(054.html,056.html)]
+0082|* define [Arrows056] [Arrows(055.html,057.html)]
+0083|* define [Arrows057] [Arrows(056.html,058.html)]
+0084|* define [Arrows058] [Arrows(057.html,059.html)]
+0085|* define [Arrows059] [Arrows(058.html,060.html)]
+0086|* define [Arrows060] [Arrows(059.html,061.html)]
+0087|* define [Arrows061] [Arrows(060.html,062.html)]
+0088|* define [Arrows062] [Arrows(061.html,063.html)]
+0089|* define [Arrows063] [Arrows(062.html,064.html)]
+0090|* define [Arrows064] [Arrows(063.html,065.html)]
+0091|* define [Arrows065] [Arrows(064.html,066.html)]
+0092|* define [Arrows066] [Arrows(065.html,067.html)]
+0093|* define [Arrows067] [Arrows(066.html,068.html)]
+0094|* define [Arrows068] [Arrows(067.html,069.html)]
+0095|* define [Arrows069] [Arrows(068.html,070.html)] / muista myîs listan alku!
+0096|* define [Arrows070] [Arrows(069.html,071.html)]
+0097|* define [Arrows071] [Arrows(070.html,072.html)]
+0098|* define [Arrows072] [Arrows(071.html,073.html)]
+0099|* define [Arrows073] [Arrows(072.html,001.html)]
+0100|E
+0101|*......................................................................................................................................................
+0102|~SAVEP CUR+1,E-1,GALLERY2.DV2
+S   | 7777777777777777777777777777
+0103|* / Style sheet for secondary links / kv 10.1.2002 (27.8.2003)
+0104|* define [navi] [P(Navi2)]
+S   |                  5555555
+0105|* define [/navi] [/P]
+0106|* define [ArrowsName] [%=0]
+0107|E
+0108|*......................................................................................................................................................
+0110|*/IE gallery/index.html
+0111|*>lynx gallery/index.html
+0113|*DEF Introduction a,b
+0114|*DEF Imagination c,d
+0116|~PRINT CUR+2,E TO i.i /
+0117|~TXTCONV i.i gallery/index.html
+0118|- include HTML40.DEV
+0119|*Survo graphics: index
+S   | 777777777777777777777
+0120|- [STYLESHEET(./survo.css)]
+0121|- include SURVO.DV2
+0122|- include KEYWORDS.DV2
+0123|- [Body]
+0124|- chapter Header in INDEX
+0125|- include SHADOWS.DV2
+0126|- shadow g: [Off] [/Off]
+0127|- include LINKS1.DV2
+0128|- shadow K: [LINK(catalog.html#IndexAndCatalog)] [/LINK]
+S   |  KKKKKKKKK
+0129|- shadow H: [%=0] [S]below
+S   |  HHHHHHHHH
+0130|- shadow h: [%=0]
+S   |  hhhhhhhhh
+0131|- shadow i: [LINK(catalog.html#IndexAndCatalog)] [/LINK]
+S   |  iiiiiiiii
+0133|aSurvo Graphics Gallery
+S   | kkkkkkkkkkkkkkkkkkkkkk
+0134|/
+0135|*The gallery presents a large collection of Survo graphs with their
+0136|*work schemes. Hence, in addition to looking at the graphs, it is
+0137|*possible to see how they are actually created in Survo.
+0138|*The gallery also includes a few graphs that may look a bit complicated.
+0139|*However, there is no need to be afraid of them, as the following quote
+0140|*explains:
+0142|- [BLOCKQUOTE]
+0143|/
+0144|- [SMALL]
+0145|*Survo has a picturial language of its own. This language is based
+0146|*on certain basic types of graphs. The picturial language permits
+0147|*free combinations and overlays of basic graph types. Each graphical
+0148|*component can be enhanced and decorated by colors and other graphical
+0149|*and textual attributes in many ways. This approach enables making
+0150|*of very complicated pictures. Many people - seeing the final result
+0151|*only - are afraid that this must be a difficult task. Let's however
+0152|*pretend that there are no complicated things. If something looks
+0153|*complicated, it is merely combination of simple things.
+0154|*Of course, some skills are needed in order to reverse the process
+0155|*and see in each case what are those simple components forming
+0156|*the final picture. In order to learn such skills it is helpful to
+0157|*study ready-made pictures and compare them to the corresponding Survo
+0158|*plotting schemes (PLOT operations with various specifications).
+0159|*It is also worthwhile to make various experiments by modifying
+0160|*existing plotting schemes - even by trial and error.
+0161|- [/SMALL]
+0162|- [DIV(RIGHT)]
+0163|- [SMALL]
+0164|*S.Mustonen (1996): Survo ja minÑ (Survo and I), p. 173
+S   | 666666666666666666666666666666666666666666666666666666
+0165|- [/SMALL]
+0166|- [/DIV]
+0167|- [/BLOCKQUOTE]
+0169|- [NAME(IndexAndCatalog)][/NAME]
+0170|- [H3]
+0171|*Index and catalog
+S   | hhhhh     iiiiiii
+0172|- [/H3]
+0173|/
+0174|*The graphs in the gallery may be browsed in a free order. Following the
+0175|*links of the graph pages eventually takes the whole tour through the gallery.
+0176|*The index is sorted according to the graph type. You may also take a look
+S   |     HHHHH
+0177|*at the gallery by browsing the catalog, which includes
+S   |                                KKKKKKK
+0178|*the thumbnails of all graphs.
+S   | 1111111111111111111111111111
+0179|*They are also links to the corresponding pages, where you can find
+0180|*how the graphs are made.
+0181|b
+0182|- control <: [LIST]
+0183|- control >: [/LIST]
+0185|*Bar and pie charts
+S   | mmmmmmmmmmmmmmmmmm
+0186|<
+0187|- [L][LINK(056.html)]
+0188|*Bar and pie chart types
+S   | |||||||||||||||||||||||
+0189|- [L][LINK(003.html)]
+0190|*Bar chart of private gross fixed capital formation
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||
+0191|- [L][LINK(004.html)]
+0192|*Bar chart of Finnish books published in 1983-1988
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||
+0193|- [L][LINK(008.html)]
+0194|*Pie charts demonstrating Survo PostScript shadings
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||
+0195|- [L][LINK(011.html)]
+0196|*Bar chart and a pie chart of males by age group in Nordic countries
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0197|- [L][LINK(023.html)]
+0198|*Plotting a matrix file of binomial coefficients as a multiple bar chart
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0199|- [L][LINK(032.html)]
+0200|*Mixture of two normal distributions
+S   | |||||||||||||||||||||||||||||||||||
+0201|- [L][LINK(039.html)]
+0202|*Bar chart of disk space usage
+S   | |||||||||||||||||||||||||||||
+0203|- [L][LINK(064.html)]
+0204|*Pie chart of population in Nordic countries
+S   | |||||||||||||||||||||||||||||||||||||||||||
+0205|- [L][LINK(070.html)]
+0206|*Bar chart of several groups
+S   | |||||||||||||||||||||||||||
+0207|- [L][LINK(073.html)]
+0208|*Mean-deviation plots
+S   | ||||||||||||||||||||
+0209|>
+0210|*Histograms and box plots
+S   | mmmmmmmmmmmmmmmmmmmmmmmm
+0211|<
+0212|- [L][LINK(001.html)]
+0213|*Histogram of mean temperature in July, Helsinki 1844-1978
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0214|- [L][LINK(010.html)]
+0215|*Random sample from a bivariate normal distribution
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||
+0216|- [L][LINK(053.html)]
+0217|*Mixture of two normal distributions
+S   | |||||||||||||||||||||||||||||||||||
+0218|- [L][LINK(041.html)]
+0219|*Box plot of birthrate in Finnish provinces
+S   | ||||||||||||||||||||||||||||||||||||||||||
+0220|>
+0221|*Scatter diagrams
+S   | mmmmmmmmmmmmmmmm
+0222|<
+0223|- [L][LINK(002.html)]
+0224|*Normal probability plot of rainfall in Helsinki
+S   | |||||||||||||||||||||||||||||||||||||||||||||||
+0225|- [L][LINK(007.html)]
+0226|*Scatter plot of simulated data with contour ellipses and a trend line
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0227|- [L][LINK(010.html)]
+0228|*Random sample from a bivariate normal distribution
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||
+0229|- [L][LINK(012.html)]
+0230|*Generalized scatter plot of towns and communes in Finland
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0231|- [L][LINK(019.html)]
+0232|*Draftsman's display (scatter plot matrix) of largest Finnish towns and communes
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0233|- [L][LINK(021.html)]
+0234|*Rotated factor matrix as a scatter plot
+S   | |||||||||||||||||||||||||||||||||||||||
+0235|- [L][LINK(024.html)]
+0236|*999 random points as a scatter plot
+S   | |||||||||||||||||||||||||||||||||||
+0237|- [L][LINK(045.html)]
+0238|*Influence curves for the correlation coefficient
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||
+0239|- [L][LINK(033.html)]
+0240|*Discriminant space of three iris species with contour ellipses
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0241|- [L][LINK(048.html)]
+0242|*Grouped scatterplot matrix of the Iris data
+S   | |||||||||||||||||||||||||||||||||||||||||||
+0243|- [L][LINK(060.html)]
+0244|*Enhanced scatter plot of Finnish communes
+S   | |||||||||||||||||||||||||||||||||||||||||
+0245|- [L][LINK(066.html)]
+0246|*Mean temperature and rainfall on probit scale
+S   | |||||||||||||||||||||||||||||||||||||||||||||
+0247|- [L][LINK(067.html)]
+0248|*Mixture of bivariate normal distributions
+S   | |||||||||||||||||||||||||||||||||||||||||
+0249|>
+0250|*Time series diagrams
+S   | mmmmmmmmmmmmmmmmmmmm
+0251|<
+0252|- [L][LINK(005.html)]
+0253|*Time series diagram of mean temperature in July, Helsinki 1844-1978
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0254|- [L][LINK(013.html)]
+0255|*Time series diagram of consumption of alcoholic beverages in Finland
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0256|- [L][LINK(014.html)]
+0257|*Time series of monthly temperature in Helsinki 1829-2000
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0258|- [L][LINK(022.html)]
+0259|*Time series diagrams of consumption of spirits and wines in Finland 1967-1991
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0260|>
+0261|*Diagrams related to statistical methods
+S   | mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+0262|<
+0263|- [L][LINK(021.html)]
+0264|*Rotated factor matrix as a scatter plot
+S   | |||||||||||||||||||||||||||||||||||||||
+0265|- [L][LINK(033.html)]
+0266|*Discriminant space of three iris species with contour ellipses
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0267|- [L][LINK(040.html)]
+0268|*Correspondence analysis diagram (Fisher's example 1940)
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0269|- [L][LINK(047.html)]
+0270|*Multiple correspondence analysis of Finland
+S   | |||||||||||||||||||||||||||||||||||||||||||
+0271|- [L][LINK(054.html)]
+0272|*Diagram of hierarchical cluster analysis (dendrogram)
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||
+0273|- [L][LINK(069.html)]
+0274|*Discriminant analysis of Finland
+S   | ||||||||||||||||||||||||||||||||
+0275|>
+0276|*Statistical special diagrams
+S   | mmmmmmmmmmmmmmmmmmmmmmmmmmmm
+0277|<
+0278|- [L][LINK(018.html)]
+0279|*Matrix plot of consumption of various beverages in 12 European countries
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0280|- [L][LINK(019.html)]
+0281|*Draftsman's display (scatter plot matrix) of largest Finnish towns and communes
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0282|- [L][LINK(034.html)]
+0283|*Multivariate diagrams; Chernoff's faces
+S   | |||||||||||||||||||||||||||||||||||||||
+0284|- [L][LINK(035.html)]
+0285|*Multivariate diagrams; Andrews' function plots
+S   | ||||||||||||||||||||||||||||||||||||||||||||||
+0286|- [L][LINK(036.html)]
+0287|*Multivariate diagrams; Andrews' function plots in polar coordinates
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0288|- [L][LINK(037.html)]
+0289|*Multivariate diagrams; profile symbol plot
+S   | ||||||||||||||||||||||||||||||||||||||||||
+0290|- [L][LINK(038.html)]
+0291|*Multivariate diagrams; star symbol plot
+S   | |||||||||||||||||||||||||||||||||||||||
+0292|- [L][LINK(045.html)]
+0293|*Influence curves for the correlation coefficient
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||
+0294|- [L][LINK(063.html)]
+0295|*Matrix plot of Finnish towns and communes
+S   | |||||||||||||||||||||||||||||||||||||||||
+0296|- [L][LINK(072.html)]
+0297|*Central limit theorem
+S   | |||||||||||||||||||||
+0298|>
+0299|*Curves and families of curves
+S   | mmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+0300|<
+0301|- [L][LINK(015.html)]
+0302|*Musical intervals in different temperaments
+S   | |||||||||||||||||||||||||||||||||||||||||||
+0303|- [L][LINK(016.html)]
+0304|*Olympic rings
+S   | |||||||||||||
+0305|- [L][LINK(017.html)]
+0306|*Contour plot, front cover of the Survo User Guide (1992)
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+0307|- [L][LINK(020.html)]
+0308|*Dissonance function for accuracies c=2,3,4,5
+S   | ||||||||||||||||||||||||||||||||||||||||||||
+0309|- [L][LINK(025.html)]
+0310|*Plotting curves with the coordinate axes relocated
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||
+0311|- [L][LINK(026.html)]
+0312|*Plotting curves and combining pictures
+S   | ||||||||||||||||||||||||||||||||||||||
+0313|- [L][LINK(027.html)]
+0314|*Steiner circles
+S   | |||||||||||||||
+0315|- [L][LINK(006.html)]
+0316|*Normal distribution as a limit of t distributions
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||
+0317|- [L][LINK(009.html)]
+0318|*Sample from a uniform distribution
+S   | ||||||||||||||||||||||||||||||||||
+0319|- [L][LINK(029.html)]
+0320|*Thing
+S   | |||||
+0321|- [L][LINK(030.html)]
+0322|*Carpet
+S   | ||||||
+0323|- [L][LINK(031.html)]
+0324|*Thing 2
+S   | |||||||
+0325|- [L][LINK(042.html)]
+0326|*"Origin of species"
+S   | |||||||||||||||||||
+0327|- [L][LINK(043.html)]
+0328|*Spiral
+S   | ||||||
+0329|- [L][LINK(044.html)]
+0330|*From circle to square
+S   | |||||||||||||||||||||
+0331|- [L][LINK(049.html)]
+0332|*Four fish in an aquarium
+S   | ||||||||||||||||||||||||
+0333|- [L][LINK(052.html)]
+0334|*Picture writing
+S   | |||||||||||||||
+0335|- [L][LINK(062.html)]
+0336|*Chord figure
+S   | ||||||||||||
+0337|- [L][LINK(071.html)]
+0338|*Density of standard normal distribution
+S   | |||||||||||||||||||||||||||||||||||||||
+0339|>
+0340|*Other graphs
+S   | mmmmmmmmmmmm
+0341|<
+0342|- [L][LINK(028.html)]
+0343|*Placing and rotating text
+S   | |||||||||||||||||||||||||
+0344|- [L][LINK(051.html)]
+0345|*Plotting and filling polylines
+S   | ||||||||||||||||||||||||||||||
+0346|- [L][LINK(055.html)]
+0347|*Division of the plotting area into different regions
+S   | ||||||||||||||||||||||||||||||||||||||||||||||||||||
+0348|- [L][LINK(056.html)]
+0349|*Bar and pie chart types
+S   | |||||||||||||||||||||||
+0350|- [L][LINK(057.html)]
+0351|*Marker types
+S   | ||||||||||||
+0352|- [L][LINK(058.html)]
+0353|*Connecting points with lines in various ways
+S   | ||||||||||||||||||||||||||||||||||||||||||||
+0354|- [L][LINK(059.html)]
+0355|*Line types
+S   | ||||||||||
+0356|- [L][LINK(050.html)]
+0357|*Measurement model and measurement scale
+S   | |||||||||||||||||||||||||||||||||||||||
+0358|- [L][LINK(046.html)]
+0359|*2-dimensional projections of a 4-dimensional cube
+S   | |||||||||||||||||||||||||||||||||||||||||||||||||
+0360|- [L][LINK(061.html)]
+0361|*Proof of the Pythagoras' theorem
+S   | ||||||||||||||||||||||||||||||||
+0362|- [L][LINK(065.html)]
+0363|*Connecting points with lines
+S   | ||||||||||||||||||||||||||||
+0364|- [L][LINK(068.html)]
+0365|*Graph paper and contour ellipses
+S   | ||||||||||||||||||||||||||||||||
+0366|>
+0367|cImagination
+S   | lllllllllll
+0368|/
+0369|*The above selection of graphs is not in any case a perfect representation of the
+0370|*graphical possibilities in Survo. The basic graph types may be
+0371|*mixed freely, each detail be adjusted sharply, and the graphs may be
+0372|*created as combinations of arbitrary many pictures. It means that the
+0373|*imagination of the user is the only thing that might set any limits
+S   | 11111111111111111111111
+0374|*for the kind of graphs that can be plotted in Survo.
+0375|d
+0376|- include SHADOWS.DV2
+0377|- shadow g: [Off] [/Off]
+0378|- include LINKS2.DV2
+0379|- [Banner(2008-10-20)]
+0380|E...............................................................................................
+0381|*dm tmp pictures
+0382|~PRINT CUR+2,E TO i.i /
+0383|~TXTCONV i.i gallery/catalog.html
+0384|- include HTML40.DEV
+0385|*Survo graphics: catalog
+S   | 77777777777777777777777
+0386|- [STYLESHEET(./survo.css)]
+0387|- include SURVO.DV2
+0388|- include KEYWORDS.DV2
+0389|- [Body]
+0390|- chapter Header in INDEX
+0391|- include SHADOWS.DV2
+0392|- shadow g: [Off] [/Off]
+0393|- include LINKS1.DV2
+0394|- shadow K: [%=0] [S]below
+S   |  KKKKKKKKK
+0395|- shadow H: [LINK(index.html#IndexAndCatalog)] [/LINK]
+S   |  HHHHHHHHH
+0396|- shadow h: [LINK(index.html#IndexAndCatalog)] [/LINK]
+S   |  hhhhhhhhh
+0397|- shadow i: [%=0]
+S   |  iiiiiiiii
+0399|- chapter Introduction
+0400|/
+0401|- [Thumb(001,e)]
+0402|*Histogram of mean temperature in July, Helsinki 1844-1978
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0403|- [Thumb(002,e)]
+0404|*Normal probability plot of rainfall in Helsinki
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0405|- [Thumb(003,e)]
+0406|*Bar chart of private gross fixed capital formation
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0407|- [Thumb(004,e)]
+0408|*Bar chart of Finnish books published in 1983-1988
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0409|- [Thumb(005,e)]
+0410|*Time series diagram of mean temperature in July, Helsinki 1844-1978
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0411|- [Thumb(006,e)]
+0412|*Normal distribution as a limit of t distributions
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0413|- [Thumb(007,c)]
+0414|*Scatter plot of simulated data with contour ellipses and a trend line
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0415|- [Thumb(008,c)]
+0416|*Pie charts demonstrating Survo PostScript shadings
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0417|- [Thumb(009,e)]
+0418|*Sample from a uniform distribution
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0419|- [Thumb(010,e)]
+0420|*Random sample from a bivariate normal distribution
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0421|- [Thumb(011,e)]
+0422|*Bar chart and a pie chart of males by age group in Nordic countries
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0423|- [Thumb(012,e)]
+0424|*Generalized scatter plot of towns and communes in Finland
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0425|- [Thumb(013,e)]
+0426|*Time series diagram of consumption of alcoholic beverages in Finland
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0427|- [Thumb(014,e)]
+0428|*Time series of monthly temperature in Helsinki 1829-2000
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0429|- [Thumb(015,e)]
+0430|*Musical intervals in different temperaments (curve plotting)
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0431|- [Thumb(016,c)]
+0432|*Olympic rings (curve plotting, parameters depend on data)
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0433|- [Thumb(017,c)]
+0434|*Contour plot, front cover of the Survo User Guide (1992)
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0435|- [Thumb(018,e)]
+0436|*Matrix plot of consumption of various beverages in 12 European countries
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0437|- [Thumb(019,e)]
+0438|*Draftsman's display (scatter plot matrix) of largest Finnish towns and communes
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0439|- [Thumb(020,e)]
+0440|*Dissonance function for accuracies c=2,3,4,5
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0441|- [Thumb(021,e)]
+0442|*Rotated factor matrix as a scatter plot
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0443|- [Thumb(022,e)]
+0444|*Time series diagrams of consumption of spirits and wines in Finland 1967-1991
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0445|- [Thumb(023,e)]
+0446|*Plotting a matrix file of binomial coefficients as a multiple bar chart
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0447|- [Thumb(024,c)]
+0448|*999 random points as a scatter plot
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0449|- [Thumb(025,c)]
+0450|*Plotting curves with the coordinate axes relocated
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0451|- [Thumb(026,e)]
+0452|*Plotting curves and combining pictures
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0453|- [Thumb(027,e)]
+0454|*Curve plotting (Steiner circles)
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0455|- [Thumb(028,c)]
+0456|*Placing and rotating text
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\
+0457|- [Thumb(029,c)]
+0458|*Thing
+S   | \\\\\
+0459|- [Thumb(030,c)]
+0460|*Carpet
+S   | \\\\\\
+0461|- [Thumb(031,c)]
+0462|*Thing 2
+S   | \\\\\\\
+0463|- [Thumb(032,e)]
+0464|*Mixture of two normal distributions
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0465|- [Thumb(033,e)]
+0466|*Discriminant space of three iris species with contour ellipses
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0467|- [Thumb(034,e)]
+0468|*Multivariate diagrams; Chernoff's faces
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0469|- [Thumb(035,c)]
+0470|*Multivariate diagrams; Andrews' function plots
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0471|- [Thumb(036,c)]
+0472|*Multivariate diagrams; Andrews' function plots in polar coordinates
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0473|- [Thumb(037,c)]
+0474|*Multivariate diagrams; profile symbol plot
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0475|- [Thumb(038,c)]
+0476|*Multivariate diagrams; star symbol plot
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0477|- [Thumb(039,c)]
+0478|*Bar chart of disk space usage
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0479|- [Thumb(040,c)]
+0480|*Correspondence analysis diagram (Fisher's example 1940)
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0481|- [Thumb(041,e)]
+0482|*Box plot of birthrate in Finnish provinces
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0483|- [Thumb(042,c)]
+0484|*Origin of species
+S   | \\\\\\\\\\\\\\\\\
+0485|- [Thumb(043,c)]
+0486|*Spiral
+S   | \\\\\\
+0487|- [Thumb(044,c)]
+0488|*From circle to square
+S   | \\\\\\\\\\\\\\\\\\\\\
+0489|- [Thumb(045,e)]
+0490|*Influence curves for the correlation coefficient
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0491|- [Thumb(046,c)]
+0492|*2-dimensional projections of a 4-dimensional cube
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0493|- [Thumb(047,e)]
+0494|*Multiple correspondence analysis of Finland
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0495|- [Thumb(048,c)]
+0496|*Grouped scatterplot matrix of the Iris data
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0497|- [Thumb(049,c)]
+0498|*Four fish in an aquarium
+S   | \\\\\\\\\\\\\\\\\\\\\\\\
+0499|- [Thumb(050,e)]
+0500|*Measurement model and measurement scale
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0501|- [Thumb(051,c)]
+0502|*Plotting and filling polylines
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0503|- [Thumb(052,c)]
+0504|*Picture writing
+S   | \\\\\\\\\\\\\\\
+0505|- [Thumb(053,c)]
+0506|*Mixture of two normal distributions
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0507|- [Thumb(054,e)]
+0508|*Diagram of hierarchical cluster analysis (dendrogram)
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0509|- [Thumb(055,e)]
+0510|*Division of the plotting area into different regions
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0511|- [Thumb(056,c)]
+0512|*Bar and pie chart types
+S   | \\\\\\\\\\\\\\\\\\\\\\\
+0513|- [Thumb(057,c)]
+0514|*Marker types
+S   | \\\\\\\\\\\\
+0515|- [Thumb(058,c)]
+0516|*Connecting points with lines in various ways
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0517|- [Thumb(059,e)]
+0518|*Line types
+S   | \\\\\\\\\\
+0519|- [Thumb(060,e)]
+0520|*Enhanced scatter plot of Finnish communes
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0521|- [Thumb(061,c)]
+0522|*Proof of the Pythagoras' theorem
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0523|- [Thumb(062,c)]
+0524|*Chord figure
+S   | \\\\\\\\\\\\
+0525|- [Thumb(063,e)]
+0526|*Matrix plot of Finnish towns and communes
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0527|- [Thumb(064,e)]
+0528|*Pie chart of population in Nordic countries
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0529|- [Thumb(065,c)]
+0530|*Connecting points with lines
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0531|- [Thumb(066,e)]
+0532|*Mean temperature and rainfall on probit scale
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0533|- [Thumb(067,e)]
+0534|*Mixture of bivariate normal distributions
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0535|- [Thumb(068,e)]
+0536|*Graph paper and contour ellipses
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0537|- [Thumb(069,e)]
+0538|*Discriminant analysis of Finland
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0539|- [Thumb(070,e)]
+0540|*Bar chart of several groups
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\
+0541|- [Thumb(071,e)]
+0542|*Density of standard normal distribution
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0543|- [Thumb(072,e)]
+0544|*Central limit theorem
+S   | \\\\\\\\\\\\\\\\\\\\\
+0545|- [Thumb(073,e)]
+0546|*Mean-deviation plots
+S   | \\\\\\\\\\\\\\\\\\\\
+0548|- chapter Imagination
+0550|- include SHADOWS.DV2
+0551|- shadow g: [Off] [/Off]
+0552|- include LINKS2.DV2
+0553|- [Banner(2008-10-20)]
+0554|E...............................................................................................
+0555|*CONVERSIONS:
+0556|*t "./" "../"
+0557|*t "&lt; "  "&lt;"
+0558|*t "&gt; "  "&gt;"
+0559|*t "&amp; " "&amp;"
+0560|*END
+0561|*              SINCE=26.1.2002
+0562|*FILES=GAL*.EDT SEARCH=FILE RUN=1
+0563|*SEARCH Survo graphics:
+0565|- [L][LINK(063.html)]
+0566|*Matrix plot of Finnish towns and communes
+S   | |||||||||||||||||||||||||||||||||||||||||
+0567|- [L][LINK(064.html)]
+0568|*Pie chart of population in Nordic countries
+S   | |||||||||||||||||||||||||||||||||||||||||||
+0569|- [L][LINK(065.html)]
+0570|*Connecting points with lines
+S   | ||||||||||||||||||||||||||||
+0571|- [L][LINK(066.html)]
+0572|*Mean temperature and rainfall on probit scale
+S   | |||||||||||||||||||||||||||||||||||||||||||||
+0573|- [L][LINK(067.html)]
+0574|*Mixture of bivariate normal distributions
+S   | |||||||||||||||||||||||||||||||||||||||||
+0575|- [L][LINK(068.html)]
+0576|*Graph paper and contour ellipses
+S   | ||||||||||||||||||||||||||||||||
+0577|- [L][LINK(069.html)]
+0578|*Discriminant analysis of Finland
+S   | ||||||||||||||||||||||||||||||||
+0579|*S GAL001 / Histogram of mean temperature in July, Helsinki 1844-1978
+0580|*S GAL002 / Normal probability plot of rainfall in Helsinki
+0581|*S GAL003 / Bar chart of private gross fixed capital formation
+0582|*S GAL004 / Bar chart of Finnish books published in 1983-1988
+0583|*S GAL005 / Time series diagram of mean temperature in July, Helsinki 1844-1978
+0584|*S GAL006 / Normal distribution as a limit of t distributions
+0585|*S GAL007 / Scatter plot of simulated data with contour ellipses and a trend line
+0586|*S GAL008 / Pie charts demonstrating Survo PostScript shadings
+0587|*S GAL009 / Sample from a uniform distribution
+0588|*S GAL010 / Random sample from a bivariate normal distribution
+0589|*S GAL011 / Bar chart and a pie chart of males by age group in Nordic countries
+0590|*S GAL012 / Generalized scatter plot of towns and communes in Finland
+0591|*S GAL013 / Time series diagram of consumption of alcoholic beverages in Finland
+0592|*S GAL014 / Time series of monthly temperature in Helsinki 1829-1987
+0593|*S GAL015 / Musical intervals in different temperaments (curve plotting)
+0594|*S GAL016 / Olympic rings (curve plotting, parameters depend on data)
+0595|*S GAL017 / Contour plot, front cover of the Survo User Guide (1992)
+0596|*S GAL018 / Matrix plot of consumption of various beverages in 12 European countries
+0597|*S GAL019 / Draftsman's display (scatter plot matrix) of largest Finnish towns and communes
+0598|*S GAL020 / Dissonance function for accuracies c=2,3,4,5
+0599|*S GAL021 / Rotated factor matrix as a scatter plot
+0600|*S GAL022 / Time series diagrams of consumption of spirits and wines in Finland 1967-1991
+0601|*S GAL023 / Plotting a matrix file of binomial coefficients as a multiple bar chart
+0602|*S GAL024 / 999 random points as a scatter plot
+0603|*S GAL025 / Plotting curves with the coordinate axes relocated
+0604|*S GAL026 / Plotting curves and combining pictures
+0605|*S GAL027 / Curve plotting (Steiner circles)
+0606|*S GAL028 / Placing and rotating text
+0607|*S GAL029 / The power of the graphical language of Survo
+0608|*S GAL030 / The power of the graphical language of Survo
+0609|*S GAL031 / The power of the graphical language of Survo
+0610|*S GAL032 / Mixture of two normal distributions
+0611|*S GAL033 / Discriminant space of three iris species with contour ellipses
+0612|*S GAL034 / Multivariate diagrams; Chernoff's faces
+0613|*S GAL035 / Multivariate diagrams; Andrews' function plots
+0614|*S GAL036 / Multivariate diagrams; Andrews' function plots in polar coordinates
+0615|*S GAL037 / Multivariate diagrams; profile symbol plot
+0616|*S GAL038 / Multivariate diagrams; star symbol plot
+0617|*S GAL039 / Bar chart of disk space usage
+0618|*S GAL040 / Correspondence analysis diagram (Fisher's example 1940)
+0619|*S GAL041 / Box plot of birthrate in Finnish provinces
+0620|*S GAL042 / The power of the graphical language of Survo
+0621|*S GAL043 / The power of the graphical language of Survo
+0622|*S GAL044 / The power of the graphical language of Survo
+0623|*S GAL045 / Influence curves for the correlation coefficient
+0624|*S GAL046 / 2-dimensional projections of a 4-dimensional cube
+0625|*S GAL047 / Multiple correspondence analysis of Finland
+0626|*S GAL048 / Grouped scatterplot matrix of the Iris data
+0627|*S GAL049 / The power of the graphical language of Survo
+0628|*S GAL050 / Measurement model and measurement scale
+0629|*S GAL051 / Plotting and filling polylines
+0630|*S GAL052 / The power of the graphical language of Survo
+0631|*S GAL053 / Mixture of two normal distributions
+0632|*S GAL054 / Diagram of hierarchical cluster analysis (dendrogram)
+0633|*S GAL055 / Division of the plotting area into different regions
+0634|*S GAL056 / Bar and pie chart types
+0635|*S GAL057 / Marker types
+0636|*S GAL058 / Connecting points with lines in various ways
+0637|*S GAL059 / Line types
+0638|*S GAL060 / Enhanced scatter plot of Finnish communes
+0640|*TUTSAVE M
+0641|*{tempo 0}
+0642|*{pre}{pre}{pre}{pre}{l9}{erase}{line start}{del9}{R}
+0643|*{d2}{u2}{del line}{u}{pre}S{d}|{copy}{R}
+0644|*{pre}S{u}{line end}{erase}{R}
+0645|*{end}
+0647|- [Thumb(063,e)]
+0648|*Matrix plot of Finnish towns and communes
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0649|- [Thumb(064,e)]
+0650|*Pie chart of population in Nordic countries
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0651|- [Thumb(065,c)]
+0652|*Connecting points with lines
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0653|- [Thumb(066,e)]
+0654|*Mean temperature and rainfall on probit scale
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0655|- [Thumb(067,e)]
+0656|*Mixture of bivariate normal distributions
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0657|- [Thumb(068,e)]
+0658|*Graph paper and contour ellipses
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0659|- [Thumb(069,e)]
+0660|*Discriminant analysis of Finland
+S   | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+0662|*SHADOW REPLACE | \ 618 630
+0665|*DM TMP pictures

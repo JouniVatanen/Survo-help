@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">FILE COPY &lt;original data&gt;,&lt;target file&gt; 
+or FILE COPY &lt;original data&gt; TO &lt;target file&gt; 
+copies all the active fields in a Survo data set &lt;original data&gt; 
+to another Survo data file, &lt;target file&gt;.
+If the latter file does not exist, a new data file will be created.
+The records to be copied may be limited by the CASES, IND, and SELECT
+specifications.
+If the target file exists, the active fields must be defined in it,
+but the types and the lengths of the fields need not be the same as in
+the original file.
+Observations of &lt;original data&gt; will be new ones in &lt;target file&gt;.
+
+If &lt;target file&gt; exists, it is deleted before copying by
+FILE COPY &lt;original data&gt; TO NEW &lt;target file&gt;.
+
+If the target file is a new one, extra space is allocated for future
+needs when new fields are created. If the minimum space for one record
+is len (in bytes) and the number of active variables m, 1.25*len+20
+bytes and 1.25*m+4 fields is reserved for one record in the target file.
+This convention may be overridden by a specification
+NEWSPACE=&lt;extra_amount_of_bytes&gt;,&lt;extra_#_of_fields&gt;.
+For example, NEWSPACE=0,0 creates a file with no extra space for new
+fields.
+NEWSPACE=SAME implies that # of bytes/observation and max # of fields
+will be the same as the corresponding values in &lt;original data&gt;.
+
+When a Survo data file becomes full and cannot accept new fields,
+a simple way to extend its capacity is to create a new file
+by FILE COPY thus letting it to increase space within a record.
+
+To copy new fields to existing observations in &lt;target file&gt;,
+an extra specification MATCH=&lt;match field&gt; may be given in the
+current edit field. The observations have to be in the same order
+in both data files. (See an exception below.)
+MATCH=# implies copying of the first observation of &lt;original data&gt; to
+the first observation of &lt;target file&gt; etc. without using any match field.
+
+As a new extension (from ver. 1.15) a set of match fields can be given
+in the form MATCH=&lt;match field 1&gt;,&lt;match field 2&gt;,...
+Then the condition for copying is that values of all match fields in
+&lt;original data&gt; coincide with those of &lt;target file&gt;.
+
+When MATCH is used, FILE COPY assumes that each case to be copied from
+the source file is also present in the target file. If not, an error
+message will be given.
+Such odd cases (without counterparts in the target file) are ignored
+by entering a specification ODD=&lt;variable&gt; .
+Then, for odd cases, FILE COPY will write value 1 in the ODD variable
+of the source file and common cases will be copied according to MATCH.
+It is the user's responsibility to initialize the ODD variable to 0
+by VAR operation before FILE COPY. After FILE COPY, the ODD cases can
+then be easily recognized and, for example, copied after the common
+cases in the target file (by FILE COPY without MATCH).
+The ODD variable can be omitted by entering ODD=NUL or by omitting
+ODD and giving a MODE=1 specification.
+
+If common cases are not in the same order in both files,
+the specification must be given as ODD=&lt;variable&gt;,2 or as MODE=2
+when no variable for indicating odd cases is needed.
+In this case the process will be much slower.
+
+In previous forms of FILE COPY, it has been assumed that each record
+in source data is copied only once to the first matching record of the
+target file.
+In some cases, it is required that for each record in the target file
+we have to copy the first matching record from the source data. Then
+it is typical that one source record is needed for many records in the
+target file. For example, we want to enter aggregated data for each
+record separately.
+This kind of performance is achieved by the specification MODE=3.
+In this case, possible IND, CASES, and SELECT specifications refer to
+the target file and not to the source file as in previous modes of
+FILE COPY.
+
+  <A HREF="qf1_01.html">D = More information on data management</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

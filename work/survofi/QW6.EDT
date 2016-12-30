@@ -1,0 +1,171 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QW6
+0004|+VDISCR? þ PRINT CUR+1,E TO qw6_01.html
+0005|- include HTML40.DEV
+0006|- include Q.DV2
+0007|- [HelpText]
+0008|*DISCR <data>,L                                          /   M.Korhonen
+S   |       <    >
+0009|*Discriminant analysis:
+0010|*In the discriminant analysis the observations (cases) are divided into
+0011|*groups according to the values of a grouping variable. The grouping
+0012|*variable may be at nominal scale or it has comparatively few distinct
+0013|*values. The purpose of the analysis is to find such classification
+0014|*functions that best characterize the differences between the groups.
+0015|*These functions, which are linear combinations of the original
+0016|*variables, are used for classifying new cases too.
+0018|*The discriminant analysis usually has the following two phases:
+0020|*(1) First the classification functions and tests associated with them
+0021|*are computed.
+0023|*(2) Second the cases of the original or another data are classified
+0024|*according to these functions.
+0025|*The analysis is succesful if few cases of the original data are
+0026|*classified into wrong groups. However, we can get optimistic
+0027|*results when classification function is used to classify the same
+0028|*cases that were used to compute it. This bias may be reduced by
+0029|*using cross validation in the classification or another data with
+0030|*known groups. The classification may base on the classification
+0031|*functions obtained from the discriminant analysis or on the
+0032|*original observations.
+0034|*The general form of the DISCR operation is the following:
+0036|*    DISCR <data>,L
+S   |           <    >
+0037|*    <the definition of the variables in the model>
+S   |     <                                            >
+0038|*    <options for the printout and methods used>
+S   |     <                                         >
+0040|*The variables used for forming the classification (discriminant)
+0041|*functions may be defined either by the VARIABLES specification or
+0042|*they can be pointed by masks X or A.
+0043|*Correspondingly, the grouping variable may be defined by the
+0044|*GROUPING specification or by mask G. The grouping structure of
+0045|*the grouping variable is given in the same way as in ANOVA  and
+0046|*MEANS operations. If the structure is not given then the program
+0047|*will examine the values of the grouping variable from the data file
+0048|*and uses all distinct values found (which means one extra pass
+0049|*through the data). Example:
+0051|*DISCR FISHER,END+2
+0052|*VARIABLES=sepallen,sepalw,petallen,petalw
+0053|*GROUPING=iristype  iristype=1(setosa),2(versicol),3(virginic)
+0054|*RESULTS=CROSS
+0056|*The option CROSS in the RESULTS specification causes the printout of
+0057|*the within and between groups crossproducts matrices. Alternatively,
+0058|*covariances (COVA) or correlations (CORR) may be printed.
+0060|*Further information:
+0061|- shadow a: [LINK(qw6_03.html)]
+0062|*  1 = Definitions for grouping variables
+S   |   a                                    |
+0063|- shadow a: [LINK(qw6_02.html)]
+0064|*  2 = Classification ot the cases
+S   |   a                             |
+0065|- shadow a: [LINK(q21_01.html)]
+0066|*  D = More on data analysis
+S   |   a                       |
+0067|E
+0070|+VCLASSIF? þ PRINT CUR+1,E TO qw6_02.html
+0071|- include HTML40.DEV
+0072|- include Q.DV2
+0073|- [HelpText]
+0074|*THE CLASSIFICATION ANALYSIS
+0076|*(1) The classification method used is selected by the METHOD
+0077|*specification:
+0079|*METHOD=CLASSIC  (default)
+0080|*METHOD=BAYES
+0081|*METHOD=MAHAL   classification based on the Mahalanobis distance only
+0083|*(2) The classification may be performed by using the classification
+0084|*functions based on the discriminant analysis (DSPACE=1, default) or
+0085|*on the original data (DSPACE=2).
+0087|*(3) The group covariance matrices may be assumed to be equal
+0088|*(default) or the classification may be done without that assumption
+0089|*(METHOD=UNEQC).
+0090|*By combining these three features several formulas for forming
+0091|*the classification scores can be obtained. By default, the prior
+0092|*probability that a case belongs to a group is assumed to be
+0093|*proportional to the sample size. The user may give his own prior
+0094|*probabilities by the PRIOR specification, e.g. PRIORS=0.25,0.5,0.25.
+0096|*The program classifies each case into the group with the highest
+0097|*posterior probability. By default, the results are presented in a
+0098|*summary table. Casewise classification results may be obtained by
+0099|*the LIST specification. For each case the printout contains the
+0100|*Mahalanobis distances and posterior probabilities for belonging to
+0101|*each group:
+0103|*LIST=ALL      All observations
+0104|*LIST=INCORR   Only missclassified observations are reported
+0105|*LIST=i,j      The printout starts from i'th observation and ends
+0106|*              with the j'th observation.
+0107|*The scores of the discriminant functions for each case may be
+0108|*saved in the Survo data file by giving the names of these new
+0109|*variables in the CANONICAL specification or they can be pointed
+0110|*by masks C. The number of these canonical variables is
+0111|*min(g-1,p), where g is the number of groups and p is the number
+0112|*of variables used for forming the functions. Only the named
+0113|*canonical variables are saved. The predicted group may be saved
+0114|*in the Survo data file by the PREDICTED specification or by mask
+0115|*P.
+0117|*If the same data is used for computing the classification functions
+0118|*and for classifying the cases, then the classification results
+0119|*may be too optimistic. This may be avoided either by using another
+0120|*data for classification or by using cross validation methods.
+0121|*The use of another data file is pointed by the CLFDATA specification,
+0122|*e.g.
+0124|*    DISCR FISHER1,END+2
+0125|*    VARIABLES=sepallen,sepalw,petallen,petalw
+0126|*    GROUPING=iristype  iristype=1(setosa),2(versicol),3(virginic)
+0127|*    PREDICTED=prediris
+0128|*    CLFDATA=fisher2
+0129|*    CANONICAL=Cano1,Cano2
+0131|*Note! The new canonical variables Cano1 and Cano2 are saved in
+0132|*both Survo data files. The predicted group in the data file
+0133|*fisher2 only.
+0135|*The cross validation method is used if option CROSSV is stated
+0136|*in the METHOD parameter and it may be used only if DSPACE=2.
+0137|*In cross validation, when a case is to be classified the the
+0138|*the effect of this case is removed from the classification formulas.
+0139|*Further information:
+0140|- shadow a: [LINK(qw6_03.html)]
+0141|*  1 = Definitions for grouping variables
+S   |   a                                    |
+0142|- shadow a: [LINK(qw6_01.html)]
+0143|*  A = More on the discriminant analysis
+S   |   a                                   |
+0144|- shadow a: [LINK(q21_01.html)]
+0145|*  D = More on data analysis
+S   |   a                       |
+0146|E
+0149|+VDGRPNG? þ PRINT CUR+1,E TO qw6_03.html
+0150|- include HTML40.DEV
+0151|- include Q.DV2
+0152|- [HelpText]
+0153|*The grouping variable is given by the GROUPING parameter:
+0154|*         GROUPING=<gr.vble1>
+S   |                   <        >
+0155|*or it can be pointed by the mask G. The grouping structure of the
+0156|*grouping variable may be given in the form
+0157|*         <gr.vble>=value1(label1),value2(label2), ...
+S   |          <       >
+0158|*The labels given in parenthesis are optional. If the grouping values
+0159|*are given in ascending order then they are considered as cutpoints
+0160|*for forming groups, e.g.
+0161|*          KNOWLDGE=20,50,80,110,140
+0162|*Values greater than the last cutpoint are treated as missing values.
+0163|*The list above could be shortened by the notation 20(30)140.
+0165|*You can use string variables as grouping variables. The grouping
+0166|*structure of a string variable is given in the form
+0167|*          <gr.vble>=symbol1,symbol2, ...
+S   |           <       >
+0168|*Note that only the first 8 characters of a string variable are
+0169|*significant.
+0171|*If the grouping structure of the grouping variable is not given then
+0172|*all existing values of that variable are used.
+0174|*The maximum number of groups is 32 (can be altered by the parameter
+0175|*setting MAXNCL=<new limit>). The capacity of the program is mainly
+S   |                <         >
+0176|*limited by the requirement
+0178|*   g*(p+1)*p/2 < 64000
+S   |                <
+0180|*where q is the number groups and p is the number of variables used
+0181|*for forming the classification functions.
+0183|- shadow a: [LINK(qw6_01.html)]
+0184|*  A = More information on the DISCR operation
+S   |   a                                         |
+0185|E

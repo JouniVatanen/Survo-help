@@ -1,0 +1,438 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q01
+0004|*LOAD EDQ
+0006|+HELP? þ PRINT CUR+1,E TO q01_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*To help the user, the Survo system provides a special inquiry system.
+0011|*By entering various keywords, information on Survo operations and
+0012|*other relevant facts will be displayed in the Help window.
+0014|*To make an inquiry, a keyword followed by a question mark (like EDITOR?
+0015|*PRINT? PLOT? ) is typed on any empty line in the edit field and
+0016|*activated either by the mouse (double-click) or by the ESC key.
+0017|*All pertinent information will then be displayed. After return to
+0018|*normal editing mode, the previous situation in the edit field will be
+0019|*restored. However, in inquiries about Survo operations it is typical
+0020|*that a general pattern of the operation in question will be printed
+0021|*on the inquiry line.
+0022|*If the keyword is not found, a list of related keywords having the
+0023|*same forepart will be listed and any of them may be selected.
+0025|*An inquiry may be started also by pressing the F1 (HELP) key. Then
+0026|*information on the last operation activated may be obtained directly.
+0027|*Still another way to start an inquiry is to activate a word in the
+0028|*edit field by the keys F2 F1 or by a double-click of the rightmost
+0029|*mouse button.
+0031|*In the Help Window, the system often suggests related or more specific
+0032|*information which may be selected by keystrokes or by the mouse.
+0033|*It is then possible to discover various functions of Survo.
+0035|*After any branch to a new topic, it is possible to return back to
+0036|*previous displays step by step by pressing BACKSPACE (or clicking Prev).
+0037|*At any stage during an inquiry, new keywords may be suggested first
+0038|*by pressing `?' and then entering the keyword.
+0039|*An alternative way to select other keywords in the Help Window is to
+0040|*move the cursor by arrow keys (or mouse) and activate by by ESC (or mouse).
+0042|*Each display presented by the inquiry system may also be
+0043|*copied in the edit field by pressing `+' .
+0044|*The newest options are often highlighted.
+0046|*Other ways for getting information from the inquiry system of Survo
+0047|*are provided by the sucro commands /HSEARCH and /HLIST.
+0049|- shadow a: [New][LINK(q01_10.html)]
+0050|d  X = Examples in the Help system
+S   |   a                             ;
+0051|- shadow a: [LINK(q01_02.html)]
+0052|*  E = more information on Survo
+S   |   a                           |
+0053|E
+0056|+EDITOR? þ PRINT CUR+1,E TO q01_02.html
+0057|- include HTML40.DEV
+0058|- include Q.DV2
+0059|- [HelpText]
+0060|*The Survo Editor is the basic tool for all operations in Survo.
+0061|- shadow a: [LINK(q01_05.html)]
+0062|*  A = General information on Survo
+S   |   a                              |
+0063|- shadow a: [LINK(q01_06.html)]
+0064|*  B = Edit field
+S   |   a            |
+0065|- shadow a: [LINK(q02_01.html)]
+0066|S  C = Keys, mouse and their functions
+S   |   a         88888                   |
+0067|- shadow a: [LINK(q02a_01.html)]
+0068|*  D = Survo operations
+S   |   a                  |
+0069|- shadow a: [LINK(q03_01.html)]
+0070|*  E = Control operations
+S   |   a                    |
+0071|- shadow a: [LINK(q09_01.html)]
+0072|*  F = Text processing
+S   |   a                 |
+0073|- shadow a: [LINK(q0a_01.html)]
+0074|*  G = Operations for tables
+S   |   a                       |
+0075|- shadow a: [LINK(qf1_01.html)]
+0076|*  H = File management (Survo data files)
+S   |   a                                    |
+0077|- shadow a: [LINK(q21_01.html)]
+0078|*  I = Statistical data analysis
+S   |   a                           |
+0079|- shadow a: [LINK(qm1_01.html)]
+0080|*  J = Mathematical operations
+S   |   a                         |
+0081|- shadow a: [LINK(q11_01.html)]
+0082|*  K = Plotting
+S   |   a          |
+0083|- shadow a: [LINK(qc1_01.html)]
+0084|*  L = Numerical conversions
+S   |   a                       |
+0085|- shadow a: [New][LINK(q01_11.html)]
+0086|d  X = Links and cross references
+S   |   a                            ;
+0087|- shadow a: [New][LINK(q01_13.html)]
+0088|d  Y = Detecting errors in command and specification words
+S   |   a                                                     ;
+0089|- shadow a: [LINK(q0n1_01.html)]
+0090|*  N = New functions (since writing of the Survo book 1992)
+S   |   a                                                      |
+0091|- shadow a: [New][LINK(qs1_01.html)]
+0092|S  S = SURVO MM, special features
+S   |   a                            ;
+0093|- shadow a: [New][LINK(qm_1_01.html)]
+0094|S  M = SURVO MM:n erityispiirteit„
+S   |   a                             ;
+0096|E
+0099|+EE? þ PRINT CUR+1,E TO q01_03.html
+0100|- include HTML40.DEV
+0101|- include Q.DV2
+0102|- [HelpText]
+0103|- shadow a: [LINK(q01_02.html)]
+0104|*  E = more information on the Survo Editor
+S   |   a                                      |
+0105|E
+0108|+MISS? þ PRINT CUR+1,E TO q01_04.html
+0109|- include HTML40.DEV
+0110|- include Q.DV2
+0111|- [HelpText]
+0112|*        (Description still missing)
+0113|*        Press BACKSPACE!
+0114|E
+0116|+SURVO? þ PRINT CUR+1,E TO q01_05.html
+0117|- include HTML40.DEV
+0118|- include Q.DV2
+0119|- [HelpText]
+0120|*Survo is an integrated system for statistical analysis, computing,
+0121|*data base management, graphics, desktop publishing, etc.
+0122|SThrough its unique editorial interface, Survo forms a general
+S   |                    4444444444444444444
+0123|*environment for many kinds of applications.
+0124|*Technically, Survo is a collection of C programs (modules) with a common
+0125|*interface established by the Survo Editor, a general text editor.
+0126|*During a Survo session the editor calls Survo modules automatically
+0127|*according to the user's activations. The user has no need to know
+0128|*how the programs are linked together. He/she sees Survo as one
+0129|*integrated environment.
+0130|*Currently Survo includes over 100 C programs (.EXE files) and
+0131|*hundreds of other system files. All these files are located in one
+0132|*directory <Survo> and in its subdirectories.
+S   |           <     >
+0133|*Typically <Survo>=C:\PROGRA~1\SURVO.
+S   |           <     >
+0135|*The originator and main author of Survo is prof. Seppo Mustonen, PhD.
+0136|aE-mail: seppo.mustonen@survo.fi
+0138|- shadow a: [LINK(q01_02.html)]
+0139|*  E = more information on the Survo Editor
+S   |   a                                      |
+0140|E
+0141|+FIELD? þ PRINT CUR+1,E TO q01_06.html
+0142|- include HTML40.DEV
+0143|- include Q.DV2
+0144|- [HelpText]
+0145|*When EDITOR is in use, all information (text, data, results and
+0146|*operations) is represented in an edit field which consists, for
+0147|*example, of 100 columns and 1000 rows (lines). On the left side of
+0148|*the field the line numbers and a control column (originally filled
+0149|*with asterisks *) are displayed.
+0150|*The edit field is always partially visible on the CRT which is like
+0151|*a window to the field. The user can scroll text on the screen to any
+0152|*direction by the arrow keys and by the PREV and NEXT keys.
+0154|*The size of the field may be altered by a REDIM operation.
+0155|*the contents of the field is saved in an edit file by a SAVE oper-
+0156|*ation and the edit file is reloaded to the field by a LOAD operation.
+0157|*Also several fields or parts of them as well those of any text files
+0158|*can be combined by a SHOW operation.
+0160|*Selected lines of the edit field are printed on the paper by a PRINT
+0161|*operation. PRINT has also an extended form permitting printing of
+0162|*parts of several edit files in any order as an entire document
+0163|*which is automatically divided into pages, etc.
+0164|- shadow %: [LINK(q03_05.html)] [/LINK]
+0165|*See REDIM,SAVE,LOAD,SHOW,PRINT.
+S   |     %%%%%
+0166|- shadow a: [LINK(q07_07.html)]
+0167|*  C = information on control column
+S   |   a                               |
+0168|- shadow a: [LINK(q0b_10.html)]
+0169|*  P = system parameters of Survo
+S   |   a                            |
+0170|- shadow a: [LINK(q04_12.html)]
+0171|*  S = Shadows (colors and display effects)
+S   |   a                                      |
+0172|- shadow a: [New][LINK(q113_06.html)]
+0173|d  D = Display-off mode
+S   |   a                  ;
+0174|- shadow a: [LINK(q01_07.html)]
+0175|*  A = Automatic saving of the current edit field
+S   |   a                                            |
+0176|- shadow a: [LINK(q01_02.html)]
+0177|*  E = more information on Survo
+S   |   a                           |
+0178|E
+0181|+AUTOSAVE? þ PRINT CUR+1,E TO q01_07.html
+0182|- include HTML40.DEV
+0183|- include Q.DV2
+0184|- [HelpText]
+0185|*By setting a line of the form
+0186|*   autosave=n (where n is an integer)
+0187|*in the system file SURVO.APU (text file usually in the system directory)
+0188|*the current edit field will be saved in the SURVO.EDT file in the
+0189|*temporary directory of Survo (defined by `tempdisk' in SURVO.APU).
+0190|*once in every n minutes.
+0191|*Then, if by accident the contents of the edit field is lost, the
+0192|*last spare copy will be found by the (sucro) command
+0193|*   /AUTOLOAD
+0194|*or it can be scanned by
+0195|*   /AUTOSHOW
+0197|*To omit temporary savings, set
+0198|*   autosave=0
+0199|*in SURVO.APU or delete the `autosave' line altogether.
+0201|- shadow a: [LINK(q01_02.html)]
+0202|*  E = more information on EDITOR
+S   |   a                            |
+0203|E
+0205|+HYPER? þ PRINT CUR+1,E TO q01_08.html
+0206|- include HTML40.DEV
+0207|- include Q.DV2
+0208|- [HelpText]
+0209|*Making hypertext applications in Survo
+0211|*The inquiry (help) system is a hypertext. One can activate any word
+0212|*in the edit field by the key combination F2 F1. If the word is a valid
+0213|*keyword, the inquiry system will display information related to it.
+0214|*While reading help text, one can also move the cursor, indicate another
+0215|*keyword and activate an inquiry for it by ESC (or F2 F1), etc.
+0216|*All the help texts are stored in edit files on the path defined by
+0217|*the system parameter qpath in the SURVO.APU file.
+0218|*This path (and the help texts) can be changed by the QPATH command.
+0220|*Thus it is possible to create and maintain several hypertexts related
+0221|*to any topic by the same method as we are doing in the inquiry system
+0222|*of Survo.
+0223|*To see how the edit files are organized in order to support help
+0224|*texts and menus, study the edit files of the help system, please.
+0225|*The Survo help system resides on the path <Survo>\Q .
+S   |                                           <     >
+0227|- shadow a: [New][LINK(qkv0_04.html)]
+0228|d  H = Creating HTML applications in Survo
+S   |   a                                     ;
+0229|- shadow a: [LINK(q09_01.html)]
+0230|*  T = More information on text processing
+S   |   a                                     |
+0231|E
+0233|+NO? þ PRINT CUR+1,E TO q01_09.html
+0234|- include HTML40.DEV
+0235|- include Q.DV2
+0236|- [HelpText]
+0237|*This option is not available anymore!
+0238|E
+0240|+EXAMPLE? þ PRINT CUR+1,E TO q01_10.html
+0241|- include HTML40.DEV
+0242|- include Q.DV2
+0243|- [HelpText]
+0244|- [New]
+0245|*Examples in the Help system of SURVO MM: (Not available in the Web Edition)
+0246|- [/New]
+0247|*The Help system contains also examples about Survo usage. In older
+0248|*versions the user had to load them into the current edit field in order
+0249|*to see how they work.
+0250|*Now it is possible to activate examples directly from the Help system.
+0251|SWhen a 'button' |EXAMPLE| appears in the Help window, a demo related
+S   |                 888888888
+0252|*to the current subject will be activated by double-clicking this button.
+0253|*In fact, another copy of SURVO MM will then carry out this task by using
+0254|*the sucro automatically. When the example is terminated, the user must
+0255|*exit this second Survo and then he/she will be back in the original
+0256|*Survo session.
+0257|*This option highly improves learning Survo usage.
+0259|*As a long-term goal we are going to extend the help system to cover
+0260|S"all" activities with illustrative EXAMPLE's, but this requires
+S   |                                    8888888
+0261|*a lot of work. However, already now there are plenty of demo sucros
+0262|*related to the examples of the Survo book (1992); most of them
+0263|*will be connected to the Help system in the nearest future.
+0264|SCurrently EXAMPLE's can be found in about 40 places and they can be
+S   |           8888888
+0265|*found systematically, for example, by activating
+0266|*/HSEARCH |EXAMPLE|
+0267|SVarious EXAMPLE's:
+S   |         8888888
+0268|*COUNT?       4 examples of various forms of the COUNT command
+0269|*FORM?        Example on page 36 of the Survo book
+0270|*PLOT?:1,X,G  New GROUPING specification in bar charts
+0271|*MOUSE2?      Use of the mouse when positioning texts in screen graphics
+0272|*CORRESP?     (Old) example related to correspondence analysis
+0274|- shadow a: [LINK(q01_02.html)]
+0275|*  E = more information on Survo
+S   |   a                           |
+0276|E
+0278|+LINK? þ PRINT CUR+1,E TO q01_11.html
+0279|- include HTML40.DEV
+0280|- include Q.DV2
+0281|- [HelpText]
+0282|*Links and cross references in Survo
+0284|*Survo offers many means for navigation within Survo applications as
+0285|*well as for linking to other programs and to the web.
+0286|*In fact any word or sequence of words typed in the edit field
+0287|*may be used as a link to the Web.
+0289|- shadow a: [LINK(q03_16.html)]
+0290|*  1 = Menus for job control and lists of references
+S   |   a                                               |
+0291|- shadow a: [LINK(qkv0_01.html)]
+0292|*  2 = Desktop operations (by Kimmo Vehkalahti)
+S   |   a                                          |
+0293|- shadow a: [LINK(q01_01.html)]
+0294|*  3 = Inquiry system (HELP)
+S   |   a                       |
+0295|- shadow a: [LINK(q04_03.html)]
+0296|*  4 = Navigation in the edit field
+S   |   a                              |
+0297|- shadow a: [LINK(q0b_29.html)]
+0298|*  5 = Soft keys or buttons
+S   |   a                      |
+0299|- shadow a: [New][LINK(q01_12.html)]
+0300|d  6 = Links to other programs and to the web
+S   |   a                                        ;
+0301|- shadow a: [New][LINK(q02b_02.html)]
+0302|d  7 = F1 codes (links) for getting information from the Web (WEB?)
+S   |   a                                                              ;
+0304|E
+0306|*$E
+0308|+LINKS? þ PRINT CUR+1,E TO q01_12.html
+0309|- include HTML40.DEV
+0310|- include Q.DV2
+0311|- [HelpText]
+0312|- [New]
+0313|*Links to other programs and to the web
+0314|- [/New]
+0316|*Files made by other programs as well as websites can be opened
+0317|*while working in Survo simply by activating (path)names of files
+0318|*and website addresses appearing within the text in the edit field.
+0319|- shadow W: [LINK(http://www.survo.fi)] [/LINK]
+0320|*For example, the website of Survo is opened by activating www.survo.fi
+S   |                                                           WWWWWWWWWWWW
+0321|*by the double-click or by the ESC key.
+0322|*Similarly, when activating a filename of a PDF file, say D:\PAPERS\DOC1.PDF,
+0323|*Survo calls the START command of the Windows command interpreter
+0324|*to open this file by the program (typically Adobe Acrobat) associated
+0325|*to this filetype (see in Windows 'Folder options' -> 'File types').
+S   |                                                    >
+0327|*Typical filetypes of Survo like edit files (.EDT), data files (.SVO),
+0328|*matrix files (.MAT), etc. can be browsed by activating their pathnames
+0329|*typed in the edit field using suitable 'show' commands.
+0331|*Please note that if an edit line containing a link word starts by a valid
+0332|*Survo command word, the command is always activated in the first place.
+0334|*Associations described above are defined in a Survo system file OPEN.SYS.
+0335|*More details (for advanced users) on the next page!
+0337|- [New]
+0338|*System file OPEN.SYS
+0339|- [/New]
+0340|*This text file defines the Survo associations for immediate access
+0341|*to files maintained by the web browser, other programs, or Survo itself.
+0342|*LOADP <Survo>\U\SYS\OPEN.SYS
+S   |       <     >
+0343|- shadow W: [%=0]
+0344|*0 www.     /OPEN
+S   |   WWW
+0345|- shadow W: [%=0]
+0346|*0 http://  /OPEN             / Only beginning of the file is displayed here.
+S   |   WWWWWWW
+0347|*0 *.html   /OPEN             / /OPEN is a sucro which simply activates
+0348|*0 *.htm    /OPEN             / the START command.
+0349|*1 *.pdf    /OPEN
+0350|*1 *.edt    SHOW
+0351|*1 *.txt    SHOW
+0352|*1 *.svo    FILE SHOW
+0353|*1 *.mat    /MATSHOW
+0354|*etc.
+0356|*For example, the line
+0357|- shadow W: [%=0]
+0358|*0 www.     /OPEN
+S   |   WWW
+0359|- shadow W: [LINK(http://www.survo.fi,)] [/LINK]
+0360|*tells that any string in the edit field starting by "www.", say www.survo.fi,
+S   |                                                                 WWWWWWWWWWWWW
+0361|- shadow W: [LINK(http://www.survo.fi)] [/LINK]
+0362|*will be opened by the command /OPEN www.survo.fi. The '0' as the first
+S   |                                     WWWWWWWWWWWW
+0363|*item says that iterpretation of the keyword "www." is case-sensitive.
+0364|*                                      (To be continued on the next page)
+0366|*Thus in this case Survo activates the command interpreter by
+0367|- shadow W: [LINK(http://www.survo.fi)] [/LINK]
+0368|*>START www.survo.fi
+S   | >      WWWWWWWWWWWW
+0369|*which according to standard Windows associations calls the default
+0370|*web browser to show the page in the given address.
+0372|*Other examples:
+0373|*1 *.pdf    /OPEN
+0374|*opens a PDF file with the extension .pdf by using a program which is
+0375|*associated to these files in Windows. '1' in front of the line tells
+0376|*that the keyword "*.pdf" is not case-sensitive.
+0377|*1 *.svo    FILE SHOW
+0378|*creates and activates the Survo command
+0379|*FILE SHOW <Survo_data_file_with_the_extension_.SVO>
+S   |           <                                       >
+0380|*For example, if G:\STUDY1\SAMPLE1.SVO is activated, Survo tries to
+0381|*open a Survo data file (extension .SVO) by the command
+0382|*FILE SHOW G:\STUDY1\SAMPLE1.SVO
+0384|*The user can extend and modify OPEN.SYS by any means intended for text files.
+0386|- shadow a: [LINK(q01_11.html)]
+0387|*  L = Links and cross references in Survo
+S   |   a                                     |
+0388|E
+0390|+ERROR? þ PRINT CUR+1,E TO q01_13.html
+0391|- include HTML40.DEV
+0392|- include Q.DV2
+0393|- [HelpText]
+0394|- [New]
+0395|*Detecting errors in command and specification words
+0396|- [/New]
+0398|*When a command is activated and it does not correspond to any known
+0399|*Survo operation, an error message is displayed.
+0400|*If the command word is close enough to some real Survo commands,
+0401|*the error message includes a list of possible alternatives
+0402|*thus guiding the user to detect a typo etc.
+0403|*The alternative commands are found by computing the Levenshtein (edit)
+0404|*distance d between the given command and each possible real command
+0405|*and listing the command words having the shortest distance.
+0406|*The list of alternatives is shown when d<3 and there are less than 6
+S   |                                         <
+0407|*words in the list.
+0408|*In Survo, Levenshtein distance is slightly modified by permitting inter-
+0409|- shadow %: [LINK(q0c_08.html)] [/LINK]
+0410|*change of two consecutive letters in the edit operations (see STRDIST?).
+S   |                                                               %%%%%%%
+0412|*Specification words:
+0413|*By default, specification words are not checked.
+0414|*Checking them is turned on by the command
+0415|*SYSTEM spec_check=1 (or by the soft buttons SYSTEM -> SPEC).
+S   |                                                     >
+0416|*When a Survo operation is activated and checking is on, all pertinent
+0417|*specification words (like HOME in HOME=200,300) are compared to
+0418|*a list of all specification words usable in that operation.
+0419|*If a specification word does not correspond to any allowed word
+0420|*and Levenshtein distance to the closest one is less than 3 and
+0421|*there are not more than 5 such words, an error message (containing
+0422|*a list of alternative words) is displayed and the operation is
+0423|*interrupted.
+0425|*Since the user may have his/her own specifications which are not
+0426|*relevant in the current operation but resemble some actual
+0427|*specifications, this procedure may sometimes lead to false alarms.
+0428|*Therefore it is advisable to turn spec_check on only after encountering
+0429|*difficulties in activation. Checking may then discover typos etc.
+0430|E

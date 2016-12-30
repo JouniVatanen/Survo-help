@@ -1,0 +1,90 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q0P4
+0004|*LOAD EDQ
+0006|+PSPLOT? þ PRINT CUR+1,E TO q0p4_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Special features of PostScript printers in PLOT operations:
+0011|*Specification DEVICE=PS must be given.
+0012|*The unit step in plotting is 0.1 mm (1 dmm).
+0013|*Maximum size: SIZE=1950,2800  (with HOME=70,100) on A4 paper
+0014|*Defaults: SIZE=1500,1500 HOME=250,100 XDIV=3,10,2 YDIV=3,10,2
+0016|*To save the graph in a picture file, enter specification
+0017|*DEVICE=PS,<filename.PS>
+S   |           <           >
+0018|*The picture file may later be be included in any report by
+0019|- shadow %: [LINK(q08_01.html)] [/LINK]
+0020|*using the - picture option in the PRINT operation (see PRINT?).
+S   |                                                        %%%%%
+0022|*The default device driver in SURVO.APU must be plot_dev=PS.DEV
+0023|*or corresponding. This can be overridden by INCLUDE=PS.DEV
+0025|- shadow a: [LINK(q0p4_02.html)]
+0026|*  C = Control codes for PostScript plotting
+S   |   a                                       |
+0027|- shadow a: [New][LINK(q0p4_03.html)]
+0028|d  T = Moving and rotating texts in PostScript plots
+S   |   a                                               ;
+0029|- shadow a: [LINK(q0p1_01.html)]
+0030|*  P = More information on PostScript printing
+S   |   a                                         |
+0031|- shadow a: [LINK(q11_01.html)]
+0032|*  G = More information on plotting
+S   |   a                              |
+0033|E
+0036|+PSC? þ PRINT CUR+1,E TO q0p4_02.html
+0037|- include HTML40.DEV
+0038|- include Q.DV2
+0039|- [HelpText]
+0040|*The control codes for various graphical elements in PostScript plotting
+0041|*are mostly the same as on other devices.
+0042|*Line width is selected by [line_width(x)] where x is given in points
+0043|*(1 point = 1/12 inches). Default value is x=0.48 .
+0044|*Line types are selected by [line_type(x)] where possible values are
+0045|*x=0,1,...,7. The line types are defined in PS.DEV as a vector /ltype.
+0046|*The user can add more types and modify existing ones by editing PS.DEV.
+0047|*Markings for points (in scatter diagrams, for example) defined by the
+0048|*POINT specification are following:
+0049|*0=black circle, 1=plus, 2=asterisk, 3=white circle, 4=cross, 5=white
+0050|*square, 6=black square, 7=white triangle, 8=black triangle, 9=white
+0051|Sdiamond, 10=black diamond, 21=arrow head, 22=filled arrow head.
+S   |                            8888888888888  88888888888888888888
+0053|- shadow a: [LINK(q0p4_01.html)]
+0054|*  P = More information on PostScript plotting
+S   |   a                                         |
+0055|E
+0058|+PSTEXT? þ PRINT CUR+1,E TO q0p4_03.html
+0059|- include HTML40.DEV
+0060|- include Q.DV2
+0061|- [HelpText]
+0062|*In addition to the general device-dependent control words, the following
+0063|*control codes are available for moving and rotating of texts:
+0064|- shadow %: [LINK(q111_13.html)] [/LINK]
+0065|*(Same specifications are also available in GPLOT, see TEXTROT?)
+S   |                                                       %%%%%%%
+0067|*  [MOVE(x,y)]    moves the start of the text by x in X direction and by y
+0068|*                 in Y direction.
+0069|*  [ROT(angle)]   rotates the text by an angle given in degrees.
+0071|*The following example illustrates the use of these control words:
+0072|*...............
+0073|*PLOT Y(X)=10*SIN(X) / DEVICE=PS,TEST.PS
+0074|*/GS-PDF TEST.PS
+0075|*HEADER=[MOVE(500,-50)][Timesb(18)],Test_plot
+0076|*PEN=[MOVE(0,0)][ROT(0)][Swiss(10)]
+0077|*YSCALE=[ROT(90)],-10(2)10
+0078|*YSCALE2=[MOVE(0,30)][ROT(-90)],-10(2)10
+0079|*YSCALEPOS=-50,50
+0080|*...............
+0081|*                             See [char_width(x)] on the next page!
+0083|*When using fonts of proportional pitch (as Times or Swiss), equally
+0084|*spaced text can be printed by using [char_width(x)] where x is the
+0085|*character width given in Points. [char_width(0)] means resuming the
+0086|*normal proportional pitch again.
+0087|*This facility is useful in plotting Y scale notations in graphs in order
+0088|*to get notations correctly aligned.
+0089|*Typical example: PEN=[Swiss(10)][char_width(0)]
+0090|*                 YSCALE=[char_width(8)],-4(2)2
+0092|- shadow a: [LINK(q0p4_01.html)]
+0093|*  P = More information on PostScript plotting
+S   |   a                                         |
+0094|E

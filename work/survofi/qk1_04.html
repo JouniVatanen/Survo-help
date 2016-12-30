@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">LIST in Survo is a sequence of text chapters located in different
+edit fields. Each chapter must be defined by a DEF definition in
+its own edit field (see <A HREF="q04_10.html">DEF</A>?). The list itself is defined by
+a text file with the following minimal structure:
+
+&lt;chapter_1&gt;,&lt;edit_field_1&gt; 
+&lt;chapter_2&gt;,&lt;edit_field_2&gt; 
+...
+END
+
+Abbreviations like A,XYZ1-3  (meaning A,XYZ1 A,XYZ2 A,XYZ3) are also
+accepted.
+The list thus defined is referred to by its file name with .LST as the
+default extension.
+
+To process a list in a structured form, the LST file must contain some
+additional information.
+
+In LIST SHOW and LIST REPLACE operations the list can also be defined
+locally in the current edit field in the following way:
+LIST &lt;name_of_the_list&gt;: &lt;chapter_1&gt;,&lt;edit_field_1&gt; &lt;chapter_2&gt;,&lt;edit_field2&gt;,
+                          ...  END
+The chapters belonging to the list have to be given by DEF definitions
+in their edit files (See <A HREF="q04_10.html">DEF</A>?).
+
+Example:
+LIST REPORT1: A,INTRO1 A,INTRO2 A,INTRO3
+              A,CH1 A,CH2 A,CH3 A,CH4 A,CH5 *,REF END
+                                           (* = entire edit file)
+The list above can also be given in an abbreviated form
+LIST REPORT1: A,INTRO1-3 A,CH1-5 *,REF END
+
+Edit files can given with complete pathnames. A common path for all
+fields is given by PATH=&lt;path&gt;. For example: PATH=D:\REPORT\
+
+  <A HREF="qk1_01.html">L = More information on LIST operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

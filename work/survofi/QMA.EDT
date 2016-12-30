@@ -1,0 +1,622 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QMA
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+MATEXT? þ PRINT CUR+1,E TO qma_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0013|*Additional MAT #operations:
+0015|- shadow a: [LINK(qma_03.html)]
+0016|*  1 = MAT #TRANSFORM
+S   |   a                |
+0017|- shadow a: [LINK(qma_05.html)]
+0018|*  2 = MAT #MULT
+S   |   a           |
+0019|- shadow a: [LINK(qma_06.html)]
+0020|*  3 = MAT #SAMPLES
+S   |   a              |
+0021|- shadow a: [LINK(qma_07.html)]
+0022|*  4 = MAT #INDVAR
+S   |   a             |
+0023|- shadow a: [LINK(qma_08.html)]
+0024|*  5 = MAT #MERGE
+S   |   a            |
+0025|- shadow a: [LINK(qma_09.html)]
+0026|*  6 = MAT #MINDIFF
+S   |   a              |
+0027|- shadow a: [LINK(qma_10.html)]
+0028|*  7 = MAT #COLSORT
+S   |   a              |
+0029|- shadow a: [LINK(qma_11.html)]
+0030|*  8 = MAT #CRSORT
+S   |   a             |
+0031|- shadow a: [LINK(qma_12.html)]
+0032|*  9 = MAT #EIGEN
+S   |   a            |
+0033|- shadow a: [LINK(qma_13.html)]
+0034|*  A = MAT #CONVOLUTION
+S   |   a                  |
+0035|- shadow a: [LINK(qma_14.html)]
+0036|*  B = MAT #MAXDET
+S   |   a             |
+0037|- shadow a: [LINK(qma_15.html)]
+0038|*  C = MAT #INTSCAL, MAT #FRAC_TO_DEC
+S   |   a                                |
+0039|- shadow a: [LINK(qma_16.html)]
+0040|*  D = MAT #SAMPLE
+S   |   a             |
+0041|- shadow a: [LINK(qma_18.html)]
+0042|*  E = MAT #SORT
+S   |   a           |
+0043|- shadow a: [LINK(qma_19.html)]
+0044|*  F = MAT #MAGIC
+S   |   a            |
+0045|- shadow a: [LINK(qma_17.html)]
+0046|*  G = MAT #JACKKNIFE
+S   |   a                |
+0047|- shadow a: [New][LINK(qma_02.html)]
+0048|d  H = More MAT # operations
+S   |   a                       ;
+0050|E
+0052|+MAT2? þ PRINT CUR+1,E TO qma_02.html
+0053|- include HTML40.DEV
+0054|- include Q.DV2
+0055|- [HelpText]
+0057|*Additional MAT #operations:
+0059|- shadow a: [LINK(qma_20.html)]
+0060|*  1 = MAT #EIGLAN, MAT #EIGFEW
+S   |   a                          |
+0061|- shadow a: [New][LINK(qma_21.html)]
+0062|d  2 = MAT #PRODDIAG
+S   |   a               ;
+0063|- shadow a: [New][LINK(qma_22.html)]
+0064|d  3 = MAT #RAO_KHATRI
+S   |   a                 ;
+0065|- shadow a: [New][LINK(qma_23.html)]
+0066|d  4 = MAT #HADAMARD
+S   |   a               ;
+0068|E
+0070|+TRANSFO? þ PRINT CUR+1,E TO qma_03.html
+0071|- include HTML40.DEV
+0072|- include Q.DV2
+0073|- [HelpText]
+0074|*MAT #TRANSFORM X BY <expression(X#,I#,J#)>
+S   |                     <                    >
+0075|*or
+0076|#MAT #TRANSFORM X BY Y AND <expression(X#,Y#,I#,J#)>
+S   |                           <                       >
+0077|*works as MAT TRANSFORM but allows a larger set of functions to be used.
+0078|*In fact, all features of the VAR operation are available
+0079|*except those related to data sets like lags and leads, etc.
+0080|*Thus, for example, temporary functions defined in the edit field
+0081|*library functions (on disk), and random deviates (rand function etc.)
+0082|*are permitted.
+0083|*Examples:
+0084|*m=8                                    / Generating m x m matrix A
+0085|*MAT A=ZER(m,m)                         / with all elements
+0086|*MAT #TRANSFORM A BY probit(rand(1995)) / independently distributed as N(0,1)
+0088|*MAT C=ZER(m,m)                         / Generating m x m matrix C
+0089|*MAT #TRANSFORM C BY C(I#,J#)           / of binomial coefficients
+0091|#MAT #TRANSFORM C BY RECURRENCE N
+0092|*transforms matrix C by a recurrence relation N of two integer variables.
+0093|*N must be defined like a temporary function in editorial computing in the form
+0094|*N(m,n):=function(m,n,N(i1,j1),N(i2,j2),...) where i1,i2,...<m, j1,j2,...<=n .
+S   |                                                            <            <
+0095|*Before using this MAT #TRANSFORM operation the initial conditions
+0096|*must be given by filling certain first rows/columns/elements with
+0097|*suitable values. The starting position of iteration is supplied by
+0098|*a START=i0,j0 specification where i0,j0 are row and column indices.
+0099|*Rows and columns are implicitly labelled by 0,1,2,... (i.e. starting
+0100|*from 0 instead of 1). Operations
+0101|*MAT RLABELS NUM(0) TO C
+0102|*MAT CLABELS NUM(0) TO C
+0103|*are available for such labelling.
+0105|*If C is a column vector, also functions of one integer variable are allowed.
+0107|*........................................................................
+0108|*Example: Stirling numbers of the second kind
+0109|*S2(n,k):=S2(n-1,k-1)+k*S2(n-1,k)  Initial condition S2(n,1)=1
+0111|*n=10 k=n             / Numbers for n=1,..,10 k=1,...,10 to be computed
+0112|*MAT A=ZER(n+1,k+1)   / Matrix A initialized by 0's
+0113|*MAT C=CON(n,1)
+0114|*MAT A(2,2)=C         / Column 2 (corresponding to k=1) filled with 1's
+0115|*MAT RLABELS NUM(0) TO A
+0116|*MAT CLABELS NUM(0) TO A
+0117|*/MATSHOW A,12        / See matrix A in initial state
+0119|*START=2,2            / Starting point for recursion
+0120|*MAT #TRANSFORM A BY RECURRENCE S2
+0121|*/MATSHOW A,12345     / See the table of Stirling numbers
+0122|*........................................................................
+0124|#MAT #TRANSFORM X BY #RAND(seed_number)
+0125|*works as
+0126|- shadow %: [%=0]
+0127|*MAT #TRANSFORM X BY RAND(seed_number)
+S   |                     %%%%%%%%%%%%%%%%
+0128|*but is about two times faster.
+0130|- [New]
+0131|*MAT #TRANSFORM X BY #DISTR(P,seed_number)
+0132|*transforms X to a random matrix with elements as a sample from
+0133|*a discrete distribution defined by a matrix P.
+0134|*P is defined as in the command
+0135|- shadow %: [LINK(qv3_04.html)] [/LINK]
+0136|*TRANSFORM <data> BY #DISTR(P) (See TRANSFORM?).
+S   |           <    >                   %%%%%%%%%
+0137|- [/New]
+0140|- shadow a: [LINK(qma_01.html)]
+0141|*A = More about additional MAT #operations
+S   | a                                       |
+0142|- shadow a: [LINK(qm2_01.html)]
+0143|*M = More about MAT operations
+S   | a                           |
+0144|E
+0146|+MM? þ PRINT CUR+1,E TO qma_04.html
+0147|- include HTML40.DEV
+0148|- include Q.DV2
+0149|- [HelpText]
+0151|- shadow a: [LINK(qma_01.html)]
+0152|*A = More about additional MAT #operations
+S   | a                                       |
+0153|- shadow a: [LINK(qm2_01.html)]
+0154|*M = More about MAT operations
+S   | a                           |
+0155|E
+0157|+MULT? þ PRINT CUR+1,E TO qma_05.html
+0158|- include HTML40.DEV
+0159|- include Q.DV2
+0160|- [HelpText]
+0161|#MAT #MULT(C,A,B,typeA,typeB)
+0162|*computes matrix C as a product of A and B (C=A*B)
+0163|*by observing types of operands and
+0164|*thus avoiding multiplication of 0's.
+0165|*Valid types are
+0166|*D    diagonal,
+0167|*D#   #-diagonal (e.g. D3=tridiagonal),
+0168|*LT   lower triangular,
+0169|*UT   upper triangular,
+0170|*G    general.
+0172|*The actual type of an operand is not checked.
+0173|*Therefore it is possible, for example, to multiply
+0174|*by the diagonal of a general square matrix by
+0175|*giving its type as D.
+0177|- shadow a: [LINK(qma_01.html)]
+0178|*A = More about additional MAT #operations
+S   | a                                       |
+0179|- shadow a: [LINK(qm2_01.html)]
+0180|*M = More about MAT operations
+S   | a                           |
+0181|E
+0183|+#SAMPLES? þ PRINT CUR+1,E TO qma_06.html
+0184|- include HTML40.DEV
+0185|- include Q.DV2
+0186|- [HelpText]
+0187|#MAT #SAMPLES <matrix>,N,n,m,<rand>
+S   |              <      >       <    >
+0188|*makes m random samples of size n from integers 1,2,...,N
+0189|*using random number generator <rand>.
+S   |                               <    >
+0190|*The samples generated are saved as a n x m matrix file <matrix>.
+S   |                                                        <      >
+0191|- shadow %: [LINK(qm2_01.html)] [/LINK]
+0192|*See also MAT #SAMPLE.
+S   |          %%%
+0194|*Example:
+0195|*MAT #SAMPLES LOTTO,39,7,12,rand(37952049)
+0196|*MAT LOAD LOTTO,123,CUR+1
+0198|*MAT #INDVAR is a companion module to MAT #SAMPLES
+0199|*enabling simple random sampling from Survo data files (See #INDVAR?)
+0201|- shadow a: [LINK(qma_01.html)]
+0202|*A = More about additional MAT #operations
+S   | a                                       |
+0203|- shadow a: [LINK(qm2_01.html)]
+0204|*M = More about MAT operations
+S   | a                           |
+0205|E
+0207|+#INDVAR? þ PRINT CUR+1,E TO qma_07.html
+0208|- include HTML40.DEV
+0209|- include Q.DV2
+0210|- [HelpText]
+0211|#MAT #INDVAR FROM <matrix> TO <Survo_data_file>
+S   |                  <      >    <               >
+0212|*marks subsets (samples) of size n of <Survoa_data_file>
+S   |                                      <                >
+0213|*by generating 0-1 indicator variables, say S1,S2,...,Sm,
+0214|*so that Si indicates by 1's the observations whose #'s
+0215|*appear in ascending order as the i'th row of an
+0216|*m x n matrix file <matrix>.
+S   |                   <      >
+0218|*The actual names of the indicator variables are the same as
+0219|*the column labels of <matrix> and they are created as
+S   |                      <      >
+0220|*new variables in <Survo_data_file> if needed.
+S   |                  <               >
+0222|*MAT #INDVAR is a companion operation to MAT #SAMPLES
+0223|*which generates m samples of size n from integers 1,2,...,N
+0224|*and saves them as a m x n matrix with row labels
+0225|*S1,S2,...,Sm.
+0227|*Active records of <Survo_data_file> cannot be limited
+S   |                   <               >
+0228|*by IND etc. specifications.
+0230|- shadow a: [LINK(qma_01.html)]
+0231|*A = More about additional MAT #operations
+S   | a                                       |
+0232|- shadow a: [LINK(qm2_01.html)]
+0233|*M = More about MAT operations
+S   | a                           |
+0234|E
+0236|+MERGE? þ PRINT CUR+1,E TO qma_08.html
+0237|- include HTML40.DEV
+0238|- include Q.DV2
+0239|- [HelpText]
+0240|#MAT #MERGE A,B TO C
+0241|*combines two m x n matrices A and B to an 2m x n matrix C
+0242|*by merging rows. Thus the rows of C will be:
+0243|*row 1:    row 1 of A
+0244|*row 2:    row 1 of B
+0245|*row 3:    row 2 of A
+0246|*row 4:    row 2 of B
+0247|*...       ...
+0248|*row 2m-1: row m of A
+0249|*row 2m:   row m of B
+0251|*MAT #MERGE A,B TO C BY mA,mB
+0252|*combines an mA*k x n matrix A and an mB*k x n matrix B
+0253|*to an (mA+mB)*k x n matrix C by merging rows of A and B
+0254|*in blocks of rows of mA and mB, respectively.
+0255|*Thus the rows of C will be:
+0256|*row 1:       row 1    of A
+0257|*row 2:       row 2    of A
+0258|*...          ...
+0259|*row mA:      row mA   of A
+0260|*row mA+1:    row 1    of B
+0261|*row mA+2:    row 2    of B
+0262|*...          ...
+0263|*row mA+mB:   row mB   of B
+0264|*row mA+mB+1: row mA+1 of A
+0265|*row mA+mB+2: row mA+2 of A
+0266|*...
+0268|- shadow a: [LINK(qma_01.html)]
+0269|*A = More about additional MAT #operations
+S   | a                                       |
+0270|- shadow a: [LINK(qm2_01.html)]
+0271|*M = More about MAT operations
+S   | a                           |
+0272|E
+0274|+MINDIFF? þ PRINT CUR+1,E TO qma_09.html
+0275|- include HTML40.DEV
+0276|- include Q.DV2
+0277|- [HelpText]
+0278|#MAT #MINDIFF(C,A,B)
+0279|*computes minimal difference C of m x n matrices of
+0280|*A=[A1,A2,...,An] and
+0281|*B=[B1,B2,...,Bn]
+0282|*by selecting constants s1,s2,..,sn (each either 1 or -1)
+0283|*so that the sum of squares of the elements of
+0284|*C=[A1-s1*B1,A2-s1*B2,...,An-sn*Bn]
+0285|*is as small as possible.
+0287|- shadow a: [LINK(qma_01.html)]
+0288|*A = More about additional MAT #operations
+S   | a                                       |
+0289|- shadow a: [LINK(qm2_01.html)]
+0290|*M = More about MAT operations
+S   | a                           |
+0291|E
+0293|+COLSORT? þ PRINT CUR+1,E TO qma_10.html
+0294|- include HTML40.DEV
+0295|- include Q.DV2
+0296|- [HelpText]
+0297|#MAT #COLSORT A TO B
+0298|*sorts the columns of A into descending order of
+0299|*their sums of squares and puts the result to B.
+0300|*MAT #COLSORT A TO B BY MAX
+0301|*sorts the columns of A into descending order of
+0302|*the maximum absolute values of elements and puts the result to B.
+0304|- shadow a: [LINK(qma_01.html)]
+0305|*A = More about additional MAT #operations
+S   | a                                       |
+0306|- shadow a: [LINK(qm2_01.html)]
+0307|*M = More about MAT operations
+S   | a                           |
+0308|E
+0310|+CRSORT? þ PRINT CUR+1,E TO qma_11.html
+0311|- include HTML40.DEV
+0312|- include Q.DV2
+0313|- [HelpText]
+0314|#MAT #CRSORT A TO B
+0315|*sorts the columns of A into descending order of
+0316|*their sums of squares and after that
+0317|*the rows in descending order by the absolute values
+0318|*of elements.
+0320|- shadow a: [LINK(qma_01.html)]
+0321|*A = More about additional MAT #operations
+S   | a                                       |
+0322|- shadow a: [LINK(qm2_01.html)]
+0323|*M = More about MAT operations
+S   | a                           |
+0324|E
+0326|+EIGEN? þ PRINT CUR+1,E TO qma_12.html
+0327|- include HTML40.DEV
+0328|- include Q.DV2
+0329|- [HelpText]
+0330|*MAT #EIGEN(A,D)
+0331|*computes eigenvalues D
+0332|*of an n*n nonsymmetric matrix A.
+0333|*MAT #EIGEN(A,D,R)
+0334|*computes eigenvalues D and (right) eigenvectors R
+0335|#MAT #EIGEN(A,D,R,L)
+0336|*computes also left eigenvectors L.
+0338|*D will be an n*n tridiagonal matrix where real eigenvalues
+0339|*occupy diagonal elements while the real and imaginary parts of
+0340|*pairs of complex eigenvalues u+iv, u-iv occupy respectively
+0341|*the diagonal and off-diagonal corners of 2*2 blocks.
+0342|*Afterwards an n*2 matrix D2 of real and imaginary parts of eigenvalues
+0343|*can be created by
+0344|*MAT #EIGEN #VAL D,D2 .
+0346|*Matrices A,D,R,L satisfy, for example, the equations
+0347|*A=RDL, AR=RD, LA=DL.
+0349|*The algorithm of MAT #EIGEN is based on a norm reducing Jacobi type method
+0350|*presented by P.J.Eberlein and J.Boothroyd in Handbook for Automatic
+0351|*Computation, Vol.2 (Wilkinson and Reinsch, Springer 1971, pp.327-338).
+0352|*The original algorithm has been speeded up by a factor ca. 7 by SM (1998).
+0354|*For a n*n symmetric matrix A it is absolutely more efficient to use
+0355|*MAT SPECTRAL DECOMPOSITION OF A TO R,D
+0356|*for example.
+0358|- shadow a: [LINK(qma_01.html)]
+0359|*A = More about additional MAT #operations
+S   | a                                       |
+0360|- shadow a: [LINK(qm2_01.html)]
+0361|*M = More about MAT operations
+S   | a                           |
+0362|E
+0364|+CONVOL? þ PRINT CUR+1,E TO qma_13.html
+0365|- include HTML40.DEV
+0366|- include Q.DV2
+0367|- [HelpText]
+0368|#MAT #CONVOLUTION(C,A,k)
+0369|*computes k first coefficients of the convolution
+0370|*of the columns of matrix A and saves them as
+0371|*a column vector C.
+0372|*It is assumed that elements a0,a1,a2,... of each A column are
+0373|*coefficients of a polynomial a0+a1*x+a2*x^2+...
+0374|*Default for k is k=(m-1)*n+1 where m,n are dimensions of A.
+0376|*Alternatively:
+0377|*MAT #CONVOLUTION(C,A,k,N)
+0378|*when A has only one column computes the N-fold convolution of this column.
+0379|- [New]
+0380|*MAT #CONVOLUTION(C,A,B)
+0381|*computes the convolution C of vectors (1st columns) of A and B.
+0382|- [/New]
+0384|*..................................................................
+0385|*Example: Probabilities of binomial distribution
+0386|*         as convolution of n Bernoulli distributions
+0387|*p=1/3 n=13
+0389|*MATRIX P ///
+0390|*1-p
+0391|*p
+0393|*MAT SAVE P  / Save probabilities of Bernoulli distribution
+0394|*MAT #CONVOLUTION(C,P,n+1,n)
+0395|*/MATSHOW C  / See binomial probabilities
+0396|*..................................................................
+0398|- shadow a: [LINK(qma_01.html)]
+0399|*A = More about additional MAT #operations
+S   | a                                       |
+0400|- shadow a: [LINK(qm2_01.html)]
+0401|*M = More about MAT operations
+S   | a                           |
+0402|E
+0404|+MAXDET? þ PRINT CUR+1,E TO qma_14.html
+0405|- include HTML40.DEV
+0406|- include Q.DV2
+0407|- [HelpText]
+0408|#MAT #MAXDET(C,dim,S)
+0409|*finds the principal dim*dim submatrix with the maximal
+0410|*determinant from a symmetric matrix C.
+0411|*Indices of rows (and columns) belonging to that
+0412|*submatrix are saved as a column vector S.
+0414|*The algorithms for this task are explained in
+0415|*S. Mustonen: Matrix computations in Survo
+0416|*(www.helsinki.fi/survo/matrix99.html).
+0417|*The extended forms of MAT #MAXDET are
+0418|*MAT #MAXDET(C,dim,S,0) / Exhaustive search
+0419|*MAT #MAXDET(C,dim,S,1) / Stepwise procedure (default)
+0420|*MAT #MAXDET(C,dim,S,2) / Improved stepwise procedure
+0421|*MAT #MAXDET(C,dim,S,3) / N=#_of_replicates, Random search
+0422|*MAT #MAXDET(C,dim,S,4) / N=# Improved random search
+0424|- shadow W: [LINK(http://www.helsinki.fi/survo/matrix99.html)] [/LINK]
+0425|*Applications: See also www.helsinki.fi/survo/matrix99.html
+S   |                        WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0426|*MAT #MAXDET can be applied to determination of a basis of
+0427|*the column space of a m*n matrix A as follows.
+0428|*If the rank of A (determined by the SVD of A) is r,
+0429|*the most orthogonal subset of columns of A as an m*r matrix B
+0430|*is found by the commands
+0431|*MAT C=MTM(NRM(A))
+0432|*MAT #MAXDET(C,r,S)  / or MAT #MAXDET(C,r,S,2), for example
+0433|*MAT B=SUB(A,*,S)
+0435|*If A is a factor matrix, the commands
+0436|*MAT C=MTM(NRM(A'))
+0437|*MAT #MAXDET(C,n,S) / Find row space of A
+0438|*MAT B=SUB(A,S,*)
+0439|*correspond to the cosine rotation of factor analysis
+0440|*usually performed by
+0441|*ROTATE A,n / METHOD=COS,0
+0443|- shadow a: [LINK(qma_01.html)]
+0444|*A = More about additional MAT #operations
+S   | a                                       |
+0445|- shadow a: [LINK(qm2_01.html)]
+0446|*M = More about MAT operations
+S   | a                           |
+0447|E
+0449|+INTSCAL? þ PRINT CUR+1,E TO qma_15.html
+0450|- include HTML40.DEV
+0451|- include Q.DV2
+0452|- [HelpText]
+0453|*MAT C=#INTSCAL(A,n)
+0454|*rescales the columns of A to integers by first evaluating each element
+0455|*as the n'th convergent of a continued fraction expansion of A (default
+0456|*n=10) and then finding the least common multiple of denominators.
+0457|*If A is a numerical constant or a 1x1 matrix,
+0458|*MAT C=#INTSCAL(A,n)
+0459|*evaluates continued fractions of A for up to n terms (default n=10)
+0460|*and saves both partial quotients and convergents etc. in a matrix
+0461|*file C.
+0462|*MAT D=#FRAC_TO_DEC(C)
+0463|*converts a continued fraction, represented by its partial quotients,
+0464|*and saved as the first column of matrix C, to a decimal number.
+0466|- shadow a: [LINK(qma_01.html)]
+0467|*A = More about additional MAT #operations
+S   | a                                       |
+0468|- shadow a: [LINK(qm2_01.html)]
+0469|*M = More about MAT operations
+S   | a                           |
+0470|E
+0472|+#SAMPLE? þ PRINT CUR+1,E TO qma_16.html
+0473|- include HTML40.DEV
+0474|- include Q.DV2
+0475|- [HelpText]
+0476|*MAT C=#SAMPLE(A,m,<SRS|URS>,<rand>)
+S   |                   <       > <    >
+0477|*makes a random sample of size m from rows of matrix A
+0478|*using random number generator <rand>.
+S   |                               <    >
+0479|*The sample is saved as a matrix file C.
+0480|*By SRS a Simple Random Sample (i.e. without replacement) and
+0481|*by URS a Unrestricted Random Sample (i.e. with replacement)
+0482|*is generated.
+0483|*MAT C=#SAMPLE(A,m,n,<SRS|URS>,<rand>)
+S   |                     <       > <    >
+0484|*works similarly but makes n samples of size m from rows of A
+0485|*as a matrix C with m*n rows.
+0487|- shadow %: [LINK(qm2_01.html)] [/LINK]
+0488|*See also MAT #SAMPLES
+S   |          %%%
+0489|*and      MAT #JACKKNIFE
+0491|- shadow a: [LINK(qma_01.html)]
+0492|*A = More about additional MAT #operations
+S   | a                                       |
+0493|- shadow a: [LINK(qm2_01.html)]
+0494|*M = More about MAT operations
+S   | a                           |
+0495|E
+0497|+#JACK? þ PRINT CUR+1,E TO qma_17.html
+0498|- include HTML40.DEV
+0499|- include Q.DV2
+0500|- [HelpText]
+0501|*MAT C=#JACK(A) or MAT C=#JACKKNIFE(A)
+0502|*makes the n jackknife samples of the n rows of
+0503|*matrix A and saves them in a matrix file C.
+0504|*C will have n*(n-1) rows.
+0506|- shadow a: [LINK(qma_01.html)]
+0507|*A = More about additional MAT #operations
+S   | a                                       |
+0508|- shadow a: [LINK(qm2_01.html)]
+0509|*M = More about MAT operations
+S   | a                           |
+0510|E
+0512|+SORT? þ PRINT CUR+1,E TO qma_18.html
+0513|- include HTML40.DEV
+0514|- include Q.DV2
+0515|- [HelpText]
+0516|*MAT C=#SORT(A,k)
+0517|*sorts the rows of matrix A in ascending order of the elements of its
+0518|*k'th column.
+0520|- shadow a: [LINK(qma_01.html)]
+0521|*A = More about additional MAT #operations
+S   | a                                       |
+0522|- shadow a: [LINK(qm2_01.html)]
+0523|*M = More about MAT operations
+S   | a                           |
+0524|E
+0526|+MAGIC? þ PRINT CUR+1,E TO qma_19.html
+0527|- include HTML40.DEV
+0528|- include Q.DV2
+0529|- [HelpText]
+0530|*MAT M=#MAGIC(m)
+0531|*creates an m*m magic square matrix M of integers 1,2,...,m^2 where all column
+0532|*and row sums as well as the diagonal and skew diagonal sums are the same
+0533|*i.e. equal to m*(m^2+1)/2. The dimension m must be greater than 2.
+0536|- shadow a: [LINK(qma_01.html)]
+0537|*A = More about additional MAT #operations
+S   | a                                       |
+0538|- shadow a: [LINK(qm2_01.html)]
+0539|*M = More about MAT operations
+S   | a                           |
+0540|E
+0542|+#EIGLAN? þ PRINT CUR+1,E TO qma_20.html
+0543|- include HTML40.DEV
+0544|- include Q.DV2
+0545|- [HelpText]
+0546|- [New]
+0547|*MAT #EIGLAN(A,k,S,L,n_iter,L_file)
+0548|- [/New]
+0549|*computes k largest eigenvalues L and
+0550|*their eigenvectors S of a symmetric matrix A by the Lanczos method.
+0551|*n_iter (by default 10) is the number of Lanczos iterations.
+0552|*If L_file is given, Lanczos vectors are saved as L_file.
+0554|*This is an efficient method for computing a few largest eigenvalues
+0555|*and their eigenvectors when the dimension of A is large,
+0556|*say, more than 200.
+0558|*Reference: Golub and van Loan: Matrix computations,
+0559|*           Chapter 9.2
+0561|- [New]
+0562|*MAT #EIGFEW(A,k,S,L,tol,iter)
+0563|- [/New]
+0564|*computes k largest eigenvalues L and corresponding eigenvectors S
+0565|*of matrix A. Parameters tol and iter are optional.
+0566|*The simple power method is used and this command is intended for
+0567|*computing a few (k) eigenvalues and vectors when A is a large
+0568|*square matrix. tol gives the accuracy (default tol=1e-12) and
+0569|*iter the maximium number of iterations for each eigenvalue
+0570|*(default iter=100).
+0571|*When more accurate results are needed and A is symmetric,
+0572|*MAT SPECTRAL DECOMPOSITION or MAT #EIGLAN should be used.
+0573|*In non-symmetric cases MAT #EIGEN should be preferred to.
+0575|- shadow a: [LINK(qma_01.html)]
+0576|*A = More about additional MAT #operations
+S   | a                                       |
+0577|- shadow a: [LINK(qm2_01.html)]
+0578|*M = More about MAT operations
+S   | a                           |
+0579|E
+0581|+#PRODDIAG? þ PRINT CUR+1,E TO qma_21.html
+0582|- include HTML40.DEV
+0583|- include Q.DV2
+0584|- [HelpText]
+0585|*MAT #PRODDIAG(D,A,B)
+0586|*computes the diagonal elements as a vector D (mx1)
+0587|*of matrix A*B where A is mxn and B is n*m.
+0589|- shadow a: [LINK(qma_01.html)]
+0590|*A = More about additional MAT #operations
+S   | a                                       |
+0591|- shadow a: [LINK(qm2_01.html)]
+0592|*M = More about MAT operations
+S   | a                           |
+0593|E
+0595|+#RAOKHAT? þ PRINT CUR+1,E TO qma_22.html
+0596|- include HTML40.DEV
+0597|- include Q.DV2
+0598|- [HelpText]
+0599|*MAT #RAO_KHATRI(C,A,B)
+0600|*computes the Rao-Khatri (i.e. row-wise Kronecker) product
+0601|*of the matrices A (m x n) and B (p x n) and saves the
+0602|*result in the matrix C (mp x n).
+0604|- shadow a: [LINK(qma_01.html)]
+0605|*A = More about additional MAT #operations
+S   | a                                       |
+0606|- shadow a: [LINK(qm2_01.html)]
+0607|*M = More about MAT operations
+S   | a                           |
+0608|E
+0610|+#HADAMARD? þ PRINT CUR+1,E TO qma_23.html
+0611|- include HTML40.DEV
+0612|- include Q.DV2
+0613|- [HelpText]
+0614|*MAT #HADAMARD(C,A,B)
+0615|*computes the Hadamard (elementwise) product of
+0616|*matrices A and B (both m x n) and saves the result
+0617|*in the matrix C (also m x n).
+0619|- shadow a: [LINK(qma_01.html)]
+0620|*A = More about additional MAT #operations
+S   | a                                       |
+0621|- shadow a: [LINK(qm2_01.html)]
+0622|*M = More about MAT operations
+S   | a                           |
+0623|E

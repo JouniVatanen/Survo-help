@@ -1,0 +1,34 @@
+SURVO 98 edit field:    201       2000       300 (32 bit version)
+0001|*SAVE menu / Menu 18.7.2016 Jouni Vatanen
+0011|*DEF menu,12,E
+0012|- [UL(menu)][LI(active)]
+0013|- [LINK(#)]
+0014|-LOGO
+S   |    |
+0015|- / [IMAGE(http://www.survo.fi/SURVO-logo-2013.png)][/IMAGE][/LINK]
+0016|- [/L][L][LINK(#)]
+0017|*ABOUT
+S   |     |
+0018|- [/L][L][LINK(#)]
+0019|*COMMANDS
+S   |        |
+0020|- [LIST][L][LINK(#)]
+0021|*Basic commands
+S   |              |
+0022|- [/L][L][LINK(#)]
+0023|*Commands by keyword
+S   |                   |
+0024|- [/L][L][LINK(#)]
+0025|*All commands
+S   |            |
+0026|-[/LIST][/L][L][LINK(#)]
+0027|*MANUALS
+S   |       |
+0028|- [/L][FORM][DIVCLASS(search)][INPUT(search_text,text)]
+0029|*onclick="this.value='';" onfocus="this.select()"
+0030|*onblur="this.value=!this.value?'Search':this.value;" value="Search"
+0031|- [/INPUT][INPUT(search_button,image)]
+0032|*class="search-button" src="search-icon.png"
+0033|- [/INPUT][/DIV][/FORM][/LIST]
+0034|- [DIVCLASS(content)]
+0035|E

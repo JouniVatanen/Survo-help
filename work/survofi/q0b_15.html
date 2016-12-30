@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Space for extra specifications:
+Parameters `speclist' and `specmax' limit the amount of extra
+specifications. When a Survo operation is activated, all specification
+text (consisting of specifications in the curren subfield and in the
+potential *GLOBAL* subfield) are collected to a list having a length of
+`speclist' characters at most and consisting of `specmax' items at most.
+Example: speclist=1000000 specmax=10000
+
+In SURVO MM values of parameters speclist and specmax are defined
+automatically.
+
+Using very large edit fields (say over 20000 lines) in SURVO MM
+may slow down certain activities depending on specifications.
+To increase the speed in such situations automatic detection of
+proper speclist and specmax values may be overridden by setting
+the 1st control character (in front of the 1st edit line) to ' ' (space).
+Then values given in SURVO.APU (or altered by SYSTEM commands)
+will be valid. Also extra border lines in suitable places
+speeds up operations when the first control character is ' '.
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

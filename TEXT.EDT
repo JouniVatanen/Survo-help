@@ -15,37 +15,41 @@ S   |3
 0017|*txtconv
 0018|*txtrim
 0019|E
-0021|*1. Copy base structure to end by activating COPY command
+0021|*Notes
+S   |3
+0022|*After [DESC] write a one-liner description what the command does.
+0023|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
+0024|*Write only command names in CAPITALS to the first REPLACE command.
+0026|*1. Copy base structure to end by activating COPY command
 S   |1
-0022|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+0027|*2. Use REPLACE commands to replace COMMAND NAME and web-page-name
 S   |1
-0023|*COPY CUR+1,E>,END+3
-S   |2
-0024|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
-S   |2
-0025|*REPLACE "temp","set",C         / LINES=CUR+1,E>
-S   |2
-0026|*Command name
+0028|*COPY CUR+1,E>,END+3
+0029|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
+S   |                                    555
+0030|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
+S   |                                    555
+0031|*COMMAND NAME IN CAPITAL
 S   |3
-0027|+PRINT CUR+2,E> TO www\public_html\temp.html
-0028|*/OPEN             www\public_html\temp.html
-0029|- include HTML50.DEV
-0030|*Command name | Help system | Survo R
+0032|+PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
+0033|*/OPEN             www\public_html\web-page-name-in-small.html
+0034|- include HTML50.DEV
+0035|*COMMAND NAME IN CAPITAL | Help | Survo R
 S   |3
-0031|- chapter menu IN Survo-hlp
-0032|- chapter sidebar IN Survo-hlp
-0033|*Command name
+0036|- chapter menu IN Survo-hlp
+0037|- chapter sidebar IN Survo-hlp
+0038|*Command name
 S   |3
-0034|- [DESC]
-0036|- [USAGE]
-0038|- [PARAMETERS]
-0039|- [DLIST]
-0040|ICode word
+0039|- [DESC]
+0041|- [USAGE]
+0043|- [PARAMETERS]
+0044|- [DLIST]
+0045|ICode word
 S   | xxxxxxxxx
-0041|NExplanation
-0043|- [/DLIST]
-0044|- [DETAILS]
-0046|- [LINKS]
-0048|- [EXAMPLES]
-0050|- chapter end IN Survo-hlp
-0051|E
+0046|NExplanation
+0048|- [/DLIST]
+0049|- [DETAILS]
+0051|- [LINKS]
+0053|- [EXAMPLES]
+0055|- chapter end IN Survo-hlp
+0056|E

@@ -1,0 +1,175 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QC1
+0004|*LOAD EDQ
+0006|+CONV? þ PRINT CUR+1,E TO qc1_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Numerical conversions in Survo:
+0011|- shadow a: [LINK(qc1_02.html)]
+0012|*  1 = General information
+S   |   a                     |
+0013|*Converting...
+0014|- shadow a: [LINK(qc2_01.html)]
+0015|*  2 = Lengths, areas, volumes, weights, etc. from a unit to another
+S   |   a                                                               |
+0016|- shadow a: [LINK(qc2_09.html)]
+0017|*  3 = Currency
+S   |   a          |
+0018|- shadow a: [LINK(qc1_04.html)]
+0019|*  4 = Integers from a base to another
+S   |   a                                 |
+0020|- shadow a: [LINK(qc1_05.html)]
+0021|*  5 = ASCII characters
+S   |   a                  |
+0022|- shadow a: [LINK(qc1_06.html)]
+0023|*  6 = Roman numerals
+S   |   a                |
+0024|- shadow a: [LINK(qc1_07.html)]
+0025|*  7 = Decimal numbers to fractions
+S   |   a                              |
+0026|- shadow a: [LINK(qc1_08.html)]
+0027|*  8 = Integer to prime factors
+S   |   a                          |
+0029|- shadow a: [LINK(q01_02.html)]
+0030|*  E = More information on Survo
+S   |   a                           |
+0031|E
+0033|+GEN? þ PRINT CUR+1,E TO qc1_02.html
+0034|- include HTML40.DEV
+0035|- include Q.DV2
+0036|- [HelpText]
+0037|*As an extension of editorial computing, various numerical conversions
+0038|*may be performed by activating expressions like
+0039|*        <number_or_word>(<unit1>:<unit2>)=_
+S   |         <              > <     > <     >
+0041|*For example, 440(yard:meter)=402.336 gives 440 yards as 402.336 meters.
+0043|*In place of <number_or_word>, no composite expressions are accepted.
+S   |             <              >
+0044|*If <number_or_word> is missing, '1' is used as default.
+S   |    <              >
+0045|*For example, 1(yard:meter)=0.9144  (yard:meter)=0.9144
+0047|*Multiple activations occur along the rules of editorial computing
+0048|*by using '.=' instead of '='. For example,
+0049|*   (ton:kg).=_     (pound:kg).=                  (pound:ounce).=
+0050|*gives
+0051|*   (ton:kg).=1000  (pound:kg).=0.45358541666624  (pound:ounce).=16
+0053|*If a conversion between unsuitable units like (kg:m)=  is attempted,
+0054|*an error message 'Conversion from kg to m is impossible!' is displayed.
+0056|*When appropriate, the prefixes of the International System like
+0057|*'mega' and 'micro' are recognized. Examples: (megaton:ton)=1000000
+0058|*(nanometer:ngstr”m)=1 (femtosecond:sec)=1e-015
+0060|*The data base for units of measurement is the edit field MEASURES.EDT
+0061|*in the \SYS subdirectory of Survo. This field lists the possible units
+0062|*with pertinent information in alphabetic order. The user can edit this
+0063|*field by following instructions given in the same edit field.
+0065|- shadow a: [LINK(qc1_01.html)]
+0066|*  C = More information on numerical conversions
+S   |   a                                           |
+0067|E
+0068|+A? þ PRINT CUR+1,E TO qc1_03.html
+0069|- include HTML40.DEV
+0070|- include Q.DV2
+0071|- [HelpText]
+0073|- shadow a: [LINK(qc1_01.html)]
+0074|*  C = More information on numerical conversions
+S   |   a                                           |
+0075|E
+0077|+BASES? þ PRINT CUR+1,E TO qc1_04.html
+0078|- include HTML40.DEV
+0079|- include Q.DV2
+0080|- [HelpText]
+0081|*Converting integers from a base to another:
+0082|*Examples:
+0083|*   1988(10:2)=11111000100    1988 from base 10 to base 2
+0084|*   11111000100(2:10)=1988    11111000100 from base 2 to base 10
+0085|*   254(10:8)=376             254 is 376 as an octal (base 8) number
+0086|*   254(10:16)=FE             254 is FE as a hexadecimal number
+0087|*   7C4(16:10)=1988
+0088|*   FFFF(hex:dec)=65535       hex and dec are allowed instead of 16 and 10
+0089|*   777(oct:bin)=111111111    oct and bin are allowed instead of 8 and 2
+0091|*Max. base is 36. In bases >10, digits are
+S   |                           >
+0092|*  0,1,2,3,4,5,6,8,9,A,B,C,D,...,Z .
+0094|- shadow a: [LINK(qc1_01.html)]
+0095|*  C = More information on numerical conversions
+S   |   a                                           |
+0096|E
+0098|+ASCII? þ PRINT CUR+1,E TO qc1_05.html
+0099|- include HTML40.DEV
+0100|- include Q.DV2
+0101|- [HelpText]
+0102|*Converting ASCII characters:
+0103|*Examples:
+0104|*   A(ascii:10)=65   A(ascii:8)=101   A(ascii:16)=41
+0105|*   65(10:ascii)=A   101(8:ascii)=A   41(16:ascii)=A
+0107|- shadow a: [LINK(qc1_01.html)]
+0108|*  C = More information on numerical conversions
+S   |   a                                           |
+0109|E
+0111|+ROMAN? þ PRINT CUR+1,E TO qc1_06.html
+0112|- include HTML40.DEV
+0113|- include Q.DV2
+0114|- [HelpText]
+0115|*Converting Roman numerals:
+0116|*Examples:
+0117|*   1988(10:Roman)=MCMLXXXVIII     1988(10:roman)=mcmlxxxviii
+0118|*   MCMLXXXVIII(Roman:10)=1988     MXXIV(roman:2)=10000000000
+0119|*   2000(10:Roman)=MM              MM(Roman:10)=2000
+0121|- shadow a: [LINK(qc1_01.html)]
+0122|*  C = More information on numerical conversions
+S   |   a                                           |
+0123|E
+0125|+FRACT? þ PRINT CUR+1,E TO qc1_07.html
+0126|- include HTML40.DEV
+0127|- include Q.DV2
+0128|- [HelpText]
+0129|*Converting decimal numbers to fractions:
+0130|*Examples:
+0131|*   3.14159265(1:ratio).=3/1 (0.14159265)
+0132|*   3.14159265(4:ratio).=16/5 (-0.05840735)
+0133|*   3.14159265(5:ratio).=22/7 (-0.00126449285714)
+0134|*   3.14159265(11:ratio).=355/113 (-0.00000027035398)
+0135|*   3.14159265(20:ratio).=96893/30842 (0.00000001657804)
+0136|*replaces the decimal number 3.14159265 by the best possible approximate
+0137|*fraction (ratio of two integers) by using accuracies 1,4,5,11 and 20.
+0138|*The numbers in parentheses are errors.
+0140|*In x(c:ratio)=n/m,
+0141|*the best approximation n/m for x is found by minimising the function
+0143|*   f(x,m,n)=n+10^c*(m*x/n-1)^2
+0145|*with respect to integers m and n. This technique is originally used
+0146|*in S.Mustonen's studies for musical consonances and dissonances.
+0147|*There x corresponds to a (impure) musical interval and the optimal
+0148|*m and n values give the ideal ratio for the musical interval recognised
+0149|*for a selected accuracy of the 'ear' c.
+0151|*For example, the 'neutral third' 11/9=1.222222222
+0152|*will be heard as an impure minor third (6/5) by a moderate ear c=4:
+0153|*   1.222222222(4:ratio)=6/5 (0.022222222)
+0154|*but as an interval of its own (11/9) by a very accurate ear c=5:
+0155|*   1.222222222(5:ratio)=11/9 (-0.00000000022222)
+0157|- shadow a: [LINK(qc1_01.html)]
+0158|*  C = More information on numerical conversions
+S   |   a                                           |
+0159|E
+0161|+FACTORS? þ PRINT CUR+1,E TO qc1_08.html
+0162|- include HTML40.DEV
+0163|- include Q.DV2
+0164|- [HelpText]
+0165|*Finding the prime factors of an integer:
+0166|*Examples:
+0167|*  30(10:factors)=2*3*5
+0168|*  144(dec:factors)=2^4*3^2
+0169|*  100000000000000000000(bin:factors)=2^20
+0170|*  10000(7:factors)=7^4
+0171|*ACCURACY=30
+0172|*Max. number to be factored is 2^63=9223372036854775808.  ACCURACY=30
+0173|*  2^63 9223372036854775808(10:factors)=2^63
+0174|*  2^63-1 9223372036854775807(10:factors)=7^2*73*127*337*92737*649657
+0175|*  2^61-1 2305843009213693951(10:factors)=2305843009213693951 (Mersenne prime)
+0176|*  1000000000000000001(10:factors)=101*9901*999999000001
+0177|*  65520^2-1= 4292870399(dec:factors)=65519*65521 (both primes!)
+0178|*  9223371873002223329(dec:factors)=3037000453*3037000493
+0180|- shadow a: [LINK(qc1_01.html)]
+0181|*  C = More information on numerical conversions
+S   |   a                                           |
+0182|E

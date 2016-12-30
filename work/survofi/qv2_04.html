@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">If a string variable holds numerical information, it can be treated
+like numerical variables in numerical transformations (by the VAR operation.)
+
+To modify true textual information in string variables, a VAR operation
+of the form
+VAR str(U,p,len)=str(V1,p1,len1)&amp;str(V2,p2,len2)&amp;... TO &lt;data&gt; 
+where U,V1,V2,... are string variables, is available.
+Above, str(U,p,len) means a partial string of U starting from position 'p'
+and having length of 'len' bytes. Alternative notations are
+str(U) (the whole string field), str(U,p) (the whole field from 'p' onwards).
+'&amp;' means concatenation (chaining) of the strings.
+On the right hand side also constant strings of the form "ABC" can appear.
+(Examples are given on the next page.)
+
+pos(S,p,string) is a useful auxiliary function giving the position of 'string'
+in the string variable S after the 'p'th position.
+pos(S,string) is the same as pos(S,1,string) .
+For example, if S is "ABC:123:X", then pos(S,:)=4, pos(S,5,:)=8, pos(S,Z)=0 .
+
+Conditional VAR statements of the form
+VAR Var1=if(str(...)=str(...))then(value1)else(value2) TO DATA1
+are allowed. Also &lt;,&gt;,&lt;&gt; etc. are possible as relational symbols.
+Also string fields with lags and leads are permitted.
+For example,
+VAR S=if(str(X[-1],1,2)=str(X,1,2))then(1)else(0) TO DATA1
+gives S=1 when the 2 first characters of X are same in the previous
+record and S=0 otherwise.
+
+Trailing blanks in string concatenation:
+In string expression of the form str(A)&amp;str(B)&amp;str(C) trailing blanks
+are included.
+To remove such blanks, `connector' `|' is used in place of `&amp;'.
+Thus if str(A)="AA  ", str(B)="BBB   ", str(C)="anything",
+str(A)&amp;str(B)&amp;str(C)="AA  BBB   anything" but
+str(A)|str(B)|sp&amp;str(C)="AABBB anything" (sp denotes one blank).
+
+Examples: (See, what are the effects of the VAR operations below.)
+
+   *
+   *DATA TEST,A,B,N,M
+   M AAAAAA  AAAAAAAA  AAAA  AAAAAAAA    A   A    AA
+   N Code1   Code2    Year1  Code3     len   D  LagY
+   A 281037  AB/1967   1937  1967:AB     7   0
+   * 170667  A/1978    1967  1978:A      6   0    37
+   * 120659  ACD/1977  1959  1977:ACD    8   0    67
+   B 190939  D/1989    1939  1989:D      6   1    59
+   *                                              39
+   *VAR str(Year1)="19"&amp;str(Code1,5) TO TEST
+   *VAR str(Code3)=str(Code2,pos1+1,4)&amp;":"&amp;str(Code2,1,pos1-1) TO TEST
+   *                 pos1=pos(Code2,/)
+   *VAR len=pos(Code2,sp)-1 TO TEST
+   *                  sp (or space) is the notation for the 'space' character.
+   *                  comma is the notation for ',' .
+   *VAR D=if(str(Code2,1,1)="D")then(1)else(0) TO TEST / conditional statement
+   *VAR str(LagY[+1])=str(Year1,3,2) TO TEST / lags and leads allowed
+   *
+..........................
+
+
+VAR str(var2)=split(var1,&lt;len&gt;,&lt;char&gt;)
+splits a string in var1 so that spaces between 'words' are replaced
+by &lt;char&gt; so that the length of each substring is at most &lt;len&gt; 
+except for 'words' longer that &lt;len&gt; bytes.
+Example: VARSTR(str2)=split(var1,8,|) converts
+var1="This is a long string" into form
+var2="This is|a long|string|".
+
+  <A HREF="qv1_01.html">V = More information on VAR operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

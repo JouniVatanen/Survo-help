@@ -1,0 +1,200 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QTU3
+0004|*LOAD EDQTU4
+0006|+TUTCODES? þ PRINT CUR+1,E TO qtu3_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Code words and statements in sucro programs:
+0012|- shadow a: [LINK(qtu3_02.html)]
+0013|*  1 = Simple key codes
+S   |   a                  |
+0014|- shadow a: [LINK(qtu3_04.html)]
+0015|*  2 = Control words and commands
+S   |   a                            |
+0016|- shadow a: [LINK(qtu3_05.html)]
+0017|*  3 = Useful key combinations in sucro control
+S   |   a                                          |
+0018|- shadow a: [LINK(qtu4_05.html)]
+0019|*  4 = Sucro memory (tutstack) operations
+S   |   a                                    |
+0020|- shadow a: [LINK(qtu2_01.html)]
+0021|*  5 = Conditional statements (if, goto, load, switch)
+S   |   a                                                 |
+0022|- shadow a: [LINK(qtu2_06.html)]
+0023|*  6 = User interaction (prompt, on key)
+S   |   a                                   |
+0024|- shadow a: [LINK(qtu5_01.html)]
+0025|*  7 = Arithmetics and other internal operations in the sucro memory
+S   |   a                                                               |
+0026|- shadow a: [LINK(qtu5_03.html)]
+0027|*  8 = Tutstack in touch mode
+S   |   a                        |
+0028|- shadow a: [LINK(qtu1_01.html)]
+0029|*  S = General information on sucros
+S   |   a                               |
+0031|E
+0032|+C1? þ PRINT CUR+1,E TO qtu3_02.html
+0033|- include HTML40.DEV
+0034|- include Q.DV2
+0035|- [HelpText]
+0036|*Simple key codes in sucro programs:
+0038|a {R}             ENTER key (also terminates a line in sucro listing)
+0039|a {home}          HOME key
+0040|a {pgdn}          Page Down key (next page)
+0041|a {pgup}          Page Up key (previous page)
+0042|a {erase}         ERASE (ctrl-END) key
+0043|a {ins}           INSERT key
+0044|a {del}           DELETE key  {del3} same as {del}{del}{del}
+0045|a {ins line}      Insert line key (alt-F9)
+0046|a {del line}      Delete line key (alt-F10)
+0047|a {act}           ESC key (activate Survo command)
+0048|a {r}             right arrow  {r3} same as {r}{r}{r}
+0049|a {l}             left arrow   {l3} same as {l}{l}{l}
+0050|a {u}             up arrow     {u3} same as {u}{u}{u}
+0051|a {d}             down arrow   {d3} same as {d}{d}{d}
+0052|a {(} {)}         characters { and }
+0053|a {sp}            <space key>
+S   |                  <         >
+0054|a {tab}           TAB key
+0055|a {line end}      END key
+0057|*Simple key codes in sucro programs:                 (continued)
+0059|a {help}          HELP key (F1)
+0060|a {pre}           PREFIX key (F2)
+0061|a {touch}         TOUCH key (F3)
+0062|a {disk}          DISK key (F4)
+0063|a {form}          FORM key (F5)  {form3} same as {form}{form}{form}
+0064|a {merge}         MERGE key (F6)
+0065|a {ref}           REF key (F7)
+0066|a {exit}          EXIT key (F8)
+0067|a {soft_on}       SOFT BUTTONS key (alt-F1)
+0068|a {words}         WORDS key (alt-F2)
+0069|a {copy}          COPY key (alt-F3}
+0070|a {block}         BLOCK key (alt-F4)
+0071|a {search}        SEARCH key (alt-F5)
+0072|a {file act}      Survo data file activation (alt-F6)
+0073|a {code}          CODE key (alt-F7)
+0075|- shadow a: [LINK(qtu3_01.html)]
+0076|* C = More information on control words in sucro programs
+S   |  a                                                     |
+0077|- shadow a: [LINK(qtu1_01.html)]
+0078|* S = General information on sucros
+S   |  a                               |
+0079|E
+0080|+M? þ PRINT CUR+1,E TO qtu3_03.html
+0081|- include HTML40.DEV
+0082|- include Q.DV2
+0083|- [HelpText]
+0085|- shadow a: [LINK(qtu3_01.html)]
+0086|* C = More information on control words in sucro programs
+S   |  a                                                     |
+0087|- shadow a: [LINK(qtu1_01.html)]
+0088|* S = General information on sucros
+S   |  a                               |
+0089|E
+0091|+TUTCONTR? þ PRINT CUR+1,E TO qtu3_04.html
+0092|- include HTML40.DEV
+0093|- include Q.DV2
+0094|- [HelpText]
+0095|*Control words and commands in sucro programs:
+0097|a {end}           terminates the program.
+0098|a {init}          performs intialization of certain display parameters.
+0099|*                 It guarantees, for example, that insert mode is not on,
+0100|*                 the reference point is cancelled, the first column is
+0101|*                 set to the point of return when ENTER is pressed, no
+0102|*                 blocks and shadow lines are being defined, etc.
+0103|a                 {init} neither affects the position of the cursor
+0104|*                 nor changes the contents of the edit field.
+0105|a {break off}     prevents the effects of keys .  + and - used in the
+0106|*                 sucro run for speed control and stopping.
+0107|*                 Used in keyboard sucros.
+0108|a {break on}      cancels the effect of {break off}.
+0110|a {message}       {message}<string>
+S   |                           <      >
+0111|*                 displays a message <string> on the bottom line.
+S   |                                     <      >
+0112|*                 To cancel the message (this must be done always before
+0113|a                 normal termination of a sucro), use {message}@ .
+0114|a {message Wi}    displays a message contained in Wi .
+0116|*Control words and commands in sucro programs:         (Continuation)
+0118|a {message shadow <char>}
+S   |                  <    >
+0119|*                 sets the shadow character (color) used in messages.
+0120|a                 Default is {message shadow 1} (red).
+0122|a {wait <time>}   sets a wait of <time> in 0.1 seconds before continuing.
+S   |        <    >                   <    >
+0123|a {tempo <speed>} sets the basic speed of the sucro.
+S   |         <     >
+0124|a                 Default is {tempo 2}. {tempo 1} is the fastest possible.
+0125|a                 {tempo -1} increases the speed by 1 and {tempo +1}
+0126|*                 slows it down by 1. Normally only these relative forms
+0127|*                 should be used.
+0128|a {keys i}        (i=0,1,2) indicates whether the labels of the keys
+0129|*                 'pressed' by the sucro are displayed.
+0130|a                 {keys 0} (default) no display
+0131|a                 {keys 1} key labels are displayed
+0132|a                 {keys 2} the user is requested to press the key dis-
+0133|*                          played before proceeding.
+0135|*Control words and commands in sucro programs:         (Continuation)
+0137|a {next word}     finds the next 'word' on the visible part of the current
+0138|*                 line.
+0139|a {next col}      works as {next word} but finds also words outside the visible
+0140|*                 part of the current line.
+0141|a {ref set i}     defines the current cursor/screen position as an
+0142|*                 additional reference point i (i=1,2,...,8).
+0143|a {ref jump i}    returns the cursor to the point defined by {ref set i}.
+0144|a {ref del i}     removes the additional reference point i.
+0145|a {disp off}      disables the screen. Text is written normally in
+0146|*                 the edit field but not shown on the screen.
+0147|a {disp on}       restores the normal screen display (also from graphics mode).
+0148|a {disp reset}    as {disp on} but does not set off the graphics mode.
+0149|*                 If no graphics has not been generated under display off mode,
+0150|a                 {disp reset} (faster alternative) is preferred to {disp on}.
+0151|a {labels off}    makes the line numbers and control characters invisible.
+0152|a {labels on}     restores the line numbers and control characters.
+0154|*Control words and commands in sucro programs:         (Continuation)
+0156|a {paint on}      words/chars saved by {save word} or {save char} are painted.
+0157|a {paint off}     exits painting mode.
+0158|- [New]
+0159|* {soft_on}       makes the soft buttons below the main window visible.
+0160|* {soft_off}      makes the soft buttons below the main window invisible.
+0161|- [/New]
+0163|- [New]
+0164|* {play sound <WAV_file>} plays a sound file.
+S   |              <        >
+0165|* {play sound Wi}         plays a sound file (name given in Wi).
+0166|- [/New]
+0169|- shadow a: [LINK(qtu3_01.html)]
+0170|* C = More information on control words in sucro programs
+S   |  a                                                     |
+0171|- shadow a: [LINK(qtu1_01.html)]
+0172|* S = General information on sucros
+S   |  a                               |
+0173|E
+0175|+C3? þ PRINT CUR+1,E TO qtu3_05.html
+0176|- include HTML40.DEV
+0177|- include Q.DV2
+0178|- [HelpText]
+0179|*Useful key combinations in sucro control:
+0181|a {line start}    =
+0182|a {pre}B          moves the cursor to the start of the line.
+0184|a {next word}     =
+0185|a {pre}W          finds the next 'word' on the current line.
+0187|a {find <char>}   =
+S   |        <    >
+0188|a {pre}C<char>    finds the next occurrence of a character on the line.
+S   |        <    >
+0189|a {pre}J          continues an incomplete word automatically.
+0190|a {pre}{pre}      moves the cursor to the end of visible part of the line.
+0191|a {pre}{R}        selects the current column where to return by ENTER.
+0192|a {pre}S          displays the shadow line / closes the shadow line.
+0193|a {pre}P          picks the current character to be written by CODE key.
+0194|a {pre}I          cancels the insert mode in typing.
+0195|a {pre}D          cancels the reference point set by {ref} .
+0197|- shadow a: [LINK(qtu3_01.html)]
+0198|* C = More information on control words in sucro programs
+S   |  a                                                     |
+0199|- shadow a: [LINK(qtu1_01.html)]
+0200|* S = General information on sucros
+S   |  a                               |
+0201|E

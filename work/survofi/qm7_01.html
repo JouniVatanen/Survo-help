@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">FILE SAVE MAT &lt;matrix file&gt; TO &lt;Survo data file&gt; 
+saves a matrix file to a Survo data file.
+The first line (row) to be copied from the matrix file is given by the
+specification FIRST=&lt;# of first line&gt;. Default is FIRST=1.
+Similarly, the last row to be copied is given by LAST=&lt;# of last row&gt;.
+Default is the last row in the matrix.
+The columns of the matrix are copied to variables of the data file
+according to the column labels (8 first characters of names should
+match). If a variable corresponding to a certain matrix column does not
+exist, a new numeric variable is created. The type (1,2,4 or 8) of
+new variables can be given by TYPE=&lt;type&gt;. Default is TYPE=4.
+Without a MATCH specification, all the rows will be copied to the Survo
+data file as new observations. If the first field in the data file is
+of the string type, the row labels will be copied to this field (as
+names of new observations).
+However, if a specification LABEL=&lt;name_of_variable&gt; is given, the row
+labels are saved in this variable.
+If the Survo data file does not exist, a new file will be automatic-
+ally created with suitable dimensions.
+
+To extend existing observations in the Survo data file, a MATCH
+specification can be given.
+If MATCH is omitted, all the rows will be copied to the Survo
+data file as new observations.
+MATCH=&lt;name of a string field&gt; 
+specifies the field in the Survo data file whose contents should be
+equal to the label of the row to be copied.
+The order of the observations in the matrix file and in the data file must
+be same.
+
+By giving MATCH=# the observations are copied from the matrix file
+to the data file without a match variable, but the first row
+to be copied will placed as the first observation in the data file.
+
+  <A HREF="qm2_03.html">M = More information on MAT operations</A> 
+  <A HREF="qmr2_01.html">S = More information on multivariate statistical analysis</A> 
+  <A HREF="qf1_01.html">F = More information on Survo data management</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">FILE EDIT &lt;name of data file&gt; 
+is an operation for data input and editing of Survo data files
+created by a FILE CREATE operation.
+
+After activation of FILE EDIT a display containing all active fields
+of the data file will appear on the screen. For example, when FILE EDIT
+is activated for an empty data file COMMUNES (see <A HREF="qf1_01.html">FILE</A> CREATE), we shall
+have the following display
+-------------------------------------------------------------------
+DATA FILE: COMMUNES    Record # 1                              N= 0
+Commune <B>_               </B>ÿ
+Province<B>   </B>ÿ
+People  <B>              </B>ÿ
+Births  <B>              </B>ÿ
+Area    <B>                  </B>ÿ
+
+To stop, press EXIT!
+-------------------------------------------------------------------
+where a cell of appropriate length is reserved for each active
+field. After creation all fields are active, but the status of each
+field is easily specified later by FILE ACTIVATE (or simply by FILE_ACT).
+
+The data values can now be entered in a natural way. To move the cursor
+between the fields, press either RETURN or the arrow keys. When the
+last field has been filled, the data is saved and the display for the
+next observation will appear. To move from an observation to another,
+the keys NEXT and PREV can be used.
+
+The data may be edited simply by moving the cursor to the desired point
+and the corrections are made by overtyping and by using the keys
+INSERT and DELETE. However, if a field is protected (see <A HREF="qf1_01.html">FILE</A> ACTIVATE),
+it cannot be edited. Protected cells are labelled with 'P'.
+
+An observation may be searched for by its number or by the value of
+the current field first by pressing SEARCH and then entering either the
+number of observation or for example &lt;100, which means that the first
+observation having value less than 100 in the current field will be
+found.
+ Limits for the data values:
+The range of numeric fields is specified by a notation of the form
+{lower_limit,upper_limit} in the field description.
+Similarly, the set of possible values for a string field is given
+as a list [value1,value2,...] in the field description.
+These limitations are easily altered by the FILE STATUS and FILE UPDATE
+operations.
+
+ Searching in sorted data:
+If the data are sorted in alphabetic order according to some string
+field (by FILE SORT, for example), observations may be searched for
+much faster. However, the system must be told before pressing SEARCH
+which is the string field representing the alphabetic order. This takes
+place by inserting a specification of the form
+     SORT:&lt;name of string field&gt; 
+on any of the header lines of the the data file. The header lines are
+the lines before the FIELDS section in FILE UPDATE. Thus use FILE UPDATE
+for this task after the data has been sorted.
+FILE EDIT &lt;data_file&gt;,&lt;#_of_mask_column&gt; 
+works similarly, but displays the fields which are active in the given
+mask column. Default is 1.
+
+FILE EDIT &lt;data_file&gt;+
+works as FILE EDIT &lt;data_file&gt; but goes to the end of the data file
+and displays the first empty observation after the current last one.
+
+  <A HREF="qf1_01.html">D = More information on data management</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

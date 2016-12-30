@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Satunnaisia Lottorivejä voi arpoa Survossa mm. seuraavalla komentoparilla:
+MAT #SAMPLES LOTTO,39,7,12,rand(37952049)
+MAT LOAD LOTTO,123,CUR+1
+
+MAT #SAMPLES on tarkoitettu varsinaisesti umpimähkäisten otosten
+poimintaan ilman takaisinpanoa ja nyt on kyseessä vain tietty erikoistapaus.
+MAT #SAMPLES LOTTO,39,7,12,rand(37952049)
+arpoo numeroista 1,2,...,39 7 kpl. ja tekee sen 12 kertaa
+käyttäen satunnaislukugeneraattorissa siemenlukua 37952049.
+Siemenluku on syytä vaihtaa, jotta saisi "ikiomia" rivejä.
+Arvotut rivit tallentuvat Survon matriisitiedostoksi LOTTO.MAT,
+jonka sisällön saa poimituksi toimituskenttään komennolla
+MAT LOAD LOTTO,123,CUR+1
+
+Viking-lottoa voi harrastaa vastaavasti komennolla
+MAT #SAMPLES VLOTTO,48,6,12,rand(37952049)
+
+Näiden keinojen tarkoituksena ei ole innostaa Survon käyttäjiä
+Loton peluuseen. Päinvastoin, tutustumalla erityisesti kohtaan
+   3 = LOTTO-operaatio Loton pelaajan vaiheiden seuraamiseksi
+saa "inho"realistisemman käsityksen pelin luonteesta.
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

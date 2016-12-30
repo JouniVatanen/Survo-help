@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">PLOT &lt;data&gt; / TYPE=FACES
+plots multidimensional data as Chernoff's faces.
+Reference: Chernoff,H.(1973) Using faces to represent points in
+           k-dimensional space graphically, JASA,68,361-368.
+
+The mapping from data to various features of the face is defined by a
+VARIABLES list written after the PLOT line.
+To create this list, it is best to activate PLOT (with TYPE=FACES)
+without any list. Then a model of the list with appropriate comments
+will be displayed below the current PLOT line.
+A typical list is following:
+
+PLOT &lt;data&gt; / TYPE=FACES
+VARIABLES: xmin      xmax     Features                       fmin fmax
+&lt;X1&gt;      &lt;min X1&gt;  &lt;max X1&gt;  Radius_to_corner_of_face_OP    0.6  1.0
+&lt;X2&gt;      &lt;min X2&gt;  &lt;max X2&gt;  Angle_of_OP_to_horizontal      0.0  0.6
+&lt;X3&gt;      &lt;min X3&gt;  &lt;max X3&gt;  Vertical_size_of_face_OU       0.6  1.0
+&lt;X4&gt;      &lt;min X4&gt;  &lt;max X4&gt;  Eccentricity_of_upper_face     0.5  1.5
+&lt;X5&gt;      &lt;min X5&gt;  &lt;max X5&gt;  Eccentricity_of_lower_face     0.5  1.5
+&lt;X6&gt;      &lt;min X6&gt;  &lt;max X6&gt;  Length_of_nose                 0.1  0.5
+&lt;X7&gt;      &lt;min X7&gt;  &lt;max X7&gt;  Vertical_position_of_mouth     0.2  0.8
+&lt;X8&gt;      &lt;min X8&gt;  &lt;max X8&gt;  Curvature_of_mouth_1/R        -4.0  4.0
+&lt;X9&gt;      &lt;min X9&gt;  &lt;max X9&gt;  Width_of_mouth                 0.2  1.0
+&lt;X10&gt;     &lt;min X10&gt; &lt;max X10&gt; Vertical_position_of_eyes      0.0  0.4
+&lt;X11&gt;     &lt;min X11&gt; &lt;max X11&gt; Separation_of_eyes             0.3  0.8
+&lt;X12&gt;     &lt;min X12&gt; &lt;max X12&gt; Slant_of_eyes                 -0.5  0.5
+&lt;X13&gt;     &lt;min X13&gt; &lt;max X13&gt; Eccentricity_of_eyes           0.3  1.0
+&lt;X14&gt;     &lt;min X14&gt; &lt;max X14&gt; Size_of_eyes                   0.1  0.2
+&lt;X15&gt;     &lt;min X15&gt; &lt;max X15&gt; Position_of_pupils            -0.1  0.1
+&lt;X16&gt;     &lt;min X16&gt; &lt;max X16&gt; Vertical_position_of_eyebrows  0.2  0.4
+&lt;X17&gt;     &lt;min X17&gt; &lt;max X17&gt; Slant_of_eyebrows             -0.5  0.5
+&lt;X18&gt;     &lt;min X18&gt; &lt;max X18&gt; Size_of_eyebrows               0.1  0.5
+END of plotting specifications
+
+The variables selected will be mapped to various features linearly so
+that xmin -&gt; fmin and xmax -&gt; fmax. This scheme may be freely edited
+by altering xmin and ymin values (eventually also fmin and fmax) to
+achieve a desired result. For example, the influence of certain variable
+could be reversed by changing its xmin and xmax values.
+To keep certain features constant, use character '-' instead of a
+variable. Then (fmin+fmax)/2 will be used as the value of the feature
+for all observations.
+The default list obtained after activating PLOT  with TYPE=FACES without
+a list has '-' as each variable, '*' for xmin and '**' for xmax.
+If now '-' is replaced by a name of a variable and PLOT is activated,
+the faces are plotted by using the true minimum value value in place of
+'*' and maximum value in place of '**'. (The list is automatically
+updated with true values ending to '*' or '**'.)
+The user may then add various features gradually and see their effects
+immediately. The mapping can be fixed by erasing '*'s.
+
+The PLOT operation for Chernoff's faces may be supported by the
+extra specifications HEADER,HOME,SIZE,XDIV,YDIV as in any curve plotting
+schemes.
+Furthermore two special specifications LABEL and FSIZE are available.
+LABEL=&lt;label variable&gt; selects the name of the observation to be
+printed under the face. If LABEL is omitted, # of observation will be
+used as default.
+FSIZE=c gives the side length of the square to be used as an area for
+each face. c is given in plotting units and has the default value
+which is one fifth of the current width of the plot.
+The specifications SIZE,XDIV,YDIV and FSIZE determine together the
+layout for the faces.
+
+On the screen (GPLOT), the various parts of the faces can be drawn with
+different colors possibly depending on values of selected variables.
+The face and the eyes can also be painted.
+The colors are selected by adding a COLORS list (before the END line
+in the VARIABLES list).
+A model of such a list is obtained by activating GPLOT with TYPE=FACES
+without a VARIABLES list.
+
+  <A HREF="q1d_01.html">M = more information on multivariate plotting</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

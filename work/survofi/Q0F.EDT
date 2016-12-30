@@ -1,0 +1,174 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q0F
+0004|*LOAD EDQ
+0006|+QPATH? þ PRINT CUR+1,E TO q0f_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|#QPATH <qpath>
+S   |       <     >
+0011|*selects the path of another inquiry system.
+0012|*In Survo several inquiry systems may be maintained and used paral-
+0013|*lelly provided that different paths are provided for them. The path for
+0014|*the default inquiry system is given in the system file SURVO.APU as
+0015|*qpath=<default path> (qpath=C:\E\Q\EDQ for example). The three last
+S   |       <            >
+0016|*characters (EDQ in the example) refer to a common forepart of all file
+0017|*names of the inquiry system and they are all standard edit files.
+0018|*The root file consisting of the keywords and their references to
+0019|*inquiry file has the name EDQ.EDT (or corresponding).
+0020|*To see the structure of various inquiry files, examine them, please.
+0022|*The QPATH operation can be used to change the inquiry system temporarily.
+0024|- shadow a: [LINK(q03_01.html)]
+0025|*  C = More information on control operations
+S   |   a                                        |
+0026|E
+0029|+COLOR? þ PRINT CUR+1,E TO q0f_02.html
+0030|- include HTML40.DEV
+0031|- include Q.DV2
+0032|- [HelpText]
+0033|*Setting colors in Survo:
+0035|- shadow a: [LINK(q113_02.html)]
+0036|*  1 = COLORS specification in GPLOT
+S   |   a                               |
+0037|- shadow a: [LINK(q19_03.html)]
+0038|*  2 = SHADING specification in PLOT and GPLOT
+S   |   a                                         |
+0039|- shadow a: [LINK(q13_06.html)]
+0040|*  3 = PEN specification in PLOT and GPLOT
+S   |   a                                     |
+0041|- shadow a: [LINK(q13_07.html)]
+0042|*  4 = LINETYPE specification in PLOT and GPLOT
+S   |   a                                          |
+0043|- shadow a: [LINK(q112_02.html)]
+0044|*  5 = PALETTE specification in GPLOT
+S   |   a                                |
+0045|- shadow a: [LINK(q113_04.html)]
+0046|*  6 = COLORCH specification in PLOT and GPLOT
+S   |   a                                         |
+0047|- shadow a: [LINK(q0p1_08.html)]
+0048|*  7 = Setting colors in PostScript plotting/printing
+S   |   a                                                |
+0050|- shadow a: [LINK(q0f_03.html)]
+0051|*  8 = Displaying shadow colors in the edit field
+S   |   a                                            |
+0052|- shadow a: [LINK(q04_12.html)]
+0053|*  9 = Shadow characters and colors in the edit field
+S   |   a                                                |
+0054|- shadow a: [LINK(q02_09.html)]
+0055|*  A = F5 key
+S   |   a        |
+0056|- shadow a: [New][LINK(q0f_06.html)]
+0057|d  B = /COLORMAT for variably shaded background pictures
+S   |   a                                                   ;
+0059|E
+0061|+COLOR2? þ PRINT CUR+1,E TO q0f_03.html
+0062|- include HTML40.DEV
+0063|- include Q.DV2
+0064|- [HelpText]
+0065|#COLOR ALL
+0066|*displays all possible display modes (color combinations) in the Survo
+0067|*main window. This is a help function for selecting colors for different
+0068|*shadow values.
+0070|#COLOR #16-31
+0071|*(for example) displays the color combinations for values 16-31.
+0072|*Values 0,1,2,...,255 are permitted.
+0074|- shadow a: [LINK(q04_13.html)]
+0075|*  S = SHADOW command for changing shadow codes
+S   |   a                                          |
+0076|- shadow a: [LINK(q03_01.html)]
+0077|*  C = More information on control operations
+S   |   a                                        |
+0078|E
+0081|+DIR? þ PRINT CUR+1,E TO q0f_04.html
+0082|- include HTML40.DEV
+0083|- include Q.DV2
+0084|- [HelpText]
+0085|#DIR <pathname>
+S   |     <        >
+0086|*works like the OS command >DIR but gives the list of files
+S   |                           >
+0087|*in the edit field below the current edit line.
+0089|*The DIR command is implemented as a part of a more general
+0090|*desktop operation INDEX. Most of the specifications of INDEX
+0091|*may be used to modify the output of DIR in various ways.
+0093|- shadow a: [LINK(qkv1_01.html)]
+0094|*  I = Information on INDEX operation
+S   |   a                                |
+0095|- shadow a: [LINK(q03_01.html)]
+0096|*  C = More information on control operations
+S   |   a                                        |
+0097|E
+0099|+LIFEGAME? þ PRINT CUR+1,E TO q0f_05.html
+0100|- include HTML40.DEV
+0101|- include Q.DV2
+0102|- [HelpText]
+0103|*LIFEGAME command starts "Game of Life" invented by by John Conway
+0104|*in 1970 and made popular by Martin Gardner in Scientific American.
+0105|*The game is played in Survo on a rectangular finite board of cells.
+0106|*By various specifications the original rules and the appearence of
+0107|*the game may be modified.
+0108|*Original rules: At any time some of the cells will be alive or dead.
+0109|*The user determines the borders of the game board and living cells at
+0110|*the beginning as follows (use /BOX for drawing border lines):
+0112|*LIFEGAME  / Activate this line!
+0113|*         ษอออออออออออออออออออออออออออป
+0114|*         บ                           บ
+0115|*         บ           ***             บ
+0116|*         บ          ***              บ
+0117|*         บ           ***             บ
+0118|*         บ                           บ
+0119|*         บ                           บ
+0120|*         ศอออออออออออออออออออออออออออผ
+0122|*Game of Life in Survo (continued)
+0124|*Let's study a cell * surrounded by 8 others:
+0126|*                       123
+0127|*                       8*4
+0128|*                       765
+0130|*If cell * is alive and it is surrounded by 4 or more living cells,
+0131|*it will die by `overcrowding'. Likewise if at most 1 of the neighbours
+0132|*are alive, the cell dies by `exposure'. In other cases the cell stays
+0133|*alive for the next generation.
+0134|*If the cell is dead (empty), it will be born again if it has exactly
+0135|*3 living neighbours.
+0136|*The cells on the borders are assumed to be dead all the time.
+0138|*The rules for birth and death are given by ON and OFF specifications.
+0139|*Thus the original (default) setting is ON=3 OFF=0145678 .
+0141|*Game of Life in Survo (continued)
+0143|*Other specifications:
+0144|*NMAX       gives number of generations to be produced.
+0145|*WAIT       gives time between successive gemerations to be displayed.
+0146|*LIFE       gives a list of characters to be used for marking living
+0147|*           cells. Also shadow characters may be employed for painting
+0148|*           successive generations with different colors.
+0149|S           Example: LIFE=***
+S   |                          136
+0151|*By studying the `screen saver' sucro /LIFEGAME still more specifications
+0152|*may be detected.
+0153|*More information is found (in Finnish) by activating
+0154|*/ELOPELI
+0155|E
+0157|+COLORMAT? þ PRINT CUR+1,E TO q0f_06.html
+0158|- include HTML40.DEV
+0159|- include Q.DV2
+0160|- [HelpText]
+0161|*COLORMAT <n>,L
+S   |          < >
+0162|*with specifications START=c1,m1,y1,k1 END=c2,m2,y2,k,2 (corresponding
+0163|*to CMYK color components) makes a list of <n> FILL colors where
+S   |                                           < >
+0164|*the color changes linearly from the START-color to END-color.
+0165|*An optional MIDDLE=cm,mm,ym,km specification makes the same thing
+0166|*in <n> steps changing the color first from START to MIDDLE and then
+S   |    < >
+0167|*from MIDDLE to END.
+0169|*COLORMAT is intended merely as a tool for a sucro
+0170|*/COLORMAT <n>,L
+S   |           < >
+0171|*(with the same specifications) which makes 'color mats' according to
+0172|*colors defined by COLORMAT.
+0174|*Detailed information and applications are found on
+0175|- shadow W: [LINK(http://www.survo.fi/papers/ColorChanges.pdf)] [/LINK]
+0176|*http://www.survo.fi/papers/ColorChanges.pdf
+S   | WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0177|E

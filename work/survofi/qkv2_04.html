@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText"><B>Date conversions in Survo data sets</B> 
+
+DATE &lt;data&gt; 
+makes date conversions in Survo data set &lt;data&gt;. The variables are
+activated by special mask characters. The conversions can be limited
+to observations selected by IND, CASES and SELECT specifications.
+
+The input consists of one or more dates. In the case of one date,
+several output options are available, and the input date may be
+given either in one variable or split in three variables.
+If more than one date is given as input, the same variables serve
+as output, i.e. the original dates are replaced by the converted ones.
+
+A large selection of date formats is available.
+
+The rules of input and output are described in the following table:
+
+
+Input masks and formats            Output masks and formats
+---------------------------------  ---------------------------------
+D,M,Y (one each) or i              d,a,j,w,J
+                                     Format of d variable by ODATE
+D (one with no M,Y)                d,a,j,w,J
+  Format by IDATE                    Format of d variable by ODATE
+D (one or more with no M,Y)        D
+  Formats by IDATE                   Formats by ODATE
+---------------------------------  ---------------------------------
+D:day/date, M:month, Y:year, d:date, a:weekday (Mon,Tue,Wed,Thu,Fri,Sat,Sun)
+j:day number (001-366), w:week number (01-53), J,i:Julian day number
+
+The week numbers are calculated using a Finnish algorithm.
+The Julian days may be scaled to a given date by specification
+JULIAN_DAY0=&lt;julian_day_number&gt; . To find out the Julian day number
+of a date, use  DATE &lt;date&gt;,Julian  in the edit field.
+
+  <A HREF="qkv2_06.html">F = Date formats</A> 
+  <A HREF="qkv2_02.html">D = More information on DATE operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

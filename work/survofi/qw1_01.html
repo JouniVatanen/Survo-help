@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">In the ANalysis Of VAriance we are interested in the mutual dependence
+of a dependent variable with interval scale and independent variables
+with nominal scale.       In the analysis of covariance a part of the
+independent variables are at the interval scale. Usually the following
+assumptions are made: The observational errors are independently and
+normally distributed with equal variances.
+
+With the ANOVA operation you may analyse a quite large range of variance
+and covariance models. The general form of the ANOVA operation is
+
+         ANOVA &lt;data&gt;,L
+         DEPENDENT=&lt;list of dependent variables&gt; 
+         &lt;definitions for the grouping variables&gt; 
+         &lt;list of covariates&gt; 
+         &lt;definitions for analyses and tests to be performed&gt; 
+
+The parameter L (optional) gives the starting line for the results
+in the edit field. At least one dependent variable must be given.
+An example of the specifications for a two-way fixed effects analysis
+of variance model:
+         ANOVA IEADATA,30
+         DEPENDENT=KNOWLDGE
+         GROUPING=ATTITUDE,SEX
+         ATTITUDE=1(Best),2(Same),3(Worst)  SEX=1(Boys),2(Girls)
+Means and deviations will be automatically printed in one-sample
+and one-way analysis of variance. In other analyses means and
+correlations are printed only if PRINTOUT=MEANS is specified.
+Further information:
+  <A HREF="qw1_02.html">1 = Definitions for grouping variables</A> 
+  <A HREF="qw4_01.html">2 = One-sample tests</A> 
+  <A HREF="qw4_02.html">3 = One-way analysis of variance, multiple comparisons of means</A> 
+  <A HREF="qw2_01.html">4 = Analysis of variance for multiple factors</A> 
+  <A HREF="qw3_01.html">5 = Analysis of covariance</A> 
+  <A HREF="qw3_03.html">6 = Multivariate analysis of variance and covariance</A> 
+  <A HREF="qw4_03.html">7 = Multivariate analysis of repeated measurements</A> 
+  <A HREF="qw1_03.html">8 = Performing analyses in subgroups</A> 
+  <A HREF="qw2_04.html">9 = Forming combined grouping variables</A> 
+  <A HREF="qw1_04.html">I = Input in other forms (not data)</A> 
+  <A HREF="q21_01.html">D = More on data analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

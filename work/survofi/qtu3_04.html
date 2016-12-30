@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Control words and commands in sucro programs:
+
+ {end}           terminates the program.
+ {init}          performs intialization of certain display parameters.
+                 It guarantees, for example, that insert mode is not on,
+                 the reference point is cancelled, the first column is
+                 set to the point of return when ENTER is pressed, no
+                 blocks and shadow lines are being defined, etc.
+                 {init} neither affects the position of the cursor
+                 nor changes the contents of the edit field.
+ {break off}     prevents the effects of keys .  + and - used in the
+                 sucro run for speed control and stopping.
+                 Used in keyboard sucros.
+ {break on}      cancels the effect of {break off}.
+
+ {message}       {message}&lt;string&gt; 
+                 displays a message &lt;string&gt; on the bottom line.
+                 To cancel the message (this must be done always before
+                 normal termination of a sucro), use {message}@ .
+ {message Wi}    displays a message contained in Wi .
+
+Control words and commands in sucro programs:         (Continuation)
+
+ {message shadow &lt;char&gt;}
+                 sets the shadow character (color) used in messages.
+                 Default is {message shadow 1} (red).
+
+ {wait &lt;time&gt;}   sets a wait of &lt;time&gt; in 0.1 seconds before continuing.
+ {tempo &lt;speed&gt;} sets the basic speed of the sucro.
+                 Default is {tempo 2}. {tempo 1} is the fastest possible.
+                 {tempo -1} increases the speed by 1 and {tempo +1}
+                 slows it down by 1. Normally only these relative forms
+                 should be used.
+ {keys i}        (i=0,1,2) indicates whether the labels of the keys
+                 'pressed' by the sucro are displayed.
+                 {keys 0} (default) no display
+                 {keys 1} key labels are displayed
+                 {keys 2} the user is requested to press the key dis-
+                          played before proceeding.
+
+Control words and commands in sucro programs:         (Continuation)
+
+ {next word}     finds the next 'word' on the visible part of the current
+                 line.
+ {next col}      works as {next word} but finds also words outside the visible
+                 part of the current line.
+ {ref set i}     defines the current cursor/screen position as an
+                 additional reference point i (i=1,2,...,8).
+ {ref jump i}    returns the cursor to the point defined by {ref set i}.
+ {ref del i}     removes the additional reference point i.
+ {disp off}      disables the screen. Text is written normally in
+                 the edit field but not shown on the screen.
+ {disp on}       restores the normal screen display (also from graphics mode).
+ {disp reset}    as {disp on} but does not set off the graphics mode.
+                 If no graphics has not been generated under display off mode,
+                 {disp reset} (faster alternative) is preferred to {disp on}.
+ {labels off}    makes the line numbers and control characters invisible.
+ {labels on}     restores the line numbers and control characters.
+
+Control words and commands in sucro programs:         (Continuation)
+
+ {paint on}      words/chars saved by {save word} or {save char} are painted.
+ {paint off}     exits painting mode.
+ {soft_on}       makes the soft buttons below the main window visible.
+ {soft_off}      makes the soft buttons below the main window invisible.
+
+ {play sound &lt;WAV_file&gt;} plays a sound file.
+ {play sound Wi}         plays a sound file (name given in Wi).
+
+
+ <A HREF="qtu3_01.html">C = More information on control words in sucro programs</A> 
+ <A HREF="qtu1_01.html">S = General information on sucros</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

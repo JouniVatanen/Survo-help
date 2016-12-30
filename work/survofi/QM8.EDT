@@ -1,0 +1,97 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QM8
+0004|*LOAD EDQ
+0006|+MATNORM? þ PRINT CUR+1,E TO qm8_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Various normalizations and derived matrices:
+0011|*MAT C=SUM(A)     / row vector of the sums of the columns
+0012|- [New]
+0013|*MAT C=SUM(A,k)   / row vector of sums of kth powers by columns
+0014|- [/New]
+0015|*MAT C=MAX(A)     / row vector of the column maxima
+0016|*MAT C=MIN(A)     / row vector of the column minima
+0017|- [New]
+0018|*MAT C=MAX_IJ(A)  / 1*1 matrix of maximum element with corresponding labels
+0019|*MAT C=MIN_IJ(A)  / 1*1 matrix of minimum element with corresponding labels
+0020|- [/New]
+0021|*MAT C=CENTER(A)  / centers columns of A by subtracting means
+0022|*                   Side result: Means of columns saved in MEAN.MAT
+0023|*MAT C=NRM(A)     / rescales the columns of A to length=1
+0024|*                   Side result: Lengths of A columns saved in NORM.MAT
+0025|*MAT C=DV(A)      / makes a diagonal matrix of a column vector A
+0026|*MAT C=VD(A)      / takes the diagonal of A and forms a column vector
+0027|- [New]
+0028|*MAT C=DIAG(A)    / forms diagonal matrix of diagonal elements of A
+0029|*MAT C=DIAGVEC(A) / makes a symmetric m*m matrix C of an m element vector A as
+0030|*                   C[i,j]=A[abs(i-j)+1].
+0031|- [/New]
+0032|*MAT C=VEC(A)     / forms a single column vector C of all A columns
+0033|*MAT C=VEC(A,k)   / forms a matrix C of k rows of the elements of A
+0034|- [New]
+0035|*MAT C=NVEC(A)    / works as VEC, but moves the row labels accordingly.
+0036|- [/New]
+0038|*MAT C=PERM(A,P)  / If P is a column vector (m*1) consisting of numbers
+0039|*                   1,2,...,m in any order, the rows of A will be
+0040|*                   permuted according to P.
+0041|*                   If P is a row vector, the columns of A are permuted.
+0042|- [New]
+0043|*MAT C=SORT(A,k)  / Rows of A are sorted in increasing order
+0044|*                   of elements in the k'th column of A.
+0045|- [/New]
+0046|*MAT C=P(A,k)     / Pivotal operation with pivot A(k,k)
+0047|*MAT C=P(A,k:l)   / Pivotal operation with pivots A(k,k),...,A(l,l)
+0048|- [New]
+0049|*MAT C=CUM(A)     / cumulative sums of columns
+0050|*MAT A=UNCUM(C)   / inverse operation of CUM above
+0051|*MAT C=PROD(A)    / row vector of the products of the columns
+0052|*MAT C=SELECT(A,k) / selects those rows of A where the element in the k'th
+0053|*                    column is not 0.
+0054|*MAT C=SUB(A,Srow,Scol) / selects a submatrix of A with rows determined
+0055|*                   by indicator vector Srow and columns by Scol.
+0056|*                   For example, if Srow=[3 0 0 1 2], rows 4,5,1
+0057|*                   are selected in this order. * indicates all rows/columns.
+0058|- [/New]
+0060|- shadow a: [New][LINK(qm8_03.html)]
+0061|d  P = MAT PERM (details)
+S   |   a                    ;
+0062|- shadow a: [LINK(qm2_03.html)]
+0063|*  M = More information on MAT operations
+S   |   a                                    |
+0064|E
+0067|+PERM? þ PRINT CUR+1,E TO qm8_02.html
+0068|- include HTML40.DEV
+0069|- include Q.DV2
+0070|- [HelpText]
+0071|*Permutations:
+0072|- shadow a: [LINK(qmc1_01.html)]
+0073|*  1 = Counting and listing permutations (with restrictions) (COMB)
+S   |   a                                                              |
+0074|- shadow a: [LINK(qm8_03.html)]
+0075|*  2 = Permuting matrix rows and columns
+S   |   a                                   |
+0076|E
+0078|+MATPERM? þ PRINT CUR+1,E TO qm8_03.html
+0079|- include HTML40.DEV
+0080|- include Q.DV2
+0081|- [HelpText]
+0082|*MAT C=PERM(A,P)  / If P is a column vector (m*1) consisting of numbers
+0083|*                   1,2,...,m in any order, the rows of A will be
+0084|*                   permuted according to P.
+0085|*                   If P is a row vector, the columns of A are permuted.
+0086|*In fact P may contain any distinct numbers. The rows (or columns) of A
+0087|*are permuted according to the magnitudes of these numbers.
+0088|*There is another form of this operation
+0089|*MAT C=PERM2(A,P) which does the same job but the permutation defined
+0090|*by P is interpreted in a different way.
+0091|*Let                          A=[1,2,3,4,5,6,7,8]
+0092|*and                          P=[5,8,1,3,7,6,4,2].
+0093|*Then MAT C=PERM(A,P)  gives  C=[3,8,4,7,1,6,5,2], i.e. C(P(i))=A(i),
+0094|*but  MAT C=PERM2(A,P) gives  C=[5,8,1,3,7,6,4,2], i.e. C(i)=A(P(i)).
+0096|*MAT C=PERM0(A,P) works as PERM2 but assumes that P really consists
+0097|*of integers 1,2,... in some order. PERM0 is faster than PERM2.
+0099|- shadow a: [LINK(qm2_03.html)]
+0100|*  M = More information on MAT operations
+S   |   a                                    |
+0101|E

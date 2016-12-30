@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">VARS=&lt;list of variables&gt; 
+is a specification which selects the variables into statistical analysis.
+Another way to do that is to use a MASK specification, but VARS always
+overrides MASK and permanent activation status in the data file.
+For example,
+VARS=Height,Weight,Test1
+selects the variables Height,Weight and Test1 which all are activated
+by 'A' in the current data file; other variables will be passive.
+VARS=ALL means that all variables are to be selected.
+VARS=ALL,-Name,-Test1 means that all variables except Name and Test1 are
+to be selected.
+The task of each variable can be given in parentheses in the VARS list.
+For example, in the LINREG operation
+VARS=Height(X),Weight(X),Test1(Y),Residual(R)
+selects the variables and indicates their roles in the analysis as well.
+
+The influence of VARS is only temporary and does not change the
+activation status in the data file.
+(See also <A HREF="q03_13.html">MASK</A>?)
+<A NAME="VV"></A>  <A HREF="q03_11.html">V = More information on selection of variables</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,172 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q22
+0004|*LOAD EDQ
+0006|+TABLE? þ PRINT CUR+1,E TO q22_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|#TAB <data>,L
+S   |     <    >
+0011|*makes cross-tabulations of <data> according to selected variables and
+S   |                            <    >
+0012|- shadow %: [LINK(q0e_02.html)] [/LINK]
+0013|*saves the results in the output file (see OUTPUT) and from line L
+S   |                                           %%%%%%
+0014|*onwards in the current edit field, if L is given.
+0015|*Also means and standard deviations of a cell variable can be computed
+0016|- shadow %: [%=0]
+0017|*(see CELL specification below).
+S   |      %%%%
+0018|- [New]
+0019|- shadow %: [LINK(q22_03.html)] [/LINK]
+0020|*The table can also be saved as a Survo data file (see TABFILE?).
+S   |                                                       %%%%%%%
+0021|- [/New]
+0023|*The IND and CASES specifications may be used to restrict the set of
+0024|*observations.
+0026|*Tables produced by TAB have a header and letters as line labels.
+0027|*The header and the labels are omitted by giving a specification LABELS=0 .
+0029|*The variables controlling classification can be numeric or string
+0030|*variables and they are to be listed by the specification
+0031|*VARIABLES=<column var>,<row var 1>,<row var 2>,...,<row var n>
+S   |           <          > <         > <         >     <         >
+0032|*or
+0033|*VARIABLES=<column var>:<row var 1>,<row var 2>,...,<row var n>
+S   |           <          > <         > <         >     <         >
+0035|*The first alternative of the VARIABLES specification implies computing
+0036|Sof one n-dimensional table.
+S   |    44444444444444444
+0037|*The second one (with a colon ':' after <column var>) implies computing
+S   |                                        <          >
+0038|Sof n two-dimensional tables with a common <column var>.
+S   |    4 444444444444444                      <          >
+0039|*There is still a more general alternative
+0040|*VARIABLES=<cvar 1>:<cvar 2>:...:<cvar m>:<rvar 1>,<rvar 2>,...
+S   |           <      > <      >     <      > <      > <      >
+0041|*which allows m nested column variables for each row variable.
+0043|*The classification of a numeric variable has to be given in the form
+0044|*<name of var>=L1,U1,U2,U3,...
+S   | <           >
+0045|*where L1=lower limit of the 1st class
+0046|*      U1=upper limit of the 1st class
+0047|*      U2=upper limit of the 2nd class etc.
+0048|*For example, Age=0,6,12,21 specifies age groups 0-6,7-12 and 13-21.
+0049|*Any class can be given a name in parentheses after the upper limit.
+0050|*For example, Color=1,1(white),2(red),3(blue).
+0052|*If the class widths are equal, classification may also be given in the
+0053|*form <name of var>=<up.limit_of_1.st_class>(<class_width>)<last_class>
+S   |      <           > <                      > <           > <          >
+0054|*For example, Age=10(5)25 is same as Age=5,10,15,20,25. In this
+0055|*abbreviated notation no class names can be given.
+0057|*By default, cases with missing values in classifiers are omitted.
+0058|*However, for numeric classifiers a special class MISSING can be
+0059|*given as the last class. Example; Age=5,10,15,20,25,MISSING
+0061|*The classification of a string variable is described by examples:
+0063|*1) Assume that 'Weekday' is a string variable with values 'Su','Mo' etc.
+0064|*   A classification for 'Weekday' could be
+0065|*   Weekday=/Mo/Tu/We/Th/Fr(Workdays),/Sa/Su(Weekend)
+0066|*   thus forming 2 classes Workdays=(Mo,Tu,We,Th,Fr) and Weekend=(Sa,Su).
+0068|*2) Assume that 'Letter' is a string variable with values 'A','B','C' etc.
+0069|*   To classify letters to wowels and consonants the following
+0070|*   specification is valid:
+0071|*   Letter=/A/E/I/O/U(wowel),/-(consonant)
+0072|*   where /- denotes all the remaining alternatives.
+0074|*The printout of the (frequency) table may be include column and row
+0075|*sums, too. In addition to frequencies various tables of percentages
+0076|*can obtained. These options are selected by a RESULTS specification
+0077|*of the form
+0078|*RESULTS=CSUMS,RSUMS,C%,R%,T%
+0079|*with following consequences:
+0080|*CSUMS   sums of columns
+0081|*RSUMS   sums of rows
+0082|*C%      table of percentages in columns
+0083|*R%      table of percentages in rows
+0084|*T%      table of percentages from the grand total
+0085|*Any of the key words in RESULTS may be omitted.
+0087|*An example of a complete TAB operation for a 3-dimensional contingency
+0088|*table with column and row sums:
+0089|*TAB COMMUNES,27
+0090|*VARIABLES=Industry,Province,People  RESULTS=CSUMS,RSUMS
+0091|*Industry=0,2,5,9   (proportion of people working in industry 0-9)
+0092|*Province=/UUS/KYM,/TUR/AHV,/-  (3 classes)
+0093|*People=0,5000(small),20000(medium),500000(large)
+0096|*Tables of means, standard deviations and sums:
+0097|*To compute means and standard deviations for a selected variable,
+0098|*a CELL specification may be included. It has the form
+0099|*CELL=<cell variable>,<format for the results, ###.# for example>
+S   |      <             > <                                         >
+0101|*Sums of the cell variable are computed (instead of means and standard
+0102|*deviations) by giving the CELL specification in the form
+0103|*CELL=<cell variable>,<format>,<FSUM or SUM>
+S   |      <             > <      > <           >
+0104|*For FSUM, both frequencies and sums are printed. For SUM, sums only are
+0105|*printed.
+0107|- shadow a: [LINK(q22_02.html)]
+0108|*  T = More information on TAB operations
+S   |   a                                    |
+0109|- shadow a: [LINK(q21_01.html)]
+0110|*  S = General information on statistical operations
+S   |   a                                               |
+0111|E
+0114|+TAB? þ PRINT CUR+1,E TO q22_02.html
+0115|- include HTML40.DEV
+0116|- include Q.DV2
+0117|- [HelpText]
+0118|*TAB operations for multiway tables:
+0120|- shadow a: [LINK(q22_01.html)]
+0121|*  1 = Computing frequency tables and tables of means, std.devs and sums (TAB)
+S   |   a                                                                         |
+0122|- shadow a: [LINK(q27_01.html)]
+0123|*  2 = Analysis of variance (TABFIT)
+S   |   a                               |
+0124|- shadow a: [LINK(qu2_01.html)]
+0125|*  3 = Management and editing of multiway tables
+S   |   a                                           |
+0126|- shadow a: [LINK(qu1_02.html)]
+0127|*  4 = Fitting log-linear models (TABFIT)
+S   |   a                                    |
+0128|- shadow a: [LINK(qu1_03.html)]
+0129|*  5 = Testing 2-way frequency tables by simulation (TABTEST)
+S   |   a                                                        |
+0130|- shadow a: [LINK(qw5_01.html)]
+0131|*  M = MTAB operation (by M.Korhonen)
+S   |   a                                |
+0132|- shadow a: [LINK(q02_02.html)]
+0133|*  T = TAB key
+S   |   a         |
+0134|- shadow a: [LINK(qkv0_07.html)]
+0135|*  P = Producing several tables at the same time (/TABULATE by KV)
+S   |   a                                                             |
+0136|- shadow a: [LINK(qkv3_08.html)]
+0137|*  B = Creating Burt's contingency tables (BURT by KV)
+S   |   a                                                 |
+0139|- shadow a: [LINK(q21_01.html)]
+0140|*  S = More information on statistical operations
+S   |   a                                            |
+0142|E
+0145|+TABFILE? þ PRINT CUR+1,E TO q22_03.html
+0146|- include HTML40.DEV
+0147|- include Q.DV2
+0148|- [HelpText]
+0149|*When a multiway table with VARIABLES list without any ':'s is created
+0150|*by a TAB command, the table is also saved as a new Survo data file
+0151|*by giving a specification FILE=<name_of_new_data_file>.
+S   |                                <                     >
+0152|*Selected lines (typically the current TAB definition lines) are saved
+0153|*as comments to the new data file by a specification COMMENTS=L1,L2.
+0155|*Example:
+0156|S11 *TAB FINLAND / FILE=TAB_FIN1 COMMENTS=11,17
+S   |                   1111111111111111111111111111
+0157|*12 *VARIABLES=Province,Popul,Area CELL=Brthrate
+0158|*13 *Province=/UUS/TUR/AHV/KYM(South),/HŽM/MIK/KUO/KES/VAA/KAR(Middle),&
+S   |                                                                       &
+0159|*14 *         /-(North)
+0160|*15 *Popul=0,5000,20000,500000
+0161|*16 *Brthrate=0,10,15,30
+0162|*17 *Area=0,1000,20000
+0163|*18 *
+0165|*This option is available in versions 3.33+.
+0167|- shadow a: [LINK(q22_01.html)]
+0168|*  T = More information on TAB operations
+S   |   a                                    |
+0169|E

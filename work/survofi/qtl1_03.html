@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Suomessa pelataan Lottoa niin, että n=39 numerosta arvotaan m=7 kpl.
+Mahdollisten lottorivien määrä on C(n,m)=15380937 kpl.
+Siis päävoiton (7-oikein) saamisen todennäköisyys yhdellä rivillä
+on 1/C(n,m)=0.00000006501554
+Yleisesti todennäköisyys saada K numeroa oikein yhdellä rivillä on
+P(K):=C(7,K)*C(32,7-K)/C(39,7)
+eli taulukoituna:
+P(7)=0.00000006501554
+P(6)=0.00001456348206
+P(5)=0.00067720191559
+P(4)=0.01128669859320
+P(3)=0.08182856480070
+P(2)=0.27494397773036
+P(1)=0.41241596659553
+P(0)=0.21883296186702
+Lisäksi on käytössä voittoluokka 6-oikein + lisänumero (3:sta), jonka
+todennäköisyys on P61=P(7)*7*3 eli
+P61=0.00000136532644
+Sellaisten lottorivien osuus, joissa on peräkkäisiä numeroita on
+1-C(n-m+1,m)/C(n,m)=0.72225047147648
+eli monille yllätyksellisesti yli 72 %.
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

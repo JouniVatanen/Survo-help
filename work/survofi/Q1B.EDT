@@ -1,0 +1,99 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q1B
+0004|*LOAD EDQ
+0006|+HISTO2? þ PRINT CUR+1,E TO q1b_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*User-defined distributions for HISTO
+0012|- shadow a: [LINK(q1b_02.html)]
+0013|*  1 = Density or probablities given in the edit field
+S   |   a                                                 |
+0014|- shadow a: [New][LINK(q1b_03.html)]
+0015|d  2 = Discrete distribution given in a matrix file
+S   |   a                                              ;
+0017|E
+0019|+HISTO21? þ PRINT CUR+1,E TO q1b_02.html
+0020|- include HTML40.DEV
+0021|- include Q.DV2
+0022|- [HelpText]
+0023|*The user may define any distribution by a DENSITY or a PROBABILITY
+0024|*specification given in the current edit field. DENSITY is used for
+0025|*continuous variables and PROBABILITY for discrete ones (with values
+0026|*0,1,2,...).
+0028|*A FIT specification may then refer to any such distribution in the same
+0029|*way as to predefined distributions (explained above).
+0031|*The DENSITY specification has the form
+0032|*DENSITY <name of distribution>(<list of parameters>)
+S   |         <                    > <                  >
+0033|*  Y(X)=<density Y as a function of X and parameters>
+S   |        <                                           >
+0035|*The PROBABILITY specification has the form
+0036|*PROBABILITY <name of distribution>(<list of parameters>)
+S   |             <                    > <                  >
+0037|*  Y(X)=<probability of value X>
+S   |        <                      >
+0039|*The rules in writing density and probability functions are the same
+0040|- shadow %: [LINK(qv1_01.html)] [/LINK]
+0041|*as those of the VAR operation (see VAR types 2 and 3).
+S   |                                    %%%
+0043|*For example, the Beta(a,b) distribution may be defined as follows:
+0044|*DENSITY Beta(a,b)
+0045|*  Y(X)=if(X<=0)then(0)else(Y2)
+S   |            <
+0046|*    Y2=if(X<1)then(X^(a-1)*(1-X)^(b-1))else(0)
+S   |            <
+0048|*Observe that the density function can be given without any normalizing
+0049|*constant, since the computation procedure of HISTO automatically
+0050|*rescales it so that the integral of Y is 1 on the range of classi-
+0051|*fication defined by <variable>=<lower limit>(<step>)<upper limit>.
+S   |                     <        > <           > <    > <           >
+0052|*The trapezoidal rule is used in numeric integration with step length
+0053|*<step>. Since for nonnormalized densities the integral has to be
+S   | <    >
+0054|*recomputed whenever any of the parameter values is changed, giving
+0055|*a normalized density speeds up the computation.
+0056|*As an example on discrete distributions the geometric distribution
+0057|*can be defined as follows:
+0058|*PROBABILITY Geom(p)
+0059|*  Y(X)=if(X>=0)then(p*(1-p)^X)else(0)
+S   |            >
+0061|*In this case the probabilities are correctly scaled, but in general they
+0062|*can be rescaled so that their sum is 1 on the range of classification.
+0063|*The user is responsible for selecting the range wide enough.
+0064|*When referring to a user-defined distribution in the FIT specification
+0065|*either form FIT=Beta(3,7)  (parameters given)
+0066|*         or FIT=Beta       (parameters are to be estimated from the
+0067|*                            current grouped data)
+0068|*can be used. In the latter case the parameter estimates are computed
+0069|*by ML method using the polytope algorithm (Nelder,Mead 1965) in
+0070|*maximization of the likelihood function (See Walsh: Methods of
+0071|*Optimization, p.81-84).
+0072|*The initial estimates may be given by an INIT specification INIT=2,8
+0073|*(for example). If INIT is not given, 0's are used as initial values. The
+0074|*initial step lengths for the optimization algorithm may be given by
+0075|*STEP=<step1>,<step2>,,, or STEP=<step> where <step> is the common step
+S   |      <     > <     >            <    >       <    >
+0076|*length for all the parameters. Default is STEP=0.1 .
+0078|- shadow a: [LINK(q1a_01.html)]
+0079|*  H = More information on HISTO
+S   |   a                           |
+0080|E
+0083|+HISTO22? þ PRINT CUR+1,E TO q1b_03.html
+0084|- include HTML40.DEV
+0085|- include Q.DV2
+0086|- [HelpText]
+0087|*The probabilities p0,p1,p2,... of a discrete distribution of a variable
+0088|*with possible values 0,1,2,... can also be given by a FIT specification
+0089|*of an alternative form
+0090|*FIT=MATRIX(<name_of_matrix_file>)   ( for example, FIT=MATRIX(P5) )
+S   |            <                   >
+0091|*In this case the probabilities p0,p1,p2,... must be saved as the first
+0092|*column of the matrix file.
+0093|*If these probabilities have been computed by using some estimates
+0094|*of parameters (computed from the current data), the number of
+0095|*such parameters should be given by a PARAM specification.
+0097|- shadow a: [LINK(q1a_01.html)]
+0098|*  H = More information on HISTO
+S   |   a                           |
+0099|E

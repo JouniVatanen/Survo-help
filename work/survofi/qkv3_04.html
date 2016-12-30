@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">RELIAB &lt;correlation_matrix&gt;,&lt;factor_matrix&gt;,&lt;factor_correlation_matrix&gt;,L
+computes reliabilities of measurement scales according to a measurement
+model, which is usually estimated by the maximum likelihood factor analysis
+(see: <A HREF="qmr3_07.html">FACTA</A>?). The &lt;factor_correlation_matrix&gt; is given by the ROTATE
+operation. If the factors are orthogonal, the matrix can be omitted.
+
+L is the (optional) first line for the results.
+The residual covariance and correlation matrices are saved to the matrix
+files RCOV.M and RCORR.M, respectively. The assumptions of the measurement
+model may be tested by studying these matrices. In an orthogonal factor
+model, the residual matrix should be diagonal. The off-diagonal elements
+(the covariances/correlations of the measurement errors) may reveal some
+interesting properties of the current model.
+
+The specification MSN=&lt;matrix_of_means,standard_deviations_and_N's&gt; 
+(typically MSN=MSN.M) implies computing of Cronbach's alpha for all
+scales. However, Cronbach's alpha is not recommended, since
+Tarkkonen's measure is better in every circumstance, see Vehkalahti (2000).
+
+For typical applications, sucro /RELIAB is preferable.
+
+The measurement scales corresponding to the factors are called factor
+images. The weights of the scales are the (rotated) factor loadings. The
+reliabilities of the factor images give information on the structural
+validity of the factor solution.
+
+When the scales are linear combinations of the observed variables, the
+coefficients of weights are often given by other Survo operations, such as
+LINREG or /FCOEFF. They may also be set by the user, according to some
+theory, for example. The coefficient matrix is referred to by the
+specification WEIGHT.
+
+By default, the reliability of an unweighted sum of the variables is
+computed, since it is a classical measurement scale is psychometrics.
+
+The reliabilities of second order scales can be computed by using the
+specification WEIGHT2. Then the coefficient matrix is formed automatically
+by first removing the Constant-rows of the weight-matrices and then
+multiplying WEIGHT and WEIGHT2. In this case, the resulting second order scale
+coefficients are saved in the matrix file WEIGHT2.M .
+
+  <A HREF="qkv3_01.html">M = More information on reliability of measurement scales</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

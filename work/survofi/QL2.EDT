@@ -1,0 +1,116 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QL2
+0005|*.....................................................................................
+0006|*LOAD EDQ
+0008|+FUNCSTAT? þ PRINT CUR+1,E TO ql2_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*Combinatorial and statistical functions:
+0014|*FACT(n)        n! (n factorial)                  FACT(5)=120
+0015|*FACT.L(n)      log(n!)                           FACT.L(1000)=5912.1281784882
+0016|*C(n,m)         binomial coefficient              C(10,5)=252
+0017|- shadow %: [LINK(qmc1_01.html)] [/LINK]
+0018|*(See also COMB?)
+S   |           %%%%
+0020|*Binomial distribution BIN(n,p):
+0021|*BIN.f(n,p,x)   probability of x                  BIN.f(4,1/2,0)=0.0625
+0022|*BIN.F(n,p,x)   distribution function             BIN.F(4,1/2,3)=0.9375
+0023|*BIN.G(n,p,y)   inverse distribution function     BIN.G(4,1/2,0.9375)=3
+0025|*Poisson distribution POISSON(a):
+0026|*POISSON.f(a,x) probability of x                  POISSON.f(5,5)=0.17546736976785
+0027|*POISSON.F(a,x) distribution function             POISSON.F(5,5)=0.61596065483306
+0028|*POISSON.G(a,y) inverse distribution function     POISSON.G(5,0.61)=5
+0030|*Normal distribution N(m,s^2):
+0031|*N.f(m,s^2,x)   density function                  N.f(0,1,0)=0.39894228040143
+0032|*N.F(m,s^2,x)   distribution function             N.F(0,1,2)=0.97724986805182
+0033|*N.G(m,s^2,y)   inverse distribution function     N.G(0,1,0.995)=2.5758293035
+0035|*t distribution function with n degrees of freedom:
+0036|*t.f(n,x)       density function                  t.f(30,0)=0.3956321848941
+0037|*t.F(n,x)       distribution function             t.F(30,2)=0.97268747751851
+0038|*t.G(n,y)       inverse distribution function     t.G(30,0.97)=1.9546454957885
+0040|*Chi^2 distribution function with n degrees of freedom:
+0041|*CHI2.f(n,x)    density function                  CHI2.f(10,10)=0.08773368488393
+0042|*CHI2.F(n,x)    distribution function             CHI2.F(10,10)=0.55950671493479
+0043|*CHI2.G(n,y)    inverse distribution function     CHI2.G(10,0.97)=19.921910008236
+0045|- [New]
+0046|*Gamma distribution with paramaters a,b:
+0047|- [/New]
+0048|*density f(x)=x^(a-1)*exp(-x/b)/[b^a*gamma(a)], x>0
+S   |                                                 >
+0049|*gamma.f(lambda,k,x) density function           gamma.f(5,2,10)=0.08773368488393
+0050|*gamma.F(lambda,k,x) distribution function      gamma.F(5,2,10)=0.55950671493479
+0051|*gamma.G(lambda,k,x) inv.distribution function  gamma.G(5,2,0.97)=19.921910008236
+0053|*Relations:
+0054|*gamma.f(a,b,x)=2/b*chi2.f(2*a,2*x/b)
+0055|*gamma.F(a,b,x)=chi2.F(2*a,2*x/b)
+0056|*gamma.G(a,b,x)=b/2*chi2.G(2*a,x)
+0058|*F distribution function with m and n degrees of freedom:
+0059|*F.f(m,n,x)     density function                  F.f(5,6,1)=0.44505077818904
+0060|*F.F(m,n,x)     distribution function             F.F(5,6,10)=0.99288015699002
+0061|*F.G(m,n,y)     inverse distribution function     F.G(5,6,0.993)=10.066447766898
+0063|- [New]
+0064|*Beta distribution with parameters a,b:
+0065|- [/New]
+0066|*density f(x)=gamma(a+b)/[gamma(a)*gamma(b)]*x^(a-1)*(1-x)^(b-1), 0<x<1
+S   |                                                                   < <
+0067|*beta.f(a,b,x)  density function                  beta.f(2,3,0.5)=1.5
+0068|*beta.F(a,b,x)  distribution function             beta.F(2,3,0.5)=0.6875
+0069|*beta.G(a,b,x)  inverse distribution function     beta.G(2,3,0.6875)=0.5
+0071|- [New]
+0072|*Weibull distribution with parameters a,b:
+0073|- [/New]
+0074|*distribution function F(x)=1-exp[-(a*x)^b], x>0
+S   |                                              >
+0075|*Weibull.f(a,b,x) density function              Weibull.f(1,2,1)=0.73575888234288
+0076|*Weibull.F(a,b,x) distribution function         Weibull.F(1,2,1)=0.63212055882856
+0077|*Weibull.G(a,b,x) inverse distribution function Weibull.G(1,2,0.6321)=0.99997205804533
+0078|*Weibull(a,1) is exponential distribution with parameter a.
+0080|- [New]
+0081|*Exponential distribution with parameter a:
+0082|- [/New]
+0083|*exp.f(a,x), exp.F(a,x), exp.G(a,x) are available.
+0086|- shadow a: [LINK(ql1_01.html)]
+0087|*  L = More information about library functions
+S   |   a                                          |
+0088|- shadow a: [LINK(q21_04.html)]
+0089|*  D = More information on probability distributions
+S   |   a                                               |
+0090|E
+0093|+LL? þ PRINT CUR+1,E TO ql2_02.html
+0094|- include HTML40.DEV
+0095|- include Q.DV2
+0096|- [HelpText]
+0098|- shadow a: [LINK(ql1_01.html)]
+0099|*  L = More information about library functions
+S   |   a                                          |
+0100|E
+0103|+FUNCFIN? þ PRINT CUR+1,E TO ql2_03.html
+0104|- include HTML40.DEV
+0105|- include Q.DV2
+0106|- [HelpText]
+0107|*Financial functions:  n=# of periods
+0109|*FIN.PV(payment,interest,n)  Present Value of an Annuity
+0111|*FIN.FV(payment,interest,n) Future value of an Annuity
+0113|*FIN.PMT(principal,interest,n) Payment per Period
+0116|- shadow a: [LINK(ql1_01.html)]
+0117|*  L = More information about library functions
+S   |   a                                          |
+0118|E
+0120|+INQUIRYF? þ PRINT CUR+1,E TO ql2_04.html
+0121|- include HTML40.DEV
+0122|- include Q.DV2
+0123|- [HelpText]
+0124|*The descriptions of library functions do not appear in this inquiry system.
+0125|*Library functions may, however, be inquired in the following way.
+0126|*To make an inquiry about functions in the family ABC (say), we activate
+0127|*ABC.X(1)=_ where X prompts the file ABC to list all its functions and
+0128|*their definitions temporarily on the screen.
+0129|*For example, to inquire about financial functions activate FIN.X(1)=_
+0131|*A list of library functions is obtained by activating
+0132|*/FUNC
+0135|- shadow a: [LINK(ql1_01.html)]
+0136|*  L = More information about library functions
+S   |   a                                          |
+0137|E
+0139|*/FUNC

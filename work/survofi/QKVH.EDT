@@ -1,0 +1,1229 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QKVH
+0004|*LOAD EDQKV0
+0005|+BACK? þ PRINT CUR+1,E TO qkvh_01.html
+0006|- include HTML40.DEV
+0007|- include Q.DV2
+0008|- [HelpText]
+0011|- [NAME(HTMLCODE)][/NAME] / qkvh_01.html#HTMLCODE HTMLCODE?
+0013|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0015|- shadow a: [LINK(qkvh_02.html)]
+0016|*  1 = Structure codes
+S   |   a                 |
+0017|- shadow a: [LINK(qkvh_03.html)]
+0018|*  2 = Headers and titles
+S   |   a                    |
+0019|- shadow a: [LINK(qkvh_04.html)]
+0020|*  3 = Lines and paragraphs
+S   |   a                      |
+0021|- shadow a: [LINK(qkvh_05.html)]
+0022|*  4 = Links
+S   |   a       |
+0023|- shadow a: [LINK(qkvh_06.html)]
+0024|*  5 = Lists
+S   |   a       |
+0025|- shadow a: [LINK(qkvh_07.html)]
+0026|*  6 = Text styles
+S   |   a             |
+0027|- shadow a: [LINK(qkvh_08.html)]
+0028|*  7 = Other elements
+S   |   a                |
+0029|- shadow a: [LINK(qkvh_09.html)]
+0030|*  8 = Fonts
+S   |   a       |
+0031|- shadow a: [LINK(qkvh_10.html)]
+0032|*  9 = Images
+S   |   a        |
+0033|- shadow a: [LINK(qkvh_11.html)]
+0034|*  0 = Forms
+S   |   a       |
+0035|- shadow a: [LINK(qkvh_12.html)]
+0036|*  A = Tables
+S   |   a        |
+0037|- shadow a: [LINK(qkvh_13.html)]
+0038|*  B = Miscellaneous codes
+S   |   a                     |
+0039|- shadow a: [LINK(qkvh_14.html)]
+0040|*  C = Colors
+S   |   a        |
+0041|- shadow a: [LINK(qkvh_15.html)]
+0042|*  D = Frames
+S   |   a        |
+0043|E
+0045|+STRU? þ PRINT CUR+1,E TO qkvh_02.html
+0046|- include HTML40.DEV
+0047|- include Q.DV2
+0048|- [HelpText]
+0050|SStructure codes
+S   | NNNNNNNNNNNNNNN
+0052|S [META] begins meta information of the page, usually in key/value pairs
+S   |  ______
+0053|*        (used e.g. by the search engines of Internet); meta inforation
+0054|*        is given in the header part
+0055|S                NAME="key" (e.g. NAME="description")
+S   |                 &&&&&&&&&&
+0056|S                CONTENT="value" (e.g. CONTENT="short description")
+S   |                 &&&&&&&&&&&&&&&
+0057|S [/META] ends meta information (also shadow !)
+S   |  _______                             ????????
+0058|S [DESCRIPTION] gives a short description of the page (a shorthand for
+S   |  _____________
+0059|*       CONTENT in [META] with NAME="description") without quotes ("")
+0060|S [/DESCRIPTION] end the description (also shadow ')
+S   |  ______________                           ????????
+0061|S [KEYWORDS] gives the keywords of the page (a shorthand for CONTENT
+S   |  __________
+0062|*      in [META] with NAME="keywords") without quotes (""), separate
+0063|*      the keywords with commas
+0064|S [/KEYWORDS] ends the keyword list (also shadow ')
+S   |  ___________                             ????????
+0065|*  (the above codes must be placed in the document header)
+0067|S [BODY] ends the document header and begins the body part
+S   |  ______
+0068|S [END] ends the body part and the HTML document (also shadow E)
+S   |  _____                                                ????????
+0071|- [NAME(HTMLCODE)][/NAME] / qkvh_02.html#HTMLCODE HTMLCODE?
+0073|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0075|- shadow a: [LINK(qkvh_02.html)]
+0076|*  1 = Structure codes
+S   |   a                 |
+0077|- shadow a: [LINK(qkvh_03.html)]
+0078|*  2 = Headers and titles
+S   |   a                    |
+0079|- shadow a: [LINK(qkvh_04.html)]
+0080|*  3 = Lines and paragraphs
+S   |   a                      |
+0081|- shadow a: [LINK(qkvh_05.html)]
+0082|*  4 = Links
+S   |   a       |
+0083|- shadow a: [LINK(qkvh_06.html)]
+0084|*  5 = Lists
+S   |   a       |
+0085|- shadow a: [LINK(qkvh_07.html)]
+0086|*  6 = Text styles
+S   |   a             |
+0087|- shadow a: [LINK(qkvh_08.html)]
+0088|*  7 = Other elements
+S   |   a                |
+0089|- shadow a: [LINK(qkvh_09.html)]
+0090|*  8 = Fonts
+S   |   a       |
+0091|- shadow a: [LINK(qkvh_10.html)]
+0092|*  9 = Images
+S   |   a        |
+0093|- shadow a: [LINK(qkvh_11.html)]
+0094|*  0 = Forms
+S   |   a       |
+0095|- shadow a: [LINK(qkvh_12.html)]
+0096|*  A = Tables
+S   |   a        |
+0097|- shadow a: [LINK(qkvh_13.html)]
+0098|*  B = Miscellaneous codes
+S   |   a                     |
+0099|- shadow a: [LINK(qkvh_14.html)]
+0100|*  C = Colors
+S   |   a        |
+0101|- shadow a: [LINK(qkvh_15.html)]
+0102|*  D = Frames
+S   |   a        |
+0103|E
+0104|+HEAD? þ PRINT CUR+1,E TO qkvh_03.html
+0105|- include HTML40.DEV
+0106|- include Q.DV2
+0107|- [HelpText]
+0109|SHeaders and titles
+S   | NNNNNNNNNNNNNNNNNN
+0111|S [TITLE] gives the title of the page in the header part (also shadow 7)
+S   |  _______                                                      ????????
+0112|S [/TITLE] ends the title
+S   |  ________
+0114|*  (the title is obligatory and should be selected carefully)
+0116|S [HEADER1] or [H1] gives a 1st level header (also shadow j)
+S   |  _________    ____                                ????????
+0117|S [/HEADER1] or [/H1] ends a 1st level header
+S   |  __________    _____
+0118|S [HEADER2] or [H2] gives a 2nd level header (also shadow k)
+S   |  _________    ____                                ????????
+0119|S [/HEADER2] or [/H2] ends a 2nd level header
+S   |  __________    _____
+0120|S [HEADER3] or [H3] gives a 3rd level header (also shadow l)
+S   |  _________    ____                                ????????
+0121|S [/HEADER3] or [/H3] ends a 3rd level header
+S   |  __________    _____
+0122|S [HEADER4] or [H4] gives a 4th level header (also shadow m)
+S   |  _________    ____                                ????????
+0123|S [/HEADER4] or [/H4] ends a 4th level header
+S   |  __________    _____
+0124|S [HEADER5] or [H5] gives a 5th level header (also shadow n)
+S   |  _________    ____                                ????????
+0125|S [/HEADER5] or [/H5] ends a 5th level header
+S   |  __________    _____
+0126|S [HEADER6] or [H6] gives a 6th level header (also shadow o)
+S   |  _________    ____                                ????????
+0127|S [/HEADER6] or [/H6] ends a 6th level header
+S   |  __________    _____
+0130|- [NAME(HTMLCODE)][/NAME] / qkvh_03.html#HTMLCODE HTMLCODE?
+0132|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0134|- shadow a: [LINK(qkvh_02.html)]
+0135|*  1 = Structure codes
+S   |   a                 |
+0136|- shadow a: [LINK(qkvh_03.html)]
+0137|*  2 = Headers and titles
+S   |   a                    |
+0138|- shadow a: [LINK(qkvh_04.html)]
+0139|*  3 = Lines and paragraphs
+S   |   a                      |
+0140|- shadow a: [LINK(qkvh_05.html)]
+0141|*  4 = Links
+S   |   a       |
+0142|- shadow a: [LINK(qkvh_06.html)]
+0143|*  5 = Lists
+S   |   a       |
+0144|- shadow a: [LINK(qkvh_07.html)]
+0145|*  6 = Text styles
+S   |   a             |
+0146|- shadow a: [LINK(qkvh_08.html)]
+0147|*  7 = Other elements
+S   |   a                |
+0148|- shadow a: [LINK(qkvh_09.html)]
+0149|*  8 = Fonts
+S   |   a       |
+0150|- shadow a: [LINK(qkvh_10.html)]
+0151|*  9 = Images
+S   |   a        |
+0152|- shadow a: [LINK(qkvh_11.html)]
+0153|*  0 = Forms
+S   |   a       |
+0154|- shadow a: [LINK(qkvh_12.html)]
+0155|*  A = Tables
+S   |   a        |
+0156|- shadow a: [LINK(qkvh_13.html)]
+0157|*  B = Miscellaneous codes
+S   |   a                     |
+0158|- shadow a: [LINK(qkvh_14.html)]
+0159|*  C = Colors
+S   |   a        |
+0160|- shadow a: [LINK(qkvh_15.html)]
+0161|*  D = Frames
+S   |   a        |
+0162|E
+0163|+LIPA? þ PRINT CUR+1,E TO qkvh_04.html
+0164|- include HTML40.DEV
+0165|- include Q.DV2
+0166|- [HelpText]
+0168|SLines and paragraphs
+S   | NNNNNNNNNNNNNNNNNNNN
+0170|S [/] begins a new paragraph (also shadow /, control /)
+S   |  ___                              ????????  ?????????
+0171|S [+] begins a new line (also shadow \, control +)
+S   |  ___                         ????????  ?????????
+0174|- [NAME(HTMLCODE)][/NAME] / qkvh_04.html#HTMLCODE HTMLCODE?
+0176|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0178|- shadow a: [LINK(qkvh_02.html)]
+0179|*  1 = Structure codes
+S   |   a                 |
+0180|- shadow a: [LINK(qkvh_03.html)]
+0181|*  2 = Headers and titles
+S   |   a                    |
+0182|- shadow a: [LINK(qkvh_04.html)]
+0183|*  3 = Lines and paragraphs
+S   |   a                      |
+0184|- shadow a: [LINK(qkvh_05.html)]
+0185|*  4 = Links
+S   |   a       |
+0186|- shadow a: [LINK(qkvh_06.html)]
+0187|*  5 = Lists
+S   |   a       |
+0188|- shadow a: [LINK(qkvh_07.html)]
+0189|*  6 = Text styles
+S   |   a             |
+0190|- shadow a: [LINK(qkvh_08.html)]
+0191|*  7 = Other elements
+S   |   a                |
+0192|- shadow a: [LINK(qkvh_09.html)]
+0193|*  8 = Fonts
+S   |   a       |
+0194|- shadow a: [LINK(qkvh_10.html)]
+0195|*  9 = Images
+S   |   a        |
+0196|- shadow a: [LINK(qkvh_11.html)]
+0197|*  0 = Forms
+S   |   a       |
+0198|- shadow a: [LINK(qkvh_12.html)]
+0199|*  A = Tables
+S   |   a        |
+0200|- shadow a: [LINK(qkvh_13.html)]
+0201|*  B = Miscellaneous codes
+S   |   a                     |
+0202|- shadow a: [LINK(qkvh_14.html)]
+0203|*  C = Colors
+S   |   a        |
+0204|- shadow a: [LINK(qkvh_15.html)]
+0205|*  D = Frames
+S   |   a        |
+0206|E
+0207|+LINK? þ PRINT CUR+1,E TO qkvh_05.html
+0208|- include HTML40.DEV
+0209|- include Q.DV2
+0210|- [HelpText]
+0212|SLinks
+S   | NNNNN
+0214|S [LINK(URL)] establishes a link to any net resource given as a URL
+S   |  ___________                                                   &&&
+0215|S             (Uniform Resource Locator)
+S   |               ,****** ,******* ,******
+0216|S [LINK2(URL,NAME)] establishes a link to any net resource given as a URL
+S   |  _________________                                                   &&&
+0217|S  so that the URL is loaded in a frame specified by NAME.
+S   |               &&&                                   &&&&
+0218|S [/LINK] ends the link description (also shadow |)
+S   |  _______                                 ????????
+0219|S [MAIL(x)] gives an email address link
+S   |  _________
+0220|S [/MAIL] ends the email address link text (also shadow |)
+S   |  _______                                        ????????
+0221|S [NAME(x)] sets a named point ('anchor') to the text
+S   |  _________
+0222|S [/NAME] ends the anchor description (also shadow |)
+S   |  _______                                   ????????
+0223|S [JUMP(x)] establishes a link to the given anchor
+S   |  _________
+0224|S [/JUMP] ends the link description (also shadow |)
+S   |  _______                                 ????????
+0228|- [NAME(HTMLCODE)][/NAME] / qkvh_05.html#HTMLCODE HTMLCODE?
+0230|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0232|- shadow a: [LINK(qkvh_02.html)]
+0233|*  1 = Structure codes
+S   |   a                 |
+0234|- shadow a: [LINK(qkvh_03.html)]
+0235|*  2 = Headers and titles
+S   |   a                    |
+0236|- shadow a: [LINK(qkvh_04.html)]
+0237|*  3 = Lines and paragraphs
+S   |   a                      |
+0238|- shadow a: [LINK(qkvh_05.html)]
+0239|*  4 = Links
+S   |   a       |
+0240|- shadow a: [LINK(qkvh_06.html)]
+0241|*  5 = Lists
+S   |   a       |
+0242|- shadow a: [LINK(qkvh_07.html)]
+0243|*  6 = Text styles
+S   |   a             |
+0244|- shadow a: [LINK(qkvh_08.html)]
+0245|*  7 = Other elements
+S   |   a                |
+0246|- shadow a: [LINK(qkvh_09.html)]
+0247|*  8 = Fonts
+S   |   a       |
+0248|- shadow a: [LINK(qkvh_10.html)]
+0249|*  9 = Images
+S   |   a        |
+0250|- shadow a: [LINK(qkvh_11.html)]
+0251|*  0 = Forms
+S   |   a       |
+0252|- shadow a: [LINK(qkvh_12.html)]
+0253|*  A = Tables
+S   |   a        |
+0254|- shadow a: [LINK(qkvh_13.html)]
+0255|*  B = Miscellaneous codes
+S   |   a                     |
+0256|- shadow a: [LINK(qkvh_14.html)]
+0257|*  C = Colors
+S   |   a        |
+0258|- shadow a: [LINK(qkvh_15.html)]
+0259|*  D = Frames
+S   |   a        |
+0260|E
+0261|+LIST? þ PRINT CUR+1,E TO qkvh_06.html
+0262|- include HTML40.DEV
+0263|- include Q.DV2
+0264|- [HelpText]
+0266|SLists
+S   | NNNNN
+0268|S [LIST] begins an unsorted list
+S   |  ______
+0269|S [/LIST] ends an unsorted list
+S   |  _______
+0270|S [NLIST] begins a numerated (ordered) list
+S   |  _______
+0271|S [NLIST(TYPE)] begins an ordered list of type
+S   |  _____________
+0272|S     1:  1, 2, 3, ...
+S   |      &
+0273|S     a:  a, b, c, ...
+S   |      &
+0274|S     A:  A, B, C, ...
+S   |      &
+0275|S     i:  i, ii, iii, iv, ...
+S   |      &
+0276|S     I:  I, II, III, IV, ...
+S   |      &
+0277|S [/NLIST] ends a numerated list
+S   |  ________
+0278|S [L] gives a list element (also shadow L, control L)
+S   |  ___                            ????????  ?????????
+0279|S [DLIST] begins a definition (or glossary) list
+S   |  _______
+0280|S [/DLIST] ends a definition list
+S   |  ________
+0281|S [T] gives a first level element (a definition term) of a definition list
+S   |  ___
+0282|S     (also shadow I, control I)
+S   |            ????????  ?????????
+0283|S [D] gives a second level element (the corresponding definition to
+S   |  ___
+0284|S     a definition term) of a definition list (also shadow N, control N)
+S   |                                                    ????????  ?????????
+0287|- [NAME(HTMLCODE)][/NAME] / qkvh_06.html#HTMLCODE HTMLCODE?
+0289|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0291|- shadow a: [LINK(qkvh_02.html)]
+0292|*  1 = Structure codes
+S   |   a                 |
+0293|- shadow a: [LINK(qkvh_03.html)]
+0294|*  2 = Headers and titles
+S   |   a                    |
+0295|- shadow a: [LINK(qkvh_04.html)]
+0296|*  3 = Lines and paragraphs
+S   |   a                      |
+0297|- shadow a: [LINK(qkvh_05.html)]
+0298|*  4 = Links
+S   |   a       |
+0299|- shadow a: [LINK(qkvh_06.html)]
+0300|*  5 = Lists
+S   |   a       |
+0301|- shadow a: [LINK(qkvh_07.html)]
+0302|*  6 = Text styles
+S   |   a             |
+0303|- shadow a: [LINK(qkvh_08.html)]
+0304|*  7 = Other elements
+S   |   a                |
+0305|- shadow a: [LINK(qkvh_09.html)]
+0306|*  8 = Fonts
+S   |   a       |
+0307|- shadow a: [LINK(qkvh_10.html)]
+0308|*  9 = Images
+S   |   a        |
+0309|- shadow a: [LINK(qkvh_11.html)]
+0310|*  0 = Forms
+S   |   a       |
+0311|- shadow a: [LINK(qkvh_12.html)]
+0312|*  A = Tables
+S   |   a        |
+0313|- shadow a: [LINK(qkvh_13.html)]
+0314|*  B = Miscellaneous codes
+S   |   a                     |
+0315|- shadow a: [LINK(qkvh_14.html)]
+0316|*  C = Colors
+S   |   a        |
+0317|- shadow a: [LINK(qkvh_15.html)]
+0318|*  D = Frames
+S   |   a        |
+0319|E
+0320|+TEXT? þ PRINT CUR+1,E TO qkvh_07.html
+0321|- include HTML40.DEV
+0322|- include Q.DV2
+0323|- [HelpText]
+0325|SText styles
+S   | NNNNNNNNNNN
+0327|S [STRONG] begins 'strong' style (also shadow 1)
+S   |  ________                             ????????
+0328|S [/STRONG] ends 'strong' style
+S   |  _________
+0329|S [SUB] begins subscript text (also shadow 2)
+S   |  _____                             ????????
+0330|S [/SUB] ends subscript text
+S   |  ______
+0331|S [SUP] begins superscript text (also shadow 3)
+S   |  _____                               ????????
+0332|S [/SUP] ends superscript text
+S   |  ______
+0333|S [DEFINITION] begins 'definition' style (also shadow 4)
+S   |  ____________                                 ????????
+0334|S [/DEFINITION] ends 'definition' style
+S   |  _____________
+0335|S [EMPHASIS] or [EM] begins 'emphasis' style (also shadow 6)
+S   |  __________    ____                               ????????
+0336|S [/EMPHASIS] or [/EM] ends 'emphasis' style
+S   |  ___________    _____
+0337|S [CITATION] begins 'cite' style (also shadow 9)
+S   |  __________                           ????????
+0338|S [/CITATION] ends 'cite' style
+S   |  ___________
+0342|S [CODE] begins 'code sample' style (also shadow x, shadow ()
+S   |  ______                                  ????????? ????????
+0343|S [/CODE] ends 'code sample' style (also shadow ))
+S   |  _______                                ????????
+0344|S shadow 8 writes short text in 'address' style
+S   |  ????????
+0345|S control [ begins a multiline address
+S   |  ?????????
+0346|S control ] ends a multiline address
+S   |  ?????????
+0347|S control < begins a quoted text block
+S   |  ????????<
+0348|S control > ends a quoted text block
+S   |  ????????>
+0349|S control ( begins a pre-formatted text block
+S   |  ?????????
+0350|S control ) ends a pre-formatted text block
+S   |  ?????????
+0353|- [NAME(HTMLCODE)][/NAME] / qkvh_07.html#HTMLCODE HTMLCODE?
+0355|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0357|- shadow a: [LINK(qkvh_02.html)]
+0358|*  1 = Structure codes
+S   |   a                 |
+0359|- shadow a: [LINK(qkvh_03.html)]
+0360|*  2 = Headers and titles
+S   |   a                    |
+0361|- shadow a: [LINK(qkvh_04.html)]
+0362|*  3 = Lines and paragraphs
+S   |   a                      |
+0363|- shadow a: [LINK(qkvh_05.html)]
+0364|*  4 = Links
+S   |   a       |
+0365|- shadow a: [LINK(qkvh_06.html)]
+0366|*  5 = Lists
+S   |   a       |
+0367|- shadow a: [LINK(qkvh_07.html)]
+0368|*  6 = Text styles
+S   |   a             |
+0369|- shadow a: [LINK(qkvh_08.html)]
+0370|*  7 = Other elements
+S   |   a                |
+0371|- shadow a: [LINK(qkvh_09.html)]
+0372|*  8 = Fonts
+S   |   a       |
+0373|- shadow a: [LINK(qkvh_10.html)]
+0374|*  9 = Images
+S   |   a        |
+0375|- shadow a: [LINK(qkvh_11.html)]
+0376|*  0 = Forms
+S   |   a       |
+0377|- shadow a: [LINK(qkvh_12.html)]
+0378|*  A = Tables
+S   |   a        |
+0379|- shadow a: [LINK(qkvh_13.html)]
+0380|*  B = Miscellaneous codes
+S   |   a                     |
+0381|- shadow a: [LINK(qkvh_14.html)]
+0382|*  C = Colors
+S   |   a        |
+0383|- shadow a: [LINK(qkvh_15.html)]
+0384|*  D = Frames
+S   |   a        |
+0385|E
+0386|+OTHE? þ PRINT CUR+1,E TO qkvh_08.html
+0387|- include HTML40.DEV
+0388|- include Q.DV2
+0389|- [HelpText]
+0391|SOther elements
+S   | NNNNNNNNNNNNNN
+0393|S control = draws a horizontal rule line across the page
+S   |  ?????????
+0394|S control | draws a horizontal rule line surrounded by empty lines
+S   |  ?????????
+0395|S Use border (dot) lines freely - the HTML driver removes the dots.
+S   |  *****************************************************************
+0396|S [DIVISION(ALIGN)] aligns all elements to LEFT, RIGHT or CENTER
+S   |  _________________                        &&&&  &&&&&    &&&&&&
+0397|S [/DIVISION] ends aligning
+S   |  ___________
+0398|S [CENTER] centers all elements (also control {, shadow {)
+S   |  ________                            ????????? ????????
+0399|S [/CENTER] ends centering (also control }, shadow })
+S   |  _________                      ?????????  ????????
+0402|- [NAME(HTMLCODE)][/NAME] / qkvh_08.html#HTMLCODE HTMLCODE?
+0404|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0406|- shadow a: [LINK(qkvh_02.html)]
+0407|*  1 = Structure codes
+S   |   a                 |
+0408|- shadow a: [LINK(qkvh_03.html)]
+0409|*  2 = Headers and titles
+S   |   a                    |
+0410|- shadow a: [LINK(qkvh_04.html)]
+0411|*  3 = Lines and paragraphs
+S   |   a                      |
+0412|- shadow a: [LINK(qkvh_05.html)]
+0413|*  4 = Links
+S   |   a       |
+0414|- shadow a: [LINK(qkvh_06.html)]
+0415|*  5 = Lists
+S   |   a       |
+0416|- shadow a: [LINK(qkvh_07.html)]
+0417|*  6 = Text styles
+S   |   a             |
+0418|- shadow a: [LINK(qkvh_08.html)]
+0419|*  7 = Other elements
+S   |   a                |
+0420|- shadow a: [LINK(qkvh_09.html)]
+0421|*  8 = Fonts
+S   |   a       |
+0422|- shadow a: [LINK(qkvh_10.html)]
+0423|*  9 = Images
+S   |   a        |
+0424|- shadow a: [LINK(qkvh_11.html)]
+0425|*  0 = Forms
+S   |   a       |
+0426|- shadow a: [LINK(qkvh_12.html)]
+0427|*  A = Tables
+S   |   a        |
+0428|- shadow a: [LINK(qkvh_13.html)]
+0429|*  B = Miscellaneous codes
+S   |   a                     |
+0430|- shadow a: [LINK(qkvh_14.html)]
+0431|*  C = Colors
+S   |   a        |
+0432|- shadow a: [LINK(qkvh_15.html)]
+0433|*  D = Frames
+S   |   a        |
+0434|E
+0435|+FONT? þ PRINT CUR+1,E TO qkvh_09.html
+0436|- include HTML40.DEV
+0437|- include Q.DV2
+0438|- [HelpText]
+0440|SFonts
+S   | NNNNN
+0442|SUse Cascading Style Sheets (CSS) for fonts and other presentation issues.
+S   |     ,******** ,**** ,*****  ,,,
+0443|SHTML is meant for marking up the structure of the document.
+S   | ___________________________________________________________
+0444|*For more information, see for example the following book:
+0446|*    Lie, H. W., & Bos, B. (1997). Cascading Style Sheets. Addison-Wesley.
+S   |                 &
+0450|- [NAME(HTMLCODE)][/NAME] / qkvh_09.html#HTMLCODE HTMLCODE?
+0452|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0454|- shadow a: [LINK(qkvh_02.html)]
+0455|*  1 = Structure codes
+S   |   a                 |
+0456|- shadow a: [LINK(qkvh_03.html)]
+0457|*  2 = Headers and titles
+S   |   a                    |
+0458|- shadow a: [LINK(qkvh_04.html)]
+0459|*  3 = Lines and paragraphs
+S   |   a                      |
+0460|- shadow a: [LINK(qkvh_05.html)]
+0461|*  4 = Links
+S   |   a       |
+0462|- shadow a: [LINK(qkvh_06.html)]
+0463|*  5 = Lists
+S   |   a       |
+0464|- shadow a: [LINK(qkvh_07.html)]
+0465|*  6 = Text styles
+S   |   a             |
+0466|- shadow a: [LINK(qkvh_08.html)]
+0467|*  7 = Other elements
+S   |   a                |
+0468|- shadow a: [LINK(qkvh_09.html)]
+0469|*  8 = Fonts
+S   |   a       |
+0470|- shadow a: [LINK(qkvh_10.html)]
+0471|*  9 = Images
+S   |   a        |
+0472|- shadow a: [LINK(qkvh_11.html)]
+0473|*  0 = Forms
+S   |   a       |
+0474|- shadow a: [LINK(qkvh_12.html)]
+0475|*  A = Tables
+S   |   a        |
+0476|- shadow a: [LINK(qkvh_13.html)]
+0477|*  B = Miscellaneous codes
+S   |   a                     |
+0478|- shadow a: [LINK(qkvh_14.html)]
+0479|*  C = Colors
+S   |   a        |
+0480|- shadow a: [LINK(qkvh_15.html)]
+0481|*  D = Frames
+S   |   a        |
+0482|E
+0483|+IMAG? þ PRINT CUR+1,E TO qkvh_10.html
+0484|- include HTML40.DEV
+0485|- include Q.DV2
+0486|- [HelpText]
+0488|SImages
+S   | NNNNNN
+0490|S [IMAGE(URL)] inserts an inline image (picture) into the document,
+S   |  ____________
+0491|S image given as URL (Uniform Resource Locator)
+S   |                      ,****** ,******* ,******
+0492|S   ALT="e.g. text describing the picture"
+S   |    &&&&&                                &
+0493|*   (required information; all browsers do not display pictures)
+0494|S   ALIGN=TOP, MIDDLE, BOTTOM, LEFT or RIGHT (picture and text aligning)
+S   |    &&&&&&&&&  &&&&&&  &&&&&&  &&&&    &&&&&
+0495|S   WIDTH=x (allocates x pixels for the picture width)
+S   |    &&&&&&&            &
+0496|S   HEIGHT=x (allocates x pixels for the picture height)
+S   |    &&&&&&&&            &
+0497|S   BORDER=x (creates a border of x pixels wide around the picture)
+S   |    &&&&&&&&                      &
+0498|S   ISMAP (the picture is a server-side image map)
+S   |    &&&&&
+0499|S   USEMAP="#NAME" (the picture is used as a client-side image map,
+S   |    &&&&&&&&&&&&&&
+0500|S                   which is specified by [MAP(NAME)] code)
+S   |                                          ___________
+0501|S [/IMAGE] end code of an image (also shadow !)
+S   |  ________                            ????????
+0504|- [NAME(HTMLCODE)][/NAME] / qkvh_10.html#HTMLCODE HTMLCODE?
+0506|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0508|- shadow a: [LINK(qkvh_02.html)]
+0509|*  1 = Structure codes
+S   |   a                 |
+0510|- shadow a: [LINK(qkvh_03.html)]
+0511|*  2 = Headers and titles
+S   |   a                    |
+0512|- shadow a: [LINK(qkvh_04.html)]
+0513|*  3 = Lines and paragraphs
+S   |   a                      |
+0514|- shadow a: [LINK(qkvh_05.html)]
+0515|*  4 = Links
+S   |   a       |
+0516|- shadow a: [LINK(qkvh_06.html)]
+0517|*  5 = Lists
+S   |   a       |
+0518|- shadow a: [LINK(qkvh_07.html)]
+0519|*  6 = Text styles
+S   |   a             |
+0520|- shadow a: [LINK(qkvh_08.html)]
+0521|*  7 = Other elements
+S   |   a                |
+0522|- shadow a: [LINK(qkvh_09.html)]
+0523|*  8 = Fonts
+S   |   a       |
+0524|- shadow a: [LINK(qkvh_10.html)]
+0525|*  9 = Images
+S   |   a        |
+0526|- shadow a: [LINK(qkvh_11.html)]
+0527|*  0 = Forms
+S   |   a       |
+0528|- shadow a: [LINK(qkvh_12.html)]
+0529|*  A = Tables
+S   |   a        |
+0530|- shadow a: [LINK(qkvh_13.html)]
+0531|*  B = Miscellaneous codes
+S   |   a                     |
+0532|- shadow a: [LINK(qkvh_14.html)]
+0533|*  C = Colors
+S   |   a        |
+0534|- shadow a: [LINK(qkvh_15.html)]
+0535|*  D = Frames
+S   |   a        |
+0536|E
+0537|+FORM? þ PRINT CUR+1,E TO qkvh_11.html
+0538|- include HTML40.DEV
+0539|- include Q.DV2
+0540|- [HelpText]
+0542|SForms
+S   | NNNNN
+0544|S [FORM(METHOD,ACTION)] begins a form with METHOD=POST or GET using
+S   |  _____________________                    &&&&&&&&&&&    &&&
+0545|S                       a CGI program given as ACTION=URL
+S   |                                               &&&&&&&&&&
+0546|S [FORM_DEF] begins a form with special settings
+S   |  __________
+0547|S [/FORM_DEF] ends the special settings of a form (also shadow !)
+S   |  ___________                                           ????????
+0548|S [INPUT(NAME,TYPE)] gets different types of input from the user within
+S   |  __________________
+0549|*                    a form, a unique name for the input field is given
+0550|S                    as NAME and TYPE is one of the following:
+S   |                        &&&&     &&&&
+0551|S     TEXT (a textfield)
+S   |      &&&&
+0552|S         SIZE="x" (size of field in characters)
+S   |          &&&&&&&&
+0553|S         MAXLENGTH="x" (maximum size of input data)
+S   |          &&&&&&&&&&&&&
+0554|S         VALUE="x" (starting value)
+S   |          &&&&&&&&&
+0555|S     RADIO (a radiobutton)
+S   |      &&&&&
+0556|S         VALUE="x" (indicates the active button when form is completed)
+S   |          &&&&&&&&&
+0557|S         NAME="x" (name of the radiobutton group)
+S   |          &&&&&&&&
+0558|S         CHECKED (pre-selection)
+S   |          &&&&&&&
+0562|S     CHECKBOX (an on/off choice to be checked)
+S   |      &&&&&&&&
+0563|S         VALUE="x" (indicates the value if checked)
+S   |          &&&&&&&&&
+0564|S         CHECKED (pre-selection)
+S   |          &&&&&&&
+0565|S     SUBMIT (sends the results to the program given by ACTION above)
+S   |      &&&&&&                                            &&&&&&
+0566|S         VALUE (label of the button)
+S   |          &&&&&
+0567|S     RESET (resets the default settings of the form)
+S   |      &&&&&
+0568|S         VALUE (label of the button)
+S   |          &&&&&
+0569|S     IMAGE (converts an image to a submit button)
+S   |      &&&&&
+0570|S         SRC (URL of an image, all parameters
+S   |          &&&
+0571|S              of [IMAGE(URL)] can be used)
+S   |                  ____________
+0572|S         VALUE (label of the button)
+S   |          &&&&&
+0573|S     PASSWORD (a textfield, where the text is not displayed on the screen)
+S   |      &&&&&&&&
+0574|S     FILE (a file can be browsed and included, the form
+S   |      &&&&
+0575|S           must be defined with ENCTYPE="multipart/mime" -
+S   |                                 &&&&&&&&&&&&&&&&&&&&&&&&
+0576|S           use [FORM_DEF])
+S   |                __________
+0577|S     HIDDEN (the field is not displayed, the information is
+S   |      &&&&&&
+0578|S            just sent to the ACTION program)
+S   |                              &&&&&&
+0579|S [/INPUT] ends an input field (also shadow !)
+S   |  ________                           ????????
+0583|S [SELECT(NAME)] begins a selection list, the name given by NAME
+S   |  ______________                                            &&&&
+0584|S [SELECT_DEF(NAME)] begins a selection list with special settings,
+S   |  __________________
+0585|S                      the name given by NAME
+S   |                                         &&&&
+0586|S        MULTIPLE (more than one item can be selected)
+S   |         &&&&&&&&
+0587|S        SIZE="x" (items displayed at a time)
+S   |         &&&&&&&&
+0588|S [/SELECT_DEF] ends the selection list definition (also shadow !)
+S   |  _____________                                          ????????
+0589|S [OPTION] gives an option of a selection list (also shadow O)
+S   |  ________                                           ????????
+0590|S [SELECTED] gives a pre-selected option of a selection list (also shadow S)
+S   |  __________                                                       ????????
+0591|S [/SELECT] ends the selection list
+S   |  _________
+0592|S [TEXT(NAME)] begins a multiline text input, the name given by NAME
+S   |  ____________                                                 &&&&&
+0593|S [TEXT_DEF(NAME)] begins a multiline text input with special settings,
+S   |  ________________
+0594|S                    the name given by NAME
+S   |                                       &&&&
+0595|S        ROWS="x" (gives the number of rows)
+S   |         &&&&&&&&&
+0596|S        COLS="x" (gives the number of columns)
+S   |         &&&&&&&&&
+0597|S [/TEXT_DEF] ends the multiline text input definition (also shadow !)
+S   |  ___________                                                ????????
+0598|S [/TEXT] ends the multiline text input
+S   |  _______
+0599|S [/FORM] ends the form
+S   |  _______
+0602|- [NAME(HTMLCODE)][/NAME] / qkvh_11.html#HTMLCODE HTMLCODE?
+0604|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0606|- shadow a: [LINK(qkvh_02.html)]
+0607|*  1 = Structure codes
+S   |   a                 |
+0608|- shadow a: [LINK(qkvh_03.html)]
+0609|*  2 = Headers and titles
+S   |   a                    |
+0610|- shadow a: [LINK(qkvh_04.html)]
+0611|*  3 = Lines and paragraphs
+S   |   a                      |
+0612|- shadow a: [LINK(qkvh_05.html)]
+0613|*  4 = Links
+S   |   a       |
+0614|- shadow a: [LINK(qkvh_06.html)]
+0615|*  5 = Lists
+S   |   a       |
+0616|- shadow a: [LINK(qkvh_07.html)]
+0617|*  6 = Text styles
+S   |   a             |
+0618|- shadow a: [LINK(qkvh_08.html)]
+0619|*  7 = Other elements
+S   |   a                |
+0620|- shadow a: [LINK(qkvh_09.html)]
+0621|*  8 = Fonts
+S   |   a       |
+0622|- shadow a: [LINK(qkvh_10.html)]
+0623|*  9 = Images
+S   |   a        |
+0624|- shadow a: [LINK(qkvh_11.html)]
+0625|*  0 = Forms
+S   |   a       |
+0626|- shadow a: [LINK(qkvh_12.html)]
+0627|*  A = Tables
+S   |   a        |
+0628|- shadow a: [LINK(qkvh_13.html)]
+0629|*  B = Miscellaneous codes
+S   |   a                     |
+0630|- shadow a: [LINK(qkvh_14.html)]
+0631|*  C = Colors
+S   |   a        |
+0632|- shadow a: [LINK(qkvh_15.html)]
+0633|*  D = Frames
+S   |   a        |
+0634|E
+0635|+TABL? þ PRINT CUR+1,E TO qkvh_12.html
+0636|- include HTML40.DEV
+0637|- include Q.DV2
+0638|- [HelpText]
+0640|STables
+S   | NNNNNN
+0642|S [TABLE] begins a table
+S   |  _______
+0643|S [TABLE(BORDER)] begins a table with borders
+S   |  _______________
+0644|S [TABLE_DEF] begins a table with special settings
+S   |  ___________
+0645|S   ALIGN=LEFT, CENTER or RIGHT (aligning of the table)
+S   |    &&&&&&&&&&  &&&&&&    &&&&&
+0646|S   WIDTH=x (the width of the table in pixels or % of the width of the display)
+S   |    &&&&&&&
+0647|S   BORDER=x (creates borders of x pixels wide around the cells of the table)
+S   |    &&&&&&&&                     &
+0648|S   CELLSPACING=x (adds x pixels empty space between the cells)
+S   |    &&&&&&&&&&&&&       &
+0649|S   CELLPADDING=x (adds x pixels empty space between the cell and
+S   |    &&&&&&&&&&&&&       &
+0650|*                 the edge of the table)
+0651|S [/TABLE_DEF] ends the special settings of a table (also shadow !)
+S   |  ____________                                            ????????
+0652|S [TABLE_CAPTION] gives the title of a table (also shadow ")
+S   |  _______________                                  ????????
+0653|S [TABLE_CAPTION(ALIGN)] gives the title of a table
+S   |  ______________________
+0654|S   ALIGN=TOP or BOTTOM (aligning of the caption)
+S   |    &&&&&&&&&    &&&&&&
+0655|S [/TABLE_CAPTION] ends the title of a table
+S   |  ________________
+0659|S [TABLE_HEADER] gives a header of a table (also shadow H)
+S   |  ______________                                 ????????
+0660|S   NOWRAP (no wrapping of the header text)
+S   |    &&&&&&
+0661|S   ALIGN=LEFT, CENTER or RIGHT (horizontal aligning of the header text)
+S   |    &&&&&&&&&&  &&&&&&    &&&&&
+0662|S   VALIGN=TOP, MIDDLE or BOTTOM (vertical aligning of the header text)
+S   |    &&&&&&&&&&  &&&&&&    &&&&&&
+0663|S   WIDTH=x (the width of the header in pixels or %)
+S   |    &&&&&&&
+0664|S   HEIGHT=x (the height of the header in pixels or %)
+S   |    &&&&&&&&
+0665|S   ROWSPAN=x (makes the header x cells wide)
+S   |    &&&&&&&&&                   & *****
+0666|S   COLSPAN=x (makes the header x cells high)
+S   |    &&&&&&&&&                   & *****
+0667|S [/TABLE_HEADER] ends the definition of a table header (also shadow !)
+S   |  _______________                                             ????????
+0668|S [TABLE_HEADER(ROWSPAN,COLSPAN)] gives a header of a table using
+S   |  _______________________________
+0669|*  given ROWSPAN and COLSPAN values (for no spanning use value 1)
+0670|S [TABLE_ROW] defines a table row
+S   |  ____________
+0671|S  (also shadow r, control r, control R (ALIGN=RIGHT))
+S   |         ????????  ?????????  ?????????
+0672|S   ALIGN=LEFT, CENTER or RIGHT (horizontal aligning of the cell elements)
+S   |    &&&&&&&&&&  &&&&&&    &&&&&
+0673|S   VALIGN=TOP, MIDDLE or BOTTOM (vertical aligning of the cell elements)
+S   |    &&&&&&&&&&  &&&&&&    &&&&&&
+0674|S [/TABLE_ROW] ends the definition of a table row (also shadow !)
+S   |  ____________                                          ????????
+0678|S [TABLE_CELL] gives a table cell element
+S   |  ____________
+0679|S  (also shadow E (ALIGN=LEFT), shadow e (ALIGN=RIGHT))
+S   |         ????????               ????????
+0680|S   NOWRAP (no wrapping of the cell element)
+S   |    &&&&&&
+0681|S   ALIGN=LEFT, CENTER or RIGHT (horizontal aligning of the cell element)
+S   |    &&&&&&&&&&  &&&&&&    &&&&&
+0682|S   VALIGN=TOP, MIDDLE or BOTTOM (vertical aligning of the cell element)
+S   |    &&&&&&&&&&  &&&&&&    &&&&&&
+0683|S   WIDTH=x (the width of the cell in pixels)
+S   |    &&&&&&&
+0684|S   HEIGHT=x (the height of the cell in pixels)
+S   |    &&&&&&&&
+0685|S [/TABLE_CELL] ends the definition of a table cell element (also shadow !)
+S   |  _____________                                                   ????????
+0686|S [TABLE_CELL(ROWSPAN,COLSPAN)] gives a table cell element using
+S   |  _____________________________
+0687|*  given ROWSPAN and COLSPAN values (for no spanning use value 1)
+0688|S [/TABLE] ends the table
+S   |  ________
+0691|- [NAME(HTMLCODE)][/NAME] / qkvh_12.html#HTMLCODE HTMLCODE?
+0693|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0695|- shadow a: [LINK(qkvh_02.html)]
+0696|*  1 = Structure codes
+S   |   a                 |
+0697|- shadow a: [LINK(qkvh_03.html)]
+0698|*  2 = Headers and titles
+S   |   a                    |
+0699|- shadow a: [LINK(qkvh_04.html)]
+0700|*  3 = Lines and paragraphs
+S   |   a                      |
+0701|- shadow a: [LINK(qkvh_05.html)]
+0702|*  4 = Links
+S   |   a       |
+0703|- shadow a: [LINK(qkvh_06.html)]
+0704|*  5 = Lists
+S   |   a       |
+0705|- shadow a: [LINK(qkvh_07.html)]
+0706|*  6 = Text styles
+S   |   a             |
+0707|- shadow a: [LINK(qkvh_08.html)]
+0708|*  7 = Other elements
+S   |   a                |
+0709|- shadow a: [LINK(qkvh_09.html)]
+0710|*  8 = Fonts
+S   |   a       |
+0711|- shadow a: [LINK(qkvh_10.html)]
+0712|*  9 = Images
+S   |   a        |
+0713|- shadow a: [LINK(qkvh_11.html)]
+0714|*  0 = Forms
+S   |   a       |
+0715|- shadow a: [LINK(qkvh_12.html)]
+0716|*  A = Tables
+S   |   a        |
+0717|- shadow a: [LINK(qkvh_13.html)]
+0718|*  B = Miscellaneous codes
+S   |   a                     |
+0719|- shadow a: [LINK(qkvh_14.html)]
+0720|*  C = Colors
+S   |   a        |
+0721|- shadow a: [LINK(qkvh_15.html)]
+0722|*  D = Frames
+S   |   a        |
+0723|E
+0724|+MISC? þ PRINT CUR+1,E TO qkvh_13.html
+0725|- include HTML40.DEV
+0726|- include Q.DV2
+0727|- [HelpText]
+0729|SMiscellaneous codes
+S   | NNNNNNNNNNNNNNNNNNN
+0731|S [MAP(NAME)] defines a client-side image map, the name given by NAME
+S   |  ___________                                                    &&&&
+0732|S [AREA(URL)] gives the regions within a map, the URL of the region
+S   |  ___________                                     &&&
+0733|S              given by URL, other attributes are:
+S   |                        &&&
+0734|S      SHAPE=RECT, POLY or CIRCLE (the type of the region)
+S   |       &&&&&&&&&&  &&&&    &&&&&&
+0735|S      COORDS (the coordinates bounding the region)
+S   |       &&&&&&
+0736|S [/AREA] ends the area code (also shadow !)
+S   |  _______                          ????????
+0737|S [/MAP] ends the client-side image map
+S   |  ______
+0739|S shadow < writes &lt;  (the HTML code of character <)
+S   |  ???????<        &                                 <
+0740|S shadow > writes &gt;  (the HTML code of character >)
+S   |  ???????>        &                                 >
+0741|S shadow & writes &amp; (the HTML code of character &)
+S   |  ???????&        &                                 &
+0742|S  The HTML driver removes these three characters, so they MUST be marked
+S   |   ______________________________________________________________________
+0743|S  with the corresponding shadow characters. The extra spaces can be
+S   |   _________________________________________________________________
+0744|S  removed afterwards with TXTCONV, if necessary.
+S   |   ______________________________________________
+0746|S [Copyright] produces the copyright sign
+S   |  ___________
+0747|S shadow ? gives an HTML comment
+S   |  ????????
+0750|- [NAME(HTMLCODE)][/NAME] / qkvh_13.html#HTMLCODE HTMLCODE?
+0752|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0754|- shadow a: [LINK(qkvh_02.html)]
+0755|*  1 = Structure codes
+S   |   a                 |
+0756|- shadow a: [LINK(qkvh_03.html)]
+0757|*  2 = Headers and titles
+S   |   a                    |
+0758|- shadow a: [LINK(qkvh_04.html)]
+0759|*  3 = Lines and paragraphs
+S   |   a                      |
+0760|- shadow a: [LINK(qkvh_05.html)]
+0761|*  4 = Links
+S   |   a       |
+0762|- shadow a: [LINK(qkvh_06.html)]
+0763|*  5 = Lists
+S   |   a       |
+0764|- shadow a: [LINK(qkvh_07.html)]
+0765|*  6 = Text styles
+S   |   a             |
+0766|- shadow a: [LINK(qkvh_08.html)]
+0767|*  7 = Other elements
+S   |   a                |
+0768|- shadow a: [LINK(qkvh_09.html)]
+0769|*  8 = Fonts
+S   |   a       |
+0770|- shadow a: [LINK(qkvh_10.html)]
+0771|*  9 = Images
+S   |   a        |
+0772|- shadow a: [LINK(qkvh_11.html)]
+0773|*  0 = Forms
+S   |   a       |
+0774|- shadow a: [LINK(qkvh_12.html)]
+0775|*  A = Tables
+S   |   a        |
+0776|- shadow a: [LINK(qkvh_13.html)]
+0777|*  B = Miscellaneous codes
+S   |   a                     |
+0778|- shadow a: [LINK(qkvh_14.html)]
+0779|*  C = Colors
+S   |   a        |
+0780|- shadow a: [LINK(qkvh_15.html)]
+0781|*  D = Frames
+S   |   a        |
+0782|E
+0783|+COLO? þ PRINT CUR+1,E TO qkvh_14.html
+0784|- include HTML40.DEV
+0785|- include Q.DV2
+0786|- [HelpText]
+0788|SColors
+S   | NNNNNN
+0790|SUse Cascading Style Sheets (CSS) for colors and other presentation issues.
+S   |     ,******** ,**** ,*****  ,,,
+0791|SHTML is meant for marking up the structure of the document.
+S   | ___________________________________________________________
+0792|*For more information, see for example the following book:
+0794|*    Lie, H. W., & Bos, B. (1997). Cascading Style Sheets. Addison-Wesley.
+S   |                 &
+0798|- [NAME(HTMLCODE)][/NAME] / qkvh_14.html#HTMLCODE HTMLCODE?
+0800|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0802|- shadow a: [LINK(qkvh_02.html)]
+0803|*  1 = Structure codes
+S   |   a                 |
+0804|- shadow a: [LINK(qkvh_03.html)]
+0805|*  2 = Headers and titles
+S   |   a                    |
+0806|- shadow a: [LINK(qkvh_04.html)]
+0807|*  3 = Lines and paragraphs
+S   |   a                      |
+0808|- shadow a: [LINK(qkvh_05.html)]
+0809|*  4 = Links
+S   |   a       |
+0810|- shadow a: [LINK(qkvh_06.html)]
+0811|*  5 = Lists
+S   |   a       |
+0812|- shadow a: [LINK(qkvh_07.html)]
+0813|*  6 = Text styles
+S   |   a             |
+0814|- shadow a: [LINK(qkvh_08.html)]
+0815|*  7 = Other elements
+S   |   a                |
+0816|- shadow a: [LINK(qkvh_09.html)]
+0817|*  8 = Fonts
+S   |   a       |
+0818|- shadow a: [LINK(qkvh_10.html)]
+0819|*  9 = Images
+S   |   a        |
+0820|- shadow a: [LINK(qkvh_11.html)]
+0821|*  0 = Forms
+S   |   a       |
+0822|- shadow a: [LINK(qkvh_12.html)]
+0823|*  A = Tables
+S   |   a        |
+0824|- shadow a: [LINK(qkvh_13.html)]
+0825|*  B = Miscellaneous codes
+S   |   a                     |
+0826|- shadow a: [LINK(qkvh_14.html)]
+0827|*  C = Colors
+S   |   a        |
+0828|- shadow a: [LINK(qkvh_15.html)]
+0829|*  D = Frames
+S   |   a        |
+0830|E
+0832|+FRAM? þ PRINT CUR+1,E TO qkvh_15.html
+0833|- include HTML40.DEV
+0834|- include Q.DV2
+0835|- [HelpText]
+0837|SFrames
+S   | NNNNNN
+0839|*The frames are seldom useful, and should be avoided if possible.
+0840|S [FRAMES_DEF] begins a frame setup with special settings
+S   |  ____________
+0841|S   COLS="w1,w2,...,wk" (the number and division of vertical frames)
+S   |    &&&&&&&&&&&&&&&&&&&
+0842|S   ROWS="h1,h2,...,hk" (the number and division of horizontal frames)
+S   |    &&&&&&&&&&&&&&&&&&&
+0843|S   BORDER=x (the widths of the frame borders)
+S   |    &&&&&&&&
+0844|S [/FRAMES_DEF] ends the special settings of a frame setup
+S   |  _____________
+0845|S [FRAME_DEF(URL,NAME)] begins a frame definition, where URL gives the name of
+S   |  _____________________                                  &&&
+0846|*  the document to be displayed in the frame and NAME gives an internal name
+S   |                                                 &&&&
+0847|S  for it to be used in [LINK2(URL,NAME)]
+S   |                        _________________
+0848|S   MARGINWIDTH=x (the margin width of a frame in pixels or %)
+S   |    &&&&&&&&&&&&&
+0849|S   NORESIZE=x (optionally the frame can not be resized by mouse)
+S   |    &&&&&&&&&&
+0850|S [/FRAME_DEF] ends a frame definition
+S   |  ____________
+0851|S [/FRAMES] ends the frame setup
+S   |  _________
+0852|S [NOFRAMES] begins an alternative part of the page for the browsers,
+S   |  __________
+0853|*  which do not support frames; must be followed by [BODY].
+S   |                                                    ______
+0854|S [/NOFRAMES] ends the alternative part of the page; includes the
+S   |  ___________
+0855|*  end code of the page.
+0858|- [NAME(HTMLCODE)][/NAME] / qkvh_15.html#HTMLCODE HTMLCODE?
+0860|SCodes defined in HTML40.DEV driver
+S   | NNNNNNNNNNNNNNNNNDDDDDDDDDDNNNNNNN
+0862|- shadow a: [LINK(qkvh_02.html)]
+0863|*  1 = Structure codes
+S   |   a                 |
+0864|- shadow a: [LINK(qkvh_03.html)]
+0865|*  2 = Headers and titles
+S   |   a                    |
+0866|- shadow a: [LINK(qkvh_04.html)]
+0867|*  3 = Lines and paragraphs
+S   |   a                      |
+0868|- shadow a: [LINK(qkvh_05.html)]
+0869|*  4 = Links
+S   |   a       |
+0870|- shadow a: [LINK(qkvh_06.html)]
+0871|*  5 = Lists
+S   |   a       |
+0872|- shadow a: [LINK(qkvh_07.html)]
+0873|*  6 = Text styles
+S   |   a             |
+0874|- shadow a: [LINK(qkvh_08.html)]
+0875|*  7 = Other elements
+S   |   a                |
+0876|- shadow a: [LINK(qkvh_09.html)]
+0877|*  8 = Fonts
+S   |   a       |
+0878|- shadow a: [LINK(qkvh_10.html)]
+0879|*  9 = Images
+S   |   a        |
+0880|- shadow a: [LINK(qkvh_11.html)]
+0881|*  0 = Forms
+S   |   a       |
+0882|- shadow a: [LINK(qkvh_12.html)]
+0883|*  A = Tables
+S   |   a        |
+0884|- shadow a: [LINK(qkvh_13.html)]
+0885|*  B = Miscellaneous codes
+S   |   a                     |
+0886|- shadow a: [LINK(qkvh_14.html)]
+0887|*  C = Colors
+S   |   a        |
+0888|- shadow a: [LINK(qkvh_15.html)]
+0889|*  D = Frames
+S   |   a        |
+0890|E

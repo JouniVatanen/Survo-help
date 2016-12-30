@@ -1,0 +1,493 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q05
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+CLEAR? þ PRINT CUR+1,E TO q05_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|#CLEAR L1,L2
+0013|*clears lines L1-L2 to the right from the current position of the cursor.
+0015|#CLEAR L1,L2,K
+0016|*clears selected colums on the lines L1-L2 according to the non-space
+0017|*positions of the image line K.
+0018|E
+0019|+SCRATCH? þ PRINT CUR+1,E TO q05_02.html
+0020|- include HTML40.DEV
+0021|- include Q.DV2
+0022|- [HelpText]
+0023|#SCRATCH (no parameters)
+0024|*clears all the lines below the current line (SCRATCH included).
+0025|- shadow a: [LINK(q09_01.html)]
+0026|*   T = More information on text editing
+S   |    a                                  |
+0027|E
+0028|+COPY? þ PRINT CUR+1,E TO q05_03.html
+0029|- include HTML40.DEV
+0030|- include Q.DV2
+0031|- [HelpText]
+0032|- shadow a: [LINK(q02_16.html)]
+0033|*  1 = COPY key
+S   |   a          |
+0034|- shadow a: [LINK(q05_04.html)]
+0035|*  2 = COPY operation (copying lines in the edit field or to the output file)
+S   |   a                                                                        |
+0036|- shadow a: [LINK(qf6_06.html)]
+0037|*  3 = FILE COPY operation (copying Survo data files)
+S   |   a                                                |
+0038|- shadow a: [New][LINK(qf6a_01.html)]
+0039|d  4 = PCOPY operation (splitting large files and combining files)
+S   |   a                                                             ;
+0040|- shadow a: [LINK(q05_25.html)]
+0041|*  5 = Copying 'words' in the edit field
+S   |   a                                   |
+0042|E
+0043|+COPY2? þ PRINT CUR+1,E TO q05_04.html
+0044|- include HTML40.DEV
+0045|- include Q.DV2
+0046|- [HelpText]
+0047|#COPY L1,L2,L
+0048|*copies lines L1-L2 to a new place in the edit field so that line L1
+0049|*will be copied on line L.
+0050|*COPY L1,L2 TO CLIPBOARD
+0051|*copies lines L1-L2 to the (Windows) clipboard.
+0052|*COPY (without parameters)
+0053|*copies a text block painted by the BLOCK (alt-F4) key to the clipboard
+0054|*and if no painted block exists
+0055|*COPY (without parameters)
+0056|*copies the edit lines below the COPY command until the first empty line
+0057|*to the clipboard.
+0059|#COPY L1,L2 TO <text file>
+S   |               <         >
+0060|*copies lines L1-L2 to <text file>. If TO <text file> is omitted, the output
+S   |                       <         >        <         >
+0061|- shadow %: [LINK(q0e_02.html)] [/LINK]
+0062|*file selected by command OUTPUT <file> is used. (See OUTPUT).
+S   |                                 <    >               %%%%%%
+0063|E
+0064|+SET? þ PRINT CUR+1,E TO q05_05.html
+0065|- include HTML40.DEV
+0066|- include Q.DV2
+0067|- [HelpText]
+0068|#SET L1,L2,K
+0069|*copies the non-space characters of the image line K to each of the lines
+0070|- shadow %: [LINK(q05_12.html)] [/LINK]
+0071|*L1-L2. See also PUTEND?
+S   |                 %%%%%%
+0072|E
+0073|+COUNT? þ PRINT CUR+1,E TO q05_06.html
+0074|- include HTML40.DEV
+0075|- include Q.DV2
+0076|- [HelpText]
+0077|#COUNT L1,L2,K
+0078|*writes numbers 1,2,3,... on lines L1-L2 in format indicated by an image
+0079|*line K of the form "   123.1  ".
+0081|#COUNT L1,L2,K,C
+0082|*works similarly, but writes numbers C,C+1,C+2,...
+0084|#COUNT L1,L2,K,C,D
+0085|*works similarly, but writes numbers C,C+D,C+2D,...
+0087|#COUNT L1,L2,K,C,D,E
+0088|*with E>0 writes numbers C,C+D,...,C+(E-1)D,C,C+D,...,C+(E-1)D,...,
+S   |       >
+0089|*with E<0 writes numbers C,C,...,C,C+D,C+D,...,C+D,C+2D,C+2D,...,C+2D,...
+S   |       <
+0090|*                   where each of values C,C+D,C+2D is repeated -E times.
+0091|E
+0092|+INSERT? þ PRINT CUR+1,E TO q05_07.html
+0093|- include HTML40.DEV
+0094|- include Q.DV2
+0095|- [HelpText]
+0096|- shadow a: [LINK(q02_13.html)]
+0097|*  1 = INSERT key
+S   |   a            |
+0098|- shadow a: [LINK(q02_21.html)]
+0099|*  2 = LINE INS key
+S   |   a              |
+0100|- shadow a: [LINK(q05_08.html)]
+0101|*  3 = INSERT operation
+S   |   a                  |
+0102|- shadow a: [New][LINK(q05_21.html)]
+0103|d  4 = LINEINS operation for systematic insertion of given line(s)
+S   |   a                                                             ;
+0104|- shadow a: [New][LINK(q05_22.html)]
+0105|d  5 = INSERTL operation (insertion of several empty lines)
+S   |   a                                                      ;
+0106|E
+0107|+INSERT2? þ PRINT CUR+1,E TO q05_08.html
+0108|- include HTML40.DEV
+0109|- include Q.DV2
+0110|- [HelpText]
+0111|#INSERT L1,L2
+0112|*inserts an empty column on lines L1-L2 in the position indicated by the
+0113|*cursor.
+0115|#INSERT L1,L2,C
+0116|*inserts C empty columns on lines L1-L2 in the position indicated by the
+0117|*cursor.
+0118|*In both forms of INSERT:
+0119|*If L1 and L2 are omitted, the next chapter up to an empty line will be
+0120|*processed.
+0121|E
+0122|+DELETE? þ PRINT CUR+1,E TO q05_09.html
+0123|- include HTML40.DEV
+0124|- include Q.DV2
+0125|- [HelpText]
+0126|- shadow a: [LINK(q02_13.html)]
+0127|*  1 = DELETE key
+S   |   a            |
+0128|- shadow a: [LINK(q02_21.html)]
+0129|*  2 = LINE DEL key
+S   |   a              |
+0130|- shadow a: [LINK(q05_10.html)]
+0131|*  3 = DELETE operation (for columns)
+S   |   a                                |
+0132|- shadow a: [LINK(q05_20.html)]
+0133|*  4 = LINEDEL operation (for lines)
+S   |   a                               |
+0134|- shadow a: [New][LINK(q05_23.html)]
+0135|d  5 = DELETEL operation for deleting lines.
+S   |   a                                       ;
+0136|E
+0137|+DELETE2? þ PRINT CUR+1,E TO q05_10.html
+0138|- include HTML40.DEV
+0139|- include Q.DV2
+0140|- [HelpText]
+0141|#DELETE L1,L2
+0142|*deletes the column indicated by the cursor on lines L1-L2.
+0144|#DELETE L1,L2,C
+0145|*deletes C columns from the point indicated by the cursor on lines L1-L2.
+0146|*In both forms of DELETE:
+0147|*If L1 and L2 are omitted, the next chapter up to an empty line will be
+0148|*processed.
+0149|E
+0150|+FORM? þ PRINT CUR+1,E TO q05_11.html
+0151|- include HTML40.DEV
+0152|- include Q.DV2
+0153|- [HelpText]
+0154|#FORM L1,L2,K
+0155|* image line K: *       XXXX  123.12   XXXXXX  12345  etc.
+0156|*rewrites a table on lines L1-L2 and consisting of alpha and numeric
+0157|*columns according to the formats given on image line K.
+0159|"FORM L1,L2,K,<L or R>
+S   |              <      >
+0160|- [New]
+0161|*works as FORM L1,L2,K but fills the incomplete lines by `-'s
+0162|*starting the existing items either from the left (L) or
+0163|*from the right (R).
+0164|- [/New]
+0165|E
+0166|+PUTEND? þ PRINT CUR+1,E TO q05_12.html
+0167|- include HTML40.DEV
+0168|- include Q.DV2
+0169|- [HelpText]
+0170|#PUTEND L1,L2,<string>
+S   |              <      >
+0171|*puts the characters of <string> at the end of each of the lines L1-L2.
+S   |                        <      >
+0172|E
+0173|+FIND? þ PRINT CUR+1,E TO q05_13.html
+0174|- include HTML40.DEV
+0175|- include Q.DV2
+0176|- [HelpText]
+0177|#FIND <string>
+S   |      <      >
+0178|*searches for occurrences of <string> in the current edit field
+S   |                             <      >
+0179|*starting below the current (FIND) line. When <string> is found, the
+S   |                                              <      >
+0180|*cursor is pointing at the first character of <string>. The search may be
+S   |                                              <      >
+0181|*continued stepwise according to instructions given on the screen.
+0182|*At the end, the number of cases found will be displayed.
+0183|*Then, if `#' is pressed, this number is stored in the sucro memory.
+0184|*If <string> contains spaces and/or commas, it must be given
+S   |    <      >
+0185|*in quotation marks as in FIND "SURVO 84C" .
+0186|*Another alternative is to press the key SEARCH (alt-F5). Then the user is
+0187|*prompted to enter the search string and the first occurrence of the string
+0188|*found so far will be shown immediately. The process is interrupted
+0189|*by ENTER .
+0190|*The search can be restricted to an area between selected lines by LINES=L1,L2 .
+0191|SAlso strings with shadows can be searched for. Example: FIND SURVO
+S   |                                                              111111
+0192|- shadow a: [LINK(q05_15.html)]
+0193|*  R = REPLACE (find <string> and replace with another)
+S   |   a                 <      >                         |
+0194|- shadow a: [LINK(q05_14.html)]
+0195|*  B = Searching for strings backwards in the edit field
+S   |   a                                                   |
+0196|- shadow a: [New][LINK(q05_17.html)]
+0197|d  V = Searching for strings in vertical position (VFIND)
+S   |   a                                                    ;
+0198|- shadow a: [New][LINK(q05_16.html)]
+0199|d  C = Case-insensitive searches
+S   |   a                           ;
+0200|- shadow a: [New][LINK(q05_19.html)]
+0201|d  H = Heuristic searches by Levenshtein distance
+S   |   a                                            ;
+0202|- shadow a: [LINK(q04_16.html)]
+0203|*  S = Other means for searching
+S   |   a                           |
+0204|E
+0207|+BSEARCH? þ PRINT CUR+1,E TO q05_14.html
+0208|- include HTML40.DEV
+0209|- include Q.DV2
+0210|- [HelpText]
+0211|*-FIND <string>
+S   |       <      >
+0212|*works as FIND but the search goes backwards in the edit field.
+0213|*Similarly
+0214|*-REPLACE <old_string>,<new_string>
+S   |          <          > <          >
+0215|*works as REPLACE but backwards.
+0217|*Also the SEARCH key (alt-F5) has a backwards alternative F2 alt-F5.
+0218|E
+0221|+REPLACE? þ PRINT CUR+1,E TO q05_15.html
+0222|- include HTML40.DEV
+0223|- include Q.DV2
+0224|- [HelpText]
+0225|#REPLACE <old_string>,<new_string>
+S   |         <          > <          >
+0226|*replaces the occurences of <old_string> by <new_string> selectively
+S   |                            <          >    <          >
+0227|*starting from the line below the current (REPLACE) line.
+0228|- [New]
+0229|*The search can be restricted to an area between selected lines by LINES=L1,L2 .
+0230|- [/New]
+0232|SIf either of the strings contains spaces/or commas, put them both
+S   |                                                              7777
+0233|*in quotation marks as in REPLACE "SURVO 84","SURVO 84C"
+0235|- [New]
+0236|*Also strings with shadows can be replaced as in
+0237|- [/New]
+0238|SREPLACE "SURVO","SURVO 84C"
+S   |          11111   11111 555
+0240|*Always when a new occurence of <old_string> has been found, it is
+S   |                                <          >
+0241|*replaced by <new_string> by pressing R and the search continues.
+S   |             <          >
+0242|*If N is pressed, no replacement happens, but the search continues.
+0243|*Instructions for various decisions are displayed during the process.
+0244|*At the end the number of cases found will be displayed.
+0246|#REPLACE <old_string>,<new_string>,<C or N>
+S   |         <          > <          > <      >
+0247|*does the replacement without any prompts or interrupts. If N is used
+0248|*as an extra parameter, the number of replacements will also be put
+0249|*in the tutstack. For example, REPLACE SURVO,SURVO,N counts the number
+0250|*of words SURVO below the current line and puts it in the tutstack.
+0252|- shadow a: [LINK(q04_16.html)]
+0253|*  S = More information on search facilities
+S   |   a                                       |
+0254|E
+0256|+FIND2? þ PRINT CUR+1,E TO q05_16.html
+0257|- include HTML40.DEV
+0258|- include Q.DV2
+0259|- [HelpText]
+0260|*By default, searches by FIND, REPLACE, and alt-F5 (SEARCH) key are
+0261|*case-sensitive, i.e. 'Survo' and 'SURVO' are not identical in searches.
+0263|*There are two alternatives to make these searches case-insensitive:
+0264|*1. If the command line in FIND and REPLACE or the starting edit line in
+0265|*   alt-F5 has '#' in the control column, the search is always
+0266|*   case-insensitive.
+0267|*2. By setting the system parameter search_caps=1 in the SURVO.APU file
+0268|*   these searches become case-insensitive when the Caps Lock in the
+0269|*   keyboard is on. Otherwise searches are case-sensitive.
+0270|E
+0272|+VFIND? þ PRINT CUR+1,E TO q05_17.html
+0273|- include HTML40.DEV
+0274|- include Q.DV2
+0275|- [HelpText]
+0276|*VFIND <string>
+S   |       <      >
+0277|*finds first occurrence of <string> in the edit field
+S   |                           <      >
+0278|*in vertical position. Example:
+0279|*VFIND 123
+0280|*tries to find        1
+0281|*                     2
+0282|*                     3
+0283|E
+0285|+PREJ? þ PRINT CUR+1,E TO q05_18.html
+0286|- include HTML40.DEV
+0287|- include Q.DV2
+0288|- [HelpText]
+0289|*F2 J:
+0290|*   initiates a search for an incomplete word just before the cursor
+0291|*   and completes it by the first matching word found in the current
+0292|*   edit field.
+0293|*   Example: Assume that the user has written...
+0294|*      Ouagadougou is the capital of Burkina Faso.
+0295|*      The population of Ou_
+0296|*   By pressing PREFIX J the system will complete the word as
+0297|S      The population of Ouagadougou
+S   |                           777777777
+0298|*   and the user can continue typing.
+0299|*F1 J:
+0300|*   works as F2 J but makes possible to search for phrases starting by
+0301|*   two or more words typed as first words on the edit line.
+0302|E
+0304|+HFIND? þ PRINT CUR+1,E TO q05_19.html
+0305|- include HTML40.DEV
+0306|- include Q.DV2
+0307|- [HelpText]
+0308|*FIND <word>~
+S   |      <    >
+0309|*finds a word that best resembles the given word. (Example: FIND Survo~)
+0310|*The search is started from the edit line below the current line.
+0311|*Exact matches are not recognized since those are found by FIND <word>
+S   |                                                                <    >
+0312|*(without a tilde '~' after the word).
+0313|*The best word is found by scanning all the words (separated by blanks)
+0314|*and selecting the one having the smallest Levenshtein (edit) distance
+0315|*to the given word.
+0316|*After the search the cursor is pointing at the best word. The search
+0317|*henceforth may be continued by pressing the 'N' key. It is interrupted
+0318|*by ENTER. At any stage the value of Levenshtein distance is
+0319|*displayed in the form d=<distance>. If d exceeds the length of <word>,
+S   |                         <        >                             <    >
+0320|*the original starting position of the FIND command is resumed.
+0321|*FIND <word>~~
+S   |      <    >
+0322|*works similarly but comparison of words is case-insensitive.
+0323|E
+0325|+LINEDEL? þ PRINT CUR+1,E TO q05_20.html
+0326|- include HTML40.DEV
+0327|- include Q.DV2
+0328|- [HelpText]
+0329|*LINEDEL offers various ways for systematic removal of lines in the
+0330|*current edit field. LINEDEL does not save the edit field after
+0331|*the removal; it must be done by the user if needed.
+0333|*LINEDEL L1,L2 / deletes lines L1-L2.
+0334|*LINEDEL L1,L2,EMPTY   / deletes empty lines from lines L1-L2.
+0335|*LINEDEL L1,L2,EMPTY,k / works similarly but when n consecutive empty lines
+0336|*                        are encountered, min(n,k) of them will be preserved.
+0337|*                        For example, if k=1, just one empty line will left
+0338|*                        in sequencies of empty lines.
+0339|*LINEDEL L1,L2,<string>
+S   |               <      >
+0340|*deletes lines having any of characters in <string>
+S   |                                           <      >
+0341|*in the control column from lines L1-L2.
+0342|*LINEDEL L1,L2,"<string>" / (<string> may contain shadow characters)
+S   |                <      >     <      >
+0343|*deletes lines containing <string> from lines L1-L2.
+S   |                          <      >
+0344|- [New]
+0345|*LINEDEL L1,L2,"<word1>","<word2>",...
+S   |                <     >   <     >
+0346|*deletes lines containing all the words <word1>,<word2>,...
+S   |                                        <     > <     >
+0347|- [/New]
+0348|*LINEDEL L1,L2,STEP,s
+0349|*deletes lines L1,L1+s,L1+2s,L1+3s,... from lines L1-L2.
+0350|*LINEDEL / without parameters
+0351|*deletes empty lines below the command line to the first non-empty line.
+0353|*In all forms of LINEDEL (except in the second one "EMPTY") the deleted
+0354|*lines can be saved in a selected (new) edit file by giving the
+0355|*specification DEL_SAVE=<name_of_edit_file>.
+S   |                        <                 >
+0356|*This option enables making smart selections of edit lines.
+0357|E
+0359|+LINEINS? þ PRINT CUR+1,E TO q05_21.html
+0360|- include HTML40.DEV
+0361|- include Q.DV2
+0362|- [HelpText]
+0363|*LINEINS offers various ways for systematic insertion of lines in the
+0364|*current edit field. LINEINS does not save the edit field after it has
+0365|*been activated; it must be done by the user when needed.
+0367|*LINEINS L1,L2,k,L3  ;
+0368|*inserts line L3 to lines L1+k,L1+2*k,...,L2.
+0369|*LINEINS L1,L2,TEXT,L0,L3
+0370|*inserts line L3 after each line containing text given as line L0.
+0371|*LINEINS L1,L2,TEXT-1,L0,L3
+0372|*inserts line L3 before each line containing text gives as line L0.
+0373|*LINEINS L1,L2,TEXT+k,L0,L3
+0374|*inserts line L3 k lines after each line containing text given as line L0.
+0375|*LINEINS L1,L2,TEXT-k,L0,L3
+0376|*inserts line L3 k lines before each line containing text given as line L0.
+0377|*LINEINS L1,L2,CONTROL,<char>,L3
+S   |                       <    >
+0378|*inserts line L3 after each line having <char> in the control column.
+S   |                                        <    >
+0379|*Here are the same options like CONTROL+k available as in the TEXT option.
+0381|*In all forms of LINEINS, L3 can be replaced by a parameter of the form L3:L4.
+0382|*Then the inserted lines will be L3,L3+1,..,L4,L3,L3+1,...,L4,L3,L3+1, etc.
+0383|E
+0385|+INSERTL? þ PRINT CUR+1,E TO q05_22.html
+0386|- include HTML40.DEV
+0387|- include Q.DV2
+0388|- [HelpText]
+0389|*INSERTL k
+0390|*inserts k empty lines after the current line.
+0391|*INSERTL L,k
+0392|*inserts k empty lines after the edit line L.
+0393|E
+0395|+DELETEL? þ PRINT CUR+1,E TO q05_23.html
+0396|- include HTML40.DEV
+0397|- include Q.DV2
+0398|- [HelpText]
+0399|*DELETEL L1,L2
+0400|*deletes lines L1-L2 from the current edit field.
+0401|E
+0403|+PREMJ? þ PRINT CUR+1,E TO q05_24.html
+0404|- include HTML40.DEV
+0405|- include Q.DV2
+0406|- [HelpText]
+0407|*F2 M J  (Sucro /J)
+0408|*starts a search for a string of characters (word, phrase, web address,
+0409|*etc.) which should be inserted in the current position of the current
+0410|*edit field.
+0411|*The search takes place in a temporarily opened edit field (KEYWORDS
+0412|*by default) where a list of keywords is displayed in the form
+0414|- shadow W: [LINK(http://www.survo.fi/books)] [/LINK]
+0415|*BOOKS     http://www.survo.fi/books
+S   |           WWWWWWWWWWWWWWWWWWWWWWWWW
+0416|SINDEX     INDEX / EDT=LOAD SORT=-TIME GROUPING=EDT ONLY=1 TYPES=0
+S   |           5555555555555555555555555555555555555555555555555555555
+0417|SMARY      supercalifragilisticexpialidocious
+S   |           1111122223333344444455556667777777
+0418|*PI        3.141592653589793
+0419|*COURIER   [Courier(10)][line_spacing(10)][left_margin(5)]
+0420|- shadow W: [LINK(http://www.survo.fi/puzzles)] [/LINK]
+0421|*PUZZ      http://www.survo.fi/puzzles
+S   |           WWWWWWWWWWWWWWWWWWWWWWWWWWW
+0422|*...
+0424|*The user is prompted to start typing a keyword. When the cursor points
+0425|*at the sought keyword and ENTER is pressed, the string located to the
+0426|*right of the keyword will be caught, the original display of the
+0427|*edit field is restored and the string is typed to the current position.
+0429|*F2 M J  (Sucro /J) continued
+0431|*The edit file for the keywords can be renamed by a line of the form
+0432|*keywords=<name>
+S   |          <    >
+0433|*in SURVO.APU. This edit file must be located in the default data path
+0434|*of Survo.
+0435|*Sucro /J employs the function the SEARCH (alt-F5) key.
+0436|*Thus during the search only keys of consecutive letters of the search
+0437|*key are to be pressed until the correct line is encountered and
+0438|*ENTER is pressed.
+0439|*If the keyword does not exist, the original edit field is restored.
+0440|*The edit file of keywords can be edited and extended by new keywords
+0441|*by normal means of Survo.
+0442|E
+0444|+WCOPY? þ PRINT CUR+1,E TO q05_25.html
+0445|- include HTML40.DEV
+0446|- include Q.DV2
+0447|- [HelpText]
+0448|*Copying 'words' in the edit field
+0450|*Copies of various items in the edit field can be made in various ways.
+0451|*Traditional means are the COPY command, the key alt-F4 for rectangular
+0452|*blocks, and the key alt-F2 for text.
+0454|*For 'words' (contiguous strings separated by blanks) the best method
+0455|*from version 3.37 onwards is based on two mouse-clicks:
+0456|S  1. Click the word to be copied by the rightmost button,
+S   |                                         888888888
+0457|S  2. Select the place where to copy the word by the leftmost button.
+S   |                                                     88888888
+0459|*     Immediately after the first copy, more copies can be made by the
+0460|*     leftmost mouse button.
+0461|*     If the mouse is pointing at a blank space between existing 'words',
+0462|*     the copy is inserted between these words.
+0463|*     If the mouse is pointing at a 'word' (a non-blank character)
+0464|*     this 'word' is replaced by the copy.
+0466|*  3. The copying process is terminated by the DEL key.
+0468|E

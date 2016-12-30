@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Estimating AR(p) models by ESTIMATE
+
+The AR(p) model is
+(1) Y = X*beta + u
+where Y is an n-vector of dependent variable, X is an n*m-matrix of
+regressors, beta is an m-vector of regression coefficients and
+u = (u(1),u(2),...,u(n))' are residuals of the form
+
+u(j)=r(1)*u(j-1)+...+r(p)*u(j-p)+e(j)
+
+where e(j), j=1,2,...,n are independent N(0,sigma^2) variables.
+
+The easiest method for estimation of beta and r(1),...,r(p)
+is to estimate the nonlinear regression model (please note that u=Y-X*beta)
+                         p
+(2) y(j) = x(j)*beta +  sum r(i)*[y(j-i)-x(j-i)*beta]  + e(j),
+                        i=1
+                                               j=p+1,2,...,n,
+where x(j) is a row vector of regressors x1,x2,...,xm in the j'th
+observation.
+
+Least squares estimates for the model (2) are obtained by the ESTIMATE
+operation as follows (the scheme is here presented for p=3 in a case
+where we have Y as the regressand and X1,X2,X3,X4 as regressors).
+.......................................................................
+{A0}=b0+b1*X1+b2*X2+b3*X3+b4*X4
+{A1}=r1*(Y[-1]-b0-b1*X1[-1]-b2*X2[-1]-b3*X3[-1]-b4*X4[-1])
+{A2}=r2*(Y[-2]-b0-b1*X1[-2]-b2*X2[-2]-b3*X3[-2]-b4*X4[-2])
+{A3}=r3*(Y[-3]-b0-b1*X1[-3]-b2*X2[-3]-b3*X3[-3]-b4*X4[-3])
+
+MODEL AR3
+Y={A0}+{A1}+{A2}+{A3}
+
+ESTIMATE &lt;data&gt;,AR3,&lt;line_for_results&gt; 
+.......................................................................
+ESTIMATE automatically recognizes the observed variables Y,X1,X2,X3,X4
+from the data and interprets unidentified notations
+b0,b1,b2,b3,b4 and r1,r2,r3 as parameters to be estimated.
+
+The components of the model are presented by shorthand notations
+{A0},{A1},... permitting a brief notation for the model itself.
+Lagged values are notated as Y[-2] (Y lagged by 2) as in the VAR operation.
+It is easy to extend the model for larger p and even drop some {Ai}
+components.
+Good starting values for b's are obtained from OLS estimates (LINREG,
+REGDIAG, or ESTIMATE with model Y={A0}).
+
+Since ARMA(p,q) models can be represented as A(infinity), in many cases
+the regression coefficients may be estimated for such more general
+models from AR(p) when p is large enough.
+
+  <A HREF="q24_01.html">1 = More information about ESTIMATE operation</A> 
+
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

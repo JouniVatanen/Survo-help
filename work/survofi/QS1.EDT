@@ -1,0 +1,288 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QS1
+0004|*LOAD EDQ
+0005|*WIN FONT 11,18
+0006|*RESIZE 30,80
+0008|+SURVOMM? þ PRINT CUR+1,E TO qs1_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|SSURVO MM is the Windows version of Survo.
+S   | 88888888
+0014|*SURVO MM is compatible with SURVO 84C (and SURVO 98). Thus, in general, all
+0015|*operations, functions, and data structures (edit fields, data and matrix
+0016|*files), sucros etc. working in earlier Survo systems are valid in SURVO MM as
+0017|*well.
+0019|- shadow a: [LINK(qs1_02.html)]
+0020|* 1 = Technical structure of SURVO MM
+S   |  a                                 |
+0021|- shadow a: [LINK(qs1_04.html)]
+0022|* 2 = Edit fields in SURVO MM
+S   |  a                         |
+0023|- shadow a: [LINK(qs1_05.html)]
+0024|* 3 = Data and matrix files in SURVO MM
+S   |  a                                   |
+0025|- shadow a: [LINK(qs1_06.html)]
+0026|* 4 = Capacity of statistical operations
+S   |  a                                    |
+0027|- shadow a: [LINK(qs1_07.html)]
+0028|* 5 = Sucros in SURVO MM
+S   |  a                    |
+0029|- shadow a: [LINK(q0c_10.html)]
+0030|* 6 = Using the mouse
+S   |  a                 |
+0031|- shadow a: [LINK(q111_02.html)]
+0032|* 7 = Screen graphics
+S   |  a                 |
+0033|- shadow a: [LINK(q0b_29.html)]
+0034|* 8 = Soft buttons
+S   |  a              |
+0035|- shadow a: [LINK(qs1_08.html)]
+0036|* 9 = Using the Survo and Windows clipboards
+S   |  a                                        |
+0037|- shadow a: [New][LINK(qs1_09.html)]
+0038|d M = Multiple sessions
+S   |  a                   ;
+0040|E
+0042|* 6 = SURVO MM in different environments
+0043|* 7 = Merits of SURVO MM when compared to SURVO 84C
+0044|* 8 = Restrictions of SURVO MM when compared to SURVO 84C
+0045|* 9 = Special system parameters in SURVO.APU
+0047|+S1? þ PRINT CUR+1,E TO qs1_02.html
+0048|- include HTML40.DEV
+0049|- include Q.DV2
+0050|- [HelpText]
+0051|STechnical structure of SURVO MM
+S   | 8888888888888888888888888888888
+0053|*SURVO MM is written in the C language using WIN32 API library functions.
+0054|SIt works in Windows 95, 98, NT, 2000, Me, and XP, 7 and 8 environments.
+S   |                     2222222222222222222222222
+0055|*SURVO MM consists of a family of program modules. The main module
+0056|*is the SURVO MM editor which calls other modules as child processes
+0057|*when needed (according to the user's actions). The user has no need to
+0058|*know the internal structure of the system.
+0060|*SURVO MM has been created directly by using the source code of the
+0061|*earlier version SURVO 98 as the basis. In typical statistical modules,
+0062|*for examples, only slight changes are needed. On the contrary,
+0063|*all routines handling the keyboard, screen and mouse have been rewritten
+0064|*using WIN32 functions.
+0066|*The current number of SURVO MM modules (EXE files) is about 100.
+0067|*Typically one module contains the program code of several SURVO MM commands
+0068|*and operations. Furtheremore there are about 700 other system
+0069|*files like sucros (Survo macros), files of the help system, drivers, etc.
+S   |                                                                      1
+0071|- shadow a: [LINK(qs1_01.html)]
+0072|* S = More information about SURVO MM
+S   |  a                                 |
+0073|E
+0074|+A? þ PRINT CUR+1,E TO qs1_03.html
+0075|- include HTML40.DEV
+0076|- include Q.DV2
+0077|- [HelpText]
+0079|- shadow a: [LINK(qs1_01.html)]
+0080|* S = More information about SURVO MM
+S   |  a                                 |
+0081|E
+0083|+SAVEMM? þ PRINT CUR+1,E TO qs1_04.html
+0084|- include HTML40.DEV
+0085|- include Q.DV2
+0086|- [HelpText]
+0087|*SURVO MM allows creating and saving of edit fields up to the capacity
+0088|*of the central memory of the computer. For example, in a 128KB memory
+0089|*it is possible to maintain edit fields of 500000 lines with 100 or
+0090|Smore columns. The maximum number of columns is 996 (10006 from ver.3)
+S   |                                                222
+0091|*but there is no (practical) upper limit for the number of lines.
+0092|*Very large fields are needed only in special applications and temporary
+0093|*situations; for example, when irregular text files (created elsewhere)
+0094|*should be polished. In general, it is not wise to keep big data sets in
+0095|*the edit field.
+0097|*When an edit field does not exceed the capacity of SURVO 84C (about
+0098|*60000 bytes), it is saved in SURVO MM (by the SAVE command) exactly
+0099|*in the same way as in SURVO 84C.
+0100|*Large fields with more than 252 columns and/or too many lines are
+0101|*saved in a new form where only non-empty lines (with their line
+0102|*numbers and possible shadow lines) are stored. Also trailing blanks
+0103|*are omitted and thus much space is spared on the disk.
+0104|*These SURVO MM edit files are in fact simple text files.
+0105|*`Over-sized' edit files cannot be used in SURVO 84C as edit fields
+0106|*but they can be treated there as text files (by LOADP and SHOW).
+0108|SAn over-sized edit field is indicated by a red square   almost at the end
+S   |                                                       P
+0109|*of the header line.
+0111|*As an option (in dealing with certain system files) an over-sized
+0112|*edit field can be saved in the old SURVO 84C format by setting
+0113|*string "(84ED)" in the comment of the SAVE command on the first edit line.
+0114|*Example:
+0116|*    1 *SAVE BIGTEXT / over-sized field (84ED)
+0117|*    2 *
+0118|* -----
+0119|* 9999 *
+0120|*10000 * This is the last line!
+0122|*This (84ED) option should be never used in standard applications
+0123|*since it creates very large files.
+0125|- shadow a: [LINK(qs1_01.html)]
+0126|* S = More information about SURVO MM
+S   |  a                                 |
+0127|E
+0129|+S3? þ PRINT CUR+1,E TO qs1_05.html
+0130|- include HTML40.DEV
+0131|- include Q.DV2
+0132|- [HelpText]
+0133|*Data files have the same structure as in SURVO 84C and 98.
+0134|*Thus all data files (with the .SVO extension) created in SURVO 84C
+0135|*are accepted in SURVO MM.
+0136|*However, there is one important extension in SURVO MM: In data files
+0137|*with very many fields (variables) SURVO MM permits long explanations
+0138|*in names of fields. In SURVO 84C the total amount of text in these
+0139|*names and other descriptions of fields is limited to 65500 bytes.
+0141|*In SURVO 84C the maximum number of elements in a matrix was 8100, i.e.
+0142|*90x90 is the largest allowed size for a square matrix. In SURVO MM
+0143|*it is possible to operate with much larger matrices. For example,
+0144|*In a 128MB memory one may handle 1000x1000 matrices by various MAT operations.
+0145|*Again representations are identical in both systems.
+0147|- shadow a: [LINK(qs1_01.html)]
+0148|* S = More information about SURVO MM
+S   |  a                                 |
+0149|E
+0151|+S4? þ PRINT CUR+1,E TO qs1_06.html
+0152|- include HTML40.DEV
+0153|- include Q.DV2
+0154|- [HelpText]
+0155|*In typical statistical operations (like LINREG and FACTA) the maximum
+0156|*number of variables in SURVO 84C was at most 90.
+0157|*In SURVO MM greatest permitted dimensions are much higher but depend
+0158|*on the size of the central memory. In 128MB no substantial limits
+0159|*will be encountered. For example, factor analysis can be made even
+0160|*with 1000 variables.
+0162|- shadow a: [LINK(qs1_01.html)]
+0163|* S = More information about SURVO MM
+S   |  a                                 |
+0164|E
+0166|+S5? þ PRINT CUR+1,E TO qs1_07.html
+0167|- include HTML40.DEV
+0168|- include Q.DV2
+0169|- [HelpText]
+0170|*Sucros made in SURVO 84C and 98 work similarly in SURVO MM.
+0171|*In fact, the regular collections of sucros located in the S and TUT
+0172|*When a sucro is activated in SURVO MM, it is searched for in this order:
+0174|*  1. Current data directory of SURVO MM (for example, D:\DEMO1)
+0175|*  2. `sucropath' defined in SURVO.APU of SURVO MM
+0176|*  3. <Survo>\U\S   (<Survo> is the main directory of SURVO MM.)
+S   |      <     >        <     >
+0177|*  4. <Survo>\U\TUT (This directory is not needed anymore.)
+S   |      <     >
+0178|*  5. <Survo>\S
+S   |      <     >
+0179|*  6. <Survo>\TUT
+S   |      <     >
+0181|*By the sucro command
+0182|*/WHICH <name_of_sucro>
+S   |        <             >
+0183|*the current instance of a sucro is automatically detected.
+0185|- shadow a: [LINK(qs1_01.html)]
+0186|* S = More information about SURVO MM
+S   |  a                                 |
+0187|E
+0190|+CLIPBOARD? þ PRINT CUR+1,E TO qs1_08.html
+0191|- include HTML40.DEV
+0192|- include Q.DV2
+0193|- [HelpText]
+0194|*Using the clipboard in SURVO MM
+0196|*Survo has always had a 'clipboard' of its own. It is controlled by
+0197|- shadow %: [LINK(q02_17.html)] [/LINK]
+0198|Sthe BLOCK (alt-F4) key (See BLOCK?) or by the mouse (See MOUSE6?).
+S   |                             %%%%%   888888888888888888888888888888
+0200|*In SURVO MM (in versions 1.15+) a text block painted by the BLOCK key
+0201|*can also be copied to the Windows Clipboard directly by clicking
+0202|*the soft button c (copy).
+0203|*The text in the clipboard is thereafter available for any other
+0204|*Windows program.
+0205|*Correspondingly, any text appearing in in the Windows Clipboard
+0206|*can be pasted in the edit field to the place indicated by the cursor
+0207|*by double-clicking the soft button p (paste) or by the command PASTE.
+0208|*If the insert mode (set by the INS key) is on, the text in the clip-
+0209|*board will be inserted between the current edit lines. If the insert
+0210|*mode is off, the clipboard text will be written over the possible
+0211|*current text.
+0212|*From version 2.37 the Windows clipboard can be maintained by keys
+0213|*ctrl+ins (COPY), shift+ins (PASTE).
+0214|*See also the COPY command (COPY2?)
+0215|*More information on next pages:
+0217|*Copying a text block to the Survo and Windows clipboards:
+0218|*1. Press the BLOCK key (alt-F4).
+0219|*2. Move (by the mouse or arrow keys) the cursor to the upper-left
+0220|*   corner of the text block to be copied
+0221|*   and press BLOCK again.
+0222|*3. Move the cursor to the lower-right corner of the text block and
+0223|*   press BLOCK still once. The block then appears in a painted form.
+0224|*4. Click by the mouse the soft button c which copies the text into
+0225|S   the clipboard or press ctrl+ins. A temporary message of the form
+S   |                  88888888888888888
+0226|*      The text block is now copied to the clipboard!
+0227|*   confirms this fact and painting of the block disappears.
+0229|*Thereafter the text block now copied to the Windows Clipboard
+0230|*is available also in other Windows programs in a normal way.
+0232|*Note 1: The text in the clipboard does not contain shadow lines.
+0233|*Note 2: However, at the same time the entire text block with shadows
+0234|*        will be saved in the own clipboard of Survo and it can be
+0235|*        copied later to any edit field directly by pressing
+0236|*        the BLOCK key four times.
+0238|*Pasting text from the Windows Clipboard to the edit field:
+0239|*1. Move (by the mouse or the arrow keys) the cursor to the position
+0240|*   wherefrom the text should start.
+0241|*2. If you want that the text from the clipboard will not overwrite
+0242|*   existing text, enter the insert mode by the INS key.
+0243|*3. Paste the contents of the Windows Clipboard by the soft button p
+0244|S   (double-click!) or press shift+ins.
+S   |                    888888888888888888
+0246|- [New]
+0247|*Text from the clipboard can also be pasted by the following command
+0248|*LOADW CLIPBOARD / SPLIT=SP
+0249|*or by the key sucro P (by pressing three keys: F2 M P).
+0250|- [/New]
+0252|- shadow a: [LINK(qs1_01.html)]
+0253|* S = More information about SURVO MM
+S   |  a                                 |
+0254|E
+0256|+SESSION? þ PRINT CUR+1,E TO qs1_09.html
+0257|- include HTML40.DEV
+0258|- include Q.DV2
+0259|- [HelpText]
+0260|*Several SURVO MM sessions may be running simultaneously.
+0261|*Each session is initiated by clicking the SURVO MM icon.
+0262|*Thus the user may type a research report in one session while another
+0263|*copy of Survo is carrying out a long simulation experiment.
+0265|*If you want to use this multisession property very heavily (many
+0266|*Survos doing hard work automatically at the same time) it is good to set
+0267|*session_tmp=1
+0268|*in the SURVO.APU file.
+0270|*By this setting each Survo session will have its own subdirectory for
+0271|*temporary files and then there will be no confusion with those files
+0272|*although concurrent Survo sessions are performing similar tasks.
+0274|*For a temporary usage a "slave Survo" can be called by keys F2 M Z.
+0275|*More information by activating
+0276|*/Z ?
+0278|*Temporary files:
+0279|*Many Survo program modules are creating and using various temporary
+0280|*files for saving intermediate results, for example.
+0282|*Temporary files are saved in the directory
+0283|*<Survo>\TMP (typically C:\Program Files\SURVO\TMP) or according to
+S   | <     >
+0284|*etmpd=<path>
+S   |       <    >
+0285|*given in the SURVO.APU file.
+0287|*To provide a separate subdirectory for temporary files in each Survo
+0288|*session,
+0289|*session_tmp=1
+0290|*must be given in SURVO.APU.
+0291|*Then these subdirectories are created by Survo and they are
+0292|*<Survo>\TMP\A, <Survo>\TMP\B, etc. by default.
+S   | <     >        <     >
+0293|*In this case the corresponding subdirectory is also removed when the
+0294|*Survo session is terminated. However, if del_tmp=0 is given in
+0295|*SURVO.APU, the subdirectory for temporary files is not removed.
+0297|- shadow a: [LINK(qs1_01.html)]
+0298|* S = More information about SURVO MM
+S   |  a                                 |
+0299|E

@@ -1,0 +1,162 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q1E
+0004|*LOAD EDQ
+0006|+FACES? þ PRINT CUR+1,E TO q1e_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|#PLOT <data> / TYPE=FACES
+S   |      <    >
+0011|*plots multidimensional data as Chernoff's faces.
+0012|*Reference: Chernoff,H.(1973) Using faces to represent points in
+0013|*           k-dimensional space graphically, JASA,68,361-368.
+0015|*The mapping from data to various features of the face is defined by a
+0016|*VARIABLES list written after the PLOT line.
+0017|*To create this list, it is best to activate PLOT (with TYPE=FACES)
+0018|*without any list. Then a model of the list with appropriate comments
+0019|*will be displayed below the current PLOT line.
+0020|*A typical list is following:
+0022|*PLOT <data> / TYPE=FACES
+S   |      <    >
+0023|*VARIABLES: xmin      xmax     Features                       fmin fmax
+0024|*<X1>      <min X1>  <max X1>  Radius_to_corner_of_face_OP    0.6  1.0
+S   | <  >      <      >  <      >
+0025|*<X2>      <min X2>  <max X2>  Angle_of_OP_to_horizontal      0.0  0.6
+S   | <  >      <      >  <      >
+0026|*<X3>      <min X3>  <max X3>  Vertical_size_of_face_OU       0.6  1.0
+S   | <  >      <      >  <      >
+0027|*<X4>      <min X4>  <max X4>  Eccentricity_of_upper_face     0.5  1.5
+S   | <  >      <      >  <      >
+0028|*<X5>      <min X5>  <max X5>  Eccentricity_of_lower_face     0.5  1.5
+S   | <  >      <      >  <      >
+0029|*<X6>      <min X6>  <max X6>  Length_of_nose                 0.1  0.5
+S   | <  >      <      >  <      >
+0030|*<X7>      <min X7>  <max X7>  Vertical_position_of_mouth     0.2  0.8
+S   | <  >      <      >  <      >
+0031|*<X8>      <min X8>  <max X8>  Curvature_of_mouth_1/R        -4.0  4.0
+S   | <  >      <      >  <      >
+0032|*<X9>      <min X9>  <max X9>  Width_of_mouth                 0.2  1.0
+S   | <  >      <      >  <      >
+0033|*<X10>     <min X10> <max X10> Vertical_position_of_eyes      0.0  0.4
+S   | <   >     <       > <       >
+0034|*<X11>     <min X11> <max X11> Separation_of_eyes             0.3  0.8
+S   | <   >     <       > <       >
+0035|*<X12>     <min X12> <max X12> Slant_of_eyes                 -0.5  0.5
+S   | <   >     <       > <       >
+0036|*<X13>     <min X13> <max X13> Eccentricity_of_eyes           0.3  1.0
+S   | <   >     <       > <       >
+0037|*<X14>     <min X14> <max X14> Size_of_eyes                   0.1  0.2
+S   | <   >     <       > <       >
+0038|*<X15>     <min X15> <max X15> Position_of_pupils            -0.1  0.1
+S   | <   >     <       > <       >
+0039|*<X16>     <min X16> <max X16> Vertical_position_of_eyebrows  0.2  0.4
+S   | <   >     <       > <       >
+0040|*<X17>     <min X17> <max X17> Slant_of_eyebrows             -0.5  0.5
+S   | <   >     <       > <       >
+0041|*<X18>     <min X18> <max X18> Size_of_eyebrows               0.1  0.5
+S   | <   >     <       > <       >
+0042|*END of plotting specifications
+0044|*The variables selected will be mapped to various features linearly so
+0045|*that xmin -> fmin and xmax -> fmax. This scheme may be freely edited
+S   |            >                >
+0046|*by altering xmin and ymin values (eventually also fmin and fmax) to
+0047|*achieve a desired result. For example, the influence of certain variable
+0048|*could be reversed by changing its xmin and xmax values.
+0049|*To keep certain features constant, use character '-' instead of a
+0050|*variable. Then (fmin+fmax)/2 will be used as the value of the feature
+0051|*for all observations.
+0052|*The default list obtained after activating PLOT  with TYPE=FACES without
+0053|*a list has '-' as each variable, '*' for xmin and '**' for xmax.
+0054|*If now '-' is replaced by a name of a variable and PLOT is activated,
+0055|*the faces are plotted by using the true minimum value value in place of
+0056|*'*' and maximum value in place of '**'. (The list is automatically
+0057|*updated with true values ending to '*' or '**'.)
+0058|*The user may then add various features gradually and see their effects
+0059|*immediately. The mapping can be fixed by erasing '*'s.
+0061|*The PLOT operation for Chernoff's faces may be supported by the
+0062|*extra specifications HEADER,HOME,SIZE,XDIV,YDIV as in any curve plotting
+0063|*schemes.
+0064|*Furthermore two special specifications LABEL and FSIZE are available.
+0065|*LABEL=<label variable> selects the name of the observation to be
+S   |       <              >
+0066|*printed under the face. If LABEL is omitted, # of observation will be
+0067|*used as default.
+0068|*FSIZE=c gives the side length of the square to be used as an area for
+0069|*each face. c is given in plotting units and has the default value
+0070|*which is one fifth of the current width of the plot.
+0071|*The specifications SIZE,XDIV,YDIV and FSIZE determine together the
+0072|*layout for the faces.
+0074|*On the screen (GPLOT), the various parts of the faces can be drawn with
+0075|*different colors possibly depending on values of selected variables.
+0076|*The face and the eyes can also be painted.
+0077|*The colors are selected by adding a COLORS list (before the END line
+0078|*in the VARIABLES list).
+0079|*A model of such a list is obtained by activating GPLOT with TYPE=FACES
+0080|*without a VARIABLES list.
+0082|- shadow a: [LINK(q1d_01.html)]
+0083|*  M = more information on multivariate plotting
+S   |   a                                           |
+0084|E
+0085|+MM? þ PRINT CUR+1,E TO q1e_02.html
+0086|- include HTML40.DEV
+0087|- include Q.DV2
+0088|- [HelpText]
+0090|- shadow a: [LINK(q1d_01.html)]
+0091|*  M = more information on multivariate plotting
+S   |   a                                           |
+0092|E
+0095|+STARS? þ PRINT CUR+1,E TO q1e_03.html
+0096|- include HTML40.DEV
+0097|- include Q.DV2
+0098|- [HelpText]
+0099|#PLOT <data> / TYPE=STARS
+S   |      <    >
+0100|*plots multidimensional data as star symbol plots.
+0101|*Reference: Chambers,Cleveland,Kleiner,P.A.Tukey: Graphical Methods for
+0102|*           Data Analysis. The Wadsworth Statistics/Probability Series, 1983
+0103|*           (pp. 158-161)
+0104|*Each observation of m active variables is represented as a set of rays
+0105|*whose directions are equally spaced around the circle and the length
+0106|*of the ray corresponding to the variable x is
+0107|*     (1-c)*(x-xmin)/(xmax-xmin)+c .
+0108|*c is a constant with the default value 0.2. Another value for c can be
+0109|*selected by entering the TYPE specification in the form TYPE=STARS,c .
+0110|*The order of activate variables in the stars is determined by the alpha-
+0111|*betic order of their mask symbols and secondarily by their order in the
+0112|*data set.
+0113|*The general layout of the star symbol plots in the plotting region is
+0114|*the same as that of Chernoff's faces. The LABEL and FSIZE specifications
+0115|- shadow %: [LINK(q1e_01.html)] [/LINK]
+0116|*are available as well (See FACES?).
+S   |                            %%%%%
+0118|- shadow a: [LINK(q1d_01.html)]
+0119|*  M = more information on multivariate plotting
+S   |   a                                           |
+0120|E
+0122|+PROFILES? þ PRINT CUR+1,E TO q1e_04.html
+0123|- include HTML40.DEV
+0124|- include Q.DV2
+0125|- [HelpText]
+0126|#PLOT <data> / TYPE=PROFILES
+S   |      <    >
+0127|*plots multidimensional data as profile symbol plots.
+0128|*Reference: Chambers,Cleveland,Kleiner,P.A.Tukey: Graphical Methods for
+0129|*           Data Analysis. The Wadsworth Statistics/Probability Series, 1983
+0130|*           (pp. 159-163)
+0131|*Each observation of m active variables is represented as a broken line
+0132|*connecting points (1,y1),(2,y2),...,(m,ym) where y coordinates are
+0133|*the scaled values y=x/max(abs(x)).
+0134|*Also the base line and the vertical side lines are plottted for each
+0135|*profile.
+0136|*The order of activate variables in the profiles is determined by the alpha-
+0137|*betic order of their mask symbols and secondarily by their order in the
+0138|*data set.
+0139|*The general layout of the profile symbol plots in the plotting region is
+0140|*the same as that of Chernoff's faces. The LABEL and FSIZE specifications
+0141|- shadow %: [LINK(q1e_01.html)] [/LINK]
+0142|*are available as well (See FACES?).
+S   |                            %%%%%
+0144|- shadow a: [LINK(q1d_01.html)]
+0145|*  M = more information on multivariate plotting
+S   |   a                                           |
+0146|E

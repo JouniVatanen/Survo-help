@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">/CRPLOT &lt;data&gt;,&lt;C1&gt;,&lt;C2&gt;,&lt;C_coord&gt;,&lt;S_coord&gt;             / K.Vehkalahti
+creates a correspondence plot of dimensions &lt;C1&gt; and &lt;C2&gt; so that the
+information from &lt;data&gt; and two matrices are presented in the same
+coordinate system. These plots are typical in correspondence analysis. The
+data are actually a table of frequencies. See <A HREF="qmr4_01.html">CORRESP</A>? for more information
+on correspondence analysis. /CRPLOT assumes that the &lt;data&gt; is a Survo data
+file (.SVO).
+
+CORRESP saves the row coordinates of the table to variables &lt;C1&gt; and &lt;C2&gt;,
+and the column coordinates to a matrix file &lt;C_coord&gt;. By default the name
+of this matrix file is CR_COORD.M .
+
+The column coordinates of supplementary variables (if any) can be given by
+the matrix &lt;S_coord&gt; (by default CR_SUPPC.M). If no variables are activated
+by `S' in &lt;data&gt;, &lt;S_coord&gt; is not used.
+
+Specification POINT can be used to give the label variable for the row
+coordinates. By default, if the first active variable is a string, it will
+serve as a label variable.
+
+The sucro gives the user a ready made work scheme, where various parameters
+can be modified, and the picture then easily re-produced. A PostScript
+version of the picture can be created from that scheme by one sucro command
+as well.
+
+  <A HREF="qkv0_15.html">P = More information on composite plots</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

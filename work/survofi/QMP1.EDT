@@ -1,0 +1,189 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QMP1
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+MULTIPLE? þ PRINT CUR+1,E TO qmp1_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*Multiple precision computations:
+0014|*Numerical computations can be performed at arbitrarily high precision
+0015|*by two ways:
+0017|- shadow a: [LINK(qmp1_02.html)]
+0018|*  1 = Multiple precision editorial computing
+S   |   a                                        |
+0019|- shadow a: [LINK(qmp1_04.html)]
+0020|*  2 = ARIT operations
+S   |   a                 |
+0022|- shadow a: [LINK(qmp1_05.html)]
+0023|*  3 = Algorithms used in multiprecision calculations
+S   |   a                                                |
+0025|- shadow a: [LINK(qm1_03.html)]
+0026|*  A = More information on editorial computing
+S   |   a                                         |
+0027|E
+0030|+M1? þ PRINT CUR+1,E TO qmp1_02.html
+0031|- include HTML40.DEV
+0032|- include Q.DV2
+0033|- [HelpText]
+0034|*Multiple precision editorial computing
+0036|*In editorial computing multiple precision computations are performed
+0037|*by giving a specification ACCURACY=n,m where n>16 is the accuracy used
+S   |                                               >
+0038|*in calculations and m is the accuracy for output (by default m=n).
+0039|*.......................................................................
+0040|*Examples: ACCURACY=50
+0041|*1/3=0.33333333333333333333333333333333333333333333333333
+0042|*2^150=1427247692705959881058285969449495136382746624
+0043|*.......................................................................
+0044|*n=10^500  ACCURACY=1000,10  This shows how lim (1+1/n)^n=exp(1)=e
+0045|*exp(1)-(1+1/n)^n=0.135914091e-499
+0046|*.......................................................................
+0047|*Sum 1+1/2+1/4+1/8+1/16+... = 2
+0048|*ACCURACY=1000,50
+0049|*b=for(i=1)to(2000)term(T=1)sum(0.5*T)
+0050|*2-b=0.1741961963243443335115239098955774459171820748541e-601
+0051|*2^(-1999)=0.1741961963243443335115239098955774459171820748541e-601
+0052|*.......................................................................
+0054|*Multiple precision editorial computing (continued)
+0056|*The rules and tools in editorial multiprecision computing are the same
+0057|*as in standard editorial computing.
+0058|*However, certain special functions (like statistical and financial)
+0059|*are not available in multiprecision form. Also multiple activations
+0060|*(.=) are not permitted.
+0062|*Long numbers are presented on consecutive lines as follows:
+0063|*.......................................................................
+0064|*ACCURACY=200 WIDTH=50 (WIDTH determines the line width. Default is 70.)
+0065|*sqrt(2)=0.1414213562373095048801688724209698078569\
+0066|*67187537694807317667973799073247846210703885038753\
+0067|*43276415727350138462309122970249248360558507372126\
+0068|*44121497099935831413222665927505592755799950501152\
+0069|*7820605714e1
+0070|*Results may overwrite existing lines.
+0072|*Multiple precision editorial computing (continued)
+0074|*Numbers computed can be saved in a compressed form to files in the
+0075|*current working directory with names starting by '!' and with the .NBR
+0076|*extension.
+0077|*.......................................................................
+0078|*Example: Computing and Saving e in !E.NBR with ACCURACY=10000
+0079|*NBR=!E  / Specification giving the the name of the result
+0080|*exp(1)=
+0081|*When exp(1)= above is activated, e is computed and saved in !E.NBR.
+0082|*Instead of a numerical value
+0083|*exp(1)=!E
+0084|*is diplayed on the activated line.
+0085|*.......................................................................
+0086|*Thereafter !E can be used in numerical computations: ACCURACY=300
+0087|*log(!E)=1
+0088|*.......................................................................
+0090|- shadow a: [LINK(qmp1_01.html)]
+0091|*   P = More on multiprecision computations
+S   |    a                                     |
+0092|E
+0093|+A? þ PRINT CUR+1,E TO qmp1_03.html
+0094|- include HTML40.DEV
+0095|- include Q.DV2
+0096|- [HelpText]
+0098|- shadow a: [LINK(qmp1_01.html)]
+0099|*   P = More on multiprecision computations
+S   |    a                                     |
+0100|E
+0102|+M2? þ PRINT CUR+1,E TO qmp1_04.html
+0103|- include HTML40.DEV
+0104|- include Q.DV2
+0105|- [HelpText]
+0106|*ARIT operations
+0108|*These operations provide another interface for multiprecision
+0109|*computing in Survo.
+0111|*Currently, best information is obtained by activating
+0112|*LOAD <Survo>\U\D\LONGARIT / English version
+S   |      <     >
+0113|*LOAD <Survo>\U\D\PITKARIT / Finnish version
+S   |      <     >
+0115|- shadow a: [LINK(qmp1_01.html)]
+0116|*   P = More on multiprecision computations
+S   |    a                                     |
+0117|E
+0119|+M3? þ PRINT CUR+1,E TO qmp1_05.html
+0120|- include HTML40.DEV
+0121|- include Q.DV2
+0122|- [HelpText]
+0123|*Algorithms used in multiprecision calculations
+0125|*Calculations are done with floating point numbers in base 1000.
+0126|*The number of significant (decimal) digits may be over one million
+0127|*and the range of exponents is about (-2000000000,2000000000).
+0128|*Thus very huge and tiny numbers can be represented:
+0129|*................................................................................
+0130|*ACCURACY=1000,20
+0131|*2^(2^1000)=0.3058075504150725262e1964555237
+0132|*2^(-2^1000)=0.3270030444450113159e-1964555236
+0133|*2^(2^1000)*2^(-2^1000)=0.9999999999999999999
+0134|*................................................................................
+0135|*The multiplications with long numbers (over 400 digits) are performed
+0136|*by using FFT (Fast Fourier Transformation) instead of the standard
+0137|*'Schoolboy' scheme. The latter has computational complexity proportional
+0138|*to n^2 while FFT multiplication is proportional to n*log(n)*log(log(n))
+0139|*only.
+0140|*Divisions and square roots are calculated by Newton-Raphson iteration.
+0141|*Various transcendental functions are computed either from their Taylor's
+0142|*series expansions (after suitable transformations to speed up
+0143|*convergence) or by the AGM (arithmetic-geometric mean) technique.
+0145|*................................................................................
+0146|*Example: Natural logarithms
+0147|*The logarithm of 10 is with ACCURACY=50
+0148|*log(10)=0.23025850929940456840179914546843642076011014886287e1
+0149|*It is actually computed by the formula
+0150|*L(x,m):=#PI/(2*m*agm(1,4/x^m))
+0151|*giving
+0152|*L(10,26)=0.23025850929940456840179914546843642076011014886287e1
+0153|*................................................................................
+0154|*Above #PI is the universal constant =3.14159265... computed and saved
+0155|*permanently in file <Survo>\U\SYS\#PI.NBR with at least 100000 digits
+S   |                     <     >
+0156|*by the command
+0157|*ARIT PI,#PI / ACCURACY=100000 .
+0158|*Parameter m should exceed ACCURACY/2.
+0159|*agm(x,y) is the arithmetic-geometric mean of numbers x and y, i.e.
+0160|*obtained as a limit of the following iteration:
+0162|*Let x(0)=x, y(0)=y.
+0163|*Iteration step from n to n+1:
+0164|*x(n+1)=[x(n)+y(n)]/2       arithmetic mean
+0165|*y(n+1)=sqrt[x(n)*y(n)]     geometric mean
+0167|*References:
+0169|*David H. Bailey: A Portable High Performance Multiprecision Package.
+0170|*RNR Technical Report RNR-90-022 (1993)
+0172|*Richard P. Brent: Fast Multiple-Precision Evaluation of Elementary Functions.
+0173|*Journal of the ACM, Vol.23, No.2, April 1976, pp.242-251.
+0175|*Donald E. Knuth: The Art of Computer Programming, Vol.2.
+0176|*Addison Wesley, 1981.
+0179|- shadow a: [LINK(qmp1_01.html)]
+0180|*   P = More on multiprecision computations
+S   |    a                                     |
+0181|E
+0183|+/CONTFRAC? þ PRINT CUR+1,E TO qmp1_06.html
+0184|- include HTML40.DEV
+0185|- include Q.DV2
+0186|- [HelpText]
+0187|*/CONTFRAC X,n,<accuracy>
+S   |               <        >
+0188|*calculates n+1 first terms a0,a1,...,an of the continued fraction
+0189|*presentation
+0190|*               1
+0191|*   X = a0 + -----------------
+0192|*                    1
+0193|*            a1 + ------------
+0194|*                        1
+0195|*                 a2 + -------
+0197|*                      a3 + ...
+0199|*of a positive real number X using multiple precision editorial
+0200|- shadow %: [LINK(qmp1_01.html)] [/LINK]
+0201|*computing (see MULTIPLE?) with accuracy of <acc> significant
+S   |                %%%%%%%%                    <   >
+0202|*decimal numbers. Default values are n=20, <acc>=1000.
+S   |                                           <   >
+0203|*Also 10 first convergents (as ratios) are computed for X.
+0205|- shadow a: [LINK(qm1_01.html)]
+0206|*   A = More on mathematical operations
+S   |    a                                 |
+0207|*   P = More on multiprecision computations
+0208|E

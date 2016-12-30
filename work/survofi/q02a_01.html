@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Survo operations and commands can be typed on any line in the edit field.
+Each operation consists of an operator designator (word) and of a list of
+parameters. In more complicated operations, extra specifications of the form
+&lt;specification designator&gt;=&lt;list of parameters&gt;  may appear in the field.
+
+For example,
+
+11 *PRINT 21,100    /  Print lines 21-100.
+12 *LOAD PART1      /  Load edit file PART1 to edit field.
+13 *SORT A,B,K      /  Sort lines A-B according to a mask on image line K.
+14 *PLOT MALES      /  Plot data MALES as a bar chart.
+15 */DATE           /  Type the current date.
+16 *                   (Text after an isolated '/' is a comment.)
+
+are typical operations. The last one (/DATE) is not an original Survo command
+but a user-defined sucro command made by using the macro language of
+Survo. '/' in front of the command word always refers to a sucro.
+It is strongly recommendable to type command words like PRINT, LOAD, SAVE
+in upper case letters (not Print, print).
+
+A command or operation is activated either by a double-click of the mouse or
+by moving the cursor to the command line and by pressing key ESC.
+
+Please note that a double-click of the RIGHTmost mouse button leads
+to the help system (showing information about the word indicated by the mouse).
+
+Continuous activation:
+To carry out a series of consecutive operations (run mode), press first
+F2:PREFIX and then ESC. Such a series must not contain sucro commands.
+
+In Survo operations, lines of the edit field are referred to by
+their indices (1,2,3,...) or by their labels. A label is a single
+character (like A,X,a,x) placed in the control column. Also END
+(END+3, END-5) are possible line labels, END indicating the last non-
+empty line in the field. Similarly CUR refers to the current line
+indicated by the cursor.
+Thus CUR, CUR+5, A, A-5 are permitted line labels.
+Example:
+PRINT CUR+1,END  /  Print lines below the current line.
+
+To specify columns in Survo operations, the column indices are not
+used in general. The columns are indicated by various masks
+(images, patterns) on image lines. For instance, image line in
+numerical sort (see <A HREF="q0b_02.html">SORT</A>) has the structure "    12345     "
+where the location of the mask 12345 corresponds to the sort key
+column.
+In statistical operations, the data sets to be analyzed may be located
+either in the edit field or in special data files and they are referred
+to by their names given usually by a DATA definition.
+(See <A HREF="q23_01.html">DATA</A>,FILE)
+
+  <A HREF="qtu6_01.html">S = Using ready-made sucros</A> 
+  <A HREF="q02a_03.html">U = User-defined operations</A> 
+  <A HREF="q03_01.html">C = Information on control operations</A> 
+  <A HREF="q23_01.html">D = Data in statistical operations</A> 
+  <A HREF="q07_06.html">X = Extra specifications in Survo operations</A> 
+  <A HREF="q07_09.html">B = Border and fence lines</A> 
+  <A HREF="q07_08.html">H = Hidden commands</A> 
+  <A HREF="q02a_05.html">L = Working with large data sets</A> 
+  <A HREF="q01_02.html">E = More information on EDITOR</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

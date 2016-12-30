@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">VALUES=&lt;image&gt;,&lt;distance&gt; 
+(in PLOT operation for bar and pie charts) specifies values of the
+observations to be plotted in the bar/pie in question as a label.
+&lt;image&gt; is either of the form ###.# or ##.#%. In the latter case
+the value of the current section will plotted in percentages.
+&lt;distance&gt; indicates the place of the label. &lt;distance&gt; is given as # of
+character widths from the lower end of bars. However, if &lt;distance&gt; is
+negative, labels will be positioned near the higher end of bars.
+In pie charts &lt;distance&gt; must be positive and it is given in 10 per cent
+units of the radius and from the center.
+
+To place the labels outside of the bars (in bar charts), insert an extra
+word (like 1) to the VALUES specification: VALUES=&lt;image&gt;,&lt;distance&gt;,1.
+The sign of &lt;distance&gt; again indicates to which end of the bars the
+labels will be placed.
+
+To suppress value denotations in small bar portions and pies, use
+VALUEMIN=&lt;min&gt;. Then values less than &lt;min&gt; are not printed in the graph.
+
+VALUES is also available in (G)HISTO (from version 2.11).
+  <A HREF="q11_01.html">P = More information on plotting</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

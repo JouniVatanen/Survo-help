@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Integral of function f(x) in the interval (a,b) is computed using
+Simpson's rule by the `integral' statement of the form
+   &lt;variable&gt;=integral(f(x))from(a)to(b)
+or in extended forms
+   &lt;variable&gt;=integral(f(x))from(a)to(b)eps(eps) ,
+   &lt;variable&gt;=integral(f(x))from(a)to(b)eps(eps)n(n) .
+The original range (a,b) is split by 2^n equidistant points using
+n=1,2,3,... until the relative error is &lt;eps or the optional n value
+is achieved. Default values are eps=1e-10, n=12.
+Examples:
+................................................................................
+      a=0 b=1 eps=0.0001 pi=3.141592653589793 infinity=10
+   I1=integral(x^2)from(a)to(b)eps(eps)
+   I2=integral(exp(-x*x/2)/sqrt(2*pi))from(-infinity)to(0)
+   I1.=0.33333333333333
+   I2.=0.5
+
+................................................................................
+Number of prime integers less than N ( here N=1000000 ) can be roughly
+approximated by the integral
+
+integral(1/log(x))from(2)to(N)eps(0)n(17)=78627.636537002
+
+while the true number is 78498.
+
+  <A HREF="qm1_03.html">E = More information on editorial computing</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

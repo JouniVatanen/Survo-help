@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">The basic color system in Survo is CMYK (C=Cyan, M=Magenta, Y=Yellow,
+K=blacK) with intensities of each color component from 0 to 1.
+It is supported in PostScript.
+For example, (0,0,0,0) is white and (1,1,1,0) or (0,0,0,1) is black.
+(0,0,0,k) with 0&lt;k&lt;=1 is always safer for various shades of gray.
+On the screen the RGB (R=Red, G=Green, B=Blue) system is used.
+There is no unique correspondence between these two color systems.
+More information e.g. from
+<A HREF="http://dx.sheridan.com/advisor/cmyk_color.html">http://dx.sheridan.com/advisor/cmyk_color.html</A> 
+
+Survo provides 3 different conversion rules selected by a RGB
+specification.
+By default (RGB=1), in screen graphics of Survo the CMYK colors are
+converted to RGB by formulas
+R=int(255*(1-min(1,C+K))),
+G=int(255*(1-min(1,M+K))),
+B=int(255*(1-min(1,Y+K))).
+
+When Ghostscript is used for conversion of Survo PostScript files
+to the PDF format, the colors are exactly the same on the screen
+as the colors in GPLOT graphs created by this default setting (RGB=1).
+
+Surprisingly a complete match has not attained when Adobe Distiller
+is used for PS -&gt; PDF conversion.
+
+Approximate matching occurs by using either RGB=2 or RGB=3 in GPLOT.
+
+For RGB=2 in GPLOT, the conversion formulas are
+R=int(255*(1-C)*(1-K)),
+G=int(255*(1-M)*(1-K)),
+B=int(255*(1-Y)*(1-K))
+
+and for RGB=3 (default before ver. 1.28 of SURVO MM) they are
+R=int(255*(1-(C+K)/s),
+G=int(255*(1-(M+K)/s),
+B=int(255*(1-(Y+K)/s)
+where s=min(1,K+max(C,M,Y).
+
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

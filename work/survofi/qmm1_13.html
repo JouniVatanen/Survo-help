@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">MNTEST &lt;data&gt;,&lt;output_line&gt; 
+tests whether the active part of &lt;data&gt; is a random sample from
+a multivariate normal distribution.
+
+By default the multivariate measures of skewness and kurtosis
+presented by Mardia (1970) are computed and asymptotic test statistics
+related to them as well as their P values are presented.
+The test statistics are computed through principal components of the
+data. The actual dimension m of the distribution is determined
+by the sizes of eigenvalues. The proportion of the last
+accepted eigenvalue to the largest should exceed the value given by
+a specification EPS=&lt;value&gt; (default is EPS=1e-10).
+
+Since P values of Mardia's tests can be far from truth on small sample
+sizes, a sucro /MSKEW determines them by simulation.
+
+By specification TEST=MAHAL,&lt;k&gt; 
+Mahanobis' distances of each observation from the mean are computed
+after determining the true dimesionality (say m) of data (by EPS).
+If data is a (large) sample from a multivariate normal distribution,
+these distances have an approximate chi^2 distribution with m degrees
+of freedom. This is tested by transforming the distances to uniform
+distribution on (0,1) by the distribution function of chi^2 and
+counting the # of observations in each of the &lt;k&gt; (default 10) subintervals.
+The uniformity of this frequency distribution is tested by the X^2 test
+and by the Kolmogorov-Smirnov test.
+
+By specification TEST=CUBE,&lt;k&gt; 
+the data is mapped into a m-dimensional hypercube by computing principal
+components and transforming them into uniformly distributed values on
+(0,1). The dimension m is determined in the same way as in Mardia's
+tests. Thus in large multivariate normal samples the transformed data values are
+independently and uniformly distributed in the hypercube.
+
+For each observation, the maximum and minimum values (xmax and xmin) of
+m standardized (variance=1) principal component values are computed and
+and the observation is classified in two ways. In the first
+classification, it belongs to class # 1+int(k*F(xmax)^m) and in the second
+classification to class # 1+int(k*F(-xmin)^m) where F is the distribution
+function of the normal distribution. This means that in both
+classifications the frequencies should be distributed unformly in &lt;k&gt; 
+classes (default is 10). Appropriate X^2 test is performed on this basis.
+Also the Kolmogorov-Smirnov test is made on the max and min values
+of the transformed data.
+
+ <A HREF="qmm1_02.html">1 = More information on additional multivariate operations</A> 
+ <A HREF="qmr2_01.html">M = More information on multivariate analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

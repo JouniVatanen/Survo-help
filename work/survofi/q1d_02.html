@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">PLOT &lt;data&gt; / TYPE=ANDREWS
+plots each observation of a multivariate data set as a curve
+
+  Y(t)=X1/sqr(2)+X2*sin(t)+X3*cos(t)+X4*sin(2t)+X5*cos(2t)+...
+                                               (-pi&lt;t&lt;pi)
+where X1,X2,... are (scaled) variables selected from &lt;data&gt;.
+The variables involved as well as their scalings are determined by
+a list following the PLOT operation:
+
+VARIABLES:    A    B   Term
+&lt;name of X1&gt;  A1   B1  1/sqr(2)
+&lt;name of X2&gt;  A2   B2  sin(t)
+&lt;name of X3&gt;  A3   B3  cos(t)
+  etc.
+END
+
+Each variable Xi will be scaled by using it in the form Xi'=(Xi-Ai)/Bi.
+If Ai is replaced by a '*', the mean of the variable in the current data
+will be used. Similarly a '*' as Bi implies the standard deviation to
+be selected. A fixed scaling with constant Ai and Bi values A,B can be
+given by a specification FSCALING=A,B and it overrides the values in
+the VARIABLES list. For example, FSCALING=0,1 means that all the
+variables are used without rescaling.
+If the PLOT operation (with TYPE=ANDREWS) is activated without a
+VARIABLES list, a model of such a list will be written in the edit
+field below the PLOT line on request.
+
+The PLOT operation for Andrews' curves is supported by the typical
+extra specifications used in curve plotting (like HEADER,HOME,SIZE,FRAME,
+XDIV,YDIV,GRID,TICK,XSCALE,YSCALE,XLABEL,YLABEL).
+However, neither scale transformations nor fills are permitted.
+
+LABEL=&lt;label variable&gt;,&lt;step&gt;,&lt;shift&gt; 
+is an extra specification determining a label variable (name) for
+identifying each curve by a label to be printed on the curve with
+regular intervals specified in # of plotting steps by &lt;step&gt;.
+To avoid overlapping of labels, &lt;shift&gt; gives the distance between the
+labels of consecutive curves in # of plotting steps. Parameters &lt;step&gt; 
+and &lt;shift&gt; are optional and their default values are 30 and 4,
+respectively.
+
+PLOT &lt;data&gt; / TYPE=ANDREWS,POLAR,c
+draws the Andrews' curves in polar coordinates and gives the results
+in a layout similar to Chernoff's faces. Then the FSIZE and LABEL
+specifications are used as in Chernoff's faces.
+Parameter c is an optional additive constant in Y(t). Default is c=0.
+
+  <A HREF="q1d_01.html">M = more information on multivariate plotting</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

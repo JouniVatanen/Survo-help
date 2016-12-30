@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">MAT TRANSFORM has two different forms:
+
+MAT TRANSFORM &lt;matrix file&gt; BY &lt;function of X#&gt; 
+transforms each element of the matrix according to &lt;function of X#&gt;.
+For example to take natural logarithms of all elements of A, activate
+MAT TRANSFORM A BY LOG(X#)
+MAT TRANSFORM &lt;X_matrix&gt; BY &lt;Y_matrix&gt; AND &lt;function of X#,Y#&gt; 
+transforms each element X# of &lt;X_matrix&gt; by &lt;function of X#,Y#&gt; 
+where Y# is the corresponding element of &lt;Y_matrix&gt;.
+For example, to divide each element of A by the corresponding element of
+B, activate
+MAT TRANSFORM A BY B AND X#/Y#
+
+Besides current elements (X#,Y#), both forms of MAT TRANSFORM permit
+referring to current row and column indices by I# and J#, respectively.
+For example, a 10*10 matrix R of the form
+
+        1   r   r^2 ... r^9
+        r   1   r   ... r^8
+        r^2 r   1   ... r^7
+        ...         ...
+        r^9 r^8 r^7     1
+
+where r=1/2, can be created by MAT operations
+
+   11 *                      r=1/2
+   12 *MAT R=CON(10,10)
+   13 *MAT TRANSFORM R BY r^abs(I#-J#)
+
+  <A HREF="qm2_03.html">M = More information on MAT operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

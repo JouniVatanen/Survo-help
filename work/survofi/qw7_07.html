@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText"><STRONG>Numerical transformations</STRONG> in FEDIT or MFEDIT may be defined by the
+<STRONG>TRANSF</STRONG> statement, which is placed before the TEXT statement. An example:
+
+TRANSF: Newvbl1=(Score1-Score2)^2/(Score3-Score4)^2;
+        Logsum=LOG(Price1+Price2+Price3); ENDTRANSF;
+
+Note that each transformation ends with a semicolon. These
+transformation may involve besides arithemitic operations the
+following mathematical functions ABS, SQRT, EXP and LOG. If a
+variable used in arithmetic operations or in mathematical functions
+has a missing value then the resulting value is always missing. The
+missing values are handled differentely by the special functions MAX,
+MIN, SUM, MEAN and DEV, e.g. the statement
+
+     Newvbl2=MEAN(Score1,Score2,Score3,Score4);
+
+computes mean of the non-missing values of the four variables.
+A transformation may be conditioned by an if-then-else statement,
+e.g.
+
+TRANSF: If Price1&gt;Price2 and Price3&gt;Price4
+           then X1=Price1+Price3 else X1=Price2+Price4;
+          If City="HELSINKI" or City="Espoo"
+           then Cityarea=1 else Cityarea=0;  ENDTRANSF;
+
+For numeric variables the following six conditional operators are
+available:
+
+  &gt;    "greater than"
+  &gt;=   "greater than or equal to"
+  =    "equal to"
+  &lt;=   "less than or equal to"
+  &lt;    "less than"
+  &lt;&gt;   "not equal"
+
+String variables may be used in the conditional expression too (but
+not in the ordinary transformation statement). For string variables
+only the operators "equal" and "not equal" are available. Several
+conditions can be joined either by AND or OR operators but both types
+must not be used in the same if statement. The then and else parts
+may involve one transformation statement only.
+
+To indicate missing values in transformations the symbol MISSING may
+be used, e.g.
+
+TRANSF if Dpros=MISSING then Dpros=0;
+       if Treatmnt&lt;1 then Treatmnt=MISSING; ENDTRANSF;
+
+     By default, MFEDIT assumes that the variables used
+     in transformatios refer to the default file of that subform.
+     Variables in other files may be referred by giving the logi-
+     cal file reference in brackets, e.g.
+
+     TRANSF: Totprice=Nofitems*Unitprce[F2];  ENDTRANSF;
+The defined transformations are computed for the current observations
+just before the form is shown on the screen and each time any of the
+fields on the form is changed. Therefore, the transformations must be
+such that they can be performed several times without getting wrong
+results. A necessary condition is that the left-hand and righthand
+sides of transformation equations have no common variable. The prog-
+ram does not check this feature!
+
+   <A HREF="qw71_01.html">F = More information on FEDIT operation</A> 
+   <A HREF="qw7_01.html">M = More information on MFEDIT operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

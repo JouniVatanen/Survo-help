@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">/LOGREG &lt;data&gt;                                           / K.Vehkalahti
+performs logistic regression analysis of &lt;data&gt; by using the GENREG operation.
+The logistic regression model is a special case of Generalized Linear Model
+(GLM) concept, where the probability distribution is assumed to be binomial.
+Most often its canonical link function, the logit function, is used.
+
+The dependent variate is activated by Y. Its values can be 1's and 0's
+only (for success and failure, respectively). The covariates are activated
+by X's. Also the constant term must be specified by X (i.e. there must be a
+variable activated by X, in which all values are 1). Another constant variable
+is needed for the number of trials, which is always 1 in a dichotomous case.
+This variable is activated by N.
+
+The GENREG operation is applied for the estimation of the parameters
+and their standard errors. In addition, Wald's Chi-square tests and their
+p-values are given. The Odds Ratios (OR's) of the parameters are saved in
+an output matrix OR.M with their 95% confidence intervals.
+
+The residuals and the predicted values may be computed by activating
+more variables, see <A HREF="qu3_01.html">GENREG</A>.
+
+IND, CASES and SELECT specifications can not be used.
+
+  <A HREF="qu1_01.html">M = More information on generalized linear models</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

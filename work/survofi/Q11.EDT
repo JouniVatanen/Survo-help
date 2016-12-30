@@ -1,0 +1,350 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q11
+0005|*................................................................................
+0007|+PLOT? þ PRINT CUR+1,E TO q11_01.html
+0008|- include HTML40.DEV
+0009|- include Q.DV2
+0010|- [HelpText]
+0011|*PLOT is an operation for plotting various graphs.
+0012|*PLOT has several forms:
+0013|- shadow a: [LINK(q111_01.html)]
+0014|*  G = General information on different plotting devices
+S   |   a                                                   |
+0015|- shadow a: [LINK(q11_02.html)]
+0016|*  1 = Bar charts (horizontal/vertical, pie charts, matrix diagrams)
+S   |   a                                                               |
+0017|- shadow a: [LINK(q12_01.html)]
+0018|*  2 = Scatter diagrams (correlation diagrams, box plots)
+S   |   a                                                    |
+0019|- shadow a: [LINK(q13_01.html)]
+0020|*  3 = Time series plots and line graphs
+S   |   a                                   |
+0021|- shadow a: [LINK(q13_03.html)]
+0022|*  4 = Probability plots (normal distribution)
+S   |   a                                         |
+0023|- shadow a: [LINK(q16_01.html)]
+0024|*  5 = Curves
+S   |   a        |
+0025|- shadow a: [LINK(q1a_01.html)]
+0026|*  6 = Histograms
+S   |   a            |
+0027|- shadow a: [LINK(q1k_01.html)]
+0028|*  7 = Frames, texts and lines
+S   |   a                         |
+0029|- shadow a: [LINK(q11c_01.html)]
+0030|*  8 = Contour plots
+S   |   a               |
+0031|- shadow a: [LINK(q11c_03.html)]
+0032|*  9 = Matrix plots
+S   |   a              |
+0033|- shadow a: [New][LINK(q11_09.html)]
+0034|d  T = Texts in Survo graphics
+S   |   a                         ;
+0035|- shadow a: [LINK(q1d_01.html)]
+0036|*  M = Representation of multivariate data
+S   |   a                                     |
+0037|- shadow a: [LINK(qkv0_15.html)]
+0038|*  C = Sucros for composite plots
+S   |   a                            |
+0039|- shadow a: [LINK(q21_01.html)]
+0040|*  D = More information on data analysis
+S   |   a                                   |
+0041|- shadow a: [LINK(q01_02.html)]
+0042|*  E = More information on the Survo Editor
+S   |   a                                      |
+0043|E
+0046|+PLOTBAR? þ PRINT CUR+1,E TO q11_02.html
+0047|- include HTML40.DEV
+0048|- include Q.DV2
+0049|- [HelpText]
+0050|#PLOT <name of data>
+S   |      <            >
+0051|*plots a bar chart of a data set on disk or defined by a DATA
+0052|*specification.
+0054|*The first active field of the data set will be assumed a string field
+0055|*and it is used as the label for each bar/pie.
+0056|*If the label field is not the first one, it can be indicated by a 'L' mask.
+0057|*All other active fields will be plotted.
+0058|*If the label field is not a string field, no labels are used and all
+0059|*active fields are plotted.
+0061|- shadow a: [LINK(q11_03.html)]
+0062|*  T = types of bar/pie charts
+S   |   a                         |
+0063|- shadow a: [LINK(q11_04.html)]
+0064|*  X = Extra specifications
+S   |   a                      |
+0065|- shadow a: [LINK(q11_01.html)]
+0066|*  P = More information on plotting
+S   |   a                              |
+0067|E
+0069|+TYPE? þ PRINT CUR+1,E TO q11_03.html
+0070|- include HTML40.DEV
+0071|- include Q.DV2
+0072|- [HelpText]
+0073|*TYPE specifies the type of the chart in the PLOT operation.
+0074|*Default is TYPE=HBAR (horizontal bar chart).
+0075|*Other types are:
+0076|*TYPE=VBAR    (vertical bar chart)
+0077|*TYPE=%HBAR   (horizontal bar chart in percentages)
+0078|*TYPE=%VBAR   (vertical bar chart in percentages)
+0079|*TYPE=MHBAR   (multiple horizontal bar chart)
+0080|*TYPE=MVBAR   (multiple vertical bar chart)
+0081|*TYPE=%MHBAR  (multiple horizontal bar chart in percentages)
+0082|*TYPE=%MVBAR  (multiple vertical bar chart in percentages)
+0083|*TYPE=%AHBAR  (as %HBAR but with areas equal to absolute size)
+0084|*TYPE=%AVBAR  (as %VBAR but with areas equal to absolute size)
+0085|*TYPE=NHBAR   (as HBAR but negative bars are stacked to the left)
+0086|*TYPE=NVBAR   (as VBAR but negative bars are stacked downwards)
+0087|- [New]
+0088|*TYPE=PYRAMID (age pyramids etc.)
+0089|- [/New]
+0090|*TYPE=PIE     (multiple pie chart, total area proportional to column sum)
+0091|*TYPE=%PIE    (multiple pie chart, total area constant)
+0093|- shadow a: [LINK(q11_12.html)]
+0094|*  E = Examples
+S   |   a          |
+0095|- shadow a: [LINK(q11_11.html)]
+0096|*  M = Mean-deviation plots in attitude surveys
+S   |   a                                          |
+0097|- shadow a: [LINK(q11_01.html)]
+0098|*  P = More information on plotting
+S   |   a                              |
+0099|E
+0102|- shadow %: [%=0]
+0103|*TYPE=HBAR2   (double horizontal bar chart, see HBAR2)
+S   |                                                %%%%%
+0104|- shadow %: [%=0]
+0105|*TYPE=PYRAMID (age pyramids etc., see HBAR2)
+S   |                                      %%%%%
+0106|- shadow %: [LINK(q1c_03.html)] [/LINK]
+0107|*TYPE=MATRIX  (matrix diagram, see MATRIX)
+S   |                                   %%%%%%
+0108|- shadow %: [LINK(q1d_02.html)] [/LINK]
+0109|*TYPE=ANDREWS (Andrews' function plots, see ANDREWS)
+S   |                                            %%%%%%%
+0110|- shadow %: [LINK(q1e_01.html)] [/LINK]
+0111|*TYPE=FACES   (Chernoff's faces, see FACES)
+S   |                                     %%%%%
+0113|+EXTRA? þ PRINT CUR+1,E TO q11_04.html
+0114|- include HTML40.DEV
+0115|- include Q.DV2
+0116|- [HelpText]
+0117|*Extra specifications for bar/pie charts:
+0119|- shadow a: [LINK(q11_05.html)]
+0120|*  1 = HOME, SIZE, XDIV, YDIV, PEN, LINETYPE
+S   |   a                                       |
+0121|- shadow a: [LINK(q19_01.html)]
+0122|*  2 = SCALE
+S   |   a       |
+0123|- shadow a: [LINK(q11_06.html)]
+0124|*  3 = FRAME, GRID, TICK, TICKLENGTH (boxes and grids)
+S   |   a                                                 |
+0125|- shadow a: [LINK(q15_01.html)]
+0126|*  4 = HEADER
+S   |   a        |
+0127|- shadow a: [LINK(q1k_03.html)]
+0128|*  5 = TEXTS (additional labels and texts)
+S   |   a                                     |
+0129|- shadow a: [LINK(q11_07.html)]
+0130|*  6 = SHADING, LEGEND
+S   |   a                 |
+0131|- shadow a: [LINK(q11_08.html)]
+0132|*  7 = VALUES, LABELS, NAMES (writing text in bars/pies)
+S   |   a                                                   |
+0133|- shadow a: [LINK(q19_11.html)]
+0134|*  8 = GAP
+S   |   a     |
+0135|- shadow a: [LINK(q19_12.html)]
+0136|*  9 = PLAN (in pie charts)
+S   |   a                      |
+0137|- shadow a: [LINK(q19_15.html)]
+0138|*  0 = MINVALUE
+S   |   a          |
+0139|- shadow a: [LINK(q19_13.html)]
+0140|*  A = ANGLE (in pie charts)
+S   |   a                       |
+0141|- shadow a: [LINK(q19_14.html)]
+0142|*  M = MAX (in pie charts)
+S   |   a                     |
+0143|- shadow a: [New][LINK(q11_10.html)]
+0144|d  G = GROUPING (bar chart of several groups)
+S   |   a                                        ;
+0145|- shadow a: [New][LINK(q11_13.html)]
+0146|d  L = LAB_DELIMITER (in horizontal bar grphs)
+S   |   a                                         ;
+0147|- shadow a: [LINK(q11_01.html)]
+0148|*  P = More information on plotting in general
+S   |   a                                         |
+0149|E
+0152|+S1? þ PRINT CUR+1,E TO q11_05.html
+0153|- include HTML40.DEV
+0154|- include Q.DV2
+0155|- [HelpText]
+0156|- shadow a: [LINK(q14_04.html)]
+0157|*  1 = HOME (coordinates of the lower left corner of the graph)
+S   |   a                                                          |
+0158|- shadow a: [LINK(q14_05.html)]
+0159|*  2 = SIZE (size of the graph)
+S   |   a                          |
+0160|- shadow a: [LINK(q14_06.html)]
+0161|*  3 = XDIV (horizontal division)
+S   |   a                            |
+0162|- shadow a: [LINK(q14_07.html)]
+0163|*  4 = YDIV (vertical division)
+S   |   a                          |
+0164|- shadow a: [LINK(q13_06.html)]
+0165|*  5 = PEN (graphical attributes of text)
+S   |   a                                    |
+0166|- shadow a: [LINK(q13_07.html)]
+0167|*  6 = LINETYPE (graphical attributes of lines)
+S   |   a                                          |
+0169|E
+0171|+S3? þ PRINT CUR+1,E TO q11_06.html
+0172|- include HTML40.DEV
+0173|- include Q.DV2
+0174|- [HelpText]
+0175|- shadow a: [LINK(q14_08.html)]
+0176|*  1 = FRAME (frames around the graph)
+S   |   a                                 |
+0177|- shadow a: [LINK(q14_09.html)]
+0178|*  2 = GRID
+S   |   a      |
+0179|- shadow a: [LINK(q14_10.html)]
+0180|*  3 = TICK
+S   |   a      |
+0181|- shadow a: [LINK(q16_08.html)]
+0182|*  4 = TICKLENGTH
+S   |   a            |
+0183|E
+0185|+S6? þ PRINT CUR+1,E TO q11_07.html
+0186|- include HTML40.DEV
+0187|- include Q.DV2
+0188|- [HelpText]
+0189|- shadow a: [LINK(q19_03.html)]
+0190|*  1 = SHADING (filling the bars/pies)
+S   |   a                                 |
+0191|- shadow a: [LINK(q19_08.html)]
+0192|*  2 = LEGEND (label for the list of shadings or coordinates of the legend)
+S   |   a                                                                      |
+0193|E
+0195|+S7? þ PRINT CUR+1,E TO q11_08.html
+0196|- include HTML40.DEV
+0197|- include Q.DV2
+0198|- [HelpText]
+0199|- shadow a: [LINK(q19_09.html)]
+0200|*  1 = VALUES (values in bars/pies)
+S   |   a                              |
+0201|- shadow a: [LINK(q19_10.html)]
+0202|*  2 = LABELS (names of variables in bars/pies)
+S   |   a                                          |
+0203|- shadow a: [LINK(q19_16.html)]
+0204|*  3 = NAMES (names of observations)
+S   |   a                               |
+0205|E
+0208|+TEXTS2? þ PRINT CUR+1,E TO q11_09.html
+0209|- include HTML40.DEV
+0210|- include Q.DV2
+0211|- [HelpText]
+0212|*TEXTS in Survo graphics:
+0214|*Texts can be included in each type of Survo plots on the screen (GPLOT)
+0215|*or in the PostScript format (PLOT).
+0216|*Texts are given in PLOT schemes by various specifications
+0217|*(see e.g. HEADER? TEXTS? SCALE? XSCALE? YSCALE? XLABEL? YLABEL?).
+0218|*Since, in editorial interface, characters 'space' and 'comma' (,)
+0219|*are important delimiters, they cannot be used in texts as such.
+0220|*A space must be replaced by _
+0221|*and a comma must be replaced by ;
+0222|*If characters ; and _ are needed in these texts, they can be
+0223|*typed as \; and \_ respectively.
+0224|*Example:
+0225|*.......................................................................
+0226|*See what happens to
+0227|*HEADER=Example:_comma_;_semicolon_\;;_space__;_underscore_\_
+0228|*when activated by
+0229|*GPLOT /FRAME
+0230|*Then the header will appear in the graph in the form
+0231|*Example: comma , semicolon ;, space  , underscore _
+0232|*.......................................................................
+0233|E
+0235|+GROUP2? þ PRINT CUR+1,E TO q11_10.html
+0236|- include HTML40.DEV
+0237|- include Q.DV2
+0238|- [HelpText]
+0239|*Several data sets can be presented in the same bar chart by using
+0240|*a grouping specification
+0241|*GROUPING=<name_of_a_string_variable>.
+S   |          <                         >
+0242|*In the graph groups are separated by gaps. The width of such a gap
+0243|*corresponds to the width of one bar.
+0244|*In the data set the default order of variables is:
+0245|*Grouping_variable    Label_of_observation    Variables_to_be_plotted
+0247|*The GROUPING option is most suitable in types %HBAR,%VBAR,HBAR,VBAR
+0248|*but it can be also used in other types of bar charts depending on
+0249|*the situation.
+0251|*The example on the next page illustrates usage of GROUPING.
+0253|*.......................................................................
+0254|*Example: Bar chart of several groups   (PostScript version on the next page!)
+0255|*DATA D
+0256|*Diagnosis    Symptom  None_ Mild Severe
+0257|*Depression      SSP     34    11      6
+0258|*Depression      SP      40     8      2
+0259|*Depression      NSP     43     6      2
+0260|*Anxiety         SSP     36    12      5
+0261|*Anxiety         SP      41     9      0
+0262|*Anxiety         NSP     44     3      2
+0263|*Hyperactivity   SP      36    12      5
+0264|*Hyperactivity   NSP     38    10      3
+0266|*GPLOT D / TYPE=%HBAR   MODE=PS             GROUPING=Diagnosis
+0267|*HEADER=[Swiss(15)],Prevalence_of_symptoms   XDIV=25,70,5
+0268|*LEGEND=Symptom_severity:  PEN=[autom_color(0)][Swiss(10)]
+0269|*SCALE=0(10)100 SIZE=1420,950 GAP=0.2,0.7,0.7 SHADING=0,1,7
+0270|*VALUES=[autom_color(0.4)][Swiss(6)],##.#%,-0.5 VALUEMIN=8
+0271|*FRAMES=F F=0,0,1420,950,11
+0272|*.......................................................................
+0274|*PLOT D / TYPE=%HBAR   DEVICE=PS,D.PS      GROUPING=Diagnosis
+0275|*/PS-PDF D.PS  / Displaying the graph by Adobe Acrobat after PLOT
+0276|*HEADER=[Swiss(15)],Prevalence_of_symptoms   XDIV=25,70,5
+0277|*LEGEND=Symptom_severity:  PEN=[autom_color(0)][Swiss(10)]
+0278|*SCALE=0(10)100 SIZE=1420,950 GAP=0.2,0.7,0.7 SHADING=0,2,6
+0279|*VALUES=[autom_color(0.4)][Swiss(6)],##.#%,-0.5 VALUEMIN=8
+0280|*.......................................................................
+0281|- shadow a: [LINK(q11_04.html)]
+0282|* X = Extra specifications for bar/pie charts:
+S   |  a                                          |
+0283|E
+0285|+DEVPLOT? þ PRINT CUR+1,E TO q11_11.html
+0286|- include HTML40.DEV
+0287|- include Q.DV2
+0288|- [HelpText]
+0289|- [New]
+0290|*Mean-deviation plots
+0291|- [/New]
+0293|*These graphs are made by the sucro command
+0294|*/DEVPLOT <data>,<type>
+S   |          <    > <    >
+0295|*where <type> is either VBAR or HBAR. The means of selected variables
+S   |       <    >
+0296|*are plotted as bars with line segments indicating the interval
+0297|*(mean-stddev,mean+stddev).
+0298|*/DEVPLOT creates and activates a GPLOT scheme which can be edited
+0299|*afterwards according to the needs of the user.
+0300|E
+0302|+EX? þ PRINT CUR+1,E TO q11_12.html
+0303|- include HTML40.DEV
+0304|- include Q.DV2
+0305|- [HelpText]
+0306|*Examples of bar and pie charts:
+0309|E
+0311|+LAB_DEL? þ PRINT CUR+1,E TO q11_13.html
+0312|- include HTML40.DEV
+0313|- include Q.DV2
+0314|- [HelpText]
+0315|*LAB_DELIMITER=<char>,<vertical_gap>
+S   |               <    > <            >
+0316|*(in horizontal bar charts, HBAR etc.)
+0317|*gives a possibility to break labels of record names into suitable parts.
+0318|*<char> ('|' by default) in a label indicates a line break. The gap between
+S   | <    >
+0319|*lines is specified by <vertical_gap>.
+S   |                       <            >
+0320|E

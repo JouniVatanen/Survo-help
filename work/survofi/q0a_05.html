@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">INTERP L1,L2,L3,L4,K
+where K is a label of a mask line of the form
+    XXXXX   XXXX  YY.YYY  XX   YYY.YY
+interpolates columns denoted by Y masks by linear regression analysis
+using X columns as regressors. If there are no X columns or only one
+X column appears, the Y columns are interpolated by polynomial regres-
+sion. In this case the degree m of the polynomial is given by the
+specification DEGREE=m. Default is DEGREE=1.
+The source data with complete X and Y values is given on lines L1-L2.
+The interpolated (and extrapolated) Y values will be computed on
+lines L3-L4 using given X values on the same lines.
+In polynomial regression without X columns, L-L1+1 where L is the
+current line number, is the basic regressor. In this case it is typical
+that L3=L2+1.
+Examples on the next page!
+
+ 57 *INTERP A,B,C,D,E
+ 58 E  XX  XX    YYY.Y  YYY.YY
+ 59 A  10   5     15.5   25
+ 60 *   0   3      3.5    3
+ 61 *   7   4     11.5   18
+ 62 B   2  -5     -2.5   -1
+ 63 C   7   4    <B> 11.5   18.00</B> 
+ 64 *   3   3    <B>  6.5    9.00</B> 
+ 65 D  11   3    <B> 14.5   25.00</B> 
+ 66 *.............................................................................................
+ 67 *INTERP CUR+2,CUR+4,CUR+5,CUR+7,CUR+1  / DEGREE=2
+ 68 *      YYY
+ 69 *        1
+ 70 *        4
+ 71 *        9
+ 72 *      <B> 16</B> 
+ 73 *      <B> 25</B> 
+ 74 *      <B> 36</B> 
+
+  <A HREF="q0a_01.html">T = More information on operations for tables</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

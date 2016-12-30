@@ -1,0 +1,184 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q0D
+0004|*LOAD EDQ
+0005|+PREFIX? þ PRINT CUR+1,E TO q0d_01.html
+0006|- include HTML40.DEV
+0007|- include Q.DV2
+0008|- [HelpText]
+0009|*After the key PREFIX (F2) has been pressed, a small rectangle is displayed
+0010|*in the left upper corner of the screen and the next key will have the
+0011|*following function:
+0013|*PREFIX PREFIX:
+0014|*   Move the cursor to the end of the visible line.
+0015|*PREFIX ESC:
+0016|*   Activation to run mode. (Operations on consecutive lines will be
+0017|*   performed until '.' is pressed or an invalid operation is met.)
+0018|*PREFIX (DOWN):
+0019|*   Move the cursor to the last line of the current page or if it is
+0020|*   already there, to the last non-empty line of the edit field.
+0021|*PREFIX ENTER:
+0022|*   The current column is defined as the return position when ENTER
+0023|*   is pressed. This feature simplifies typing of columns.
+0024|*PREFIX T:
+0025|*   Prefix for various functions in tutorial mode:
+0026|*   PREFIX T S  opens a tutorial file for saving of key strokes,
+0027|*   PREFIX T E  closes a tutorial file,
+0028|*   PREFIX T R  starts a tutorial (alternative for TUTOR operation).
+0030|*PREFIX S:
+0031|*   Displays the shadow line of the current line below the current line.
+0032|*   The shadow line can then be edited as a normal edit line.
+0033|*   To restore the original display after editing, press
+0034|*   PREFIX S again.
+0035|*   Please note that the standard display effects which are controlled
+0036|*   by the FORM key correspond to values 1-7 on the shadow line.
+0037|*   The maximum number of shadow lines is 20 for each edit field, unless
+0038|*   otherwise stated by REDIM.
+0039|*PREFIX P:
+0040|*   Picks the character indicated by the cursor to be used as the extra
+0041|*   character which can be typed by the CODE key.
+0042|*   This is a useful method in typing and copying special characters
+0043|*   which already appear in the edit field.
+0045|*PREFIX INSERT:
+0046|*   initiates use of automatic insert mode. Thereafter mere INSERT
+0047|*   selects/deselects insert mode.
+0048|*PREFIX DELETE:
+0049|*   cancels use of automatic insert mode. Thereafter mere INSERT
+0050|*   always inserts one space in the current cursor position.
+0051|*PREFIX INS_LINE  (F2 alt-F9)
+0052|*   inserts the last line deleted by DEL_LINE.
+0053|*PREFIX <key>:
+S   |        <   >
+0054|*   where <key>=1,2,...,9 writes macros M1,M2,...M9 defined in SURVO.APU
+S   |          <   >
+0055|*   in the form M1=SCRATCH, M2=LOAD INDEX, etc.
+0056|*   Macros above only write text in the edit field. To make them self-
+0057|*   activating, put `!' to the end of the text.
+0058|*   For example, M9=/MY_APPL! means that whenever keys PREFIX 9 are pressed,
+0059|*   sucro MY_APPL will be immediately activated.
+0060|*   Please note that macros are temporarily created and altered by
+0061|*   commands of type SYSTEM M9=/MY_APPL!
+0062|- [New]
+0063|*PREFIX -:
+0064|*   saves the number of the current edit line so that it can be copied
+0065|*   by the keys COPY (alt-F3) '-' ENTER or displayed in the edit field
+0066|*   by activating -=_
+0067|- [/New]
+0069|*The following key combinations are useful especially when making
+0070|*sucros in the tutorial mode. The corresponding statement of the
+0071|*sucro language is given in braces.
+0073|*PREFIX W:    {next word}
+0074|*   seeks the next word on the current line.
+0075|*PREFIX C <character>:  {find <character>}
+S   |          <         >         <         >
+0076|*   seeks the next occurrence of <character> on the current line.
+S   |                                 <         >
+0077|*PREFIX R:    {stack cursor}
+0078|*   saves the current line and column of the cursor as two last items
+0079|a   in the sucro memory.
+0080|*PREFIX =:    {print W1}
+0081|*   prints the first item of the sucro memory in the edit field.
+0082|aPREFIX @ i: (i=1,2,...,9)   {print Wi}
+0083|*   prints the ith word of the sucro memory in the edit field as it were
+0084|*   a result of a Survo operation (shadow line unaffected etc.).
+0085|aPREFIX # i: (i=1,2,...,9)   {write Wi}
+0086|*   writes the ith item of the sucro memory in the edit field as it were
+0087|*   typed by the user (insert mode and shadow mode observed).
+0089|*PREFIX x:    {stack char}
+0090|*   appends the current character indicated by the cursor to the sucro memory.
+0091|*PREFIX w:    {stack word}
+0092|*   appends the current `word' indicated by the cursor to the sucro memory.
+0093|*PREFIX 0:    {del stack}
+0094|*   clears the sucro memory.
+0095|*PREFIX I:    {pre}I
+0096|*   cancels the insert mode.
+0098|*PREFIX y:    {get key}
+0099|*   appends the next key pressed by the user to the sucro memory.
+0100|*   In case of a special key, word SK is appended and the function
+0101|*   of the key executed.
+0102|*   This code can be used for making keyboard sucros that alter the
+0103|*   functions of ordinary typewriter keys in special applications. The
+0104|*   functions of the function and other special keys cannot be altered.
+0106|*PREFIX M <char>:
+S   |          <    >
+0107|*   activates a key sucro with one-letter name <char>.TUT .
+S   |                                               <    >
+0108|*PREFIX N <char>:
+S   |          <    >
+0109|*   activates a key sucro with name #<char>.TUT (Example: #S.TUT)
+S   |                                     <    >
+0110|*PREFIX !<name> ENTER:
+S   |         <    >
+0111|*   activates sucro <name> without echoing the call.
+S   |                    <    >
+0112|*PREFIX D:    {pre}D
+0113|*   deletes the current reference point (set by REF).
+0115|*PREFIX J:    {pre}J
+0116|*   initiates a search for an incomplete word just before the cursor
+0117|*   and completes it by the first matching word found in the current
+0118|*   edit field.
+0119|*   Example: Assume that the user has written...
+0120|*      Ouagadougou is the capital of Burkina Faso.
+0121|*      The population of Ou_
+0122|*   By pressing PREFIX J the system will complete the word as
+0123|S      The population of Ouagadougou
+S   |                           777777777
+0124|*   and the user can continue typing.
+0126|*PREFIX d:    {save datapath}
+0127|*   puts the current Survo data path in the sucro memory.
+0128|*PREFIX g:    {save systemdisk}
+0129|*   puts the Survo system disk designation (C:) in the sucro memory.
+0130|*PREFIX l <any_key>:
+S   |          <       >
+0131|*   puts the key label of <any_key> (name of key) in the sucro memory.
+S   |                          <       >
+0132|*PREFIX X:    {save line}
+0133|*   puts the current edit line to the right from the cursor in
+0134|*   the sucro memory. Trailing spaces are omitted.
+0135|*PREFIX B:    {line start}
+0136|*   moves the cursor to the beginning of the current edit line.
+0138|*PREFIX A:    {pre}A
+0139|*   enables (when the insert mode is on) automatic insertion of space
+0140|*   for new lines.
+0141|*PREFIX a:    {pre}a
+0142|*   cancels automatic insertion of lines in insert mode.
+0143|*PREFIX b:    {init}
+0144|*   initializes the display parameters of the edit field.
+0145|*PREFIX u <char>: {message shadow <char>}
+S   |          <    >                  <    >
+0146|*   selects the shadow character for the prompt line (default 1=red).
+0147|*PREFIX L o:  {disp off}
+0148|*   disables the screen. Text is written normally in the edit field but
+0149|*   not shown on the screen.
+0150|*PREFIX L O:  {disp on}
+0151|*   restores the normal screen display
+0152|*PREFIX L 0:  {disp reset}
+0153|*   restores the normal screen display (i.e. same as PREFIX L O)
+0155|*PREFIX L l:  {labels off}
+0156|*   hides the line numbers and labels.
+0157|*PREFIX L L:  {labels on}
+0158|*   displays again the line numbers and labels.
+0159|*PREFIX L W:  {waitrec on}
+0160|*   initiates recording of waiting times between consecutive key strokes
+0161|*   when working in tutorial mode (defining sucros).
+0162|*PREFIX L w:  {waitrec off}
+0163|*   cancels recording of waiting times.
+0165|*PREFIX F: {pre}F
+0166|*   enables typing and pasting long lines (exceeding the Survo window width).
+0167|*   For example, wide tables can be correctly pasted in the edit field.
+0168|*PREFIX f: {pre}f
+0169|*   cancels the PREFIX F typing/pasting mode.
+0170|*PREFIX L K: {pre}L K
+0171|*   appends the number of empty lines at the end of edit field to tutstack.
+0172|*PREFIX alt-F6: {pre}{file act}
+0173|*   activates a 'new' data file to be selected by the user.
+0174|*   (Note: alt-F6 activates the current data file.)
+0175|*PREFIX F4: {pre}{disk}
+0176|*   writes the system path of Survo in the edit field.
+0177|- [New]
+0178|*PREFIX |: works as the search key alt-F5 but limits the search for
+0179|*   the words starting from the first column in the edit field.
+0180|- [/New]
+0181|- shadow a: [LINK(q02_01.html)]
+0182|*  K = More information on keys
+S   |   a                          |
+0183|E

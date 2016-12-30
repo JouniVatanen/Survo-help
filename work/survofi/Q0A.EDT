@@ -1,0 +1,133 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q0A
+0005|*....................................................................................................
+0006|*LOAD EDQ
+0008|+NUMO? þ PRINT CUR+1,E TO q0a_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|*Operations for tables in the edit field:
+0013|- shadow a: [LINK(q05_05.html)]
+0014|*  1 = SET    filling columns with with constant values/text
+S   |   a                                                       |
+0015|- shadow a: [LINK(q05_06.html)]
+0016|*  2 = COUNT  filling columns with counts 1,2,3... etc.
+S   |   a                                                  |
+0017|- shadow a: [LINK(q06_03.html)]
+0018|*  3 = C+,C-,C*,C/    column arithmetics
+S   |   a                                   |
+0019|- shadow a: [LINK(q06_04.html)]
+0020|*  4 = L+,L-,L*,L/    row arithmetics
+S   |   a                                |
+0021|- shadow a: [LINK(q05_11.html)]
+0022|*  5 = FORM   formatting
+S   |   a                   |
+0023|- shadow a: [LINK(q0b_02.html)]
+0024|*  6 = SORT   sorting
+S   |   a                |
+0025|- shadow a: [LINK(q0a_03.html)]
+0026|*  7 = TRANSP transposing
+S   |   a                    |
+0027|- shadow a: [LINK(q0a_05.html)]
+0028|*  8 = INTERP interpolation
+S   |   a                      |
+0029|- shadow a: [LINK(ql1_05.html)]
+0030|*  9 = General column arithmetics (VAR)
+S   |   a                                  |
+0032|- shadow a: [LINK(q22_02.html)]
+0033|*  T = TAB operations for multidimensional tables
+S   |   a                                            |
+0034|- shadow a: [LINK(qm2_01.html)]
+0035|*  M = MAT operations for matrices
+S   |   a                             |
+0036|- shadow a: [LINK(qmt_01.html)]
+0037|*  A = TOUCH mode for arithmetics
+S   |   a                            |
+0038|- shadow a: [LINK(q21_01.html)]
+0039|*  S = Statistical operations
+S   |   a                        |
+0040|- shadow a: [LINK(q01_02.html)]
+0041|*  E = More information on the Survo Editor
+S   |   a                                      |
+0042|E
+0045|+TRANSP? þ PRINT CUR+1,E TO q0a_02.html
+0046|- include HTML40.DEV
+0047|- include Q.DV2
+0048|- [HelpText]
+0049|*Exchanging rows and columns
+0050|- shadow a: [LINK(q0a_03.html)]
+0051|*   1 = Transpose a table in the edit field (TRANSP)
+S   |    a                                              |
+0052|- shadow a: [LINK(q09_13.html)]
+0053|*   2 = Transpose a data set in a text file (TRANSPOSE)
+S   |    a                                                 |
+0055|*MAT C=A' / transposes matrix file A.
+0057|E
+0059|+TRANSP1? þ PRINT CUR+1,E TO q0a_03.html
+0060|- include HTML40.DEV
+0061|- include Q.DV2
+0062|- [HelpText]
+0063|#TRANSP L1,L2,L
+0064|*transposes a table (i.e. exchanges rows and columns) on the edit lines
+0065|*L1-L2 and writes the transposed table from the line L onwards.
+0066|*The original table must be a rectangular array and it can contain
+0067|*columns of both numbers and words.
+0069|- shadow a: [LINK(q0a_01.html)]
+0070|*  T = More information on operations for tables
+S   |   a                                           |
+0071|E
+0072|+NN? þ PRINT CUR+1,E TO q0a_04.html
+0073|- include HTML40.DEV
+0074|- include Q.DV2
+0075|- [HelpText]
+0077|- shadow a: [LINK(q0a_01.html)]
+0078|*  T = More information on operations for tables
+S   |   a                                           |
+0079|E
+0081|+INTERP? þ PRINT CUR+1,E TO q0a_05.html
+0082|- include HTML40.DEV
+0083|- include Q.DV2
+0084|- [HelpText]
+0085|#INTERP L1,L2,L3,L4,K
+0086|*where K is a label of a mask line of the form
+0087|*    XXXXX   XXXX  YY.YYY  XX   YYY.YY
+0088|*interpolates columns denoted by Y masks by linear regression analysis
+0089|*using X columns as regressors. If there are no X columns or only one
+0090|*X column appears, the Y columns are interpolated by polynomial regres-
+0091|*sion. In this case the degree m of the polynomial is given by the
+0092|*specification DEGREE=m. Default is DEGREE=1.
+0093|*The source data with complete X and Y values is given on lines L1-L2.
+0094|*The interpolated (and extrapolated) Y values will be computed on
+0095|*lines L3-L4 using given X values on the same lines.
+0096|*In polynomial regression without X columns, L-L1+1 where L is the
+0097|*current line number, is the basic regressor. In this case it is typical
+0098|*that L3=L2+1.
+0099|*Examples on the next page!
+0101|* 57 *INTERP A,B,C,D,E
+0102|* 58 E  XX  XX    YYY.Y  YYY.YY
+0103|* 59 A  10   5     15.5   25
+0104|* 60 *   0   3      3.5    3
+0105|* 61 *   7   4     11.5   18
+0106|* 62 B   2  -5     -2.5   -1
+0107|S 63 C   7   4     11.5   18.00
+S   |                  7777777777777
+0108|S 64 *   3   3      6.5    9.00
+S   |                  7777777777777
+0109|S 65 D  11   3     14.5   25.00
+S   |                  7777777777777
+0110|* 66 *.............................................................................................
+0111|* 67 *INTERP CUR+2,CUR+4,CUR+5,CUR+7,CUR+1  / DEGREE=2
+0112|* 68 *      YYY
+0113|* 69 *        1
+0114|* 70 *        4
+0115|* 71 *        9
+0116|S 72 *       16
+S   |            777
+0117|S 73 *       25
+S   |            777
+0118|S 74 *       36
+S   |            777
+0120|- shadow a: [LINK(q0a_01.html)]
+0121|*  T = More information on operations for tables
+S   |   a                                           |
+0122|E

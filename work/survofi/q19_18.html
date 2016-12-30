@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">For each integer value n in the SHADING list, the color may be given
+by a COLOR(n) specification of the form
+COLOR(n)=c,m,y,k where c,m,y,k are numbers on the interval (0,1) and
+give the color components according to the CMYK (Cyan, Magenta, Yellow,
+blacK) system. These values are used as such in PostScript but in GPLOT
+they are converted into the RGB (Red,Green,Blue) system.
+
+When COLOR(n) specifications are used, also texts produced by VALUES and
+LABELS specifications can be set individually by SHADING of the form
+SHADING=c1/t1,c2/t2,...
+where c1,c2,... are color numbers as in SHADING=c1,c2,... and
+t1,t2,... are color numbers for VALUES and LABELS texts.
+For each c1,c2,...,t1,t2,... a corresponding COLOR() specification must appear.
+
+.......................................................................
+This example shows how the default colors 2,3,4 in GPLOT
+are close to selected COLOR codes 5,6,7 given below:
+GPLOT RGB / Activate this command!
+DATA RGB
+N R1 R2 G1 G2 B1 B2
+A 1  1  1  1  1  1
+
+SHADING=2,5,3,6,4,7  GAP=0
+COLOR(5)=0,1,1,0.3
+COLOR(6)=1,0,1,0.3
+COLOR(7)=1,1,0,0.3
+.......................................................................
+COLOR(n) specifications should be preferred especially in cases where
+the final plotting is to be done by PLOT (PostScript).
+The CMYK colors in PostScript may slightly differ from those used in
+GPLOT depending on the device used for PostScript plotting.
+Usually a small adjustment in the last CMYK component (Black) will
+improve the correspondence.
+
+  <A HREF="q19_03.html">S = More information on SHADING</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

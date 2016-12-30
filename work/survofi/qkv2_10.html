@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">DM &lt;source filespec&gt;,&lt;target filespec&gt;                       / K.Vehkalahti
+displays two given sets of files at the same time. The former, the set of the
+source files, is displayed on the left side of the screen while the latter, the
+target directory, is displayed on the right side. Both source and target can be
+any pathnames but they can not refer to the same directory. Files with the same
+name are linked to each other in the display. If either of them is older, it is
+displayed with different color.
+
+The main function of DM (Directory Matcher) is to compare the contents of two
+directories, and copy files from the source directory to the target directory.
+Files may be copied either one by one, or by first marking them and then
+copying all marked files. The newer files are marked by pressing `U'.
+
+The key codes of DM can be obtained by pressing the HELP key (F1).
+
+The file attributes may prevent copying of a file. Those attributes can be
+changed for example by DD (see <A HREF="qkv1_02.html">DD</A>?). The files having ReadOnly, Hidden or
+System attributes are printed with a different color.
+
+Specifications of DM:
+
+ <B>GROUPING</B>=&lt;list&gt;  Source files are grouped by the &lt;list&gt; of file types.
+
+The files can be grouped also interactively by pressing the Group key (G).
+
+ <B>SORT</B>=&lt;criteria&gt;  Source files are sorted by &lt;criteria&gt;. Valid keywords
+                  are DATE, TIME, SIZE, NAME, TYPE, OS, MARK.
+                  The default is OS (operating system order).
+                  The sorting order is ascending, but it can be
+                  turned to descending by a preceding `-', e.g. -DATE.
+
+The files can be sorted also interactively by pressing the Sort key (S).
+
+
+Specifications of DM (continued):
+
+ <B>DATE</B>=&lt;format&gt;    Selects a date format. Valid formats are:
+                  DD.MM.YY   DD/MM/YY   DDMMYY   YYMMDD   MM/DD/YY
+                  DD.MM.YYYY DD/MM/YYYY DDMMYYYY YYYYMMDD MM/DD/YYYY
+                  (DD=day, MM=month, YY(YY)=year). Default is DD.MM.YY .
+
+ <B>TIME</B>=&lt;format&gt;    Selects a time format. Valid formats are:
+                  HH:MM  HH:MM:SS  HH.MM  HH.MM.SS
+                  (HH=hour, MM=minute, SS=second). Default is HH:MM .
+
+ <B>DISPLAY</B>=&lt;mode&gt;   Selects whether all files of the source directory or
+                  only the matching files (present in both directories)
+                  are displayed. The default is DISPLAY=ALL and the
+                  alternative choice is DISPLAY=MATCHING.
+                  These modes can also be toggled by `A' and `M' keys.
+
+
+All target files are displayed, even if they do not exist in the source
+directory. The source and target can be exchanged by pressing the `<B>X</B>' key. The
+SHOW operation is called if ENTER is pressed (for better recognition of various
+file types, use DD - this is meant just for text files and edit files).
+DD may be started from the source directory by pressing `<B>D</B>'.
+
+In addition to the `<B>U</B>' (Update) key, there are two other keys for marking
+files to be copied: `<B>F</B>' (Fill) marks files which do not exist in the target
+directory. `<B>B</B>' (Both) is a combination of Update and Fill.
+
+Specifications of DM (continued):
+
+ <B>DM</B>=&lt;option&gt;,&lt;y&gt;  &lt;options&gt; one of the following:
+                      UPDATE  proceeds like `U' was pressed
+                        FILL  proceeds like `F' was pressed
+                        BOTH  proceeds like `B' was pressed
+                      NORMAL  proceeds like without DM specification.
+                  If any of the first three options are used, files are
+                  marked and copying is started after single confirmation.
+                  Overwriting of existing files is not confirmed in these
+                  cases. The rest of the confirmations may be removed by
+                  adding ",Y" after the option, e.g. DM=UPDATE,Y .
+                  For interactive use DM=NORMAL,Y could be useful, too.
+                  <B>Use this specification with caution.</B> 
+
+The specifications <B>SINCE</B>, <B>BEFORE</B>, <B>MINBYTES</B> and <B>MAXBYTES</B> (see: <A HREF="qkv1_02.html">DD</A>?) can also
+be used with DM. (They apply only to the source directory.)
+
+  <A HREF="qkv0_01.html">D = More information on desktop operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

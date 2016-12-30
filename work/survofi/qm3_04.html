@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">MAT LOAD &lt;matrix file&gt;,&lt;format&gt;,L
+loads &lt;matrix file&gt; to the edit field using the optional &lt;format&gt;.
+L will be the first line in the edit field for the loaded matrix.
+Examples: MAT LOAD R,##.###,10     MAT LOAD R,20
+If &lt;format&gt; is omitted, a proper format will be sought automatically.
+MAT LOAD &lt;matrix file&gt; 
+loads &lt;matrix file&gt; immediately after the command line.
+
+Also parts (submatrices) may be loaded as follows:
+MAT LOAD R(6:10,1:5),10
+loads a submatrix of R consisting of the rows 6-10 and of the columns 1-5.
+
+For temporary displays of matrix files use /MATSHOW &lt;matrix_file&gt; or
+/MATSHOW &lt;matrix_file&gt;,&lt;format&gt;. Example: /MATSHOW CORR.M,12.123
+
+  <A HREF="qm3_05.html">L = LOADM operation for output in partitioned form</A> 
+  <A HREF="qm1_10.html">A = Elements of matrices in editorial computing</A> 
+  <A HREF="qm2_03.html">M = More information on MAT operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

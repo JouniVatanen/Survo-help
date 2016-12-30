@@ -1,0 +1,357 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q24
+0004|*LOAD EDQ24
+0006|+ESTIMATE? þ PRINT CUR+1,E TO q24_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|- shadow a: [LINK(q24_02.html)]
+0011|*  1 = Estimation of linear and non-linear regression models
+S   |   a                                                       |
+0012|- shadow a: [LINK(q24_14.html)]
+0013|*  2 = Maximum likelihood estimates for user-defined distributions
+S   |   a                                                             |
+0014|- shadow a: [New][LINK(q24a_01.html)]
+0015|d  3 = Estimating regression models with autocorrelated disturbances
+S   |   a                                                               ;
+0016|- shadow a: [New][LINK(q24a_02.html)]
+0017|d  4 = Estimating ARMAX models
+S   |   a                         ;
+0018|- shadow a: [LINK(q21_01.html)]
+0019|*  S = More information on statistical analysis
+S   |   a                                          |
+0020|E
+0022|+ESTIM? þ PRINT CUR+1,E TO q24_02.html
+0023|- include HTML40.DEV
+0024|- include Q.DV2
+0025|- [HelpText]
+0026|#ESTIMATE <data>,<name of model>,L
+S   |          <    > <             >
+0027|*estimates the parameters of a linear or a nonlinear regression model.
+0028|*Parameter L is optional and gives the first line for the results in
+0029|*the edit field.
+0030|*The regression model has to be defined by a MODEL specification typed on
+0031|*any two consecutive lines in the edit field as follows:
+0032|*           MODEL <name of model>
+S   |                  <             >
+0033|*           <regressand>=<function of regressors and parameters>
+S   |            <          > <                                     >
+0034|*<data> may either be defined by the DATA specification in the edit
+S   | <    >
+0035|*field or it may be a Survo data file.
+0036|*The regressand and the regressors are notated by the names given as
+0037|*labels for the columns in the DATA specification of the data set.
+0038|*Unidentified words in the model are interpreted as parameters to be
+0039|*estimated.
+0041|*ESTIMATE is able to evaluate the expressions of first and second
+0042|*derivatives of the model function with respect to parameters. This
+0043|*information is employed in the model identification and in the numerical
+0044|*computation of estimates.
+0046|*The estimation process can be controlled by extra specifications typed
+0047|*in the edit field.
+0048|- [NAME(EXTRA)][/NAME] / q24_02.html#EXTRA EXTRA?
+0049|*Extra specifications and parameters in ESTIMATE:
+0051|- shadow a: [LINK(q24_08.html)]
+0052|*  1 = model specification (MODEL)
+S   |   a                             |
+0053|- shadow a: [LINK(q24_03.html)]
+0054|*  2 = estimation criterion (CRITERION)
+S   |   a                                  |
+0055|- shadow a: [LINK(q24_05.html)]
+0056|*  3 = numerical (optimization) method (METHOD)
+S   |   a                                          |
+0057|- shadow a: [LINK(q24_06.html)]
+0058|*  4 = initial values for parameters
+S   |   a                               |
+0059|- shadow a: [LINK(q24_07.html)]
+0060|*  5 = weight variable (WEIGHT)
+S   |   a                          |
+0061|- shadow a: [LINK(q24_10.html)]
+0062|*  6 = step length (STEP)
+S   |   a                    |
+0063|- shadow a: [LINK(q24_11.html)]
+0064|*  7 = residuals, predicted values
+S   |   a                             |
+0065|- shadow a: [LINK(q24_12.html)]
+0066|*  8 = selecting observations
+S   |   a                        |
+0067|- shadow a: [LINK(q24_13.html)]
+0068|*  9 = constants in the model function
+S   |   a                                 |
+0069|- shadow a: [LINK(q24_09.html)]
+0070|*  A = displaying intermediate results
+S   |   a                                 |
+0071|- shadow a: [New][LINK(q24_16.html)]
+0072|d  M = results in matrix files
+S   |   a                         ;
+0073|- shadow a: [LINK(q21_01.html)]
+0074|*  D = more on data analysis
+S   |   a                       |
+0076|E
+0079|+ECRIT? þ PRINT CUR+1,E TO q24_03.html
+0080|- include HTML40.DEV
+0081|- include Q.DV2
+0082|- [HelpText]
+0083|*Unless otherwise stated the estimation method is ordinary least
+0084|*squares (OLS). As an alternative the Lp norm may be used as the
+0085|*measure for goodness-of-fit and the p value is indicated by the extra
+0086|*specification CRITERION=Lp where p is a positive number.
+0087|*Thus CRITERION=L2 is same as OLS and CRITERION=L1 corresponds to
+0088|*the minimum absolute deviation, which may also be selected by
+0089|*CRITERION=ABS. If p<>2, METHOD=H must be used.
+S   |                    <>
+0090|- shadow a: [LINK(q24_02.html#EXTRA)]
+0091|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0092|E
+0093|+EE? þ PRINT CUR+1,E TO q24_04.html
+0094|- include HTML40.DEV
+0095|- include Q.DV2
+0096|- [HelpText]
+0097|- shadow a: [LINK(q24_02.html#EXTRA)]
+0098|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0099|E
+0101|+EMETHOD? þ PRINT CUR+1,E TO q24_05.html
+0102|- include HTML40.DEV
+0103|- include Q.DV2
+0104|- [HelpText]
+0105|*The iterative numerical algorithm needed for minimizing of the
+0106|*residual sum of squares may be selected by the user by an extra
+0107|*specification METHOD typed in the edit field. At the moment we have
+0108|*the alternatives:
+0109|* METHOD=N     Newton-Raphson            (see e.g. Walsh, 1975 p.108)
+0110|- [New]
+0111|* METHOD=M     Modified Newton           (see e.g. Gill & al., 1982 p.105-)
+S   |                                                        &
+0112|- [/New]
+0113|* METHOD=D     Davidon-Fletcher-Powell   (see e.g. Walsh, 1975 p.110)
+0114|* METHOD=d     As D above, but without 2nd derivatives (saves space)
+0115|* METHOD=H     Hooke-Jeeves              (see e.g. Walsh, 1975 p. 76)
+0116|* METHOD=G     Direct search in a grid of parameter space
+0117|- [New]
+0118|*              The search values for each parameter A must given as
+0119|*              A=<lower_limit>,<upper_limit>,<step>
+S   |                 <           > <           > <    >
+0120|*              This last alternative exists mainly for searching for good
+0121|*              initial values of parameters to be estimated.
+0122|- [/New]
+0124|*In case of a linear model METHOD=N is default and in case of a non-
+0125|*linear model METHOD=D is default.
+0126|*References: Walsh: Methods of optimization, Wiley (1975)
+0127|*            Gill,Murray,Wright: Practical Optimization, Academic Press (1982)
+0128|- shadow a: [LINK(q24_02.html#EXTRA)]
+0129|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0130|E
+0131|+EINIT? þ PRINT CUR+1,E TO q24_06.html
+0132|- include HTML40.DEV
+0133|- include Q.DV2
+0134|- [HelpText]
+0135|*When the model is linear with respect to parameters, no initial values
+0136|*are needed.
+0137|*In case of a non-linear model the initial values of the parameters may
+0138|*be entered in the field in the form <parameter>=<initial value>. If an
+S   |                                     <         > <             >
+0139|*intial value is not given, 0 will be default.
+0140|- shadow a: [LINK(q24_02.html#EXTRA)]
+0141|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0142|E
+0143|+EWEIGHT? þ PRINT CUR+1,E TO q24_07.html
+0144|- include HTML40.DEV
+0145|- include Q.DV2
+0146|- [HelpText]
+0147|*The observations may be weighted by any variable or by a function of
+0148|*variables appearing in the data set. The weight function is defined
+0149|*by a WEIGHT specification of the form:
+0150|*      WEIGHT=<function of variables>
+S   |              <                     >
+0151|*If the WEIGHT specification is missing, WEIGHT=1 will be used.
+0152|- shadow a: [LINK(q24_02.html#EXTRA)]
+0153|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0154|E
+0155|+EMODEL? þ PRINT CUR+1,E TO q24_08.html
+0156|- include HTML40.DEV
+0157|- include Q.DV2
+0158|- [HelpText]
+0159|*MODEL is a specification to be used in conjunction with the ESTIMATE
+0160|*operation. In regression models the general structure is
+0161|*MODEL <name of the model>
+S   |       <                 >
+0162|*<regressand>=<function of regressors and parameters>
+S   | <          > <                                     >
+0164|*Examples: Weight=a+b*Length
+0165|*          log(Y)=constant+S*sin(s*t)+C*cos(c*t)
+0166|*          (Z^c-1)/c=a*X+b    (c on the left side is a parameter.)
+0168|*It is possible to make literal substitutions in the model notation
+0169|*by using abbreviations in braces as follows:
+0170|- [New]
+0172|*{L}=log(Length)
+0173|*MODEL M1
+0174|*Y=a0+a1*{L}+a2*{L}^2+a3*{L}^3
+0175|- [/New]
+0177|- shadow a: [LINK(q24_15.html)]
+0178|*  F = mathematical functions available in ESTIMATE
+S   |   a                                              |
+0179|- shadow a: [LINK(q24_14.html)]
+0180|*  M = general ML estimation
+S   |   a                       |
+0181|- shadow a: [LINK(q24_02.html#EXTRA)]
+0182|*  S = More information on extra specifications in ESTIMATE
+S   |   a                                                      |
+0183|E
+0186|+DISPLAY? þ PRINT CUR+1,E TO q24_09.html
+0187|- include HTML40.DEV
+0188|- include Q.DV2
+0189|- [HelpText]
+0190|#DISPLAY=1
+0191|*gives the possibility to monitor preliminary stages
+0192|*of the analysis on the screen. For example, the analytical
+0193|*derivatives will be displayed temporarily.
+0194|*Also scanning of observations and saving of residuals will
+0195|*be displayed.
+0196|*If DISPLAY is omitted, only the optimization process will
+0197|*be shown as a temporary display.
+0198|- shadow a: [LINK(q24_02.html#EXTRA)]
+0199|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0200|E
+0202|+ESTEP? þ PRINT CUR+1,E TO q24_10.html
+0203|- include HTML40.DEV
+0204|- include Q.DV2
+0205|- [HelpText]
+0206|*If METHOD=D or METHOD=H is in use, the initial step length may be
+0207|*selected by STEP=<step length>.  STEP=1 is default.
+S   |                  <           >
+0208|*If METHOD=H is used, the STEP specification may also be given in an
+0209|*augmented form STEP=<initial step>,<final step>. The default values
+S   |                     <            > <          >
+0210|*correspond to STEP=1,0.00001
+0211|- shadow a: [LINK(q24_02.html#EXTRA)]
+0212|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0213|E
+0214|+ERES? þ PRINT CUR+1,E TO q24_11.html
+0215|- include HTML40.DEV
+0216|- include Q.DV2
+0217|- [HelpText]
+0218|*  Residuals and predicted values
+0219|*The residuals and the predicted values of the regression model may
+0220|*be obtained by activating variables in the data set by R,F or G
+0221|*where
+0222|*  R is a mask for the residuals,
+0223|*  F is a mask for the predicted values of the model function and
+0224|*  G is a mask for the values of the regressand (function).
+0225|*The VARS and MASK specifications may be used for these activations
+0226|*as well.
+0227|- shadow a: [LINK(q24_02.html#EXTRA)]
+0228|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0229|E
+0230|+ESEL? þ PRINT CUR+1,E TO q24_12.html
+0231|- include HTML40.DEV
+0232|- include Q.DV2
+0233|- [HelpText]
+0234|*  Selecting observations
+0235|*The IND and CASES specifications can be used.
+0236|- shadow a: [LINK(q24_02.html#EXTRA)]
+0237|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0238|E
+0240|+ECON? þ PRINT CUR+1,E TO q24_13.html
+0241|- include HTML40.DEV
+0242|- include Q.DV2
+0243|- [HelpText]
+0244|*Various constants (for example, fixed parameters) in the model
+0245|*function may also have symbolic names with a '#' as a prefix.
+0246|*For instance, #mean1=102.83333 may be typed in the edit field
+0247|*and thereafter 102.83333 can be notated in the model specification
+0248|*by mean1.
+0249|- shadow a: [LINK(q24_02.html#EXTRA)]
+0250|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0251|E
+0253|+EML? þ PRINT CUR+1,E TO q24_14.html
+0254|- include HTML40.DEV
+0255|- include Q.DV2
+0256|- [HelpText]
+0257|*By the ESTIMATE operation also maximum likelihood estimates for
+0258|*parameters of a user-defined univariate distribution can be
+0259|*computed.
+0260|*The distribution has to be defined by a MODEL specification
+0261|*of the form:
+0262|*    10  *MODEL <name of model>
+S   |                <             >
+0263|*    11  *LOGDENSITY=<logarithm of the density function>
+S   |                     <                                 >
+0264|*All other specifications are same as in ESTIMATE for regression
+0265|*models.
+0266|*Example on the next page:
+0268|*.......................................................................
+0269|*Estimation of a logit model:
+0270|*FILE CREATE TEST,24,3,64,7,10000 / Creating file TEST (10000 cases)
+0271|*FIELDS:
+0272|*1 N 4 X1
+0273|*2 N 4 X2
+0274|*3 N 1 Y
+0275|*END
+0277|*VAR X1,X2,Y TO TEST / Making simulated data values
+0278|*X1=rand(2002) X2=rand(2002) Y=int(rand(2002)+1/(1+exp(3-2*X1-3*X2)))
+0279|*Y is 1 with probability 1/(1+exp(3-2*X1-3*X2)) and Y=0 otherwise.
+0281|*Estimation of the model on the next page:
+0283|*Estimation of the logit model:
+0284|a{P}=1/(1+exp(C+a*X1+b*X2)) / Shorthand notation for the model function
+0286|*MODEL LM1
+0287|aLOGDENSITY=Y*log({P})+(1-Y)*log(1-{P})
+0289|*ESTIMATE TEST,LM1,CUR+1 / METHOD=M PRIND=0
+0290|*Estimated parameters of model LM1:
+0291|*C=2.87264 (0.0711958)
+0292|*a=-1.99688 (0.0807001)
+0293|*b=-2.75048 (0.0835568)
+0294|*n=10000 log(L)=-5830.526990 nf=56
+0295|*Correlations:
+0296|*                 C      a      b
+0297|* C           1.000 -0.714 -0.749
+0298|* a          -0.714  1.000  0.188
+0299|* b          -0.749  0.188  1.000
+0301|- shadow a: [LINK(q24_01.html)]
+0302|*  E = More information on ESTIMATE
+S   |   a                              |
+0303|E
+0305|+EFUNC? þ PRINT CUR+1,E TO q24_15.html
+0306|- include HTML40.DEV
+0307|- include Q.DV2
+0308|- [HelpText]
+0309|*Functions available in ESTIMATE model specifications:
+0311|*Functions with derivatives:
+0312|*sqrt, log (ln), exp, sin, cos, tan, atan (arctan), sinh, cosh,
+0313|*tanh, asin (arcsin), acos (arccos), lgamma, phi, PHI.
+0315|*lgamma is the logarithm of the gamma function.
+0316|- [New]
+0317|*phi and PHI are the density and cumulative distiribution functions
+0318|*of the standardized normal distribution, respectively.
+0319|- [/New]
+0321|*Functions without derivatives:
+0322|*abs, int, round.
+0324|*round(x) is x rounded to the nearest integer.
+0325|- shadow a: [LINK(q24_02.html#EXTRA)]
+0326|*  S = more on extra specifications in ESTIMATE
+S   |   a                                          |
+0327|E
+0329|+MAT? þ PRINT CUR+1,E TO q24_16.html
+0330|- include HTML40.DEV
+0331|- include Q.DV2
+0332|- [HelpText]
+0333|*When estimating regression models, results are saved in matrix files
+0334|*as follows:
+0336|*EST_PAR.M   parameter estimates and their standard errors
+0337|*EST_CORR.M  correlations of parameter estimates
+0338|*EST.M       various basic statistics
+0339|*For example, MAT_EST.M(SSE)=
+0340|*when activated after ESTIMATE gives the residual sum of errors.
+0342|- shadow a: [LINK(q24_02.html#EXTRA)]
+0343|*  S = more information on ESTIMATE
+S   |   a                              |
+0344|E

@@ -1,0 +1,84 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QF3A
+0004|*LOAD EDQ
+0006|+FIEDIT? þ PRINT CUR+1,E TO qf3a_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*FILE EDIT <name of data file>
+S   |           <                 >
+0011|*is an operation for data input and editing of Survo data files
+0012|*created by a FILE CREATE operation.
+0014|*After activation of FILE EDIT a display containing all active fields
+0015|*of the data file will appear on the screen. For example, when FILE EDIT
+0016|- shadow %: [LINK(qf1_01.html)] [/LINK]
+0017|*is activated for an empty data file COMMUNES (see FILE CREATE), we shall
+S   |                                                   %%%%
+0018|*have the following display
+0019|*-------------------------------------------------------------------
+0020|*DATA FILE: COMMUNES    Record # 1                              N= 0
+0021|SCommune _               ÿ
+S   |         7777777777777777
+0022|SProvince   ÿ
+S   |         777
+0023|SPeople                ÿ
+S   |         77777777777777
+0024|SBirths                ÿ
+S   |         77777777777777
+0025|SArea                      ÿ
+S   |         777777777777777777
+0027|*To stop, press EXIT!
+0028|*-------------------------------------------------------------------
+0029|*where a cell of appropriate length is reserved for each active
+0030|*field. After creation all fields are active, but the status of each
+0031|*field is easily specified later by FILE ACTIVATE (or simply by FILE_ACT).
+0033|*The data values can now be entered in a natural way. To move the cursor
+0034|*between the fields, press either RETURN or the arrow keys. When the
+0035|*last field has been filled, the data is saved and the display for the
+0036|*next observation will appear. To move from an observation to another,
+0037|*the keys NEXT and PREV can be used.
+0039|*The data may be edited simply by moving the cursor to the desired point
+0040|*and the corrections are made by overtyping and by using the keys
+0041|- shadow %: [LINK(qf1_01.html)] [/LINK]
+0042|*INSERT and DELETE. However, if a field is protected (see FILE ACTIVATE),
+S   |                                                          %%%%
+0043|*it cannot be edited. Protected cells are labelled with 'P'.
+0045|*An observation may be searched for by its number or by the value of
+0046|*the current field first by pressing SEARCH and then entering either the
+0047|*number of observation or for example <100, which means that the first
+S   |                                      <
+0048|*observation having value less than 100 in the current field will be
+0049|*found.
+0050|* Limits for the data values:
+0051|*The range of numeric fields is specified by a notation of the form
+0052|a{lower_limit,upper_limit} in the field description.
+0053|- [New]
+0054|*Similarly, the set of possible values for a string field is given
+0055|*as a list [value1,value2,...] in the field description.
+0056|- [/New]
+0057|*These limitations are easily altered by the FILE STATUS and FILE UPDATE
+0058|*operations.
+0060|* Searching in sorted data:
+0061|*If the data are sorted in alphabetic order according to some string
+0062|*field (by FILE SORT, for example), observations may be searched for
+0063|*much faster. However, the system must be told before pressing SEARCH
+0064|*which is the string field representing the alphabetic order. This takes
+0065|*place by inserting a specification of the form
+0066|*     SORT:<name of string field>
+S   |           <                    >
+0067|*on any of the header lines of the the data file. The header lines are
+0068|*the lines before the FIELDS section in FILE UPDATE. Thus use FILE UPDATE
+0069|*for this task after the data has been sorted.
+0070|#FILE EDIT <data_file>,<#_of_mask_column>
+S   |           <         > <                >
+0071|*works similarly, but displays the fields which are active in the given
+0072|*mask column. Default is 1.
+0074|#FILE EDIT <data_file>+
+S   |           <         >
+0075|*works as FILE EDIT <data_file> but goes to the end of the data file
+S   |                    <         >
+0076|*and displays the first empty observation after the current last one.
+0078|- shadow a: [LINK(qf1_01.html)]
+0079|*  D = More information on data management
+S   |   a                                     |
+0080|E

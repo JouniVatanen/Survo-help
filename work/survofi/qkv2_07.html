@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText"><B>Notes and examples</B> 
+
+A Julian day algorithm is used in all calculations of DATE. The transition
+date is 18.2.1753, when Finland (as part of Sweden that time) changed to
+the Gregorian calendar. The algorithm is valid from 4713 B.C. to 9999 A.D.
+DATE supports years from 200 A.D. The years 0-99 mean the current century. <B>[*]</B> 
+Source: Calendrical Calculations, by Nachum Dershowitz and Edward M. Reingold.
+In Software-Practice and Experience, 20, number 9 (September 1990), pp899-928.
+
+<B>[*]</B> When working with Survo data sets, the specification <B>CENTURY</B> may be used
+to change this behaviour. For example: CENTURY=1900 (default: CENTURY=2000).
+
+In addition, specification <B>SHIFT</B> is available for working with dates that
+range over the turn of the century and are represented (in the data set)
+with two digits only. For example: SHIFT=75 (with the default CENTURY=2000)
+means that years 75-99 are handled as 1975-1999, whereas years 0-74 will be
+handled as 2000-2074. By default, SHIFT=0. CENTURY always overrides SHIFT.
+
+
+Examples: (given in 1997)
+
+DATE 18.2.1753 / Thursday March 01 1753 21:41:50 Week=09 Day=049
+The gap of 10 days corrected the accumulated error in the Julian calendar:
+DATE 1.3.1753 / Thursday March 01 1753 21:41:51 Week=09 Day=049
+DATE 1.3.1753+85416 / Saturday January 10 1987 21:41:53 Week=02 Day=010
+DATE 31.12.99+1 / Saturday January 01 2000 21:41:56 Week=52 Day=001
+DATE 29.2.2000-60 / Friday December 31 1999 21:41:56 Week=52 Day=365
+
+But,
+DATE 31.12.99+1 / Friday January 01 2100 00:26:10 Week=53 Day=001
+(given in 2000)!
+Hence, it is always recommendable to use four-digit numbers for years.
+
+  <A HREF="qkv2_02.html">D = More information on DATE operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

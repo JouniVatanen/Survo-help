@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">When a multiway table with VARIABLES list without any ':'s is created
+by a TAB command, the table is also saved as a new Survo data file
+by giving a specification FILE=&lt;name_of_new_data_file&gt;.
+Selected lines (typically the current TAB definition lines) are saved
+as comments to the new data file by a specification COMMENTS=L1,L2.
+
+Example:
+11 *TAB FINLAND / <STRONG>FILE=TAB_FIN1 COMMENTS=11,17</STRONG> 
+12 *VARIABLES=Province,Popul,Area CELL=Brthrate
+13 *Province=/UUS/TUR/AHV/KYM(South),/HÄM/MIK/KUO/KES/VAA/KAR(Middle),&amp; 
+14 *         /-(North)
+15 *Popul=0,5000,20000,500000
+16 *Brthrate=0,10,15,30
+17 *Area=0,1000,20000
+18 *
+
+This option is available in versions 3.33+.
+
+  <A HREF="q22_01.html">T = More information on TAB operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,308 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QK1
+0004|*LOAD EDQ
+0006|+LIST? ˛ PRINT CUR+1,E TO qk1_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*LIST operations are used for processing of long lists and reports.
+0011|*Such lists consist of several chapters specified by DEF definitions
+0012|- shadow %: [LINK(q04_10.html)] [/LINK]
+0013|*(See DEF?) in different edit files.
+S   |      %%%
+0015|- shadow a: [LINK(qk1_04.html)]
+0016|*  1 = LIST definition
+S   |   a                 |
+0017|- shadow a: [LINK(qk3_02.html)]
+0018|*  2 = Structured LISTs
+S   |   a                  |
+0019|- shadow a: [LINK(qk1_05.html)]
+0020|*  3 = LIST SHOW
+S   |   a           |
+0021|- shadow a: [LINK(qk1_06.html)]
+0022|*  4 = LIST REPLACE      Replacing a string by another in the list
+S   |   a                                                             |
+0023|- shadow a: [LINK(qk1_02.html)]
+0024|*  5 = LIST SORT         List sorting
+S   |   a                                |
+0025|- shadow a: [LINK(qk1_07.html)]
+0026|*  6 = LIST SAVE         Saving list fields by cases in a text file
+S   |   a                                                              |
+0027|- shadow a: [LINK(qk1_08.html)]
+0028|*  7 = LIST MAKE         Creating lists from text files
+S   |   a                                                  |
+0029|- shadow a: [LINK(qk1_09.html)]
+0030|*  8 = LIST COUNT        Frequencies of given phrases (strings)
+S   |   a                                                          |
+0032|E
+0035|+LSORT? ˛ PRINT CUR+1,E TO qk1_02.html
+0036|- include HTML40.DEV
+0037|- include Q.DV2
+0038|- [HelpText]
+0039|#LIST SORT <list> BY <sort keys> TO <new list>
+S   |           <    >    <         >    <        >
+0040|*sorts a structured list consisting of records of varying length in an order
+0041|*given by <sort keys> and saves the sorted list in a series of other edit files
+S   |          <         >
+0042|*as <new list>.
+S   |    <        >
+0044|*<sort keys> is a sequence of the form X,Y,Z,...
+S   | <         >
+0045|*where X,Y,Z... are defined as fields in a structured <list> definition.
+S   |                                                      <    >
+0047|*<new list> gives a common forepart for the new edit files needed for
+S   | <        >
+0048|*the sorted records. For example, if <new list> is D:OLIST, then files
+S   |                                     <        >
+0049|*D:OLIST1.EDT, D:OLIST2.EDT, D:OLIST3.EDT,... will be used for the
+0050|*result. The output files will contain DEF definitions which specify
+0051|*a new list LIST OLIST: A,OLIST1-xxx END .
+0052|*The definition file of <new list> has the same structure as <list>.
+S   |                        <        >                           <    >
+0054|*By default the sizes of the edit fields in <new list> correspond to
+S   |                                            <        >
+0055|*those of <list>. This is changed by the specification
+S   |          <    >
+0056|*LISTDIM=<#_lines>,<#_columns>,<max_#_shadow_lines>.
+S   |         <       > <         > <                  >
+0058|*LIST SORT (continued)
+0060|*LIST SORT permits records of variable number of lines to be sorted.
+0061|*The records are specified in the .LST file defining <list>.
+S   |                                                     <    >
+0063|*The records can be treated conditionally by using the same SELECT
+0064|*specification as in conditional processing of Survo data files.
+0066|*By the specification NSORT=n only n first of the sorted cases will be
+0067|*saved as a new list.
+0069|*As a checking procedure, active cases are displayed as well values of
+0070|*selected fields by giving a specification
+0071|*SHOW=<list_of_fields> .
+S   |      <              >
+0073|*LIST SORT (continued)
+0075|*By the specification FILE=<name_of_a_new_text_file>[,<delimiter>]
+S   |                           <                       >  <         >
+0076|*all fields defined in <list> can be saved in a text file in a form
+S   |                       <    >
+0077|*of a data matrix. The first line in the text file will consist of
+0078|*the names of the fields. Each active record (case) is saved as its
+0079|*own line thereafter. The fields are separated by character <delimiter>.
+S   |                                                            <         >
+0080|*Default is the character | .
+0081|*Thus the data in the text file can be copied to a (new) Survo data
+0082|*file simply by the command
+0083|*FILE SAVE <text_file> TO <data_file> / DELIMITER=|
+S   |           <         >    <         >
+0085|- shadow a: [LINK(qk1_01.html)]
+0086|*  L = More information on LIST operations
+S   |   a                                     |
+0087|E
+0088|+LL? ˛ PRINT CUR+1,E TO qk1_03.html
+0089|- include HTML40.DEV
+0090|- include Q.DV2
+0091|- [HelpText]
+0093|- shadow a: [LINK(qk1_01.html)]
+0094|*  L = More information on LIST operations
+S   |   a                                     |
+0095|E
+0098|+DLIST? ˛ PRINT CUR+1,E TO qk1_04.html
+0099|- include HTML40.DEV
+0100|- include Q.DV2
+0101|- [HelpText]
+0102|*LIST in Survo is a sequence of text chapters located in different
+0103|*edit fields. Each chapter must be defined by a DEF definition in
+0104|- shadow %: [LINK(q04_10.html)] [/LINK]
+0105|*its own edit field (see DEF?). The list itself is defined by
+S   |                         %%%
+0106|*a text file with the following minimal structure:
+0108|*<chapter_1>,<edit_field_1>
+S   | <         > <            >
+0109|*<chapter_2>,<edit_field_2>
+S   | <         > <            >
+0110|*...
+0111|*END
+0113|*Abbreviations like A,XYZ1-3  (meaning A,XYZ1 A,XYZ2 A,XYZ3) are also
+0114|*accepted.
+0115|*The list thus defined is referred to by its file name with .LST as the
+0116|*default extension.
+0118|*To process a list in a structured form, the LST file must contain some
+0119|*additional information.
+0121|*In LIST SHOW and LIST REPLACE operations the list can also be defined
+0122|*locally in the current edit field in the following way:
+0123|*LIST <name_of_the_list>: <chapter_1>,<edit_field_1> <chapter_2>,<edit_field2>,
+S   |      <                >  <         > <            > <         > <           >
+0124|*                          ...  END
+0125|*The chapters belonging to the list have to be given by DEF definitions
+0126|- shadow %: [LINK(q04_10.html)] [/LINK]
+0127|*in their edit files (See DEF?).
+S   |                          %%%
+0129|*Example:
+0130|*LIST REPORT1: A,INTRO1 A,INTRO2 A,INTRO3
+0131|*              A,CH1 A,CH2 A,CH3 A,CH4 A,CH5 *,REF END
+0132|*                                           (* = entire edit file)
+0133|*The list above can also be given in an abbreviated form
+0134|*LIST REPORT1: A,INTRO1-3 A,CH1-5 *,REF END
+0136|*Edit files can given with complete pathnames. A common path for all
+0137|*fields is given by PATH=<path>. For example: PATH=D:\REPORT\
+S   |                         <    >
+0139|- shadow a: [LINK(qk1_01.html)]
+0140|*  L = More information on LIST operations
+S   |   a                                     |
+0141|E
+0143|+LSHOW? ˛ PRINT CUR+1,E TO qk1_05.html
+0144|- include HTML40.DEV
+0145|- include Q.DV2
+0146|- [HelpText]
+0147|#LIST SHOW <name_of_list>
+S   |           <            >
+0148|*opens a temporary window below the current (LIST SHOW) line and displays
+0149|*the contents of the edit fields belonging to the list. The lines (and
+0150|*columns) may be scrolled in that window in the same way as the edit
+0151|*field is scrolled on the screen. The user sees the text belonging to
+0152|*the list as one contiguos stream of lines. The changes of the fields
+0153|*are indicated by extra header lines telling the edit file and chapter.
+0155|*Various searches of strings over the entire list are initiated by
+0156|*the SEARCH (alt-F5) key. More information while staying in LIST SHOW
+0157|*is obtained by the HELP (F1) key. The S key tells about search options.
+0158|- [New]
+0159|*The search with a previous keyword can be restarted by pressing ESC (twice).
+0160|- [/New]
+0162|*LIST SHOW *
+0163|*works with the list used most recently by LIST SHOW.
+0165|*In the LIST SHOW mode, the text in the list (edit fields) cannot be
+0166|*edited. However, by means of a /LIST sucro, an interplay between
+0167|*the LIST SHOW mode and the standard editorial mode can be arranged.
+0168|*The sucro command
+0169|#/LIST <name_of_list>
+S   |       <            >
+0170|*calls the corresponding LIST SHOW operation. On exit from LIST SHOW,
+0171|*the last edit field shown by LIST SHOW is loaded automatically and
+0172|*the cursor indicates the same place as it was pointing at in LIST SHOW.
+0173|*The user can edit the field and save it normally. By activating
+0174|*/LIST * (this could be defined as a macro), FILE SHOW is called again
+0175|*and it immediately gives the same display as in the previous call.
+0176|*In this way, even very long reports are maintained easily.
+0178|*The sucro command
+0179|*/HLIST
+0180|*lists (through LIST SHOW) all the text belonging to the inquiry (help)
+0181|*system of Survo.
+0183|- shadow a: [LINK(qk1_01.html)]
+0184|*  L = More information on LIST operations
+S   |   a                                     |
+0185|E
+0187|+LREPL? ˛ PRINT CUR+1,E TO qk1_06.html
+0188|- include HTML40.DEV
+0189|- include Q.DV2
+0190|- [HelpText]
+0191|#LIST REPLACE <name_of_list>,L1,L2
+S   |              <            >
+0192|*replaces all the occurrences of the text given on the edit line L1 by
+0193|*that given on line L2. Even shadow characters are observed.
+0194|*However, LIST REPLACE is not able to create new shadow lines. Hence,
+0195|*cases where L2 has shadows but L1 not are not allowed.
+0197|*For cases where trailing spaces should be observed, a generalized
+0198|*form is available. Its syntax is
+0199|#LIST REPLACE <name_of_list>,L1,L2,len1,len2
+S   |              <            >
+0200|*where len1 is the length of the old string and len2 that of the new one.
+0202|- shadow a: [LINK(qk1_01.html)]
+0203|*  L = More information on LIST operations
+S   |   a                                     |
+0204|E
+0206|+LSAVE? ˛ PRINT CUR+1,E TO qk1_07.html
+0207|- include HTML40.DEV
+0208|- include Q.DV2
+0209|- [HelpText]
+0210|#LIST SAVE <list> TO <text_file>[,<delimiter>]
+S   |           <    >    <         >  <         >
+0211|*All fields defined in <list> can be saved in a text file in a form
+S   |                       <    >
+0212|*of a data matrix. The first line in the text file will consist of
+0213|*the names of the fields. Each active record (case) is saved as its
+0214|*own line thereafter. The fields are separated by character <delimiter>.
+S   |                                                            <         >
+0215|*Default is the character | .
+0216|*Example: LIST SAVE LIST1 TO D:DATA1.TXT,char(9) / tab as delimiter
+0218|*The data in the text file can be copied to a (new) Survo data file
+0219|*simply by the command
+0220|*FILE SAVE <text_file> TO <data_file> / DELIMITER=char(9)
+S   |           <         >    <         >
+0222|- shadow a: [LINK(qk1_01.html)]
+0223|*  L = More information on LIST operations
+S   |   a                                     |
+0224|E
+0226|+LMAKE? ˛ PRINT CUR+1,E TO qk1_08.html
+0227|- include HTML40.DEV
+0228|- include Q.DV2
+0229|- [HelpText]
+0230|#LIST MAKE <new_list> OF <text_file>
+S   |           <        >    <         >
+0231|*creates a list from a given text text file as a sequence of edit files.
+0232|*For example, if <new_list> is ABC, edit files ABC1,ABC2,ABC3,...
+S   |                 <        >
+0233|*will be created as well as a text file ABC.LST giving the names of the
+0234|*edit files.
+0235|*By default the sizes of the edit fields correspond to REDIM 300,100,100.
+0236|*This is changed by the specification
+0237|*LISTDIM=<#_lines>,<#_columns>,<max_#_shadow_lines>.
+S   |         <       > <         > <                  >
+0239|#LIST MAKE <new_list> OF #<texts>
+S   |           <        >     <     >
+0241|*#<texts>
+S   |  <     >
+0242|*pathname_of_text_file_1
+0243|*pathname_of_text_file_2
+0244|*...
+0245|*END
+0247|*does the same job from a series of text files.
+0249|- shadow a: [LINK(qk1_01.html)]
+0250|*  L = More information on LIST operations
+S   |   a                                     |
+0251|E
+0253|+LCOUNT? ˛ PRINT CUR+1,E TO qk1_09.html
+0254|- include HTML40.DEV
+0255|- include Q.DV2
+0256|- [HelpText]
+0257|#LIST COUNT,<Survo_list>,<phrases_name>
+S   |            <          > <            >
+0258|*PHRASES <phrases>:
+S   |         <       >
+0259|*<phrase 1>
+S   | <        >
+0260|*<phrase 2>
+S   | <        >
+0261|*...
+0263|*counts the frequencies of given phrases (strings) in <Survo_list>
+S   |                                                      <          >
+0264|*and writes the results as a column of frequencies after phrases.
+0266|*By default LIST COUNT equates upper and lower case letters.
+0267|*To make it work in a case-sensitive way, insert an extra
+0268|*parameter `C' as follows:
+0269|*LIST COUNT,<Survo_list>,<phrases_name>,C
+S   |            <          > <            >
+0271|*Hyphenated words (as Fin-
+0272|*land) divided into two consecutive lines are connected (as Finland)
+0273|*by default (HYPHENS=1). To ignore hyphenating, set HYPHENS=0 .
+0275|*Counting may be restricted to selected columns by the specification
+0276|*COLS=C1,C2 .
+0277|*Default is the entire edit line without the control column, i.e. C1=1 .
+0278|*For example, by COLS=0,0 only control characters are considered.
+0280|*Also keywords, strings, and phrases with shadow characters in specific
+0281|*positions are observed.
+0283|*The following `general' phrases are available:
+0284|*                       Frequency of
+0285|*#chapters              chapters in the current Survo list
+0286|*#records               blocks separated by one ore more empty lines
+0287|*#lines                 edit lines (empty lines included)
+0288|*#words                 strings separated by ` 's or line ends
+0289|*#integers              integer numbers
+0290|*#numbers               numbers (integers and decimal numbers)
+0291|*#characters            all characters (trailing spaces not included)
+0292|*#spaces                spaces (trailing spaces not included)
+0293|*#digits                digits 0,1,2,3,4,5,6,7,8,9
+0294|*#letters               letters (èéôöÜÑîÅ included)
+0295|*#special characters    #characters-#spaces-#digits-#letters
+0297|*The above features as well as certain other options are illustrated by
+0298|*activating /LCDEMO
+0301|- shadow a: [LINK(qk1_01.html)]
+0302|*  L = More information on LIST operations
+S   |   a                                     |
+0303|E

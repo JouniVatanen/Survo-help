@@ -1,0 +1,137 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QU3
+0004|*LOAD EDQ
+0005|+GENREG? þ PRINT CUR+1,E TO qu3_01.html
+0006|- include HTML40.DEV
+0007|- include Q.DV2
+0008|- [HelpText]
+0009|#GENREG <data>,L
+S   |        <    >
+0010|*estimates a generalized linear model (GLM) defined by ERROR and LINK speci-
+0011|*fications from a Survo data where the dependent variate is acti-
+0012|*vated by Y and the covariates by X's. IND and CASES specifications
+0013|*are used for selection of observations.
+0014|*The theory of GLM's is described in 'Generalized Linear Models' by
+0015|*P.McCullagh and J.A.Nelder (Chapman and Hill 1983).
+0017|*Variables for the model and for results are selected by masks as follows:
+0018|*     Y  dependent variate (only one Y allowed)
+0019|*     X  covariate (also the constant term must be specified by X)
+0020|*     R  for output of scaled Pearson residuals (optional)
+0021|*     P  for predicted values of Y (optional)
+0022|*     N  number of trials in ERROR=Binomial (Y is number of successes)
+0024|- shadow a: [New][LINK(qu3_02.html)]
+0025|d  E = ERROR specification
+S   |   a                     ;
+0026|- shadow a: [LINK(qu3_03.html)]
+0027|*  L = LINK specification
+S   |   a                    |
+0028|- shadow a: [LINK(qu3_05.html)]
+0029|*  P = Printout of results
+S   |   a                     |
+0030|- shadow a: [LINK(qu3_04.html)]
+0031|*  T = Using TABFIT as a preparatory operation for GENREG
+S   |   a                                                    |
+0032|- shadow a: [LINK(q21_01.html)]
+0033|*  S = General information on statistical operations
+S   |   a                                               |
+0034|E
+0037|+ERROR? þ PRINT CUR+1,E TO qu3_02.html
+0038|- include HTML40.DEV
+0039|- include Q.DV2
+0040|- [HelpText]
+0041|*Possible error structures in GENREG are
+0042|*   ERROR=Normal      (LINK=Identity)
+0043|*   ERROR=Poisson     (LINK=Log)
+0044|*   ERROR=Binomial    (LINK=Logit)
+0045|*   ERROR=Gamma       (LINK=Reciprocal)
+0046|*The default (canonical) links are in parentheses.
+0048|- shadow a: [LINK(qu3_03.html)]
+0049|*   L = LINK specification
+S   |    a                    |
+0050|- shadow a: [New][LINK(qu3_06.html)]
+0051|d   R = Logistic regression
+S   |    a                     ;
+0052|- shadow a: [LINK(qu3_01.html)]
+0053|*   G = More information on GENREG
+S   |    a                            |
+0054|E
+0057|+LINK? þ PRINT CUR+1,E TO qu3_03.html
+0058|- include HTML40.DEV
+0059|- include Q.DV2
+0060|- [HelpText]
+0061|*The link function is given by any of the following alternatives:
+0062|*   LINK=Identity              (default in ERROR=Normal)
+0063|*   LINK=Log                   (default in ERROR=Poisson)
+0064|*   LINK=Logit                 (default in ERROR=Binomial)
+0065|*   LINK=Reciprocal            (default in ERROR=Gamma)
+0066|*   LINK=Probit                (N variable must be given)
+0067|*   LINK=Complementary_log-log (N variable must be given)
+0068|*   LINK=Square_root
+0069|*   LINK=Exponent,alpha        (x^alpha power transformation)
+0071|- shadow a: [LINK(qu3_02.html)]
+0072|*   E = ERROR specification
+S   |    a                     |
+0073|- shadow a: [LINK(qu3_01.html)]
+0074|*   G = More information on GENREG
+S   |    a                            |
+0075|E
+0078|+TABM? þ PRINT CUR+1,E TO qu3_04.html
+0079|- include HTML40.DEV
+0080|- include Q.DV2
+0081|- [HelpText]
+0082|*The TABFIT operation generates, as a by-product, the design matrix
+0083|*extended by the dependent variate and the external weight function
+0084|*according to the current model. This matrix is saved (even in saturated
+0085|*cases) as a matrix file XTAB.M .
+0086|*The matrix file XTAB.M as such (or more conveniently, its transform to a
+0087|*data file by FILE SAVE MAT operation) can be used as an input data set
+0088|*for GENREG. Data for various models including factors and their inter-
+0089|*actions can be organized easily by this procedure.
+0091|- shadow a: [LINK(qu1_02.html)]
+0092|*   T = TABFIT operation
+S   |    a                  |
+0093|- shadow a: [LINK(qu3_01.html)]
+0094|*   G = More information on GENREG
+S   |    a                            |
+0095|E
+0098|+PRINTOUT? þ PRINT CUR+1,E TO qu3_05.html
+0099|- include HTML40.DEV
+0100|- include Q.DV2
+0101|- [HelpText]
+0102|*The extent of results given by GENREG is controlled by the RESULTS
+0103|*specification.
+0104|*If RESULTS=0, only minimal information (i.e. deviance, degrees of freedom,
+0105|*the error structure, and the link) is printed.
+0106|*Otherwise also the estimates of the parameters and their standard errors
+0107|*are given.
+0109|*In any case, the covariance estimates of parameters are saved as a matrix
+0110|*file PCOV.M on the current data disk.
+0111|- [New]
+0112|*Similarly, the estimates of the parameters are saved in GENREG.M .
+0113|- [/New]
+0115|- shadow a: [LINK(qu3_01.html)]
+0116|*   G = More information on GENREG
+S   |    a                            |
+0117|E
+0120|+LOGIST? þ PRINT CUR+1,E TO qu3_06.html
+0121|- include HTML40.DEV
+0122|- include Q.DV2
+0123|- [HelpText]
+0124|*To run logistic regression (with a binary dependent variable Y) define a
+0125|*constant variable, say I, (with all values =1) with mask `N' and
+0126|*activate
+0127|*GENREG <data>,L / ERROR=Binomial .
+S   |        <    >
+0128|*To have a constant term included, define another constant variable,
+0129|*say C=1 with mask `X' as other independent variables.
+0131|- [New]
+0132|*The most convenient way of applying GENREG in logistic regression is
+0133|*provided by the /LOGREG sucro (made by Kimmo Vehkalahti).
+0134|- [/New]
+0136|- shadow a: [LINK(qu3_01.html)]
+0137|*   G = More information on GENREG
+S   |    a                            |
+0138|- shadow a: [New][LINK(qkv0_09.html)]
+0139|d   L = /LOGREG
+S   |    a         ;
+0140|E

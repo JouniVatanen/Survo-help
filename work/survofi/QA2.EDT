@@ -1,0 +1,187 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QA2
+0005|*................................................................................
+0006|*LOAD EDQ
+0008|+COMPARE? þ PRINT CUR+1,E TO qa2_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0012|#COMPARE <Sample_1>,<Sample_2>,...,<Sample_s>,L
+S   |         <        > <        >     <        >
+0013|*performs statisticals tests for samples from various Survo data sets.
+0014|*L (optional) is the first line for the results in the edit field.
+0015|*Each sample is referred to by <name_of_data>(<name_of_variable>). If the
+S   |                               <            > <                >
+0016|*data set consists of one variable, the name of variable may be omitted.
+0017|*Typically, COMPARE is intended for small sample comparisons.
+0018|*The CASES, IND and SELECT specifications are not valid in COMPARE operation.
+0019|*Use FILE COPY, for example, to form samples from larger data sets.
+0020|*Example:
+0021|*COMPARE FILE1(Test3),FILE2(Test4),X,FILE4(Test7),11
+0023|*COMPARE computes and displays relevant statistical summaries
+0024|*and gives the test statistics usually with critical levels (P values).
+0025|*In many cases also randomization tests are performed by simulating
+0026|*the sampling process under the null hypothesis. Then the true critical
+0027|*level will appear as a limit for the proportion of those cases where
+0028|*the null hypotheses is rejected more clearly than in the case observed.
+0029|*Also the standard error of the critical level is displayed. The user
+0030|*can interrupt simulation whenever by a single keystroke.
+0032|- [NAME(TEST)][/NAME] / qa2_01.html#TEST TEST?
+0033|*COMPARE:
+0034|*The testing procedures are selected according to the number of the
+0035|*samples s and an optional TEST specification.
+0037|- shadow a: [LINK(qa2_02.html)]
+0038|*  1 = Comparison of 2 or more independent samples
+S   |   a                                             |
+0039|- shadow a: [LINK(qa2_04.html)]
+0040|*  2 = Comparison of 2 paired samples, rank correlations
+S   |   a                                                   |
+0041|- shadow a: [LINK(qa2_05.html)]
+0042|*  3 = Tests for normality
+S   |   a                     |
+0043|- shadow a: [New][LINK(qa2_07.html)]
+0044|d  4 = Quantile-Quantile plots
+S   |   a                         ;
+0045|- shadow a: [LINK(qa2_06.html)]
+0046|*  5 = Specifications for randomization
+S   |   a                                  |
+0047|- shadow a: [LINK(qa1_01.html)]
+0048|*  S = More information on statistical tests
+S   |   a                                       |
+0050|*An interactive procedure for comparison of 2 samples is provided by the
+0051|*/COMPARE sucro. It selects the tests automatically and "interprets"
+0052|*the results. Usage: /COMPARE <sample1>,<sample2>
+S   |                              <       > <       >
+0054|E
+0057|+COMPARE2? þ PRINT CUR+1,E TO qa2_02.html
+0058|- include HTML40.DEV
+0059|- include Q.DV2
+0060|- [HelpText]
+0061|#COMPARE <Sample_1>,<Sample_2>,...,<Sample_s>,L
+S   |         <        > <        >     <        >
+0062|*(Reference: Conover: Practical Nonparametric statistics, 2nd Edition)
+0063|* 2 independent samples:
+0064|*    TEST=Mann-Whitney      (Conover p.216)
+0065|*    TEST=Pitman            (Conover p.328)
+0066|*    TEST=t                 (Conover p.225)
+0067|*    TEST=Smirnov           (Conover p.369)
+0068|- [New]
+0069|- shadow %: [LINK(qa3_01.html)] [/LINK]
+0070|*    TEST=Wald-Wolfowitz (See also RUNTEST?)
+S   |                                   %%%%%%%
+0071|- [/New]
+0072|*    Default:   Mann-Whitney,Pitman,t
+0074|* 2 or more independent samples:
+0075|*    TEST=Kruskal-Wallis    (Conover p.229)
+0076|*    TEST=F                 (Conover p.237)
+0077|*    Default:    Kruskal-Wallis,F (s>2)
+S   |                                    >
+0079|- shadow a: [LINK(qa2_01.html#TEST)]
+0080|*  T = More information about COMPARE
+S   |   a                                |
+0081|E
+0082|+TT? þ PRINT CUR+1,E TO qa2_03.html
+0083|- include HTML40.DEV
+0084|- include Q.DV2
+0085|- [HelpText]
+0086|- shadow a: [LINK(qa2_01.html#TEST)]
+0087|*  T = More information about COMPARE
+S   |   a                                |
+0088|E
+0090|+B? þ PRINT CUR+1,E TO qa2_04.html
+0091|- include HTML40.DEV
+0092|- include Q.DV2
+0093|- [HelpText]
+0094|#COMPARE <Sample_1>,<Sample_2>,L
+S   |         <        > <        >
+0095|* Paired observations:
+0096|*    TEST=PAIRED    Paired t, Wilcoxon, Randomization tests
+0097|*    TEST=Wilcoxon  as TEST=PAIRED  (Conover p.290,280,330)
+0098|*    TEST=CORRELATION  r, Spearman's Rho, Kendall's Tau
+0100|- shadow a: [LINK(qa2_01.html#TEST)]
+0101|*  T = More information about COMPARE
+S   |   a                                |
+0102|E
+0103|+C? þ PRINT CUR+1,E TO qa2_05.html
+0104|- include HTML40.DEV
+0105|- include Q.DV2
+0106|- [HelpText]
+0107|#COMPARE <Sample>,#NORMAL,L
+S   |         <      >
+0108|*displays some basic statistics and performs the following tests for
+0109|*normality:
+0110|*    Shapiro-Wilk (for sample sizes N<=50)  (Conover p.363)
+S   |                                     <
+0111|*    D'Agostino   (50<=N<=500)
+S   |                     <  <
+0112|*    Anderson-Darling
+0114|*From version 3.30 the old D'Agostino test has been replaced by
+0115|*a more powerful D'Agostino-Pearson omnibus test.
+0116|*The results are given in the form
+0117|*D'Agostino-Pearson K^2=##.##### P=#.#### (#.### #.###)
+0118|*where K^2 is the test statistics with an approximate Chi^2 distribution
+0119|*with 2 degrees of freedom and P its p value. The numbers in brackets
+0120|*are normal approximations for tests based for skewness and kurtosis,
+0121|*respectively (K^2 is the sum of their squares), giving more information
+0122|*about kind of departure from normal distribution.
+0123|*Source:
+0124|*D'Agostino & al. "A Suggestion for Using Powerful and Informative Tests
+S   |            &
+0125|*of Normality", The American Statistician, Vol 44, No. 4, pp. 316-321
+0126|- shadow a: [LINK(qa2_01.html#TEST)]
+0127|*  T = More information about COMPARE
+S   |   a                                |
+0128|- shadow a: [LINK(qmm1_13.html)]
+0129|*  M = Tests for multivariate normality
+S   |   a                                  |
+0130|E
+0131|*$E
+0133|+D? þ PRINT CUR+1,E TO qa2_06.html
+0134|- include HTML40.DEV
+0135|- include Q.DV2
+0136|- [HelpText]
+0137|*When a randomization test is performed by COMPARE, the number of
+0138|*replicates is given by a SIMUMAX specification.
+0139|*Default is SIMUMAX=1000000.
+0140|*The seed number of the pseudo-random number generator can be given
+0141|- shadow %: [%=0]
+0142|*by SEED=<integer>.
+S   |    %%%%%%%%%%%%%%
+0143|- shadow a: [LINK(qa2_01.html#TEST)]
+0144|*  T = More information about COMPARE
+S   |   a                                |
+0145|E
+0147|+Q-Q? þ PRINT CUR+1,E TO qa2_07.html
+0148|- include HTML40.DEV
+0149|- include Q.DV2
+0150|- [HelpText]
+0151|- [New]
+0152|*Q-Q plots
+0153|- [/New]
+0155|#COMPARE <Sample_1>,<Sample_2>,L / TEST=Q-Q
+S   |         <        > <        >
+0156|*computes the quantiles of both samples, saves them in a Survo data
+0157|*file _QQ.SVO, and generates a GPLOT scheme (from the line L onwards)
+0158|*for making a quantile-quantile (q-q) plot.
+0159|*This scheme may be refined by the user according to his/her needs.
+0161|*If 0<p<1, and the fraction of values below x(p) is p, x(p) is the
+S   |     < <
+0162|*p-quantile in the (empirical) distribution of x.
+0163|*In the q-q plot the x(p)-values of both samples are plotted against
+0164|*each other. If the sample sizes are not equal, the x(p)-values of
+0165|*the smaller sample are plotted against corresponding values in the
+0166|*greater sample obtained by linear interpolation.
+0167|*Hence if the samples come from the same distribution, the quantile
+0168|*points are approximately on the line y=x.
+0170|*More generally, if samples 1 and 2 are generated from distributions
+0171|*of independent variables X and Y and the Y distribution is obtained
+0172|*from the X distribution by a linear mapping Y=a*X+b, then in the q-q
+0173|*plot we have the same dependence.
+0174|*For example, if the samples are drawn from distributions N(m1,s1^2) and
+0175|*N(m2,s2^2), the quantile points are roughly on the line
+0176|*(y-m2)/s2=(x-m1)/s1. Thus mere linearity of a q-q graph does not imply
+0177|*a common distribution.
+0178|- shadow a: [LINK(qa2_01.html#TEST)]
+0179|*  T = More information about COMPARE
+S   |   a                                |
+0180|E

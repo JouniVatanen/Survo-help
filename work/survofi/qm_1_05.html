@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Kuvien piirrossa ja tekstien painatuksessa PostScript-puoli on entisellään.
+Kuvaruutugrafiikassa (siis GPLOT- ja vastaavilla operaatioilla) piirrokset
+tulevat omaan ikkunaan. Grafiikkaikkunoita voi olla useitakin esillä
+samanaikaisesti. Tämä helpottaa kuvien vaiheittaista kehittelyä. Kuvat
+tallentuvat ns. laajennettuihin metatiedostoihin (Enhanced Meta File, päätteenä
+.EMF), jolloin ne itse asiassa ovat laiteriippumattomia. Tästä seuraa etuna mm.
+se, että myös kuvaruutukuvia on entistä helpompi muuntaa tarkkuuden kärsimättä
+muihin yleisiin kuvien esitysmuotoihin. Kuvaikkunoita voi vapaasti siirtää,
+venyttää ja kutistaa Windowsille ominaisin keinoin.
+OUTFILE-täsmennyksellä talletettuja Survon EMF-kuvatiedostoja osaavat
+suoraan lukea monet Windows-ohjelmat, esim. Word, joilla kuvia voi
+myös täydentää, muokata ja tulostaa.
+
+Kuvien koordinaatistot voidaan entistä helpommin valita esim. myöhemmin
+piirrettävän PostScript-version mukaisesti (MODE=PS GPLOT-kaaviossa),
+jolloin piirrosten suunnittelu kuvaruudulla ennen siirtymistä
+PostScriptiin on entistä vaivattomampaa.
+
+Grafiikkaikkunoiden määrää ja sijaintia säädellään komennolla
+GPLOT /LAYOUT &lt;SYS-päätteinen_tekstitiedosto&gt; 
+Oletusasetus määrätään systeemiparametrilla
+gplot_layout=SUR_G3.SYS
+Ko. SYS-tiedostot sijaitsevat siinä alihakemistossa, jossa ovat
+GPLOT-modulitkin eli &lt;Survo&gt;\U\G.
+SUR_G3.SYS:n sisältö on:
+3 1024 768          / ikkunoiden lkm ja referenssikuvaruudun koko
+700   0 300 225     / ikkunoiden paikat ja koot
+700 250 300 225
+700 500 300 225
+
+Esim.
+GPLOT /LAYOUT SUR_G8.SYS
+vaihtaa 8 ikkunan (4 ikkunaa kahdessa rivissä oik. reunassa) näyttöön.
+
+Tietyt 1,2,3,4 ja 8 kuvan asetelmat voi valita suoraan pehmonapein
+SYSTEM -&gt; GRAPH.
+
+SURVO MM:n kuvaruutugrafiikan erityispiirteisiin voi tutustua
+esimerkkien avulla käynnistämällä sukrokomennon
+/!GP-START .
+Se aloittaa useampikohtaisen opetussarjan.
+Ko. opetukseen pääsee myös suoraan pehmonapiston kautta: DEMO -&gt; GPLOT
+
+ <A HREF="q111_02.html">G = Lisätietoja kuvaruutugrafiikasta englanniksi</A> 
+ <A HREF="qm_1_01.html">M = Lisää tietoja SURVO MM:n erityispiirteistä</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

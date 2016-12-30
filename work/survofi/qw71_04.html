@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText"><PRE><CODE><STRONG>Options in the FEDIT operation</STRONG> 
+
+The option <STRONG>FIRSTOBS</STRONG> defines the starting observation. By default,
+FEDIT assumes that new observations will be entered.
+
+If the form file doesn't exist or the program fails to estimate the
+form width, the maximum size of a form may be given by the MAXCOLS
+and MAXROWS options. <STRONG>MAXCOLS</STRONG> defines the number of the ordinary
+columns in a form (max. 253). If the form file does not exist, then
+the default size is 78. Two additional cxolumns are needed for the
+frame. The maximum number of the ordinary rows in the form is given
+by the <STRONG>MAXROWS</STRONG> option. If the form file does not exist, then the
+default is 60 rows. The values given by the options MAXCOLS and MAXROWS
+must meet the requirement:
+      (maxcols+3)*(maxrows+2) &lt; 32766
+The option <STRONG>CAPS</STRONG> defines the default behaviour when small letters are
+entered. If CAPS=1 is stated, then lower case letters are changed to
+capital ones if not otherwise stated in the RESTR statement.
+
+By the option <STRONG>INTDEF</STRONG> one can define the default display length of the
+integer variable in the form. This default value can be overridden for
+given variables by an INT statement.
+The program estimates the maximum number of selection groups in one
+form. If the form file does not exist, then the default maximum number
+of selection groups is 50. The user may give this maximum value by the
+option <STRONG>MAXGROUPS</STRONG>. The option <STRONG>MAXCHOICES</STRONG> can be used to define
+the maximum number of alternatives in one selection group (default 50).
+
+The maximum number of standard fields plus the number of selection
+fields in selection groups is 300. This upper limit cannot be increased.
+The FEDIT operation can be used with Survo data files having 1200 va-
+riables at most!
+
+   <A HREF="qw71_01.html">M = More information on FEDIT operation</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

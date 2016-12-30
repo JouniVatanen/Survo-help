@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Q-Q plots
+
+COMPARE &lt;Sample_1&gt;,&lt;Sample_2&gt;,L / TEST=Q-Q
+computes the quantiles of both samples, saves them in a Survo data
+file _QQ.SVO, and generates a GPLOT scheme (from the line L onwards)
+for making a quantile-quantile (q-q) plot.
+This scheme may be refined by the user according to his/her needs.
+
+If 0&lt;p&lt;1, and the fraction of values below x(p) is p, x(p) is the
+p-quantile in the (empirical) distribution of x.
+In the q-q plot the x(p)-values of both samples are plotted against
+each other. If the sample sizes are not equal, the x(p)-values of
+the smaller sample are plotted against corresponding values in the
+greater sample obtained by linear interpolation.
+Hence if the samples come from the same distribution, the quantile
+points are approximately on the line y=x.
+
+More generally, if samples 1 and 2 are generated from distributions
+of independent variables X and Y and the Y distribution is obtained
+from the X distribution by a linear mapping Y=a*X+b, then in the q-q
+plot we have the same dependence.
+For example, if the samples are drawn from distributions N(m1,s1^2) and
+N(m2,s2^2), the quantile points are roughly on the line
+(y-m2)/s2=(x-m1)/s1. Thus mere linearity of a q-q graph does not imply
+a common distribution.
+  <A HREF="qa2_01.html#TEST">T = More information about COMPARE</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

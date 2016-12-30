@@ -1,0 +1,257 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QTU4
+0004|*LOAD EDQTU1
+0006|+TUTSTACK? þ PRINT CUR+1,E TO qtu4_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Sucro memory (tutstack)
+0012|*All advanced operations in sucros (like conditional statements or
+0013|*prompts for the user) are based on the information collected in
+0014|*a special internal memory called a tutstack.
+0016|- shadow a: [LINK(qtu4_02.html)]
+0017|*  1 = General information
+S   |   a                     |
+0018|- shadow a: [LINK(qtu4_04.html)]
+0019|*  2 = TUTSTACK command
+S   |   a                  |
+0020|- shadow a: [LINK(qtu1_01.html)]
+0021|*  S = General information on sucros
+S   |   a                               |
+0023|E
+0025|+T1? þ PRINT CUR+1,E TO qtu4_02.html
+0026|- include HTML40.DEV
+0027|- include Q.DV2
+0028|- [HelpText]
+0029|*The contents of the tutstack is always a string of the form
+0030|a  word1@word2@word3@...
+0031|*Each substring corresponding to one item (word, number, or string in
+0032|ageneral) is terminated by '@'. These items are called in sucro
+0033|*programs by W1,W2,W3,...  These names can be replaced by any names
+0034|*starting by 'W' by giving comment lines (/ in the control column)
+0035|*of the form
+0036|*   / def Wdata=W1 Wvar1=W2 Wvar2=W3
+0037|*In names, W must be followed by a letter. Other characters may be
+0038|*letters and digits.
+0040|*When a sucro is activated with parameters (example: /TEST DATA1,X5,X9)
+0041|*the tutstack is initiated by the parameters (example: W1=DATA1, W2=X5,
+0042|*W3=X9). If no parameters are given, W1=(empty) .
+0044|*The tutstack can also be initiated and examined by a TUTSTACK command.
+0045|*The maximum number of characters in the tutstack is 999.
+0047|*The sucro language provides different statements for operating with the
+0048|*tutstack. Some of these statements save more words and numbers
+0049|*in the tutstack.
+0050|*In the earlier versions of Survo, all the new items were saved at the
+0051|*end of the current tutstack ('stack' derives from this idea). Currently
+0052|*most of these statements have alternative forms replacing items also in
+0053|*the middle of the tutstack and these new forms should be preferred.
+0054|aFor example, {stack word} puts the 'word' touched by the cursor at
+0055|athe end of the tutstack, but {save word W3} or {save word Wcheck}
+0056|*puts it in the place of W3 or Wcheck (defined by / def Wcheck=W3 ,
+0057|*for example).
+0059|- shadow a: [LINK(qtu4_01.html)]
+0060|*   M = More information on the sucro memory
+S   |    a                                      |
+0061|- shadow a: [LINK(qtu1_01.html)]
+0062|*   S = General information on sucros
+S   |    a                               |
+0063|E
+0064|+M? þ PRINT CUR+1,E TO qtu4_03.html
+0065|- include HTML40.DEV
+0066|- include Q.DV2
+0067|- [HelpText]
+0069|- shadow a: [LINK(qtu4_01.html)]
+0070|*   M = More information on the sucro memory
+S   |    a                                      |
+0071|- shadow a: [LINK(qtu1_01.html)]
+0072|*   S = General information on sucros
+S   |    a                               |
+0073|E
+0075|+T2? þ PRINT CUR+1,E TO qtu4_04.html
+0076|- include HTML40.DEV
+0077|- include Q.DV2
+0078|- [HelpText]
+0079|#TUTSTACK <new_tutstack>
+S   |          <            >
+0080|*initiates the tutstack.
+0081|*TUTSTACK (without any parameters)
+0082|*displays the contents of the tutstack on the next edit line.
+0084|*Example:
+0085|aTUTSTACK 11@SURVO MM@Data1
+0086|*initiates the tutstack with words W1=11, W2=SURVO MM, and W3=Data1.
+0087|*Thereafter activating of TUTSTACK without parameters gives on the next line:
+0088|a11@SURVO MM@Data1@ .
+0090|*The TUTSTACK command is useful when testing new sucros. One can
+0091|*initiate and read it for further examination.
+0093|- shadow a: [LINK(qtu4_01.html)]
+0094|*   M = More information on the sucro memory
+S   |    a                                      |
+0095|- shadow a: [LINK(qtu1_01.html)]
+0096|*   S = General information on sucros
+S   |    a                               |
+0097|E
+0099|+TUTOP? þ PRINT CUR+1,E TO qtu4_05.html
+0100|- include HTML40.DEV
+0101|- include Q.DV2
+0102|- [HelpText]
+0103|*Sucro memory (tutstack) operations:
+0105|a{stack char}        saves the current character (touched by the cursor)
+0106|*                    at the end of the tutstack.
+0107|a{save char Wi}      saves the current character in the tutstack in Wi.
+0109|a{stack word}        saves the current word (touched by the cursor)
+0110|*                    at the end of the tutstack.
+0111|a{save word Wi}      saves the current word in the tutstack in Wi.
+0113|a{next word}         finds the next word on the current line. If the
+0114|*                    next word is not in the visible part of the line,
+0115|*                    the cursor is not moved.
+0116|a{next col}          finds the next word on the current line. Also
+0117|*                    words not currently visible on the line will be
+0118|*                    found.
+0120|*Sucro memory (tutstack) operations:                  (continued)
+0122|a{stack cursor}      saves the number of the current edit line
+0123|*                    and the number of the current column as two
+0124|*                    last items in the tutstack.
+0125|a{save cursor Wi,Wj} saves the number of the current edit line in Wi and
+0126|*                    the number of the current column in Wj.
+0128|a{stack corner}      saves the number of the first visible edit line
+0129|*                    and the number of the first visible column as two
+0130|*                    last items in the tutstack.
+0131|a{save corner Wi,Wj} saves the number of the first visible edit line in Wi
+0132|*                    and the number of the first visible column in Wj.
+0134|a{stack dim}         saves the number of lines and number of columns
+0135|*                    of the current edit field as two last items
+0136|*                    in the tutstack.
+0137|a{save dim Wi,Wj}    saves the number of lines of the current edit field
+0138|*                    in Wi and the number of columns in Wj.
+0139|a{save shadowdim Wi,Wj} saves the maximum number of shadow lines of the
+0140|*                    edit field in Wi and the current number of them in Wj.
+0142|*Sucro memory (tutstack) operations:                  (continued)
+0144|a{stack line}         saves the current line from to the right from the
+0145|*                     cursor at the end of the tutstack.
+0146|a{save line Wi}       saves the current line from to the right from the
+0147|*                     cursor in Wi.
+0149|a{stack datapath}     saves the Survo data path (displayed on the header
+0150|*                     line of the edit field) at the end of the tutstack.
+0151|a{save datapath Wi}   saves the Survo data path in Wi.
+0152|a{stack default datapath}
+0153|*                     saves the default data path given by edisk in
+0154|*                     SURVO.APU at the end of the tutstack.
+0155|a{stack tempdisk}     saves the path for temporary files in Survo operations
+0156|*                     given by tempdisk in SURVO.APU at the end of the tutstack.
+0157|a{stack systemdisk}   saves the Survo system disk designation (typically
+0158|*                     C:) at the end of the tutstack.
+0159|a{save systemdisk Wi} saves the Survo system disk designation in Wi.
+0160|a{save systempath Wi} saves the Survo system path designation (typically
+0161|*                     C:\E\) in Wi.
+0164|*Sucro memory (tutstack) operations:                  (continued)
+0166|a{del stack}          clears the entire tutstack.
+0167|a{del stack Wi}       clears the tutstack from Wi onwards.
+0169|a{get key}            appends the next key pressed by the user to the
+0170|*                     tutstack. In case of a special key. the tutstack
+0171|*                     is appended by 'SK' and the function of the key
+0172|*                     executed.
+0173|a{get key Wi}         puts the next key pressed in Wi.
+0174|a{save time Wi}       puts the current time (in milliseconds) elapsed
+0175|*                     from the start of the Survo session in Wi.
+0178|*Sucro memory (tutstack) operations:                  (continued)
+0180|a{save stack}         saves the entire tutstack temporarily.
+0181|a{load stack}         appends the tutstack saved by {save stack} to the
+0182|*                     end of the current tutstack. Thus, to replace
+0183|*                     the current tutstack by the saved one, use
+0184|a                     {del stack}{load stack} .
+0186|a{save stack <file>}  saves the current tutstack in file <file> on the
+S   |             <    >                                      <    >
+0187|*                     path of Survo temporary files (defined by tempdisk
+0188|*                     in SURVO.APU)
+0189|a{load stack <file>}  replaces the current tutstack by the one saved
+S   |             <    >
+0190|a                     earlier by {save stack <file>}. Please, note the
+S   |                                             <    >
+0191|a                     difference to {load stack}; no {del stack} is
+0192|*                     needed.
+0193|*                     The file name <file> can be given literally as
+S   |                                    <    >
+0194|a                     {save stack TEMP1} or through a tutstack member as
+0195|a                     {save stack W1} .
+0196|a{save field <file>}  saves the current edit field on the disk. Default
+S   |             <    >
+0197|*                     path is defined by tempdisk in SURVO.APU.
+0199|*Sucro memory (tutstack) operations:                  (continued)
+0201|a{print Wi}           prints the contents of Wi in the edit field
+0202|*                     as a string.
+0203|a{write Wi}           writes the contents of Wi in the edit field
+0204|*                     as a string.
+0205|*                     The 'write' command types text as if it were
+0206|*                     written by the user (i.e. insert and display modes,
+0207|*                     end of line, etc. are observed) while 'print'
+0208|*                     simply sets down text regardless of display status.
+0210|a{find Wi}            finds the next occurrence of the first character
+0211|*                     of Wi on the current line.
+0212|a{find string Wi}     finds the next occurrence of the string saved in
+0213|*                     Wi on the current line. Wi can be replaced by a literal
+0214|*                     string.
+0215|a                     Examples: {W4= TO }{find string W4}  = Find " TO "
+0216|a                               {find string ABC}          = Find "ABC"
+0218|*Sucro memory (tutstack) operations:                  (continued)
+0220|a{pre}l<key>          appends the label of the key to the tutstack.
+S   |       <   >
+0221|a                     For example, {pre}l{home} appends 'HOME'.
+0223|a{jump Wi,Wj,Wk}      moves the cursor to line Wj and column Wk. The
+0224|*                     line Wi is displayed as the first visible one.
+0225|*                     Each of Wi,Wj,Wk can be replaced by a constant
+0226|*                     integer.
+0227|a{jump Wi,Wj,Wh,Wk}   works as jump above but displays Wh as the first
+0228|*                     visible column.
+0230|*Example: Save the cursor/edit field location by
+0231|a         {save cursor Wrow,Wcol}{save corner Wrow1,Wcol1} .
+0232|*         Return to this place by
+0233|a         {jump Wrow1,Wrow,Wcol1,Wcol} .
+0235|a{save survo.apu Wi}
+0236|*                     saves the pathname of the default SURVO.APU file in Wi.
+0237|a{save survo2.apu Wi}
+0238|*                     saves the pathname of the current SURVO.APU file in Wi.
+0240|*Sucro memory (tutstack) operations:                  (continued)
+0242|a{save system <system_word> Wi}
+S   |              <           >
+0243|*                     saves the system parameter defined by
+0244|*                     <system_word> in the Survo system file SURVO.APU
+S   |                      <           >
+0245|*                     in Wi.
+0246|a                     Example: {save system accuracy W3}
+0247|*                     saves the 'accuracy' parameter in W3.
+0248|a{save spec <specification_word> Wi}
+S   |            <                  >
+0249|*                     saves the value of the specification given in the
+0250|*                     current edit field by <specification_word> in Wi.
+S   |                                            <                  >
+0251|*                     If the spefification doesn't exist, an empty
+0252|a                     string {} is saved.
+0253|a                     Example: {save spec DEVICE W4}
+0254|*                     saves the current value of the DEVICE specification in W4.
+0256|a{save spec2 Wj Wi}   save the value of the specification word given
+0257|*                     in the current edit field as the value of Wj
+0258|*                     in Wi.
+0260|*Sucro memory (tutstack) operations:                  (continued)
+0262|a{save language Wi}   saves the language of the current Survo version in Wi.
+0263|*                     Wi=1: Finnish, Wi=2: English
+0264|a{save survotype Wi}  saves the type of the current Survo version in Wi.
+0265|*                     Wi=1: SURVO 84C, Wi=2: SURVOS Wi=3: SURVO 98,MM
+0267|a{load sucro Wi}      continues with another sucro with name Wi.
+0268|a{save insertmode Wi} saves 1 when insert mode is on, otherwise 0.
+0269|a{save fieldtype Wi}  saves 1 when the current edit field cannot be
+0270|*                     used in SURVO 84C, otherwise 0 is saved.
+0271|- [New]
+0272|*{save dataname Wi}   saves the name of current data file.
+0273|*{save os Wi}         saves the name of the operating system.
+0274|*                     Current alternatives: NT, Win98, Win95
+0275|*{save version Wi}    saves the version number of the current SURVO MM.
+0276|*{save winsize Wi,Wj} saves # of lines and # of columns of the Survo
+0277|*                     main window.
+0278|- [/New]
+0280|- shadow a: [LINK(qtu3_01.html)]
+0281|*   C = More information on control words in sucro programs
+S   |    a                                                     |
+0282|- shadow a: [LINK(qtu1_01.html)]
+0283|*   S = General information on sucros
+S   |    a                               |
+0284|E

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">MASK without parameters is an operation which leads to the activation
+procedure for the fields of any Survo data file. (Another way to
+start the selection and activation procedure is to press key FILE_ACT, but
+this does not update any MASK line in the edit field.)
+
+After return from MASK procedure to normal edit mode the current
+line will contain a MASK specification of the form
+MASK=--XX-A-YX-R---AA- (for example)
+indicating the activated fields in the current data file.
+If a MASK specification appears in the current subfield,
+when a statistical operation like CORR,LINREG,TAB etc. is activated,
+it determines the roles of the variables in the analysis.
+However, a possible VARS specification always overrides MASK in
+statistical operations (See <A HREF="q03_12.html">VARS</A>?).
+
+By activation of a MASK line with a given mask string (MASK=--XX-A-- ,
+for example) the selection of the fields determined by that string will
+be shown for a selected file and this selection may be adjusted. After
+return to edit mode again the MASK line will show the latest selection.
+
+Since a data file can contain several optional mask columns (default
+number is 7), any of them can be used to indicate the selected vari-
+ables by giving its number #1,#2,#3,,, as MASK=#7.
+A partial selection according to a mask column is also possible. For
+example, MASK=#7(XY) selects the fields indicated by X or Y in mask
+column 7.
+Activation of a MASK line of this type will lead to a file activation
+display of that mask column for additional changes.
+
+  <A HREF="qf4_04.html">M = Setting masks by FILE MASK</A> 
+  <A HREF="q03_11.html">V = More information on selection of variables</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

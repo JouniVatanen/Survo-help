@@ -1,0 +1,46 @@
+A, BODY, CODE, DIV, EM, H1, HTML, IMG, P, STRONG, PRE, SMALL {
+    background: transparent; text-decoration: none;
+    margin: 0; padding: 0; border: 0;
+}
+BODY {
+    margin-left: 8%; margin-top: 2em;
+    margin-bottom: 0.5em; margin-right: 0;
+    font-family: sans-serif;
+    color: #001030; background: #FFFFFF
+    url(http://www.survo.fi/ornament.gif)
+    top left repeat-y fixed;
+}
+A {
+    text-decoration: none;
+}
+A:link {
+  color: #001030; background: transparent none;
+}
+A:visited {
+  color: #660066; background: transparent none;
+}
+A:active {
+  color: #001090; background: transparent none;
+}
+A:hover {
+  color: #0010F0; background: #CCCCCC;
+}
+PRE, CODE {
+    font-family: "Lucida Console", monospace;
+}
+.Banner {
+    font-family: Verdana, sans-serif; font-size: smaller;
+    color: #990000; background: transparent;
+    text-align: center;
+}
+.Details {
+    font-family: Verdana, sans-serif; font-size: smaller;
+    text-align: center;
+}
+A STRONG {
+    text-decoration: none;
+}
+H1 {
+  font-weight: bold;   font-size: large;   margin: 0.3em 0 0.2em ;
+  color: #001030; background: transparent none;
+}

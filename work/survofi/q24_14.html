@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">By the ESTIMATE operation also maximum likelihood estimates for
+parameters of a user-defined univariate distribution can be
+computed.
+The distribution has to be defined by a MODEL specification
+of the form:
+    10  *MODEL &lt;name of model&gt; 
+    11  *LOGDENSITY=&lt;logarithm of the density function&gt; 
+All other specifications are same as in ESTIMATE for regression
+models.
+Example on the next page:
+
+.......................................................................
+Estimation of a logit model:
+FILE CREATE TEST,24,3,64,7,10000 / Creating file TEST (10000 cases)
+FIELDS:
+1 N 4 X1
+2 N 4 X2
+3 N 1 Y
+END
+
+VAR X1,X2,Y TO TEST / Making simulated data values
+X1=rand(2002) X2=rand(2002) Y=int(rand(2002)+1/(1+exp(3-2*X1-3*X2)))
+Y is 1 with probability 1/(1+exp(3-2*X1-3*X2)) and Y=0 otherwise.
+
+Estimation of the model on the next page:
+
+Estimation of the logit model:
+{P}=1/(1+exp(C+a*X1+b*X2)) / Shorthand notation for the model function
+
+MODEL LM1
+LOGDENSITY=Y*log({P})+(1-Y)*log(1-{P})
+
+ESTIMATE TEST,LM1,CUR+1 / METHOD=M PRIND=0
+Estimated parameters of model LM1:
+C=2.87264 (0.0711958)
+a=-1.99688 (0.0807001)
+b=-2.75048 (0.0835568)
+n=10000 log(L)=-5830.526990 nf=56
+Correlations:
+                 C      a      b
+ C           1.000 -0.714 -0.749
+ a          -0.714  1.000  0.188
+ b          -0.749  0.188  1.000
+
+  <A HREF="q24_01.html">E = More information on ESTIMATE</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

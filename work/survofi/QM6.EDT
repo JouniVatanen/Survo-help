@@ -1,0 +1,209 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QM6
+0004|*LOAD EDQ
+0006|+MATDEC? þ PRINT CUR+1,E TO qm6_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Matrix decompositions:
+0011|- shadow a: [LINK(qm6_02.html)]
+0012|*  C = Cholesky
+S   |   a          |
+0013|- shadow a: [LINK(qm6_04.html)]
+0014|*  G = Gram-Schmidt
+S   |   a              |
+0015|- shadow a: [New][LINK(qm6_09.html)]
+0016|d  Q = QR decomposition
+S   |   a                  ;
+0017|- shadow a: [LINK(qm6_05.html)]
+0018|*  E = Spectral decomposition (eigenvalues and vectors)
+S   |   a                                                  |
+0019|- shadow a: [LINK(qm6_06.html)]
+0020|*  S = Singular value decomposition
+S   |   a                              |
+0022|- shadow a: [LINK(qm2_03.html)]
+0023|*  M = More information on MAT operations
+S   |   a                                    |
+0024|E
+0027|+CHOL? þ PRINT CUR+1,E TO qm6_02.html
+0028|- include HTML40.DEV
+0029|- include Q.DV2
+0030|- [HelpText]
+0031|#MAT C=CHOL(A)
+0032|*forms the Cholesky decomposition A=CC' of a positive definite matrix A
+0033|*where C is a lower triangular matrix.
+0035|- shadow a: [LINK(qm6_01.html)]
+0036|*  D = More information on matrix decompositions
+S   |   a                                           |
+0037|E
+0038|+DD? þ PRINT CUR+1,E TO qm6_03.html
+0039|- include HTML40.DEV
+0040|- include Q.DV2
+0041|- [HelpText]
+0043|- shadow a: [LINK(qm6_01.html)]
+0044|*  D = More information on matrix decompositions
+S   |   a                                           |
+0045|E
+0047|+GRAM? þ PRINT CUR+1,E TO qm6_04.html
+0048|- include HTML40.DEV
+0049|- include Q.DV2
+0050|- [HelpText]
+0051|#MAT GRAM-SCHMIDT DECOMPOSITION OF <A> TO <S>,<U>
+S   |                                   < >    < > < >
+0052|*finds the decomposition A=S*U where the columns of S are orthonormal
+0053|*and U is upper triangular. The columns of A must be linearly indepen-
+0054|*dent.
+0055|*If the columns of A are linearly dependent, the process is interrupted
+0056|*when the first dependency is found and an error message is displayed.
+0057|*Furthermore the coefficients indicating linear dependency are saved in S
+0058|*as a column vector. The user may check the dependency of columns by
+0059|*computing A*S which should be 0.
+0061|*The accuracy in testing linear dependence may be controlled by an extra
+0062|*parameter, i.e. writing
+0063|*MAT GRAM-SCHMIDT DECOMPOSITION OF <A> TO <S>,<U>,eps
+S   |                                   < >    < > < >
+0064|*Default value for eps is 1e-15.
+0066|- shadow a: [LINK(qm6_01.html)]
+0067|*  D = More information on matrix decompositions
+S   |   a                                           |
+0068|E
+0070|+EIGEN? þ PRINT CUR+1,E TO qm6_05.html
+0071|- include HTML40.DEV
+0072|- include Q.DV2
+0073|- [HelpText]
+0074|#MAT SPECTRAL DECOMPOSITION OF A TO S,L
+0075|*forms the spectral decomposition A=S*L*S' of a symmetric matrix A
+0076|*where S is the orthogonal matrix of eigenvectors (as columns) and
+0077|*L is the diagonal matrix of eigenvalues (saved as a column vector).
+0079|- shadow a: [LINK(qm6_01.html)]
+0080|*  D = More information on matrix decompositions
+S   |   a                                           |
+0081|E
+0083|+SING? þ PRINT CUR+1,E TO qm6_06.html
+0084|- include HTML40.DEV
+0085|- include Q.DV2
+0086|- [HelpText]
+0087|#MAT SINGULARVALUE DECOMPOSITION OF A TO U,D,V
+0088|- [New]
+0089|*Alternative forms:
+0090|*MAT SINGULAR VALUE DECOMPOSITION OF A TO U,D,V
+0091|*MAT SVD OF A TO U,D,V
+0092|- [/New]
+0094|*computes the singular value decomposition of A (m*n, m>=n)
+S   |                                                       >
+0095|*A=U*D*V' where U is m*n and U'U=I, V is n*n and V'V=I and
+0096|*D (n*n) is diagonal and consists of singular values.
+0097|*To spare space, D will be saved as a column vector.
+0099|*This decomposition has several applications. For example,
+0100|*X=V*DINV(DV(D))*U' is a generalized inverse of A with properties
+0101|*AXA=A, XAX=X, (AX)'=AX, (XA)'=XA.
+0102|- [New]
+0103|- shadow %: [LINK(qm2_05.html)] [/LINK]
+0104|*See also MPINV?
+S   |          %%%%%
+0105|- [/New]
+0107|- shadow a: [LINK(qm6_01.html)]
+0108|*  D = More information on matrix decompositions
+S   |   a                                           |
+0109|E
+0111|+MATSOL? þ PRINT CUR+1,E TO qm6_07.html
+0112|- include HTML40.DEV
+0113|- include Q.DV2
+0114|- [HelpText]
+0115|#MAT SOLVE <X> FROM <A>*<X>=<B>
+S   |           < >      < > < > < >
+0116|*where A is m*n, m>=n and r(A)=n,
+S   |                  >
+0117|*      B is m*k
+0118|*yields the solution X of linear equations (when m=n)
+0119|*    or the least squares solution X (when m>n).
+S   |                                            >
+0121|*The algorithm is automatically selected according to the nature of A:
+0122|*   If A is diagonal, solution is trivial,
+0123|*   else if A is triangular, straight backsubstitution is used,
+0124|*   else if A is symmetric, 'choldet1' and 'cholsol1' is used,
+0125|*   else (when m>=n) 'Ortholin1' is used.
+S   |                >
+0126|*If the columns of A are linearly dependent, an error message will be
+0127|*displayed. eps=1e-15 is the tolerence limit for 'non-zero' entities.
+0128|- shadow %: [LINK(qm6_06.html)] [/LINK]
+0129|*In this case the singular value decomposition may be used (see SING).
+S   |                                                                %%%%
+0131|*Reference: Wilkinson-Reinsch: Handbook for Automatic Computation,
+0132|*           Vol.II, Linear algebra.
+0133|- shadow a: [New][LINK(qm6_08.html)]
+0134|d  N = Solving AX=0 (Finding null space of A)
+S   |   a                                        ;
+0135|- shadow a: [LINK(qm2_03.html)]
+0136|*  M = More information on MAT operations
+S   |   a                                    |
+0137|E
+0140|+NULLSPAC? þ PRINT CUR+1,E TO qm6_08.html
+0141|- include HTML40.DEV
+0142|- include Q.DV2
+0143|- [HelpText]
+0144|*A basis for the null space of the matrix A, i.e. the solution of AX=0
+0145|*is found by the command
+0146|*MAT SOLVE X FROM A*X=0
+0147|*This is done by the singular value decomposition A=UDV' and taking
+0148|*the basis X of the null space as the columns of V corresponding to
+0149|*singular values = 0 (< 1e-15). The tolerance value (1e-15) can be
+S   |                      <
+0150|*changed by a specification EPS=<value>.
+S   |                                <     >
+0152|*An alternative operation is
+0153|*MAT X=NULL(A).
+0155|#MAT SOLVE <X> FROM <A>*<X>=<B>
+S   |           < >      < > < > < >
+0156|*where A is m*n, m>=n and r(A)=n,
+S   |                  >
+0157|*      B is m*k
+0158|*yields the solution X of linear equations (when m=n)
+0159|*    or the least squares solution X (when m>n).
+S   |                                            >
+0161|*The algorithm is automatically selected according to the nature of A:
+0162|*   If A is diagonal, solution is trivial,
+0163|*   else if A is triangular, straight backsubstitution is used,
+0164|*   else if A is symmetric, 'choldet1' and 'cholsol1' is used,
+0165|*   else (when m>=n) 'Ortholin1' is used.
+S   |                >
+0166|*If the columns of A are linearly dependent, an error message will be
+0167|*displayed. eps=1e-15 is the tolerence limit for 'non-zero' entities.
+0168|- shadow %: [LINK(qm6_06.html)] [/LINK]
+0169|*In this case the singular value decomposition may be used (see SING).
+S   |                                                                %%%%
+0171|*Reference: Wilkinson-Reinsch: Handbook for Automatic Computation,
+0172|*           Vol.II, Linear algebra.
+0173|- shadow a: [New][LINK(qm6_08.html)]
+0174|d  N = Solving AX=0 (Finding null space of A)
+S   |   a                                        ;
+0175|- shadow a: [LINK(qm2_03.html)]
+0176|*  M = More information on MAT operations
+S   |   a                                    |
+0177|E
+0179|+QR? þ PRINT CUR+1,E TO qm6_09.html
+0180|- include HTML40.DEV
+0181|- include Q.DV2
+0182|- [HelpText]
+0183|#MAT QR OF A TO Q,R
+0184|*makes the QR factorization of m*n A (m>=n) by Householder transformations
+S   |                                       >
+0185|*(Algorithm 5.2.1 in Golub, van Loan: Matrix Computations, 1989).
+0186|*Q will be m*m orthogonal matrix and R m*n upper triangular so that
+0187|*A=Q*R.
+0189|*MAT QRP OF A TO Q,R,tol
+0190|*makes the Householder QR with column pivoting of m*n A
+0191|*(Algorithm 5.4.1 in Golub, van Loan: Matrix Computations, 1989).
+0192|*The permutation of columns is saved in QR_PERM.M so that
+0193|*PERM2(A,QR_PERM.M)=Q*R.
+0194|*tol gives the lowest admitted pivot value for rank determination.
+0195|*Default is tol=1e-15.
+0196|*r=rank(A) and an indicator vector of the optimal permutation is saved
+0197|*in QR_SEL.M .
+0198|*Then
+0199|*MAT A2=SUB(A,*,QR_SEL.M)
+0200|*gives m*r A2 as a basis of the column space of A.
+0202|- shadow a: [LINK(qm6_01.html)]
+0203|*  D = More information on matrix decompositions
+S   |   a                                           |
+0204|E

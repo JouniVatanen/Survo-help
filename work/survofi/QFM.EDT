@@ -1,0 +1,400 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QFM
+0005|*................................................................................
+0006|*LOAD EDQ
+0007|*/LOAD G:\E\U\D\M_HELP1
+0009|+MEDIT? þ PRINT CUR+1,E TO qfm_01.html
+0010|- include HTML40.DEV
+0011|- include Q.DV2
+0012|- [HelpText]
+0013|#FILE MEDIT <data_file>
+S   |            <         >
+0014|*or
+0015|*FILE MEDIT <data_file> <medit_file>:<name_of_pages>
+S   |            <         > <          > <             >
+0017|*is an general environment for displaying, saving, and editing
+0018|*of Survo data files.
+0019|*In the first form FILE MEDIT works like FILE EDIT but enables any
+0020|*number of variables to be displayed and edited. Each observation may then
+0021|*occupy one or more pages.
+0022|*In the second form a user-defined layout of any number of pages
+0023|*is employed. The pages are defined in an edit file <medit_file>.
+S   |                                                    <          >
+0024|*Each page may contain fields for variables in <data_file> and
+S   |                                               <         >
+0025|*free-format textual comments. Comments may be conditional,
+0026|*depending on the observation at hand. Also derived fields
+0027|*containing functions of original variables may appear.
+0028|*Furthermore sound effects, voice comments and graphical displays
+0029|*can be inserted.
+0030|*FILE MEDIT provides general checking facilities for data integrity
+0031|*according to the needs of the user.
+0032|*Search and other options are similar to those of FILE SHOW.
+0033|- shadow W: [LINK(http://www.survo.fi/medit/medit0.html)] [/LINK]
+0034|*See also http://www.survo.fi/medit/medit0.html
+S   |          WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0037|- [NAME(MEDIT0)][/NAME] / qfm_01.html#MEDIT0 MEDIT0?
+0038|*FILE MEDIT
+0040|- shadow a: [LINK(qfm_03.html)]
+0041|*  1 = Introductory comments and examples
+S   |   a                                    |
+0042|- shadow a: [LINK(qfm_04.html)]
+0043|*  2 = Saving and editing data
+S   |   a                         |
+0044|- shadow a: [LINK(qfm_05.html)]
+0045|*  3 = Derived fields and data-dependent comments
+S   |   a                                            |
+0046|- shadow a: [LINK(qfm_06.html)]
+0047|*  4 = Classifying and listing of observations
+S   |   a                                         |
+0048|- shadow a: [LINK(qfm_08.html)]
+0049|*  5 = Conditional moves between pages
+S   |   a                                 |
+0050|- shadow a: [LINK(qfm_09.html)]
+0051|*  6 = Conditional pages
+S   |   a                   |
+0052|- shadow a: [LINK(qfm_10.html)]
+0053|*  7 = Special functions
+S   |   a                   |
+0054|- shadow a: [LINK(qfm_11.html)]
+0055|*  8 = Variable-independent setups (MEDIT_VARS)
+S   |   a                                          |
+0056|- shadow a: [LINK(qfm_12.html)]
+0057|*  9 = Inserting graphics etc. to FILE MEDIT pages (sucro /MEDITS)
+S   |   a                                                             |
+0058|- shadow a: [LINK(qfm_13.html)]
+0059|*  A = Background information from other data files (INDATA)
+S   |   a                                                       |
+0060|- shadow a: [LINK(qfm_14.html)]
+0061|*  C = Checking data values (CHECK specification)
+S   |   a                                            |
+0063|- shadow a: [LINK(qfm_07.html)]
+0064|*  S = Advanced applications
+S   |   a                       |
+0065|- shadow a: [LINK(qfm_15.html)]
+0066|*  O = Options
+S   |   a         |
+0068|- shadow a: [LINK(qf1_01.html)]
+0069|*  D = Data file management in general
+S   |   a                                 |
+0071|E
+0073|+MM? þ PRINT CUR+1,E TO qfm_02.html
+0074|- include HTML40.DEV
+0075|- include Q.DV2
+0076|- [HelpText]
+0078|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0079|*  M = More information on FILE MEDIT
+S   |   a                                |
+0080|E
+0082|+MEDIT1? þ PRINT CUR+1,E TO qfm_03.html
+0083|- include HTML40.DEV
+0084|- include Q.DV2
+0085|- [HelpText]
+0086|*FILE MEDIT <data_file>
+S   |            <         >
+0087|*works like FILE EDIT but enables any number of variables to be displayed
+0088|*and edited. Each observation may then occupy one or more pages.
+0089|*Each variable is shown on its own line in the form
+0090|*  <name_of_variable>: <format>  <extension of name of variable>
+S   |   <                >  <      >  <                             >
+0091|*Example:
+0092|*   Income:   ######   Income per inhabitant in 1979
+0093|*FILE MEDIT (of the simple form above) also creates an edit file _MEDIT
+0094|*containing the default layout. This layout can be modified and extended
+0095|*according to the needs of the user.
+0097|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0098|*  M = More information on FILE MEDIT
+S   |   a                                |
+0099|E
+0101|+MEDIT2? þ PRINT CUR+1,E TO qfm_04.html
+0102|- include HTML40.DEV
+0103|- include Q.DV2
+0104|- [HelpText]
+0105|*After creating a data file (by FILE CREATE, for example) FILE MEDIT
+0106|*can be used for saving and editing data values with or without
+0107|*a predefined setup of FILE MEDIT pages.
+0108|*The rules are mostly the same as in FILE SHOW.
+0111|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0112|*  M = More information on FILE MEDIT
+S   |   a                                |
+0113|E
+0115|+MEDIT3? þ PRINT CUR+1,E TO qfm_05.html
+0116|- include HTML40.DEV
+0117|- include Q.DV2
+0118|- [HelpText]
+0119|*Various derived fields (calculated according to rules of editorial
+0120|*computing) are presented on FILE MEDIT pages in the form
+0122|*Population density: ####.# inhabitants/km^2 / density=Popul/Area
+0124|*giving in data FINLAND for Helsinki:
+0126|*Population density: 2731.1 inhabitants/km^2 / density=Popul/Area
+S   |                     444444
+0128|*Values of variables and expressions can be presented also
+0129|*as data-dependent comments, for example:
+0131|*Population density in %1 is %2. / %1=Commune %2=round(Popul/Area,1)
+0133|*giving in data FINLAND for Helsinki:
+0135|*Population density in Helsinki is 2731.1.
+0138|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0139|*  M = More information on FILE MEDIT
+S   |   a                                |
+0140|E
+0142|+MEDITCL? þ PRINT CUR+1,E TO qfm_06.html
+0143|- include HTML40.DEV
+0144|- include Q.DV2
+0145|- [HelpText]
+0146|*Especially in free-format statements about properties of observations
+0147|*it is worthwhile to use CLASSIFICATION structures which are partially
+0148|*similar to those in the CLASSIFY operation.
+0149|*A classification is defined as
+0150|*CLASSIFICATION <name_of_classification>
+S   |                <                      >
+0151|*<list_of_values>: <value_or_statement>
+S   | <              >  <                  >
+0152|*<list_of_values>: <value_or_statement>
+S   | <              >  <                  >
+0153|*...
+0154|*END
+0155|*and the values of variables are classified by a special function
+0156|*$CLASS(<name_of_variable>,<name_of_classification>).
+S   |        <                > <                      >
+0158|*Then, for example, purely verbal narrations of observations may be
+0159|*created.
+0160|*In such situations it is also good to collect selected or even all
+0161|*descriptions to one edit field (by a MEDIT_SAVE specification).
+0163|*These features are illustrated in the next example.
+0165|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0166|*  M = More information on FILE MEDIT
+S   |   a                                |
+0167|E
+0169|+SPECIAL? þ PRINT CUR+1,E TO qfm_07.html
+0170|- include HTML40.DEV
+0171|- include Q.DV2
+0172|- [HelpText]
+0173|*Advanced applications of FILE MEDIT (not available in the Web edition)
+0175|*An application with symbolic notations |X1|,|X2|,...
+0176|*Monthly data presented by years (tables and graphs)
+0177|*An example in Finnish
+0178|*A non-standard application:
+0181|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0182|*  M = More information on FILE MEDIT
+S   |   a                                |
+0183|E
+0185|+MOVES? þ PRINT CUR+1,E TO qfm_08.html
+0186|- include HTML40.DEV
+0187|- include Q.DV2
+0188|- [HelpText]
+0189|*It is possible to move from a MEDIT FILE page to another
+0190|*(also backwards) and even within the same observation.
+0191|*A <NEXT> list located at the end of the page (before END) provides this
+S   |   <    >
+0192|*facility.
+0193|*In the <NEXT> list conditional moves to other pages are given in
+S   |        <    >
+0194|*the form
+0195|*<condition> <page_to_be_selected_if_condition_is_true> <comments>
+S   | <         > <                                        > <        >
+0196|*<condition> can be of the type SELECT or an equality or inequality
+S   | <         >
+0197|*composed of arithmetic expression of variables.
+0198|*Example:
+0199|*<NEXT> 6  / comments to be shown on the edit line 6
+S   | <    >
+0200|*Smoke=1    Smoke     Moving to page 'Smoke'!
+0201|*Smoke=0    NonSmoke  Moving to page 'NonSmoke'!
+0202|*END (of the page)
+0204|*This feature is useful when saving results of surveys where relevant
+0205|*questions for any individual are dependent on the feedback obtained in
+0206|*earlier questions.
+0208|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0209|*  M = More information on FILE MEDIT
+S   |   a                                |
+0210|E
+0212|+COND_PAG? þ PRINT CUR+1,E TO qfm_09.html
+0213|- include HTML40.DEV
+0214|- include Q.DV2
+0215|- [HelpText]
+0216|*Some of the FILE MEDIT pages may be conditional depending on the
+0217|*properties of the observation.
+0218|*A conditional page is indicated by a page header of the form
+0220|*Page:<name> CONDITION:<condition of type SELECT>
+S   |      <    >           <                        >
+0222|*Example:
+0223|*Northern=Province:LAP,OUL,VAA,KUO Small=Popul,0,10000
+0224|*Page 2a: CONDITION:Northern*Small
+0226|*%1 is a northern and small commune. / %1=Commune
+0228|*END
+0230|*Since variables with lags and leads can also be used on FILE MEDIT
+0231|*pages, monthly time series may be presented year by year, for example.
+0233|*In the example below only cases 'January' are selected, but on the pages
+0234|*also information about other months can be given by using notations
+0235|*Temp[+1],Temp[+2],... for variable Temp.
+0237|*January=Month:1 / Definition of the condition
+0238|*PAGE Page1: CONDITION:January
+0240|*Year: ####
+0241|*Temperature in January %1   / %1=Temp
+0242|*Temperature in February %1  / %1=Temp[+1]
+0243|*Temperature in March %1     / %1=Temp[+2]
+0244|*etc.
+0245|*END
+0247|*This feature is used in the following advanced example.
+0249|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0250|*  M = More information on FILE MEDIT
+S   |   a                                |
+0251|E
+0253|+FUNC? þ PRINT CUR+1,E TO qfm_10.html
+0254|- include HTML40.DEV
+0255|- include Q.DV2
+0256|- [HelpText]
+0257|*In addition to standard mathematical functions (like sqrt(),log(), etc.)
+0258|*certain special functions are available on FILE MEDIT pages.
+0260|*$MEAN(X)      arithmetic mean of variable X in non-missing observations.
+0261|*$STDDEV(X)    standard deviation of X
+0262|*$N(X)         number of of non-missing observations of X
+0263|*$CORR(X,Y)    correlation coefficient between variables X and Y.
+0264|*$MIN(X)       smallest value of X
+0265|*$MAX(X)       greatest value of X
+0266|*$ORDER()      order of current observation
+0267|*$DAY()        current day of month (values 1,2,...,31)
+0268|*$MONTH()      current month (values 1,2,...,12)
+0269|*$YEAR()       current year (values 2005,2006,...)
+0270|*$WDAY()       current weekday (1=Monday,...,7=Sunday)
+0271|- shadow %: [LINK(qfm_06.html)] [/LINK]
+0272|*$CLASS        See MEDITCL?
+S   |                   %%%%%%%
+0274|*In the next |EXAMPLE| also usage of timestamps (MEDIT_TIME) is shown.
+0276|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0277|*  M = More information on FILE MEDIT
+S   |   a                                |
+0278|E
+0280|+VARS? þ PRINT CUR+1,E TO qfm_11.html
+0281|- include HTML40.DEV
+0282|- include Q.DV2
+0283|- [HelpText]
+0284|*By using symbolic notations |X1|,|X2|,... for variables and a MEDIT_VARS
+0285|*specification of the form MEDIT_VARS=Var1,Var2,...
+0286|*variable-independent setups for FILE MEDIT can be created.
+0288|*Example:
+0289|*Assume that we have created FILE MEDIT pages EX2 in the edit file ED2
+0290|*and used names |X1| and |X2| for the two variables appearing on pages
+0291|*EX2.
+0292|*Then the setup can be applied to variables Height and Weight in DECA by
+0293|*FILE MEDIT DECA ED2:EX2 / MEDIT_VARS=Height,Weight
+0294|*and to variables Income and Brthrate in FINLAND by
+0295|*FILE MEDIT FINLAND ED2:EX2 / MEDIT_VARS=Income,Brthrate
+0297|*|EXAMPLE| of this feature is presented in special applications of
+0298|*FILE MEDIT (Study of two variables).
+0300|- shadow a: [LINK(qfm_07.html)]
+0301|*  S = Special applications
+S   |   a                      |
+0302|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0303|*  M = More information on FILE MEDIT
+S   |   a                                |
+0304|E
+0306|+MEDITS? þ PRINT CUR+1,E TO qfm_12.html
+0307|- include HTML40.DEV
+0308|- include Q.DV2
+0309|- [HelpText]
+0310|*The displays of FILE MEDIT pages can be extended by graphs or other
+0311|*things related to the data and the observation at hand by setting
+0312|*SUCRO:MEDITS on the PAGE line (see below).
+0313|*Then a special sucro MEDITS will work with commands and data appearing
+0314|*between lines <START> and <END> (see below).
+S   |               <     >     <   >
+0316|*Example:
+0317|*PAGE Page1: SUCRO:MEDITS
+0319|*(Text and fields displayed by FILE MEDIT itself)
+0321|*<START> data for sucro MEDITS
+S   | <     >
+0323|*Commands activated by /MEDITS and specifications related to commands:
+0324|*Each command to be activated by /MEDITS is indicated by the code <ACT>
+S   |                                                                  <   >
+0325|*at the end of the line.
+0327|*<END> data of sucro MEDITS
+S   | <   >
+0328|*END of page
+0330|*Before the MEDITS sucro does its job in current application, another
+0331|*(new) Survo session is started and MEDITS will work in this environment.
+0332|*The code of MEDITS is listed by
+0333|*/TUTSHOW <Survo>\U\S\MEDITS
+S   |          <     >
+0335|*MEDITS may be replaced by another sucro if needed.
+0337|*|EXAMPLE|'s of this feature is presented in special applications of
+0338|*FILE MEDIT (Study of two variables and Weather in Helsinki).
+0340|- shadow a: [LINK(qfm_07.html)]
+0341|*  S = Special applications
+S   |   a                      |
+0342|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0343|*  M = More information on FILE MEDIT
+S   |   a                                |
+0344|E
+0346|+INDATA? þ PRINT CUR+1,E TO qfm_13.html
+0347|- include HTML40.DEV
+0348|- include Q.DV2
+0349|- [HelpText]
+0350|*Background information from other data files (INDATA)
+0352|*Information from other data files can be displayed on FILE MEDIT pages.
+0353|*These other data files are referred to by an INFILE specification.
+0354|*INFILE lists the names of additional data files (as in the VAR
+0355|*operation). These files are referred to by names D1,D2,... in the order
+0356|*they appear in the INFILE list.
+0358|*For example, if we have INFILE=DATX,DATY then D2:Weight refers to
+0359|*variable 'Weight' in data file DATY.
+0361|*By default, values of INFILE data are matched according to the order
+0362|*of the observation.
+0363|*They can also matched by a certain (identification) variable appearing
+0364|*in both files by using notation of the form
+0365|*Di:data_file_i>match_variable  (example: D2:Weight>Name).
+S   |               >                                   >
+0367|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0368|*  M = More information on FILE MEDIT
+S   |   a                                |
+0369|E
+0371|+CHECK? þ PRINT CUR+1,E TO qfm_14.html
+0372|- include HTML40.DEV
+0373|- include Q.DV2
+0374|- [HelpText]
+0375|*After saving data values in a Survo data file by FILE MEDIT (or by
+0376|*FILE SHOW etc.), the correctness of values may be checked by retyping
+0377|*values in FILE MEDIT by using a CHECK specification.
+0378|*During checking only values of variables given in the CHECK
+0379|*specification are readily displayed and they are protected.
+0380|*Thus typically at least the name or the id number of the observation is
+0381|*given.
+0382|*Also values of derived fields are shown. Other fields seem to be blank
+0383|*but they become visible when the retyping procedure proceeds.
+0384|*If a new value typed in a blank field is different from the original
+0385|*one, an error message is displayed and the user may decide which is
+0386|*the correct value.
+0387|*Example:
+0388|*CHECK=Commune,Province
+0389|*FILE MEDIT FINLAND
+0391|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0392|*  M = More information on FILE MEDIT
+S   |   a                                |
+0393|E
+0395|+OPTIONS? þ PRINT CUR+1,E TO qfm_15.html
+0396|- include HTML40.DEV
+0397|- include Q.DV2
+0398|- [HelpText]
+0399|*Predefined options in FILE SHOW:
+0400|SSpecification OPTIONS=<string> sets certain options for FILE MEDIT.
+S   | //////////////////////<//////>/////////////////////////////////////
+0401|*OPTIONS=W permits updating of data (without a need to press F3).
+0402|*OPTIONS=S initiates sound effects.
+0403|*OPTIONS=I sets insert mode.
+0404|*OPTIONS=T forces pressing TAB when encountering a field limit
+0405|*          when data is typed or edited.
+0406|*OPTIONS=P forces pressing PgDn or PgUp for page changes
+0407|*OPTIONS=C writes '.' instead of ',' and vice versa.
+0408|*Options can be combined. Example: OPTIONS=WS
+0410|SSpecification RECORD tells the first record to be displayed.
+S   | ////////////////////////////////////////////////////////////
+0411|*RECORD=101  selects record (observation) #101.
+0412|*RECORD=Commune:Helsinki selects the (first) observation with value
+0413|*       'Helsinki' in field `Commune'.
+0414|*RECORD=Popul>400000 selects the first observation with greater value
+S   |             >
+0415|*       than 400000 in variable `Popul'.
+0418|- shadow a: [LINK(qfm_01.html#MEDIT0)]
+0419|*  M = More information on FILE MEDIT
+S   |   a                                |
+0420|E

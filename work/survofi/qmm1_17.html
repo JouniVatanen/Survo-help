@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">CORRMV &lt;Survo_data&gt;,L
+computes means, standard deviations, and correlations from active
+variables and observations by accepting also cases containing
+missing values. The standard CORR module leaves out all incomplete
+cases.
+The default method (METHOD=1) is a simplified EM algorithm by S.Mustonen.
+In this method the data set is first standardized (means=0 stddevs=1)
+and the missing values are replaced by 0's.
+Thereafter estimates for missing values are improved iteratively
+by linear regressions where each variable is explained by all other
+variables. In each iteration, old estimates of missing values are
+replaced by the regression estimates.
+In one iteration, all regression parameters are obtained simply by
+updating the moment matrix of variables and by inverting it by the
+Cholesky method.
+Convergence of the process can be monitored by the mean squared
+difference of consecutive estimates of missing values.
+After ITER iterations (default ITER=20) the procedure is interrupted.
+To obtain unbiased estimates for variances, in sums of squares each term
+of a missing value is extended by the residual variance of the corres-
+ponding regression model.
+
+If the line for results (L) is given, the means, standard deviations,
+and correlations are printed in the edit field from line L onwards.
+If RESULTS=0 is given, only a summary of results is printed.
+In any case the results are saved in matrix files MSN.M and CORR.M
+as in CORR.
+
+By default, missing values are not replaced by any estimates. However,
+if a specification IMPUTE (or REPLACE) is given, missing values are
+filled in.
+
+By IMPUTE=REG they are replaced by their regression estimates.
+Please note that regression estimates of missing values are too
+well-adapted and the variability in the data is reduced. Thus, if means,
+standard deviations, and correlations were recomputed from the patched
+data, the variances would become smaller than those given by CORRMV
+from incomplete data. Also correlations would be more biased.
+
+By IMPUTE=REG+rand(123456789) missing values are replaced by
+reg.est+u*s
+where s is the square root of the residual variance of the regression
+model in question and u is a standard normal variate obtained by
+using the pseudo-random number generator rand with seed 123456789.
+In this case means, std.devs and correlations recomputed from the
+patched data are less biased.
+
+When METHOD=PAIRWISE is used, correlations are computed for non-
+missing pairs of observations. This may lead to more biased results
+than METHOD=1. Also the correlation matrix (CORR.M) may have negative
+eigenvalues (i.e. it is not positive definite or semidefinite).
+In METHOD=PAIRWISE the frequencies of observations for each pair
+of observations is saved as PAIRFREQ.M .
+
+ <A HREF="qmm1_02.html">1 = More information on additional multivariate operations</A> 
+ <A HREF="qmr2_01.html">M = More information on multivariate analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,361 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QW5
+0004|+VMEANS? þ PRINT CUR+1,E TO qw5_01.html
+0005|- include HTML40.DEV
+0006|- include Q.DV2
+0007|- [HelpText]
+0008|*                                                         M.Korhonen 1992
+0009|*With the MTAB operation you can construct a quite large range of
+S   | 11111111111111111111111111111111111111111111111111111111111111111
+0010|*tables for frequencies, means and other descriptive statistics.
+S   | 11111111111111111111111111111111111111111111111111111111111111
+0012|*The general form of the MTAB operation is
+0014|*MTAB <data>,L
+S   |      <    >
+0015|*VARIABLES or IVARIABLES=<list of object variables>
+S   |                         <                        >
+0016|*GROUPING=<list of grouping variables>
+S   |          <                          >
+0017|*<definitions for grouping variables>
+S   | <                                  >
+0018|*COL=<column layout>  ROW=<row layout>
+S   |     <             >      <          >
+0019|*OPTIONS=<options for statistics>
+S   |         <                      >
+0021|*The parameter L (optional) gives the starting line for the results in
+0022|*the edit field. Variables, for which means or other statistics are to be
+0023|*computed, are listed in VARIABLES or IVARIABLES specification. The
+0024|*latter is used for dichotomous object variables. The GROUPING
+0025|*specification defines variables that are used as grouping (class)
+0026|*variables. The final layout of the tables may defined by COL and ROW
+0027|*specifications.
+0028|*MTAB operation
+0029|*Further information:
+0030|- shadow a: [LINK(qw5_02.html)]
+0031|*  1 = Using default layout (COL AND ROW specif. missing)
+S   |   a                                                    |
+0032|- shadow a: [LINK(qw5_05.html)]
+0033|*  2 = ROW and COL specifications
+S   |   a                            |
+0034|- shadow a: [LINK(qw5_03.html)]
+0035|*  3 = Definition of the grouping structure
+S   |   a                                      |
+0036|- shadow a: [LINK(qw5_04.html)]
+0037|*  4 = OPTIONS specification (statistics, total classes)
+S   |   a                                                   |
+0038|- shadow a: [LINK(qw5_06.html)]
+0039|*  5 = printing formats and column widths
+S   |   a                                    |
+0040|- shadow a: [LINK(qw5_07.html)]
+0041|*  6 = dichotomous object variables (IVARIABLES specification)
+S   |   a                                                         |
+0042|- shadow a: [LINK(q21_01.html)]
+0043|*  D = More on data analysis
+S   |   a                       |
+0044|E
+0047|+VDEFLT? þ PRINT CUR+1,E TO qw5_02.html
+0048|- include HTML40.DEV
+0049|- include Q.DV2
+0050|- [HelpText]
+0051|*If COL and ROW specifications are missing then the following
+0052|*default layouts are used:
+S   | 111111111111111
+0054|*If there are at most one object variable then the first grouping va-
+0055|*riable is treated as a column variable and the second grouping variable
+0056|*as a row variable. All other grouping variables are considered as
+0057|*background variables.
+0059|*If there are more than one object variable then the object variables
+0060|*define the columns and the first grouping variable the rows. The other
+0061|*grouping variables are handled as background variables, i.e one table is
+0062|*produced for each combination of the values of the background variab-
+0063|*les.
+0065|*Example: Computing a two-way table for means, deviations and cell
+0066|*frequencies using default layout:
+0068|* MTAB IEADATA,END+2
+0069|* VARIABLES=Knowldge
+0070|* GROUPING=Attitude,Sex
+0072|*The table produced by the MTAB operation:
+0074|* Means, Deviations and Frequencies
+0076|*                Attitude Attitude Attitude Attitude
+0077|*                1.000    2.000    3.000    Total
+0078|*                Knowldge Knowldge Knowldge Knowldge
+0079|*   Sex
+0080|*   1.000     M    93.000   73.579   56.636   74.162
+0081|*             D    35.162   34.096   32.825   35.065
+0082|*             N        12       57       11       80
+0084|*   2.000     M    60.400   70.674   52.211   64.929
+0085|*             D    25.813   28.191   32.259   29.940
+0086|*             N         5       46       19       70
+0088|*   Total     M    83.412   72.282   53.833   69.853
+0089|*             D    35.370   31.480   31.971   32.991
+0090|*             N        17      103       30      150
+0092|*Further information:
+0094|- shadow a: [LINK(qw5_01.html)]
+0095|*  M = More information on MTAB operation
+S   |   a                                    |
+0096|E
+0099|+VGRP? þ PRINT CUR+1,E TO qw5_03.html
+0100|- include HTML40.DEV
+0101|- include Q.DV2
+0102|- [HelpText]
+0103|*The grouping variables are given by the GROUPING (CLASS) parameter:
+0104|*         GROUPING=<gr.vble1>,<gr.vble2>, ...
+S   |                   <        > <        >
+0105|*For each grouping variable the grouping structure may be given in the
+0106|*form
+0107|*         <gr.vble>=value1(label1),value2(label2), ...
+S   |          <       >
+0108|*The labels given in parenthesis are optional. If the grouping values
+0109|*are given in ascending order then they are considered as cutpoints
+0110|*for forming groups, e.g.
+0111|*          KNOWLDGE=20,50,80,110,140
+0112|*Values greater than the last cutpoint are treated as missing values.
+0113|*The list above could be shortened by the notation 20(30)140.
+0115|*You can use string variables as grouping variables. The grouping
+0116|*structure of a string variable is given in the form
+0117|*          <gr.vble>=symbol1,symbol2, ...
+S   |           <       >
+0118|*The first 32 characters of a string variable are significant.
+0120|*If the grouping structure of a grouping variable is not given then
+0121|*the all existing values of that variable are used.
+0123|*Theoretically at most 8 grouping variables may be given. The maximum
+0124|*number of groups for each grouping variable is 32 (can be altered by
+0125|*the parameter setting MAXNCL=<new limit>). The space requirement
+S   |                              <         >
+0126|*is appr. proportional to the product of the number of groups.
+0127|*Nested grouping variables
+S   | 1111111111111111111111111
+0129|*In some situations one wants to use grouping variables that are
+0130|*nested. The nesting is indicated by brackets, e.g.
+0131|*   GROUPING=City[State]
+0132|*By using the notation a lot of empty lines or columns in the output
+0133|*table are avoided, because each city may belong only to one state.
+0134|*There may be several steps in the nesting hierarchy (at most 6
+0135|*grouping variables):
+0136|*   GROUPING=Subcity[City[State]]
+0137|*At this moment the grouping structure of nested grouping variables
+S   |                    111111111111111111
+0138|*cannot be given. The program will search the existing combinations
+S   | 111111111111111
+0139|*of values of nesting variables and uses all combinations found.
+0141|*The default maximum for the number of combinations of values is
+0142|*64, which may be altered by MAXNEST=<new value>.
+S   |                                     <         >
+0144|- shadow a: [LINK(qw5_01.html)]
+0145|*  M = More information on the MTAB operation
+S   |   a                                        |
+0146|E
+0149|+VOPTS? þ PRINT CUR+1,E TO qw5_04.html
+0150|- include HTML40.DEV
+0151|- include Q.DV2
+0152|- [HelpText]
+0153|*The default printout consists of means, deviations and frequencies.
+0154|*If no object variables are given by the VARIABLES specification
+0155|*then the default printout consists of frequencies. Further, row
+0156|*row and column totals are included in the printout.
+0158|*The following statistics can be requested by the OPTIONS specification:
+S   |                                                  1111111
+0160|*MEANS   means
+0161|*SUMS    sums
+0162|*DEVS    deviations
+0163|*SEM     standard errors of means
+0164|*F       cell frequencies
+0165|*MIN     minimum values
+0166|*MAX     maximum values
+0167|*CCF     columnwise cumulative frequencies
+0168|*CRF     rowwise cumulative frequencies
+0169|*CCS     columnwise cumulative sums
+0170|*CRS     rowwise cumulative sums
+0171|*C%F     column percentages of frequencies
+0172|*R%F     row percentages of frequencies
+0173|*T%F     table percentages of frequencies
+0174|*%F      "total" percentages of frequencies
+0175|*C%S     column percentages of sums
+0176|*R%S     row percentages of sums
+0177|*T%S     table percentages of sums
+0178|*%S      "total" percentages of sums
+0179|*CC%F    cumulative column percentages of frequencies
+0180|*CR%F    cumulative row percentages of frequencies
+0181|*CC%S    cumulative column percentages of sums
+0182|*CR%S    cumulative row percentages of sums
+0184|*If any of the statistics are given in the OPTIONS specification
+0185|*then only those statistics are printed (in the given order).
+0187|*The presence of row and column totals may be altered by the
+S   | 1111111111111111111111111111111111111
+0188|*key words: COLTOTALS (include column totals), ROWTOTALS (include
+0189|*row totals), NOTOTALS (neither row nor column totals). Again, if
+0190|*any of these three options are given, then only the given options
+0191|*are valid. For nested grouping variables the subtotals are computed
+0192|*only for the topmost variable in the hierarchy.
+0194|*Further information:
+0196|- shadow a: [LINK(qw5_01.html)]
+0197|*  M = More information on the MTAB operation
+S   |   a                                        |
+0198|E
+0201|+VROWCOL? þ PRINT CUR+1,E TO qw5_05.html
+0202|- include HTML40.DEV
+0203|- include Q.DV2
+0204|- [HelpText]
+0205|*With the ROW and COL specifications you can design your tables.
+0206|*The expressions given in the specifications include names of
+0207|*object and/or grouping variables as elements and operators,
+0208|*which define how the elements are used. Only variables defined
+0209|*in VARIABLES, IVARIABLES or GROUPING specifications may be used
+0210|*The following operations are available:
+0212|* *  cross variables, e.g. A*B
+S   |     11111
+0213|* ,  concatenate variables, e.g. A,B,C
+S   |     11111111111
+0214|* () control the order of the other two operations, e.g. A*(B,C)
+S   |     11111111111111111
+0216|*You can cross grouping variables with object variables or with
+0217|*other grouping variables. Suppose that A and B are grouping variables
+0218|*and Y is an object variable. Specification A*B means that the values
+0219|*of B are nested within the levels of A:
+0220|*  A1  A1  A1  A2  A2  A2
+0221|*  B1  B2  B3  B1  B2  B3
+0222|*Specification A*Y declares that statistics for the object variable
+0223|*Y are requested for each group of A.
+0225|*If A,B is specified then the levels of A are formed first and
+0226|*the levels of B after that:
+0227|*  A1  A2  B1  B2  B3
+0229|*Grouping variables may appear both in COL and ROW specifications,
+0230|*but object variables only in either of them. If object variables
+0231|*are given in COL specification then different cell statistics are
+0232|*printed in different rows. If object variables are defined in ROW
+0233|*specification then different statistics are represented each by their
+0234|*own column.
+0236|*Parenthesis may be used to define the order of the operations.
+0237|*If A is a grouping variables and X and Y are object variables,
+0238|*then specification
+0239|*     COL=A*(X,Y)
+0240|*defines that first means of the two variables are represented
+0241|*for the first group of A and after that for the second group
+0242|*of A. If we want the means of variable X to be represented first
+0243|*for all groups, we define
+0244|*     COL=A*X,A*Y
+0246|*Especially the use of col specification is limited by the number
+0247|*of columns available. By default, the table is split into
+0248|*subtables so that the line length of the edit field is not
+0249|*exceeded. The maximum number of columns in one (sub)table may
+0250|*be decreased by MAXCOLS=<n of columns>.
+S   |                         <            >
+0252|*Examples ...
+0253|*Two simple examples describing the difference of COL and ROW
+0254|*specifications:
+0256|* MTAB IEADATA,178
+0257|* VARIABLES=Knowldge
+0258|* GROUPING=Attitude
+0259|* COL=Attitude*Knowldge
+0261|*Means, Deviations and Frequencies
+0263|*     Attitude Attitude Attitude Attitude
+0264|*     1.000    2.000    3.000    Total
+0265|*     Knowldge Knowldge Knowldge Knowldge
+0267|*  M    83.412   72.282   53.833   69.853
+0268|*  D    35.370   31.480   31.971   32.991
+0269|*  N        17      103       30      150
+0271|* MTAB IEADATA,193
+0272|* VARIABLES=Knowldge
+0273|* GROUPING=Attitude
+0274|* ROW=Attitude*Knowldge
+0276|*Means, Deviations and Frequencies
+0278|*                   Knowldge
+0279|*                   Means    St.d.    N of obs
+0280|* Attitude
+0281|* 1.000    Knowldge   83.412   35.370       17
+0282|* 2.000    Knowldge   72.282   31.480      103
+0283|* 3.000    Knowldge   53.833   31.971       30
+0284|* Total    Knowldge   69.853   32.991      150
+0285|*Example: Three grouping variables and three object variables:
+0287|*MTAB IEADATA,229
+0288|*VARIABLES=Knowldge,Applicat,Mentalpr
+0289|*GROUPING=Attitude,Sex,Grade
+0290|*COL=S*(K,App,M)      variable names in COL and ROW may be
+0291|*ROW=G*Att            shortened as long they are unique
+0292|*Means, Deviations and Frequencies
+0294|*Subtable 1
+0296|*                       Sex      Sex      Sex      Sex      Sex
+0297|*                       1.000    1.000    1.000    2.000    2.000
+0298|*                       Knowldge Applicat Mentalpr Knowldge Applicat
+0299|* Grade    Attitude
+0300|* 7.000    1.000     M    72.667   56.000   12.333   83.000   45.000
+0301|*                    D    26.577   12.767   19.140        -        -
+0302|*                    N         3        3        3        1        1
+0304|*          2.000     M    57.167   43.792   17.833   64.500   30.917
+0305|*                    D    29.660   26.231   16.177   20.690   17.814
+0306|*                    N        24       24       24       12       12
+0307|*          etc. ...
+0308|*If both ROW and COL specifications are used but all grouping
+0309|*variables are not used in those definitions, then the unreferred
+0310|*grouping variables are treated as background variables. Results
+0311|*are given for each combination of the values of the background
+0312|*variables.
+0314|*Further information:
+0315|- shadow a: [LINK(qw5_01.html)]
+0316|*  M = More information on the MTAB operation
+S   |   a                                        |
+0317|E
+0319|+VFRMTS? þ PRINT CUR+1,E TO qw5_06.html
+0320|- include HTML40.DEV
+0321|- include Q.DV2
+0322|- [HelpText]
+0323|*By default, the column width to represent the requested statistics is
+0324|*8 characters. The adjacent columns are separated by one character.
+0325|*The number of decimals used for e.g. means depends on the maximum
+0326|*value of that variable. If sums are requested then the number of
+0327|*decimals used is determined by the product of the maximum value and
+0328|*the number of observations. For numerical grouping variables the same
+0329|*8 char. column width is used. For string grouping variables used as
+0330|*row variables the length of the string variable (if greater than 8)
+0331|*defines the column width used. If the grouping structure of a string
+0332|*variable is searched by the program then the found actual maximum
+0333|*length is used.
+0335|*This default behaviour may be overridden by giving the printing
+0336|*formats of object variables and/or grouping variables, e.g.
+0338|*VARIABLES=Knowdge(######.#),Applicat(1234.12345)
+0339|*GROUPING=Sex(#####),Grade(12345)
+0340|*The number of decimals given in the format concerns means, sums,
+0341|*deviations, standard errors of means, minimum and maximum values.
+0342|*The column width defined by the format concerns frequencies and
+0343|*percentages too. Depending on the defined column width percentages
+0344|*are printed with 2, 1 or no decimals (if the column width is
+0345|*at least 6 then two decimals are given). This default behaviour
+0346|*of printing percentages may be altered by specifying the number
+0347|*of decimals used by PCTDEC. The given number (0-5) must agree with
+0348|*the column width in use.
+0350|*In general column width can vary from 4 to 32.
+0352|*Further information:
+0353|- shadow a: [LINK(qw5_01.html)]
+0354|*  M = More information on the MTAB operation
+S   |   a                                        |
+0355|E
+0357|+VDICHOBJ? þ PRINT CUR+1,E TO qw5_07.html
+0358|- include HTML40.DEV
+0359|- include Q.DV2
+0360|- [HelpText]
+0361|*Dichotomous object variables
+S   | 111111111111111111111111111111
+0362|*If you want to tabulate some grouping variables with a group of
+0363|*dichotomous variables (one at a time) then a lot of space can be
+0364|*saved by using IVARIABLES specification for these dichotomous
+0365|*variables, e.g.
+0367|*GROUPING=CAR
+0368|*IVARIABLES=Featr1,Featr2,Featr3,Featr4,Featr5,Featr6
+0369|*Featr4=2  Featr5=10,99  Featr6=USA
+0370|*By default the program assumes that the interesting value of a
+0371|*dichotomous object variable is 1, which is tabulated against
+0372|*all othe values considered as one group. Only the results for
+0373|*that interesting group are given. The user may define other
+0374|*interesting values by the following form:
+0376|*<variable name>=<min,max> or <string>
+S   | <             > <       >    <      >
+0378|*If necessary the maximum number of object variables may be
+0379|*altered by MAXVBLS=<new limit> definition.
+S   |                    <         >
+0381|*Note! The VARIABLES and IVARIABLES specifications may not be
+0382|*used at the same time.
+0384|*Further information:
+0385|- shadow a: [LINK(qw5_01.html)]
+0386|*  M = More information on the MTAB operation
+S   |   a                                        |
+0387|E

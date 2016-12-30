@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">SHOW &lt;file name&gt;,&lt;first line to be shown (optional)&gt; 
+shows portions of edit files and text files in a temporary window
+below the current line (SHOW line). The text may be scrolled in that
+window and selected lines may be copied in the edit field from
+the line below the SHOW line onwards, provided that those lines are
+empty.
+
+SHOW without any parameters displays the contents of the current out-
+put file set by the OUTPUT operation.
+SHOW * displays the current edit field itself.    (See also <A HREF="q04_07.html">SHOWKEYS</A>?) 
+
+SHOW &lt;file name&gt;,&lt;first line&gt;,n
+works as SHOW above but shows at least n lines. Maximum number of
+lines shown depends on the size of the current Survo main window.
+
+If n is not given, the number of lines of the SHOW window is given
+by the system parameter show_lines in the SURVO.APU file.
+This parameter can be set for the current session by the command
+SYSTEM show_lines=n
+The default setting is show_lines=0 and then SHOW without the n
+parameter shows as many lines as there is place in the current
+main window below the SHOW command line.
+
+By default, 100000 first lines of a text files can be shown by SHOW.
+This limit is exteded when necessary by giving
+max_show_lines=&lt;integer&gt; 
+in the SURVO.APU file.
+
+
+<A NAME="SHOW2"></A>If the file to be shown is an edit file, the first line can also be
+given by a symbolic label (appearing in the control column).
+Examples:
+SHOW CHAPTER2,A
+SHOW CHAPTER2,A+2
+
+The first line can also be specified by a text appearing on that line
+and this applies also to text files.
+For example,
+SHOW &lt;Survo&gt;\U\SYS\PS.DEV,"PostScript_file"
+displays lines of the Survo PostScript driver (it is a text file) from
+the first line containing text
+PostScript file
+
+The string is given in double quotes and spaces are replaced by '_'s.
+
+
+<A NAME="SHOWLOAD"></A>SHOW &lt;edit or text file name&gt; / SHOWLOAD=L1,L2 
+loads lines from L1 to L2 from the file directly to the current edit
+field. The output starts from the edit line below the command line.
+
+If there are not enough empty lines available, SHOW prompts the user
+to accept insertion of them. By giving a specification INSERT=1 
+empty lines are automatically inserted.
+
+The line labels can be numerical, symbolic (in edit files), or
+indicated by texts given in double quotes.
+Example:
+SHOW CHAPTER1 / SHOWLOAD=A-1,"continued_in_the_next_paragraph."
+
+Code conversion from Windows text files to Survo mode is carried out by
+the specification WINCONV=1.
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

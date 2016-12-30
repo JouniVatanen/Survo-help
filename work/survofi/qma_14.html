@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">MAT #MAXDET(C,dim,S)
+finds the principal dim*dim submatrix with the maximal
+determinant from a symmetric matrix C.
+Indices of rows (and columns) belonging to that
+submatrix are saved as a column vector S.
+
+The algorithms for this task are explained in
+S. Mustonen: Matrix computations in Survo
+(www.helsinki.fi/survo/matrix99.html).
+The extended forms of MAT #MAXDET are
+MAT #MAXDET(C,dim,S,0) / Exhaustive search
+MAT #MAXDET(C,dim,S,1) / Stepwise procedure (default)
+MAT #MAXDET(C,dim,S,2) / Improved stepwise procedure
+MAT #MAXDET(C,dim,S,3) / N=#_of_replicates, Random search
+MAT #MAXDET(C,dim,S,4) / N=# Improved random search
+
+Applications: See also <A HREF="http://www.helsinki.fi/survo/matrix99.html">www.helsinki.fi/survo/matrix99.html</A> 
+MAT #MAXDET can be applied to determination of a basis of
+the column space of a m*n matrix A as follows.
+If the rank of A (determined by the SVD of A) is r,
+the most orthogonal subset of columns of A as an m*r matrix B
+is found by the commands
+MAT C=MTM(NRM(A))
+MAT #MAXDET(C,r,S)  / or MAT #MAXDET(C,r,S,2), for example
+MAT B=SUB(A,*,S)
+
+If A is a factor matrix, the commands
+MAT C=MTM(NRM(A'))
+MAT #MAXDET(C,n,S) / Find row space of A
+MAT B=SUB(A,S,*)
+correspond to the cosine rotation of factor analysis
+usually performed by
+ROTATE A,n / METHOD=COS,0
+
+<A HREF="qma_01.html">A = More about additional MAT #operations</A> 
+<A HREF="qm2_01.html">M = More about MAT operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

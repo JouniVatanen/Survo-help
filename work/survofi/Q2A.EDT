@@ -1,0 +1,27 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q2A
+0004|*LOAD EDQ
+0006|+SAMPLES? þ PRINT CUR+1,E TO q2a_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Making samples
+0012|- shadow a: [LINK(qma_06.html)]
+0013|*  1 = MAT #SAMPLES (for making random samples of integers 1,2,...,N)
+S   |   a                                                                |
+0014|- shadow a: [LINK(qma_07.html)]
+0015|*  2 = MAT #INDVAR (making random samples of data files after MAT #SAMPLES
+S   |   a                                                                     |
+0016|- shadow a: [LINK(qma_16.html)]
+0017|*  3 = MAT #SAMPLE (for creating SRS and URS samples)
+S   |   a                                                |
+0018|- shadow a: [LINK(qma_17.html)]
+0019|*  4 = MAT #JACKKNIFE (for creating jackknife samples)
+S   |   a                                                 |
+0021|- shadow a: [LINK(qa1_01.html)]
+0022|*  C = Comparing samples
+S   |   a                   |
+0023|- shadow a: [LINK(q21_01.html)]
+0024|*  S = More information on statistical operations
+S   |   a                                            |
+0025|E

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">TEXTS in Survo graphics:
+
+Texts can be included in each type of Survo plots on the screen (GPLOT)
+or in the PostScript format (PLOT).
+Texts are given in PLOT schemes by various specifications
+(see e.g. HEADER? TEXTS? SCALE? XSCALE? YSCALE? XLABEL? YLABEL?).
+Since, in editorial interface, characters 'space' and 'comma' (,)
+are important delimiters, they cannot be used in texts as such.
+A space must be replaced by _
+and a comma must be replaced by ;
+If characters ; and _ are needed in these texts, they can be
+typed as \; and \_ respectively.
+Example:
+.......................................................................
+See what happens to
+HEADER=Example:_comma_;_semicolon_\;;_space__;_underscore_\_
+when activated by
+GPLOT /FRAME
+Then the header will appear in the graph in the form
+Example: comma , semicolon ;, space  , underscore _
+.......................................................................
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

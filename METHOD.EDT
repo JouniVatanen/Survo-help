@@ -27,100 +27,104 @@ S   |3
 0029|*regdiag
 0030|*reliab
 0031|*rotate
-0032|*....
-0033|E
-0035|*1. Copy base structure to end by activating COPY command
+0032|E
+0034|*Notes
+S   |3
+0035|*After [DESC] write a one-liner description what the command does.
+0036|*Put other necessary explanations about the command under [USAGE] or [DETAILS].
+0037|*Write only command names in CAPITALS to the first REPLACE command.
+0039|*1. Copy base structure to end by activating COPY command
 S   |1
-0036|*2. Use REPLACE commands to replace Command name for the command you want to make a page
+0040|*2. Use REPLACE commands to replace COMMAND NAME and web-page-name
 S   |1
-0037|*COPY CUR+1,E>,END+3
-S   |2
-0038|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
-S   |2
-0039|*REPLACE "temp","set",C         / LINES=CUR+1,E>
-S   |2
-0040|*Command name
+0041|*COPY CUR+1,E>,END+3
+0042|*REPLACE "COMMAND NAME IN CAPITAL","XXX",C / LINES=CUR+1,E>
+S   |                                    555
+0043|*REPLACE  "web-page-name-in-small","xxx",C / LINES=CUR+1,E>
+S   |                                    555
+0044|*COMMAND NAME IN CAPITAL
 S   |3
-0041|+PRINT CUR+2,E> TO www\public_html\temp.html
-0042|*/OPEN             www\public_html\temp.html
-0043|- include HTML50.DEV
-0044|*Command name | Help system | Survo R
+0045|+PRINT CUR+2,E> TO www\public_html\web-page-name-in-small.html
+0046|*/OPEN             www\public_html\web-page-name-in-small.html
+0047|- include HTML50.DEV
+0048|*COMMAND NAME IN CAPITAL | Help | Survo R
 S   |3
-0045|- chapter menu IN Survo-hlp
-0046|- chapter sidebar IN Survo-hlp
-0047|*Command name
+0049|- chapter menu IN Survo-hlp
+0050|- chapter sidebar IN Survo-hlp
+0051|*Command name
 S   |3
-0048|- [DESC]
-0050|- [USAGE]
-0052|- [PARAMETERS]
-0053|- [DLIST]
-0054|ICode word
+0052|- [DESC]
+0054|- [USAGE]
+0056|- [PARAMETERS]
+0057|- [DLIST]
+0058|ICode word
 S   | xxxxxxxxx
-0055|NExplanation
-0057|- [/DLIST]
-0058|- [DETAILS]
-0060|- [LINKS]
-0062|- [EXAMPLES]
-0064|- chapter end IN Survo-hlp
-0065|E
-0067|*REPLACE "Command name","Set",C / LINES=CUR+1,E>
+0059|NExplanation
+0061|- [/DLIST]
+0062|- [DETAILS]
+0064|- [LINKS]
+0066|- [EXAMPLES]
+0068|- chapter end IN Survo-hlp
+0069|E
+0071|*REPLACE "COMMAND NAME IN CAPITAL","LINREG",C / LINES=CUR+1,E>
 S   |2
-0068|*REPLACE "temp","set",C         / LINES=CUR+1,E>
+0072|*REPLACE  "web-page-name-in-small","linreg",C / LINES=CUR+1,E>
 S   |2
-0069|*Linreg
+0073|*LINREG
 S   |3
-0070|+PRINT CUR+2,E> TO www\public_html\linreg.html
-0071|*/OPEN             www\public_html\linreg.html
-0072|- include HTML50.DEV
-0073|*Linear regression | Linreg | Help system | Survo R
+0074|+PRINT CUR+2,E> TO www\public_html\linreg.html
+0075|*/OPEN             www\public_html\linreg.html
+0076|- include HTML50.DEV
+0077|*LINREG | Help | Survo R
 S   |3
-0074|- chapter menu IN Survo-hlp
-0075|- chapter sidebar IN Survo-hlp
-0076|*Linreg
+0078|- chapter menu IN Survo-hlp
+0079|- chapter sidebar IN Survo-hlp
+0080|*LINREG
 S   |3
-0077|- [DESC]
-0078|*Performs linear regression analysis on active variables in 'data'.
-0079|*The regressand is indicated by mask Y and the regressors by X's.
-0080|*The optional variables for residuals and predicted values of the
-0081|*model are pointed out by masks R and P, respectively.
-0083|- [USAGE]
-0084|(LINREG data,L
-0085|)
-0086|*L (optional) is the first line for the results.
+0081|- [DESC]
+0082|*Performs linear regression analysis.
+0084|- [USAGE]
+0085|(LINREG data,L
+0086|)
+0088|*Performs linear regression analysis on active variables in 'data'.
+0089|*The regressand is indicated by mask Y and the regressors by X's.
+0090|*The optional variables for residuals and predicted values of the
+0091|*model are pointed out by masks R and P, respectively.
+0094|*L (optional) is the first line for the results.
 S   | x
-0087|- [PARAMETERS]
-0088|- [DLIST]
-0089|- chapter mask IN Survo-hlp
-0090|- chapter vars IN Survo-hlp
-0091|- chapter select IN Survo-hlp
-0092|- [/DLIST]
-0093|- [DETAILS]
-0094|/As a default the means, standard deviations and correlations of
-0095|*variables included in the model will be also printed.
-0096|/LINREG saves the regression coefficients in a matrix file REG.M
-0097|*and in the case of one regressand and one regressor also coefficients
-0098|*of an orthogonal regression analysis in a matrix file OREG.M.
-0099|/If several Y variables are given, the same model (with a constant term
-0100|*and X variables) will be computed for each of them. In this case no
-0101|*R and P variable is valid.
-0103|- [LINKS]
-0104|- [LINK(regdiag.html)]
-0105|*REGDIAG,
+0095|- [PARAMETERS]
+0096|- [DLIST]
+0097|- chapter mask IN Survo-hlp
+0098|- chapter vars IN Survo-hlp
+0099|- chapter select IN Survo-hlp
+0100|- [/DLIST]
+0101|- [DETAILS]
+0102|/As a default the means, standard deviations and correlations of
+0103|*variables included in the model will be also printed.
+0104|/LINREG saves the regression coefficients in a matrix file REG.M
+0105|*and in the case of one regressand and one regressor also coefficients
+0106|*of an orthogonal regression analysis in a matrix file OREG.M.
+0107|/If several Y variables are given, the same model (with a constant term
+0108|*and X variables) will be computed for each of them. In this case no
+0109|*R and P variable is valid.
+0111|- [LINKS]
+0112|- [LINK(regdiag.html)]
+0113|*REGDIAG,
 S   |       |
-0106|- [LINK(movreg.html)]
-0107|*MOVREG,
+0114|- [LINK(movreg.html)]
+0115|*MOVREG,
 S   |      |
-0108|- [LINK(robreg.html)]
-0109|*ROBREG,
+0116|- [LINK(robreg.html)]
+0117|*ROBREG,
 S   |      |
-0110|- [LINK(estimate.html)]
-0111|*ESTIMATE,
+0118|- [LINK(estimate.html)]
+0119|*ESTIMATE,
 S   |        |
-0112|- [EXAMPLES]
-0113|(FILE COPY <Survo>/D/DECA,DECA / VARS=ALL
+0120|- [EXAMPLES]
+0121|(FILE COPY <Survo>/D/DECA,DECA / VARS=ALL
 S   |           <     >
-0114|*LINREG DECA,END+3   / VARS=Points(Y),100m(X),400m(X),L_jump(X),Javelin(X)
-0115|*..........
-0119|)
-0120|- chapter end IN Survo-hlp
-0121|E
+0122|*LINREG DECA,END+3   / VARS=Points(Y),100m(X),400m(X),L_jump(X),Javelin(X)
+0123|*..........
+0127|)
+0128|- chapter end IN Survo-hlp
+0129|E

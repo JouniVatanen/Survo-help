@@ -1,0 +1,144 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE QM4
+0004|*LOAD EDQM5
+0006|+SUBMAT? þ PRINT CUR+1,E TO qm4_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*The submatrix of matrix A consisting of rows a1-a2 and columns b1-b2
+0011|*is denoted by A(a1:a2,b1:b2). The parameters a1,a2,b1,b2 may be
+0012|*either numeric or symbolic (or literal row and column labels).
+0013|*The following operations are permitted for submatrices:
+0015|*MAT C=A(a1:a2,b1:b2)   / C will be a submatrix of A
+0016|*MAT C(a1,b1)=A         / A will be copied partially over C so that
+0017|*                         C(a1,b1) will be A(1,1).
+0018|- shadow %: [LINK(qm2_01.html)] [/LINK]
+0019|*MAT LOAD A(a1:a2,b1:b2),L  / see MAT LOAD
+S   |                                  %%%
+0020|*MAT LOAD A(*,b1:b2),L  / * indicates the whole range (all rows)
+0022|*Special cases:
+0023|*MAT C(3,5)=3.2345      / entering a single element
+0024|*MAT C(1,2)=k
+0025|*MAT C(0,2)="sum"       / label of column 2 will be "sum"
+0026|*MAT C(5,0)="row5"
+0028|- shadow a: [New][LINK(qm8_01.html)]
+0029|d  S = Submatrices by MAT C=SUB(A,Srow,Scol)
+S   |   a                                       ;
+0030|- shadow a: [New][LINK(qm4_06.html)]
+0031|d  L = Literal row and column labels
+S   |   a                               ;
+0032|- shadow a: [LINK(qm2_03.html)]
+0033|*  M = More information on MAT operations
+S   |   a                                    |
+0034|E
+0036|+MM? þ PRINT CUR+1,E TO qm4_02.html
+0037|- include HTML40.DEV
+0038|- include Q.DV2
+0039|- [HelpText]
+0040|- shadow a: [LINK(qm2_03.html)]
+0041|*  M = More information on MAT operations
+S   |   a                                    |
+0042|E
+0045|+MATCHAIN? þ PRINT CUR+1,E TO qm4_03.html
+0046|- include HTML40.DEV
+0047|- include Q.DV2
+0048|- [HelpText]
+0049|*To speed up consecutive MAT operations, programs may be written
+0050|*by placing the MAT operations (among other operations as well)
+0051|*on consecutive lines. Such a series of operations may be activated
+0052|*by pressing PREFIX before the first activation.
+0054|*An example of a typical MAT chain:
+0055|*n=48 m=10     Correlations of a n*m data matrix X
+0056|*MAT NAME X AS DATA            / *X~DATA 48*10
+0057|*MAT Y=CENTER(X)               / *Y~CENTER(DATA) 48*10
+0058|*MAT Y=NRM(Y)                  / *Y~NRM(CENTER(DATA)) 48*10
+0059|*MAT R=MTM(Y)                  / *R~NRM(CENTER(DATA))'*NRM(CENTER(DATA)) S10*10
+0060|*MAT KILL Y,MEAN
+0061|*MAT NAME R AS Correlations    / *R~Correlations S10*10
+0062|*MAT LOAD R,##.##,CUR+2        / R will be loaded from line CUR+2 onwards
+0064|- shadow a: [LINK(qm2_03.html)]
+0065|*  M = More information on MAT operations
+S   |   a                                    |
+0066|- shadow a: [LINK(qmr1_01.html)]
+0067|*  R = MATRUN operations (MAT chains saved in text files)
+S   |   a                                                    |
+0068|E
+0071|+MATCONST? þ PRINT CUR+1,E TO qm4_04.html
+0072|- include HTML40.DEV
+0073|- include Q.DV2
+0074|- [HelpText]
+0075|*Both symbolic and numeric constants and expressions may appear in
+0076|*certain MAT operations. The values of the symbolic constants must be
+0077|*given in the same subfield. The symbolic constants have to be written in
+0078|*lowercase letters.
+0080|*For example,
+0081|*m=10 n=5 x=k/100 coeff=2.5 k=3000
+0082|*MAT C=CON(m,m+n,x) / 10*15 matrix with all elements =30
+0083|*MAT C=coeff*C      / *C~coeff*CON 10*15
+0084|*MAT C=(sqrt(k))*C  / *C~(sqrt(k))*coeff*CON 10*15
+0086|#MAT DIM <matrix>
+S   |         <      >
+0087|*is an auxiliary operation yielding the dimensions of a matrix in the form
+0088|*MAT DIM A                     / * rowA=30 colA=5
+0089|*If A is a diagonal matrix, the rank of A is also given as rankA=4.
+0090|*After MAT DIM A has been executed, symbolic constants rowA, colA, (rankA)
+0091|*may be used as symbolic constants in following lines of a matrix program.
+0093|*An element of a matrix may be directed to a scalar by
+0094|*MAT s=A(1,3)
+0095|*giving the value of s on the same line in form s~1.234.
+0096|- shadow a: [LINK(qm2_03.html)]
+0097|*  M = More information on MAT operations
+S   |   a                                    |
+0098|E
+0100|+MATLABEL? þ PRINT CUR+1,E TO qm4_05.html
+0101|- include HTML40.DEV
+0102|- include Q.DV2
+0103|- [HelpText]
+0104|*The rows and columns of all matrices in matrix files are labelled
+0105|*and these labels are displayed when the MAT LOAD operation is performed.
+0106|*All MAT operations try to label the rows and the columns of the result
+0107|*matrices according to the operands and to the nature of the operation.
+0108|*For example, when a matrix is transposed or inverted, the row and column
+0109|*labels are exchanged.
+0110|*This 'label algebra' in conjunction with the automatic updating of the
+0111|*matrix names makes the results more readable.
+0112|*Column and row labels can be changed as follows:
+0113|*MAT C(0,2)="sum"       / label of column 2 will be "sum"
+0114|*MAT C(5,0)="row5"      / label of row 5 will be "row5"
+0115|*MAT RLABELS FROM A TO B  / row labels are copied from A to B
+0116|*MAT CLABELS FROM A TO B  / column labels are copied from A to B
+0117|*MAT CLABELS "COMP" TO B  / columns of B labelled by COMP1, COMP2,...
+0118|*MAT RLABELS NUM(0) TO B  / rows of B labelled by 0,1,2,...
+0119|*MAT RLABELS NUM(5) TO B  / rows of B labelled by 5,6,7,...
+0121|- shadow a: [LINK(qm4_06.html)]
+0122|*  L = Literal row and column labels
+S   |   a                               |
+0123|- shadow a: [LINK(qm2_03.html)]
+0124|*  M = More information on MAT operations
+S   |   a                                    |
+0125|E
+0127|+MATLIT? þ PRINT CUR+1,E TO qm4_06.html
+0128|- include HTML40.DEV
+0129|- include Q.DV2
+0130|- [HelpText]
+0131|*Referring to literal row and column labels
+0133|*In various MAT operations matrix rows and columns can be referred to
+0134|*either by their numerical indices 1,2,... as in
+0135|*MAT C=A(1:7,2:5)
+0136|*or by symbolic expressions as in
+0137|*m=7 k=1 n=5
+0138|*MAT C=A(1:m,k+1,n).
+0140|*It is also possible to use names of rows and columns literally
+0141|*in such operations.
+0142|*For example, if R is a correlation matrix of variables X1,X2,Y1,Y2,
+0143|*MAT R3=R(X2:Y2,X2:Y2)
+0144|*gives R3 as a correlation matrix of the three last variables X2,Y1,Y2 and
+0145|*MAT LOAD R(*,Y1)
+0146|*loads the third (Y1) column of R into the edit field.
+0147|*Any reference to a row or to a column is in the first place interpreted
+0148|*as a row (or column) label.
+0149|*If this fails, it is handled as a symbolic expression or a plain index.
+0150|- shadow a: [LINK(qm2_03.html)]
+0151|*  M = More information on MAT operations
+S   |   a                                    |
+0152|E

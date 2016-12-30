@@ -1,0 +1,128 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q24A
+0005|*................................................................................
+0007|+AR? þ PRINT CUR+1,E TO q24a_01.html
+0008|- include HTML40.DEV
+0009|- include Q.DV2
+0010|- [HelpText]
+0011|- [New]
+0012|*Estimating AR(p) models by ESTIMATE
+0013|- [/New]
+0015|*The AR(p) model is
+0016|*(1) Y = X*beta + u
+0017|*where Y is an n-vector of dependent variable, X is an n*m-matrix of
+0018|*regressors, beta is an m-vector of regression coefficients and
+0019|*u = (u(1),u(2),...,u(n))' are residuals of the form
+0021|*u(j)=r(1)*u(j-1)+...+r(p)*u(j-p)+e(j)
+0023|*where e(j), j=1,2,...,n are independent N(0,sigma^2) variables.
+0025|*The easiest method for estimation of beta and r(1),...,r(p)
+0026|*is to estimate the nonlinear regression model (please note that u=Y-X*beta)
+0027|*                         p
+0028|*(2) y(j) = x(j)*beta +  sum r(i)*[y(j-i)-x(j-i)*beta]  + e(j),
+0029|*                        i=1
+0030|*                                               j=p+1,2,...,n,
+0031|*where x(j) is a row vector of regressors x1,x2,...,xm in the j'th
+0032|*observation.
+0034|*Least squares estimates for the model (2) are obtained by the ESTIMATE
+0035|*operation as follows (the scheme is here presented for p=3 in a case
+0036|*where we have Y as the regressand and X1,X2,X3,X4 as regressors).
+0037|*.......................................................................
+0038|a{A0}=b0+b1*X1+b2*X2+b3*X3+b4*X4
+0039|a{A1}=r1*(Y[-1]-b0-b1*X1[-1]-b2*X2[-1]-b3*X3[-1]-b4*X4[-1])
+0040|a{A2}=r2*(Y[-2]-b0-b1*X1[-2]-b2*X2[-2]-b3*X3[-2]-b4*X4[-2])
+0041|a{A3}=r3*(Y[-3]-b0-b1*X1[-3]-b2*X2[-3]-b3*X3[-3]-b4*X4[-3])
+0043|*MODEL AR3
+0044|aY={A0}+{A1}+{A2}+{A3}
+0046|*ESTIMATE <data>,AR3,<line_for_results>
+S   |          <    >     <                >
+0047|*.......................................................................
+0048|*ESTIMATE automatically recognizes the observed variables Y,X1,X2,X3,X4
+0049|*from the data and interprets unidentified notations
+0050|*b0,b1,b2,b3,b4 and r1,r2,r3 as parameters to be estimated.
+0052|*The components of the model are presented by shorthand notations
+0053|a{A0},{A1},... permitting a brief notation for the model itself.
+0054|*Lagged values are notated as Y[-2] (Y lagged by 2) as in the VAR operation.
+0055|aIt is easy to extend the model for larger p and even drop some {Ai}
+0056|*components.
+0057|*Good starting values for b's are obtained from OLS estimates (LINREG,
+0058|aREGDIAG, or ESTIMATE with model Y={A0}).
+0060|*Since ARMA(p,q) models can be represented as A(infinity), in many cases
+0061|*the regression coefficients may be estimated for such more general
+0062|*models from AR(p) when p is large enough.
+0064|- shadow a: [LINK(q24_01.html)]
+0065|*  1 = More information about ESTIMATE operation
+S   |   a                                           |
+0067|E
+0070|+ARMA? þ PRINT CUR+1,E TO q24a_02.html
+0071|- include HTML40.DEV
+0072|- include Q.DV2
+0073|- [HelpText]
+0074|- [New]
+0075|*Estimating ARMAX(p,q) models by ESTIMATE
+0076|- [/New]
+0078|*A general ARMAX(p,q) model is
+0080|*(1) Y = X*beta + u,
+0082|*where Y    is an n vector of regressand,
+0083|*      X    is an n*m matrix of m regressors,
+0084|*      beta is m vector of regression coefficients,
+0085|*      u    is an n vector of residuals u(1),...,u(n)
+0086|*and the residual u(j) related to the j'th observation depends on
+0087|*p preceding residuals u(j-1),...,u(j-p) and q independent
+0088|*N(0,s^2) error terms e(j),e(j-1),...,e(j-q) as follows
+0090|*(2) u(j)=r(1)*u(j-1)+...+r(p)*u(j-p)+e(j)+a(1)*e(j-1)+...+a(q)*e(j-q),
+0092|*where r(1),...,r(p) and a(1),...,a(q) are unknown parameters.
+0094|*In fact, also non-linear models, where X*beta (the part of exogenous
+0095|*variables) is replaced by a more general function f(x,beta), may be
+0096|*estimated by the following method.
+0098|*A conditional maximum likelihood method (see e.g. Hamilton: Time Series
+0099|*Analysis, 1994, Chapter 5.6) will be applied.
+0100|*The conditional log likelihood function (with respect to first
+0101|*observations and error terms) is a sum of expressions
+0103|*(3) -0.5*(log(s^2)+e(j)^2/s^2+log(2*pi))
+0105|*where e(j)'s are determined by (2) and u(j)'s are obtained from (1).
+0107|*Since e(j) depends on previous values e(j-1),...,e(j-q),
+0108|*during the estimation process the values of e variable
+0109|*have to be updated always when values of parameters to be estimated
+0110|*s,beta,r(1),...,r(p),a(1),...,a(q) are changed.
+0112|*To provide this feature in ESTIMATE, an extra variable (say EPS)
+0113|*must be defined in the original data set with initial values 0.
+0114|*Updating of e values is imposed by an UPDATE specification.
+0115|*The final values of e will be saved in the data set after the
+0116|*estimation.
+0118|*For example, in the model
+0119|*Y=b0+b1*X1+b2*X2+b3*X3+b4*X4+u,
+0120|*where u has the ARMA(3,1) structure, the ESTIMATE scheme is written
+0121|*as follows:
+0122|*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+0123|a11 *{A0}=Y-b0-b1*X1-b2*X2-b3*X3-b4*X4
+0124|a12 *{AR1}=r1*(Y[-1]-b0-b1*X1[-1]-b2*X2[-1]-b3*X3[-1]-b4*X4[-1])
+0125|a13 *{AR2}=r2*(Y[-2]-b0-b1*X1[-2]-b2*X2[-2]-b3*X3[-2]-b4*X4[-2])
+0126|a14 *{AR3}=r3*(Y[-3]-b0-b1*X1[-3]-b2*X2[-3]-b3*X3[-3]-b4*X4[-3])
+0127|a15 *{EPS}={A0}-{AR1}-{AR2}-{AR3}-a1*EPS[-1]
+0128|*16 *UPDATE=EPS
+0129|*17 *
+0130|*18 *MODEL ARMA
+0131|a19 *LOGDENSITY=-0.5*(log(s*s)+({EPS})^2/(s*s))
+0132|*20 *
+0133|*21 *ESTIMATE <data>,ARMA,CUR+1
+S   |              <    >
+0134|*22 *
+0135|*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+0136|*The model ARMA (lines 18-19) is defined according to (3) and
+0137|athe {EPS} expression, e(j) solved from (2), is given on line 15.
+0138|*Various components of the model (in braces) are on lines 11-14.
+0140|*The specification UPDATE=EPS quarantees that ESTIMATE will update
+0141|aEPS according to expression {EPS} (line 15) and saves the final values
+0142|*as variable EPS.
+0143|*UPDATE admits even a list of variables which may be useful in more
+0144|*general models.
+0146|*Because the likelihood function has typically many local maxima,
+0147|*one has to be careful when selecting initial values for parameters.
+0148|*Good values for s and beta may be obtained from OLS estimation
+0149|*(by LINREG or REGDIAG).
+0150|*Initial values for ARMA parameters may be found by making a grid search
+0151|*(METHOD=G in ESTIMATE).
+0153|- shadow a: [LINK(q24_01.html)]
+0154|*  1 = More information about ESTIMATE operation
+S   |   a                                           |
+0156|E

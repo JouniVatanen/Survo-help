@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">COMB P,L / P=PERMUTATIONS,&lt;n&gt; 
+lists all permutations of &lt;n&gt; given elements (default 1,2,3,...)
+in lexicographic order.
+Example:
+COMB PERM,CUR+1 / PERM=PERMUTATIONS,3
+Permutations of 3 elements: N[PERM]=6
+1 2 3
+1 3 2
+2 1 3
+2 3 1
+3 1 2
+3 2 1
+
+COMB P,L / P=PERMUTATIONS,&lt;n&gt;,&lt;m&gt; 
+lists &lt;m&gt;-permutations of &lt;n&gt; given elements (default 1,2,3,...)
+in lexicographic order.
+Example:
+COMB PERM,CUR+1 / PERM=PERMUTATIONS,4,2  ELEMENTS=A,B,C,D
+2-permutations of 4 elements: N[PERM]=12
+A B
+A C
+A D
+B A
+B C
+B D
+C A
+C B
+C D
+D A
+D B
+D C
+
+ELEMENTS=&lt;list_of_elements_with_repetitions&gt; 
+COMB P,L / P=PERMUTATIONS,&lt;n&gt;,&lt;m&gt; 
+lists &lt;m&gt;-permutations of &lt;n&gt; 
+in lexicographic order from a list given by ELEMENTS.
+Example:
+COMB PERM,CUR+1 / PERM=PERMUTATIONS,5,3  ELEMENTS=A,A,A,B,B
+3-permutations of 5 elements (with repetitions): N[PERM]=7
+A A A
+A A B
+A B A
+A B B
+B A A
+B A B
+B B A
+
+................................................................................
+<A NAME="PERM2"></A>Permutations with restricted positions:
+COMB PERM,CUR+1 / PERM=R_PERMUTATIONS,&lt;n&gt; RESTRICTIONS=&lt;matrix_file&gt; 
+lists permutations of &lt;n&gt; elements with restricted positions
+given by non-zero elements in &lt;n&gt;*&lt;n&gt; &lt;matrix_file&gt;.
+
+Example:
+MATRIX A5 ///
+1 0 0 0 1     / `1' cannot be in positions 1,5.
+0 1 1 0 0     / `2' cannot be in positions 2,3.
+0 0 1 1 1     / `3' cannot be in positions 3,4,5.
+1 1 0 0 0     / `4' cannot be in positions 1,2.
+1 0 1 0 1     / `5' cannot be in positions 1,3,5.
+
+MAT SAVE A5
+COMB PERM,CUR+1 / PERM=R_PERMUTATIONS,5 RESTRICTIONS=A5
+Permutations of 5 elements with restrictions A5: N[PERM]=5
+2 3 1 5 4
+3 1 4 5 2
+3 5 1 2 4
+3 5 1 4 2
+3 5 4 1 2
+
+R_PERMUTATIONS is much quicker than PERMUTATIONS in cases of
+many restricted positions and somewhat slower in simple cases.
+PERMUTATIONS generates all permutations and cancels non-allowed cases.
+R_PERMUTATIONS uses a recursive algorithm where restrictions are
+observed already when permutations are generated.
+
+Example: 'i' not allowed in positions i-1,i,i+1 (i=1,..,n n+1=1)
+MATRIX A ///
+1 1 0 0 0 0 0 0 0 0 1
+
+MAT SAVE A
+MAT C=DIAGVEC(A)   / *C~DIAGVEC(A) S11*11
+/MATSHOW C,12
+
+COMB P,CUR+1 / P=R_PERMUTATIONS,11 RESTRICTIONS=C  RESULTS=0
+Permutations of 11 elements with restrictions C: N[P]=1445100
+
+is about 6 times faster than
+COMB P,CUR+1 / P=PERMUTATIONS,11 RESTRICTIONS=C  RESULTS=0
+
+    <A HREF="qmc1_02.html">C = Other forms of COMB</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

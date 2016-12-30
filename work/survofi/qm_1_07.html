@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Tyypillisiä (uusia) SURVO.APU-tiedostoon riveinä asetettavia systeemi-
+parametreja:
+help_window=1 / Neuvontatekstit tulevat omaan ikkunaansa
+help_window=0 / Neuvontatekstit pääikkunan yhteyteen (kuten SURVO 98:ssa)
+
+gplot_layout=SUR_G3.SYS
+                ilmaisee tekstitiedoston, joka määrittelee GPLOT-kuvaikkunoiden
+                lukumäärän, paikat ja koot. Ko. tekstitiedostot ovat samassa
+                hakemistossa kuin GPLOT-ohjelmamodulit (eli SURVO MM:n ohjelma-
+                hakemiston G-alihakemistossa).
+                Rakenne on hyvin yksinkertainen ja ilmenee katselemalla
+                valmiina olevia ko. hakemiston .SYS-tiedostoja.
+
+Systeemiparametreja (jatkuu):
+
+videomode=&lt;leveys&gt;,&lt;korkeus&gt;  (esim. videomode=1000,1000)
+                ilmoittaa kuvaikkunoiden oletuskoon loogisina yksikköinä.
+                Jotta saataisiin aikaan yhteensopivuus aikaisempiin Survoihin,
+                käytettävissä on lyhennysmerkinnät:
+                videomode=EGA  sama kuin videomode=480,350
+                videomode=VGA  sama kuin videomode=480,480
+                videomode=CGA  sama kuin videomode=320,200
+                videomode=SVGA sama kuin videomode=800,600
+                videomode=XRES sama kuin videomode=1024,768
+Mahdollisimman hyvän yhteensopivuuden takaamiseksi PostScript-grafiikan
+kanssa kannattaa käyttää uutta vaihtoehtoa
+                videomode=PS
+jolloin parametrit &lt;leveys&gt; ja &lt;korkeus&gt; valitaan SIZE-täsmennyksen
+mukaisesti. Tällöin myös muutamat muut kuvan säätelyä koskevat ohjaukset
+(kuten fonttikoot) muunnetaan sisäisesti sellaisiksi, että kuva vastaa
+PostScript-piirrosta.
+
+Systeemiparametreja (jatkuu):
+
+edit_font=8,12,0,0
+                ilmoittaa pääikkunan (toimittimen) fonttikoon (tässä 8x12)
+                ja paikan (tässä 0,0). Windowsin tyyliin annetaan vasemman
+                yläkulman koordinaatit ylhäälta vasemmalle ja alaspäin lukien.
+                Huom. Jos käyttöjärjestelmä on Win NT tai 2000, fonttikoolla
+                ei ole vaikutusta. Näissä ympäristöissä fonttikoko voidaan
+                pysyvästi muuttaa oletusasetuksesta (8x12) näpäyttämällä ko.
+                ikkunan kuvaketta ja valitsemalla Properties (Asetukset) ja
+                sieltä sopiva fonttikoko.
+
+help_font=8,12,0,400
+                ilmoittaa HELP-ikkunan koon ja sijainnin kuten yllä kuvattiin.
+os_font=8,12,0,420
+                ilmoittaa käyttöjärjestelmäkomentojen ikkunan ominaisuudet
+                samalla tavalla.
+
+Em. ikkunoiden paikan ja (fontti)koon säätäminen on helpointa
+pehmonapein SYSTEM -&gt; WINDOW.
+
+Systeemiparametreja (jatkuu):
+
+cursor=30,80    Kohdistimen "paksuus" normaalissa kirjoitustilassa
+                ja lisäystilassa prosentteina maksimiarvosta 100.
+                Huom. poikkeaa aikaisempien Survojen asetuksesta.
+
+printer="&lt;PostScript-kirjoittimen Windows-nimi&gt;"
+                esim. printer="HP LaserJet 4M Plus"
+                Oikeat nimet löytyvät Windowsiin asennettujen
+                kirjoittimien luettelosta.
+
+soft_keys=SUR_SOFT,A
+                ilmaisee, mikä pehmonapisto tulee käyttöön, kun
+                SURVO MM käynnistetään.
+                SUR_SOFT.EDT sijaitsee SURVO MM:n ohjelmahakemistossa
+                (&lt;Survo&gt;\U). Katselemalla ko. toimituskenttää esim. komennolla
+                SHOW &lt;Survo&gt;\U\SUR_SOFT
+                saat käsityksen, miten pehmonappeja määritellään.
+
+Systeemiparametreja (jatkuu):
+
+trim_width=72   Oletusleveys TRIM-komennoissa (72 vastaa aikaisempaa)
+
+  <A HREF="qm_1_01.html">M = Lisää tietoja SURVO MM:n erityispiirteistä</A> 
+  <A HREF="q0b_10.html">S = More information on system parameters</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

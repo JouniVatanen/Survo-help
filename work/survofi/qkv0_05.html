@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">/DCONTOUR &lt;data&gt;,&lt;classvar&gt;,&lt;xvar&gt;,&lt;yvar&gt;                / K.Vehkalahti
+plots a scatter diagram of &lt;xvar&gt; and &lt;yvar&gt; in &lt;data&gt; grouped by &lt;classvar&gt; 
+and adding the contour ellipses for each group. Specifications CONTOUR and
+POINT can be used. The default values are CONTOUR=0.95 and POINT=&lt;classvar&gt;.
+The &lt;classvar&gt; may be of either numeric or string type. Its classification
+is sought automatically.
+
+This sucro is useful for example in discriminant analysis, giving a plot of
+discriminant space grouped by the classifying variable and each group having
+its own confidence ellipse.
+By activating the command in a slightly simpler form
+/DCONTOUR &lt;data&gt;,&lt;classvar&gt; 
+and giving the numeric variables with the MASK specification adds the vectors
+describing the correlations of the variables and the discriminators. In that
+case, the &lt;xvar&gt; is activated by X and &lt;yvar&gt; with Y. The variables that were
+used in computing them (e.g. with /DISCRI or DISCR) are activated with A.
+
+The sucro gives the user a ready made work scheme, where various parameters
+can be modified, and the picture then easily re-produced. A PostScript
+version of the picture can be created from that scheme by one sucro command
+as well.
+
+  <A HREF="qkv0_15.html">P = More information on composite plots</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

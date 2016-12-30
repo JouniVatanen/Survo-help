@@ -1,0 +1,138 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q02B
+0005|*................................................................................
+0006|*LOAD EDQ
+0007|*/LMAX
+0008|+F1? þ PRINT CUR+1,E TO q02b_01.html
+0009|- include HTML40.DEV
+0010|- include Q.DV2
+0011|- [HelpText]
+0013|*F1 is a prefix key which alters the functions of other keys.
+0015|*F1 pressed twice is the HELP key and enters the inquiry system of Survo.
+0017|- shadow a: [LINK(q01_01.html)]
+0018|*  H = More information about the help system
+S   |   a                                        |
+0019|- shadow a: [LINK(q02b_02.html)]
+0020|*  W = F1 codes for getting information from the Web
+S   |   a                                               |
+0021|- shadow a: [LINK(q02b_03.html)]
+0022|*  F = Other F1 codes
+S   |   a                |
+0023|- shadow a: [LINK(q02_01.html)]
+0024|*  K = Key codes
+S   |   a           |
+0026|E
+0029|+WEB? þ PRINT CUR+1,E TO q02b_02.html
+0030|- include HTML40.DEV
+0031|- include Q.DV2
+0032|- [HelpText]
+0034|*Getting information from the Web by F1 key combinations
+0036|*F1 G      calls Google by the current keyword(s).
+0037|*F1 S      calls Google by the current keyword(s) and "Survo".
+0038|*F1 W      calls Wikipedia by the current keyword(s).
+0039|*F1 D      calls the Free Online Dictionary by the current keyword(s).
+0041|*Before pressing the above F1 key combinations the cursor must
+0042|*  touch the keyword in the edit field, or
+0043|*  touch the space between a combination of two keywords.
+0044|*A sequence of several keywords can also be painted by the rightmost
+0045|*mouse button.
+0047|*The default settings for key codes above can be changed by
+0048|*SURVO.APU lines of the following form
+0050|*F1-code     SURVO.APU
+0051|- shadow W: [LINK(http://www.google.com/search?q=)] [/LINK]
+0052|*F1 g        google=http://www.google.com/search?q=
+S   |                    WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0053|- shadow W: [LINK(http://en.wikipedia.org/wiki/)] [/LINK]
+0054|*F1 W        wiki=http://en.wikipedia.org/wiki/
+S   |                  WWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0055|- shadow W: [LINK(http://www.thefreedictionary.com/)] [/LINK]
+0056|*W1 D        dict=http://www.thefreedictionary.com/
+S   |                  WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0059|*User-defined F1 codes for Web links
+0061|*Ten various F1 Web settings can be set by lines
+0062|*web0, web1, web2,..., web9 corresponding to codes
+0063|*F1 0, F1 1, F1 2,..., F1 9
+0065|*For example, activating the command
+0067|- shadow W: [LINK(http://www.youtube.com/results?search_query=)] [/LINK]
+0068|*SYSTEM web1=http://www.youtube.com/results?search_query=
+S   |             WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0070|*gives access to YouTube pages in the current Survo session.
+0071|*Then by touching the word Sibelius in the edit field and by F1 1
+0072|*we get hundreds of links to videos where music of Sibelius is played.
+0073|*The same YouTube setting will be created permanently by the command
+0075|- shadow W: [LINK(http://www.youtube.com/results?search_query=)] [/LINK]
+0076|*SYS    web1=http://www.youtube.com/results?search_query=
+S   |             WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0080|*User-defined F1 codes for Web links (continued)
+0082|*These settings can be defined even more accurately by giving, for
+0083|*example,
+0085|- shadow W: [LINK(http://www.google.com/search?q=||survo||+||%22)] [/LINK]
+0086|*web7=http://www.google.com/search?q=||survo||+||%22
+S   |      WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0087|*where || works as a delimiter for the following items:
+0088|- shadow W: [LINK(http://www.google.fi/search?q=)] [/LINK]
+0089|*http://www.google.fi/search?q=    address of the form http://
+S   | WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0090|*survo                             additional keyword
+0091|*+                                 separator of keywords
+0092|*%22                               "quotation mark"
+0094|*"quotation mark" is a string of characters surrounding the sequence
+0095|*of keywords. %22 is the inherent notation for it in Google.
+0096|*The defaults are: no additional keyword, separator is '+', no
+0097|*"quotation mark".
+0099|- shadow a: [LINK(q02b_01.html)]
+0100|*  1 = More about F1 codes
+S   |   a                     |
+0102|E
+0103|*$E
+0106|+F1-CODES? þ PRINT CUR+1,E TO q02b_03.html
+0107|- include HTML40.DEV
+0108|- include Q.DV2
+0109|- [HelpText]
+0111|*F1 codes:
+0113|*F1 F1: Enter the Help system of Survo
+0115|*F1 O:
+0116|*When the cursor touches a pathname of a file, this file is opened
+0117|*by a program associated in Windows to that file type.
+0119|*F1 L:
+0120|*lists the characters used in the control column of the current
+0121|*edit field in alphabetic order. The characters will appear on a new
+0122|*line inserted below the current edit line.
+0123|*This facility helps in finding free characters for row labels.
+0125|*F1 V:
+0126|*When the cursor indicates a word which is a name of a variable in
+0127|*the current active Survo data file, F1 V displays the extended form
+0128|*of the name on the message line until ENTER is pressed or at most
+0129|*for 10 seconds.
+0131|*F1 codes (continued);
+0133|*F1 #:
+0134|*creates a fence structure for a command when the cursor is in the first
+0135|*position of the command line and the command starts from that position.
+0136|- shadow %: [LINK(q07_10.html)] [/LINK]
+0137|*See FENCE?
+S   |     %%%%%
+0139|*F1 J:
+0140|*is a generalization of F2 J.
+0141|*It continues a phrase typed as first words on an edit line.
+0143|- [New]
+0144|*F1 <arrow_key>:
+S   |    <         >
+0145|*moves the cursor in the current edit field to
+0146|*the last column in use (F1 RIGHT), the first column (F1 LEFT),
+0147|*the last line (F1 DOWN), the first line (F1 UP).
+0148|- [/New]
+0150|*F1 codes (continued);
+0152|- [New]
+0153|*F1 A    starts the Survopoint display mode and
+0154|*F1 a    interrupts that mode
+0155|- [/New]
+0157|*This mode enables displaying variable lines either systematically or
+0158|*randomly on selected places in the main window of Survo.
+0160|- shadow a: [LINK(q02b_01.html)]
+0161|*  1 = More about F1 codes
+S   |   a                     |
+0162|- shadow a: [New][LINK(q03_19.html)]
+0163|d  2 = More about Survopoint display mode
+S   |   a                                    ;
+0165|E
+0166|*$E

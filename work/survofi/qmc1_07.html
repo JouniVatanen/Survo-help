@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">COMB D,L / D=DISTRIBUTIONS,&lt;n&gt;,&lt;m&gt; 
+lists distributions of &lt;n&gt; like elements into &lt;m&gt; different cells.
+Example:
+COMB DISTR,CUR+1 / DISTR=DISTRIBUTIONS,3,3
+Distributions of 3 into 3 cells: N[DISTR]=10
+0 0 3
+0 1 2
+0 2 1
+0 3 0
+1 0 2
+1 1 1
+1 2 0
+2 0 1
+2 1 0
+3 0 0
+
+COMB D,L / D=DISTRIBUTIONS,&lt;n&gt;,&lt;m&gt;  MIN=&lt;value or list of values&gt; 
+                                    MAX=&lt;value or list of values&gt; 
+lists distributions of &lt;n&gt; like elements into &lt;m&gt; different cells
+The cell frequencies must be between given MIN and MAX values.
+Example:
+COMB D,CUR+1 / D=DISTRIBUTIONS,80,3 MIN=20,25,30 MAX=23,28,33
+Distributions of 80 elements into 3 cells: N[D]=12
+20 27 33
+20 28 32
+21 26 33
+21 27 32
+21 28 31
+22 25 33
+22 26 32
+22 27 31
+22 28 30
+23 25 32
+23 26 31
+23 27 30
+
+    <A HREF="qmc1_02.html">C = Other forms of COMB</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

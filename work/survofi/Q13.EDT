@@ -1,0 +1,204 @@
+SURVO 98 edit field:    101       1000       1000 (32 bit version)
+0001|*SAVE Q13
+0004|*LOAD EDQ
+0006|+TIME? þ PRINT CUR+1,E TO q13_01.html
+0007|- include HTML40.DEV
+0008|- include Q.DV2
+0009|- [HelpText]
+0010|*Time series and line graphs may be plotted like scatter diagrams,
+0011|*but using an extra specification LINE to join the observation points.
+0013|*Notation of the time axis:
+0014|*If you have no time variable in the data, use TIME as the X variable and
+0015|*enter it in the form TIME(<xvar>) where <xvar> is the variable giving
+S   |                           <    >        <    >
+0016|*the labels for the regular time axis.
+0018|*The default range (scale) of the time axis (TIME) is always from 1 to # of
+0019|*observations in data, unless otherwise stated by XSCALE.
+0021|*A LAG specification is also available for relocating the graph in the
+0022|*current coordinate system and a FILL specification for coloring areas
+0023|*between time series.
+0025|- shadow a: [LINK(q12_01.html)]
+0026|*  J = Joint information on scatter diagrams and time series
+S   |   a                                                       |
+0027|- shadow a: [LINK(q11_01.html)]
+0028|*  P = More information on plotting in general
+S   |   a                                         |
+0029|E
+0032|+LAG2? þ PRINT CUR+1,E TO q13_02.html
+0033|- include HTML40.DEV
+0034|- include Q.DV2
+0035|- [HelpText]
+0036|#LAG=<X step>,<Y step>
+S   |     <      > <      >
+0037|*(in PLOT operation for time series and scatter diagrams)
+0038|*is a specification indicating (in units of the current X and Y scales)
+0039|*the amount of dislocation of the graph in the current coordinate
+0040|*system. <Y step> is optional and default is LAG=0,0.
+S   |         <      >
+0041|*The main purpose of LAG is to enable plotting of lagged variables or
+0042|*positioning of the observation points in the middle of time inter-
+0043|*vals (LAG=0.5).
+0044|E
+0046|+PROBIT? þ PRINT CUR+1,E TO q13_03.html
+0047|- include HTML40.DEV
+0048|- include Q.DV2
+0049|- [HelpText]
+0050|#PLOT <data>,<x var>,PROBIT
+S   |      <    > <     >
+0051|*plots variable <x var> in <data> on normal probability paper.
+S   |                <     >    <    >
+0052|*The data must be sorted in ascending order of <x var>.
+S   |                                               <     >
+0054|*The extra specifications of this form of PLOT are the same as those
+0055|*of PLOT for scatter diagrams. The default YSCALE is in this case
+0056|*YSCALE=*probit(y),0.001,0.01,0.1,0.5,0.9,0.99,0.999
+0058|- shadow a: [LINK(q12_01.html)]
+0059|*  S = more information on scatter diagrams
+S   |   a                                      |
+0060|- shadow a: [LINK(q11_01.html)]
+0061|*  P = more information on plotting in general
+S   |   a                                         |
+0062|E
+0065|+FILL? þ PRINT CUR+1,E TO q13_04.html
+0066|- include HTML40.DEV
+0067|- include Q.DV2
+0068|- [HelpText]
+0069|- shadow a: [LINK(q13_05.html)]
+0070|*  1 = FILL specification for times series plotting
+S   |   a                                              |
+0071|- shadow a: [LINK(q17_06.html)]
+0072|*  2 = FILL specification for curve plotting
+S   |   a                                       |
+0073|- shadow a: [LINK(q19_03.html)]
+0074|*  3 = SHADING specification for bar/pie charts
+S   |   a                                          |
+0075|- shadow a: [New][LINK(q13_08.html)]
+0076|d  4 = FILL command for systematic replacement of keywords by strings
+S   |   a                                                                ;
+0077|E
+0080|+FILLT? þ PRINT CUR+1,E TO q13_05.html
+0081|- include HTML40.DEV
+0082|- include Q.DV2
+0083|- [HelpText]
+0084|#FILL=<density>,<init.val.>,<fin.val.>,<base val. or var.>,<line_type>
+S   |      <       > <         > <        > <                 > <         >
+0085|*(in PLOT operation for time series) draws line segments parallel to Y
+0086|*axis from the points on the time series curve to another time series
+0087|*<base variable> or to a fixed <base value>.
+S   | <             >               <          >
+0088|*<base val. or var.> is optional and default is 0.
+S   | <                 >
+0089|*The area to be filled by these line segments is limited by the optional
+0090|Sparameters <initial value>,<final value> given as indices 1,2,...,N
+S   |            <             > <           > 88888888888888888888888888
+0091|*of the observations. Default is the whole plotting range.
+0093|*<density> (an integer 1,2,3...) gives the gap between the
+S   | <       >
+0094|*consecutive fill lines as a multiple of the plotting unit.
+0095|*<line_type> (optional) gives the form of the line for the <base variable>.
+S   | <         >                                               <             >
+0096|*Possible values of <line_type> are 1,2,3,4,5 (default 1) and their
+S   |                    <         >
+0097|*interpretation is same as that of the first parameter (line type) of
+0098|*the LINE specification.
+0100|*Example: PLOT TDATA1,TIME(Year),Ser1 /   FILL=4,1,35,Trend1
+0101|*plots Ser1 and fills the area between Ser1 and Trend1 for the first
+0102|*35 observations. The gap between fill lines is 4 plotting units.
+0104|#FILL-=<density>
+S   |       <       >
+0105|*(in PLOT operation for time series on plotter only) supports the FILL
+0106|*specification by giving the possibility to fill the negative parts
+0107|*between the series to be plotted by using another density (color).
+0108|*If FILL- is not given, filling takes place according to FILL
+0109|*for both positive and negative parts.
+0110|E
+0112|+PEN? þ PRINT CUR+1,E TO q13_06.html
+0113|- include HTML40.DEV
+0114|- include Q.DV2
+0115|- [HelpText]
+0116|#PEN=<list_of_device-dependent_control_words>
+S   |     <                                      >
+0117|*(in PLOT operation) determines the default setting of various graphical
+0118|*attributes of texts to be plotted in the graph like those given in
+0119|*HEADER and TEXTS specifications. The settings of PEN are temporarily
+0120|*overridden by corresponding device-dependent statements given in any
+0121|*of the other specifications.
+0122|*Examples:
+0123|*  PEN=[Times(24)][rot(0)]
+0124|*tells that texts should be written in 24 Point Times font. [rot(0)]
+0125|*means that the rotation angle of texts is 0.
+0126|- shadow %: [LINK(q0p1_10.html)] [/LINK]
+0127|*  PEN=[RED] or PEN=[color(0.333,1,1,0)]    (see also COLORSYS?)
+S   |                                                      %%%%%%%%
+0128|*gives `red' as the default color in all texts.
+0129|E
+0131|+LINETYPE? þ PRINT CUR+1,E TO q13_07.html
+0132|- include HTML40.DEV
+0133|- include Q.DV2
+0134|- [HelpText]
+0135|#LINETYPE=<list_of_device-dependent_control_words>
+S   |          <                                      >
+0136|*(in PLOT operation) corresponds to PEN (PEN?) but gives the default
+0137|*setting for plotting lines and curves.
+0138|*Examples:
+0139|*  LINETYPE=[line_width(0.48)][line_color(0.5)]  (in PostScript plotting)
+0140|*  LINETYPE=[line_color(-1)][line_type(4)]
+0141|*           FILL(-1)=0.2,0,1,0 (giving CMYK values for [line_color(-1)])
+0143|*[line_type(x)] (in GPLOT and PLOT) specifies the type of the line
+0144|*to be drawn. The alternatives are
+0146|*[line_type(0)]  solid line (in GPLOT round endcups)
+0147|*[line_type(1)]  long dash
+0148|*[line_type(2)]  dotted
+0149|*[line_type(3)]  dash dotted
+0150|*[line_type(4)]  medium dash
+0151|*[line_type(5)]  dash with two dots
+0152|*[line_type(6)]  short dash
+0153|*[line_type(7)]  dash with three dots
+0154|*[line_type(8)]  solid line without round end cups (GPLOT only)
+0155|E
+0157|+FILL2? þ PRINT CUR+1,E TO q13_08.html
+0158|- include HTML40.DEV
+0159|- include Q.DV2
+0160|- [HelpText]
+0161|#FILL
+0162|*(command) without parameters
+0163|*replaces keywords given as a list on consecutive lines below the command
+0164|*line by strings after each keyword on all subsequent lines in the edit
+0165|*field.
+0166|*------------- Example:
+0167|*FILL
+0168|*#1: (Mathematics)
+0169|*#2: (Statistical methods)
+0170|*#3: Graphics
+0172|*Example about topic G  #3:
+0173|*Regression analysis #2:
+0174|*More about regression analysis #2:
+0175|*Family of curves         #1:
+0177|*After activation of FILL above, lines after the list of keywords become:
+0178|*Example about topic G: #3: Graphics
+0179|*Regression analysis #2: (Statistical methods)
+0180|*More about regression analysis #2: (Statistical methods)
+0181|*Family of curves         #1: (Mathematics)
+0183|*Keywords (here #1:, #2:, #3:) may be any distinct strings but they
+0184|*should be unique in the current context.
+0185|*When a string indicated by a keyword is set on a line containing that
+0186|*keyword, all text after the replacement on that line is removed.
+0188|*FILL -
+0189|*works in the same way but removes the keywords (#1: etc.) and the result
+0190|*would be
+0191|*Example about topic G: Graphics
+0192|*Regression analysis (Statistical methods)
+0193|*More about regression analysis (Statistical methods)
+0194|*Family of curves         (Mathematics)
+0196|*If FILL is activated again in the original example with
+0197|*empty strings, i.e.
+0198|*FILL
+0199|*%1:
+0200|*%2:
+0201|*%3:
+0203|*the orginal setup is restored:
+0205|*Example about topic G  #3:
+0206|*Regression analysis #2:
+0207|*More about regression analysis #2:
+0208|*Family of curves         #1:
+0209|E

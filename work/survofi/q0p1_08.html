@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">The Survo PostScript driver and the PRINT/PLOT operations support
+the CMYK (Cyan-Magenta-Yellow-Black) four color model.
+The same color options can be used also in screen plotting since
+[color(C,M,Y,K)] control code is available in GPLOT (from ver. 2.18).
+In GPLOT, CMYK codes are converted to the RGB system (see <A HREF="q0p1_10.html">COLORSYS</A>?)
+
+The fundamental control code for text and line colors is
+   [color(C,M,Y,K)] where the parameters are in the interval (0,1)
+and give the intensities of the color components. 1 means full color.
+Certain basic colors are readily defined by means of this code in
+PS.DEV (and in CRT16.DEV for GPLOT). For example, in PS.DEV we have
+   define [GREEN] [color(1,0,1,0)]
+For other predefined colors, see <A HREF="q0p1_01.html">PS</A>.DEV (or CRT16.DEV in GPLOT).
+Example:  HEADER=[Swiss(24)][RED],Sample_of_100_observations
+          XLABEL=[color(1,0.5,1,0)],Green
+
+A color chart of various CMYK colors is obtained as a PostScript file
+by activating the sucro command
+/COLORMAP-PRINT
+
+Fills in the SHADING specification can be extended to (additional)
+colors by using negative SHADING values -1,-2,-3,...
+Each of them must be specified by a specification of the form
+   FILL(-i)=C,M,Y,K    (obsolete form [FILL-i]=C,M,Y,K)
+where i=-1,-2,-3,.. and C,M,Y,K are intensities from 0 to 1.
+These negative fill values are also available in FRAMES specifications.
+
+A new better alternative is to use COLOR(n) specifications instead of
+FILL(-n). (Example on the next page)
+
+Example:
+...................
+   DATA DATA1
+   Color C1 C2 C3 C4
+   _      1  1  1  1
+
+   PLOT DATA1 / DEVICE=PS,TEST.PS TYPE=%PIE
+/GS-PDF TEST.PS
+   SHADING=1,2,3,4
+   COLOR(1)=0,0,0,0 COLOR(2)=1,0,0,0 COLOR(3)=0,1,1,0 COLOR(4)=1,1,1,1
+   SIZE=1000,1000 XDIV=150,700,150 YDIV=150,700,150
+   FRAMES=F F=100,100,800,800,5 COLOR(5)=0,0.4,0.7,0
+............................
+To provide compatibility with monochromatic PostScript devices,
+the SHADING values from 0 to 9  (or from 0 to &lt;shademax&gt; given
+by SHADEMAX=&lt;shademax&gt;) still give various intensities of gray
+from white to black (in PLOT)
+provided that no COLOR(n) specifications are given.
+
+In plotting families of curves, the COLOR_CHANGE specification is
+available as in GPLOT (see <A HREF="q113_04.html">COLORCH</A>?)
+The various colors are selected by COLOR(n) specifications,
+i=1,2,...
+
+  <A HREF="q0p1_01.html">P = More information on PostScript printing/plotting</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

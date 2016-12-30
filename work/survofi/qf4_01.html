@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">After a Survo data file has been created all the fields are active
+and unprotected.
+When a field is active, it will be used and it will be displayed in
+all Survo operations which treat the data file as a whole.
+When a field is unprotected, its values can be changed.
+
+To change the status of the fields with respect to these properties,
+a FILE ACTIVATE operation is used. Since this operation is very common,
+it can be started for the current data file also simply by pressing
+FILE_ACT (alt-F6).
+When activating and protecting fields we have a display where one
+line is reserved for each field of the data file. If there are more
+than 20 fields, several pages of a similar type will be available.
+For example, in case of the COMMUNES file (see <A HREF="qf1_01.html">FILE</A> CREATE) this display
+could be following: (The emphasized character indicates the cursor.)
+------------------------------------------------------------------------
+Data file: COMMUNES M= 14 Col= 1   M(active)=  5  M(protected)=  0
+   1 A-  Commune  Name of the commune
+   2 A-  Province UUS,TUR,AHV,HÄM,KYM,MIK,KAR,KUO,KES,VAA,OUL,LAP
+   3 A-  People   Population 1.1.1980 (######) {100,500000}
+   4 A-  Births   Live births in 1978 (####) {0,6000}
+   5 A-  Area     Land area km^2 1.1.1979 (#####.##)
+
+Denote passive variables by - and active by A,X,Y etc.  Stop by EXIT!
+
+------------------------------------------------------------------------
+After the field number a set of mask columns (now filled with A--)
+are displayed and these columns can now be edited simply by moving the
+cursor and overtyping.
+The first column (now filled by A's) is meant for activation. Usually
+all symbols except '-' indicate an active field, but in some operations
+different symbols tell more about the role of the field. For example,
+in linear regression analysis (LINREG) 'Y' is a regressand, 'X' is
+a regressor, 'R' is a residual variable, etc.
+
+The second one-character column is for protection of the fields.
+It is originally filled with '-'s which means that no field is protected
+and its values can be changed. To protect a field, simply move the
+cursor to that column and put 'P' instead of '-'.
+For example, the display below indicates a situation where the fields
+'People', 'Births' and 'Area' are active and the fields 'Commune',
+'Province' and 'People' are protected:
+------------------------------------------------------------------------
+Data file: COMMUNES M= 14 Col= 2   M(active)=  4  M(protected)=  3
+   1 -P  Commune  Name of the commune
+   2 AP  Province UUS,TUR,AHV,HÄM,KYM,MIK,KAR,KUO,KES,VAA,OUL,LAP
+   3 AP  People   Population 1.1.1980 (######) {100,500000}
+   4 A-  Births   Live births in 1978 (####) {0,6000}
+   5 A-  Area     Land area km^2 1.1.1979 (#####.##)
+
+Denote protected variables by P. Stop by EXIT!
+
+------------------------------------------------------------------------
+
+As an option the scale types of the statistical variables can be given
+as mask column 3. By default this column is empty.
+More information about scale types is found by SCALES?.
+------------------------------------------------------------------------
+Data file: COMMUNES M= 14 Col= 3   M(active)=  4  M(protected)=  3
+   1 -P- Commune  Name of the commune
+   2 APN Province UUS,TUR,AHV,HÄM,KYM,MIK,KAR,KUO,KES,VAA,OUL,LAP
+   3 APF People   Population 1.1.1980 (######) {100,500000}
+   4 A-F Births   Live births in 1978 (####) {0,6000}
+   5 A-R Area     Land area km^2 1.1.1979 (#####.##)
+
+Enter scale types: N=nominal, O=order, I=interval, R=ratio, -=no
+
+------------------------------------------------------------------------
+
+Additional mask columns become visible by pressing ESC.
+These columns can be used to save various selections of variables
+and they are referred to by the MASK specification of the form
+MASK=#7 (=mask column 7) in Survo operations.
+The mask columns can be interchanged during file activation by the
+COPY key.
+A typical situation after pressing ESC is displayed. Here the mask
+column 7 is being edited.
+------------------------------------------------------------------------
+Data file: COMMUNES M= 14 Col= 7   M(active)=  4  M(protected)=  3
+   1 -P---A- Commune  Name of the commune
+   2 APN---- Province UUS,TUR,AHV,HÄM,KYM,MIK,KAR,KUO,KES,VAA,OUL,LAP
+   3 APF--AX People   Population 1.1.1980 (######) {100,500000}
+   4 A-F--AX Births   Live births in 1978 (####) {0,6000}
+   5 A-R--AY Area     Land area km^2 1.1.1979 (#####.##)
+
+To stop, press EXIT!
+------------------------------------------------------------------------
+More information during file activation mode is obtained by the HELP key.
+  <A HREF="q03_13.html">M = MASK operation/specification for dynamic activation</A> 
+  <A HREF="qf1_01.html">D = More information on data management</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

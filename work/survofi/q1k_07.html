@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">A (filled) polygon can be plotted by a PLOT operation of the form
+PLOT &lt;data&gt;,&lt;xvar&gt;,&lt;yvar&gt; / LINE=POLYGON,&lt;fill_index&gt; 
+The coordinates of the vertices are given by the &lt;xvar&gt; and &lt;yvar&gt; 
+variables and the polygon is filled by the shading (or color)
+given by the (optional) &lt;fill_index&gt;.
+........................................................................
+Example:
+DATA POLY6:(X,Y) 0,0 4,1 3,3 2,2 0,2 1,1 END
+
+GPLOT POLY6,X,Y / LINE=POLYGON,5 GRID=1,1
+........................................................................
+A more general form on the next page!
+
+If &lt;yvar&gt; has missing values, a sequence of polygons is plotted.
+A missing &lt;yvar&gt; value terminates plotting of the current polygon
+and starts a new one with &lt;fill_index&gt; given by the &lt;xvar&gt; value.
+If &lt;fill_index&gt; is 0, only the edges of the polygon are drawn.
+LINE=[line_width(0)],POLYGON,&lt;fill_index&gt; 
+means that the edges are not drawn but the polygon is filled.
+........................................................................
+Example: Three partially overlapping polygons
+DATA POLY14:(X,Y) 2,0.5 4,3 0,0 3,- 0,2.5 0,1 4,2 3,2.7 2,-
+                  4,0 4,1 2.8,1.2 2.5,3 2.3,0
+
+GPLOT POLY14,X,Y / LINE=POLYGON,5 GRID=1,1
+ROP=9 (Test various raster options using ROP values 0,1,2,...,15!)
+........................................................................
+
+   <A HREF="q1k_06.html">P = More information about polygons</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

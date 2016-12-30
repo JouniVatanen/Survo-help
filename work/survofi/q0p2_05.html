@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">The default plotting unit (minimum step) is 0.1 mm in Survo PostScript
+plotting.
+On high resolution printers (600 dpi or more) this is not accurate enough
+especially in curve plotting when best possible quality is demanded.
+Therefore the plotting unit can be altered by a specification
+PS_UNIT=&lt;step&gt; where PS_UNIT=0.1 is the default setting.
+For high quality curve plotting PS_UNIT=0.01 is recommended.
+
+Too accurate units should be avoided since the largest permitted size is
+SIZE=32767,32767 i.e. about 32.7 cm x 32.7 cm for PS_UNIT=0.01 .
+
+The following example (next page) illustrates the difference.
+
+
+
+   *PLOT X(T)=R*COS(T),Y(T)=R*SIN(T)
+   *R=10 XDIV=0,1,0 YDIV=0,1,0  HEADER= FRAME=0
+   *T=0,2*pi,pi/120 pi=3.14159
+   *DEVICE=PS,K1.PS
+   *SIZE=1500,1500       PLOTTING WITH DEFAULT RESOLUTION
+   *LINETYPE=[BLACK][line_width(0.48)]
+   *................................................................................
+   *PLOT X(T)=R*COS(T),Y(T)=R*SIN(T)
+   *R=10 XDIV=0,1,0 YDIV=0,1,0  HEADER= FRAME=0
+   *T=0,2*pi,pi/120 pi=3.14159
+   *DEVICE=PS,K2.PS
+   *SIZE=15000,15000
+   *PS_UNIT=0.01         PLOTTING IN 0.01 mm RESOLUTION
+   *LINETYPE=[RED][line_width(0.48)]
+   *................................................................................
+   *PRINT CUR+1,END TO K.PS / Red curve is smoother than the black one.
+   * [scaling(35,35)][home(-550,-3000)]
+   * picture K1.PS
+   * picture K2.PS
+   *
+   *
+  <A HREF="q0p1_01.html">P = More information on PostScript printing</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

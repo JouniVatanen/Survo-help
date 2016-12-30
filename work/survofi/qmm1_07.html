@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Multidimensional least-squares scaling etc.
+
+LSCAL &lt;distance_matrix&gt;,&lt;initial_coordinates&gt;,L
+
+computes on the basis of a given n*n dissimilarity or &lt;distance matrix&gt; 
+a configuration of n points in an m dimensional space. The distances of
+points in that configuration should be as close to the given distances
+as possible. &lt;initial coordinates&gt; gives initial estimates of the
+configuration as a matrix file. # of columns in &lt;initial coordinates&gt; 
+gives the dimension m.
+
+The result CSCAL.M of classical multidimensional scaling obtained by
+the sucro /CSCAL (or /CSCAL2 when n is very large (m&gt;1000) and m is
+small, typically m=2) is often a good choice for &lt;initial coordinates&gt;.
+
+The initial solution is improved iteratively by using the least squares
+(or other) criteria. Thus by default, the squared sum of differences
+between the true distances and distances given by estimated coordinates
+should be minimized. Since the object function generally has many local
+minima, several initial coordinates should be employed.
+
+The squared sum of distance differences can be weighted by a n*n weight
+matrix given by WEIGHTS=&lt;matrix_name&gt;. For example, weights could be
+inverses of given distances. By default, weights are 1.
+
+In the default case (no weights, least squares criterion, no additive
+constant) a conjugate gradient method is used.
+Otherwise Powell's method (without analytic gradient vector) is used.
+
+Options for optimization:
+METHOD=1  conjugate gradient method
+METHOD=12 conjugate gradient method (weights 1/d^2)
+METHOD=13 conjugate gradient method (weights 1/d)
+
+METHOD=2  Powell's method
+METHOD=3  polytope algorithm of Nelder and Mead
+
+An additive constant C for transforming the original distances D -&gt; D+C
+can also be estimated by giving CONSTANT=C .
+
+Missing values in the &lt;distance matrix&gt; are given as negative numbers.
+
+Default metrics for distances is Euclidean. Another metrics is selected
+by METRICS=Lp where p=1 means city-block distance and p=2 Euclidean
+distance.
+For general p&gt;0, corresponding Minkowski metrics is used.
+METRICS=MAD and METRICS=ABS are equivalent to METRICS=L1.
+METRICS=MAX implies maximum difference in coordinate values to be used
+as a distance.
+
+The goodness-of-fit measure for comparing given and estimated distances
+is the ordinary least squares criterion. This can be replaced by a
+CRITERION specification with the same alternatives as METRICS.
+For example, CRITERION=L2 is default.
+LSCAL gives its results as matrix files
+   LSCAL.M   estimated configuration matrix,
+   LSDIST.M  reproduced distances.
+LSCAL.M is centered to the origin and rotated to principal axes.
+
+By default, it is assumed that the distance matrix is symmetric.
+If it is not, set SYMMETRIC=0.
+
+ <A HREF="qmm1_02.html">1 = More information on additional multivariate operations</A> 
+ <A HREF="qmr2_01.html">M = More information on multivariate analysis</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

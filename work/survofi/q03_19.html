@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Survopoint display mode:
+To enliven the display in the main window of Survo, variable text
+may be shown on selected "Survopoint" lines.
+The contents of Survopoint lines are varying either systematically
+or randomly according to information given in the current edit field,
+typically outside the current window.
+Example:
+  11 *
+  12 ~ (The contents of this line will be alternating)       ~a
+  13 *
+  14 a 20 3 S
+  15 * This is the first alternative.
+  16 * Here is the second alternative.
+  17 * The third alternative is here.
+
+Please load this text into the edit field and remove leading characters
+so that control characters are those shown above.
+If you then press keys F1 and A, the text on line having '~' in its
+control column will be changing systematically between the three
+alternatives. The key combination F1 a interrupts this display mode.
+
+In the previous example, the only Survopoint line was
+  12 ~ (The contents of this line will be alternating)       ~a
+The marking ~a at the end of the line tells that the rule how this
+line alternates is given on a line having 'a' in its control column.
+The 'a' line was
+  14 a 20 3 S
+and there 20 gives the time interval between changes, 3 is the number
+of alternatives, and 'S' indicates that the line is changed
+systematically.
+
+Actually in the Survopoint display mode no line is moved in the edit
+field. Since the line to be displayed is always referred to by a pointer
+variable, merely pointers are updated and so this mode consumes very
+little computer power.
+
+In one edit field, 26 alternating lines may exist simultaneously.
+Each of them is indicated (by default) by a '~' in the control column
+and a marking ~x at the end of the line where x is one of the lowercase
+characters from 'a' to 'z'.
+
+Various options for the rule of alternating are
+Systematic:
+&lt;time&gt; &lt;# of alternatives&gt; S
+Uniformly random:
+&lt;time&gt; &lt;# of alternatives&gt; U
+Random by given probabilities:
+&lt;time&gt; &lt;# of alternatives&gt; p1 p2 p3 ...
+where p1+p2+p3+...=1
+
+The &lt;time&gt; parameter is an integer telling that the change takes place
+just once in &lt;time&gt; consecutive refreshments of the Survo main window.
+The refresh rate (in this display mode only) is given by the system
+parameter Survopoint_disp in SURVO.APU and it is 50 ms by default.
+The default control character '~' for Survopoint lines can be changed
+by the system parameter Survopoint.
+A mishmash collection of several simultaneus Survopoint lines is found
+by activating
+LOAD &lt;Survo&gt;\U\D\SPOINT
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

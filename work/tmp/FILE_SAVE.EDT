@@ -1,0 +1,221 @@
+SURVO 98 edit field:    201       2000       300 (32 bit version)
+0001|*SAVE FILE_SAVE / FILE SAVE 4.8.2015 Jouni Vatanen
+0004|*DEF file_save,10,E
+0010|*File save
+S   | kkkkkkkkk
+0011|*Description
+S   | lllllllllll
+0012|*FILE SAVE saves contents of a text file to Survo data file.
+S   | xxxxxxxxx
+0014|*Usage
+S   | lllll
+0015|(FILE SAVE 'text file' TO NEW 'Survo data file'
+0016|)
+0018|*Specifications
+S   | llllllllllllll
+0019|- [TABLE]
+0020|r
+0021|C'text file'
+S   | xxxxxxxxxxx
+0022|CThe whole name of the text file that you want to save. Use without
+0023|*'-characters and with the correct file extension
+0024|r
+0025|C'Survo data file'
+S   | xxxxxxxxxxxxxxxxx
+0026|CName of the file where the data will be saved. Use without '-characters.
+0027|r
+0028|CNAMES
+S   | xxxxx
+0029|CNAMES=names_line gives the line for the variable names in Survo data
+S   | xxxxxxxxxxxxxxxx
+0030|*file. Default (if no NAMES given): variable names X1, X2, ... are used.
+0031|*NAMES=DEFAULT maps the columns of a text file to the active variables of
+S   | xxxxxxxxxxxxx
+0032|*Survo data file.
+0033|r
+0034|CNEW
+S   | xxx
+0035|CFILE SAVE 'text file' TO NEW 'Survo data file' deletes the existing Survo data file.
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0036|r
+0037|CDELIMITER
+S   | xxxxxxxxx
+0038|CDELIMITER=char(number) separates the columns of the text file. Default:
+S   | xxxxxxxxxxxxxxxxxxxxxx
+0039|*one or more blank (space) characters. Possible values are denoted by
+0040|*char(i), i=1,...,255. Keyword TAB may be used instead of char(9).
+0041|r
+0042|CFIRST
+S   | xxxxx
+0043|CFIRST=first line. The first line to be copied from the text file.
+S   | xxxxxxxxxxxxxxxx
+0044|*Default: 1.
+0045|r
+0046|CLAST
+S   | xxxx
+0047|CLAST=last line. The last line to be copied from the text file.
+S   | xxxxxxxxxxxxxx
+0048|*Default: last line of the text file.
+0049|r
+0050|CMAXFIELDS
+S   | xxxxxxxxx
+0051|CMAXFIELDS=# of fields defines maximum number of fields in the text file.
+S   | xxxxxxxxxxxxxxxxxxxxx
+0052|*Default: 300.
+0053|r
+0054|CMISSING
+S   | xxxxxxx
+0055|CMISSING=string treats string as a missing value. Default: spaces and/or '-'.
+S   | xxxxxxxxxxxxxx
+0056|r
+0057|CENCODING
+S   | xxxxxxxx
+0058|CENCODING=encoding of the text file spesifies, how to encode the text
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0059|*file. This spesification is used only if the system doesn't regognize
+0060|*encoding. ENCODING=UTF-8 encodes UTF-8 text files. Default: DEFAULT.
+S   |           xxxxxxxxxxxxxx
+0061|r
+0062|C>R
+S   | >x
+0063|C>R'R data frame' transforms R data frame to Survo data. Use without '-characters.
+S   | >xxxxxxxxxxxxxxx
+0064|r
+0065|CSKIP
+S   | xxxx
+0066|CSKIP=list_of_characters skips unwanted charcters.
+S   | xxxxxxxxxxxxxxxxxxxxxxx
+0067|r
+0068|CFIELDS
+S   | xxxxxx
+0069|CFIELDS specification makes difficult text file structures readable to a Survo data files.
+0070|*For more information check
+0071|- [LINK(#)]
+0072|*FILE SAVE with FIELDS.
+S   |                     |
+0073|r
+0074|CMATCH
+S   | xxxxx
+0075|COnly to use with FIELDS specification. For more information check
+0076|- [LINK(#)]
+0077|*FILE SAVE WITH FIELDS.
+S   |                     |
+0078|r
+0079|CSKIP_ERRORS
+S   | xxxxxxxxxxx
+0080|CDoes not interrupt saving the text file when the line has too few
+0081|*fields. SKIP_ERRORS=1 deletes incomplete lines. SKIP_ERRORS=2 creates a
+S   |         xxxxxxxxxxxxx                           xxxxxxxxxxxxx
+0082|*data record from an incomplete line and assumes that missing fields are
+0083|*at the end of the text line.
+0084|r
+0085|CCHECK_VAR_NAMES
+S   | xxxxxxxxxxxxxxx
+0086|CCHECK_VAR_NAMES=0 treats variable names as is instead of altering the 8th character
+S   | xxxxxxxxxxxxxxxxx
+0087|*if duplicate variable names are encountered.
+0088|r
+0089|CREMOVE_QUOTES
+S   | xxxxxxxxxxxxx
+0090|CREMOVE_QUOTES=1 converts double quotes within text to ''.
+S   | xxxxxxxxxxxxxxx
+0091|r
+0092|CFORMAT
+S   | xxxxxx
+0093|CFORMAT=0 avoids collison with wrong format-lists like NOFORMAT=1.
+S   | xxxxxxxx
+0094|r
+0095|CNOFORMAT
+S   | xxxxxxxx
+0096|CNOFORMAT=1 avoids collison with wrong format-lists like FORMAT=0.
+S   | xxxxxxxxxx
+0097|r
+0098|CFILTER
+S   | xxxxxx
+0099|CFILTER=conversion file converses a text file to a Survo data file with
+S   | xxxxxxxxxxxxxxxxxxxxxx
+0100|*specific conversion rules. For making code conversion files check
+0101|- [LINK(#)]
+0102|*code conversion.FILTER=#DOTCOMMA FILTER=#COMMADOT replaces
+S   |               | xxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx
+0103|*dots with commas and vice versa. FILTER=#SEMICOMMA replaces semicommas
+S   |                                  xxxxxxxxxxxxxxxxx
+0104|*with commas.
+0105|r
+0106|CNOFIELDS
+S   | xxxxxxxx
+0107|CNOFIELDS avoids collision with wrong field-lists.
+S   | xxxxxxxx
+0108|r
+0109|CNEWSPACE
+S   | xxxxxxxx
+0110|CNEWSPACE=m,n creates a Survo data file with space for m records and n
+S   | xxxxxxxxxxxx
+0111|*variables. NEWSPACE=0,0 creates a Survo data file with no extra space.
+0112|r
+0113|CDEC
+S   | xxx
+0114|CDEC=character specifies the decimal character used. Default: . (dot).
+S   | xxxxxxxxxxxxx
+0115|r
+0116|CMODEL
+S   | xxxxx
+0117|CMODEL=# of a line allows to give 'model-line'.???
+S   | xxxxxxxxxxxxxxxxx
+0119|- [/TABLE]
+0120|*Details
+S   | lllllll
+0121|/Before creating the Survo data file, FILE SAVE scans the entire text
+S   |                                      xxxxxxxxx
+0122|*file. It detects whether the field is a string or a numeric field. If it
+0123|*appears as the first line in the text file and the labels are strings
+0124|*(not starting by digits), these labels will appear as names of fields in
+0125|*the new Survo data file.
+0127|/Names of variables in Survo data files consist of max. 8 character
+0128|*identifier and of its extension (more accurate description, format,
+0129|*etc.). The identifier part must be started by a letter and other
+0130|*characters are typically letters and numbers. Characters like
+0131|*+-*/()[]{},!"'?>< should be avoided.
+0133|/The maximum line length in the text file is at least 100 000. Longer
+0134|*records has to be divided into several lines.
+0137|*See also
+S   | llllllll(
+0138|- [LINK(#)]
+0139|*FILE SAVE with FIELDS,
+S   |                     |
+0140|- [LINK(#)]
+0141|*FILE STATUS,
+S   |           |
+0142|- [LINK(#)]
+0143|*FILE UPDATE,
+S   |           |
+0144|- [LINK(#)]
+0145|*FILE LOAD,
+S   |         |
+0146|- [LINK(#)]
+0147|*TXTCONV,
+S   |       |
+0148|- [LINK(#)]
+0149|*TXTRIM,
+S   |      |
+0150|- [LINK(#)]
+0151|*FILE SAVE MAT
+S   |             |)
+0153|*Examples
+S   | llllllll
+0154|(FILE SAVE data1.txt TO data / DELIMITER=TAB
+0155|*..........
+0156|)
+0157|/
+0158|(FILE SAVE data1.txt TO data / NAMES=1 FIRST=2 LAST=10
+0159|*..........
+0160|)
+0161|/
+0162|(FILE SAVE data1.txt TO data / SKIP=";|
+0163|*..........
+0164|)
+0165|/
+0166|(FILE SAVE data1.txt TO data / DELIMITER=TAB NAMES=1 FIRST=2
+0167|)
+0168|- [/DIV]
+0170|E

@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">The output file which stores results in text form is not always
+sufficient for numerical results obtained in statistical analyses, for
+example. To preserve complete numerical accuracy and to provide
+immediate access to the matrix interpreter (MAT and MATRUN operations),
+the statistical operations will save their output matrices in matrix
+files, too.
+Such output matrices are always saved on the current data path using
+standard names with extension .M (instead of .MAT which is the default
+extension for MAT files). They are, however, normal matrix files which
+can be processed by MAT operations.
+The default names used for output matrices are described below and the
+user can change them easily by the OS command REN. For example,
+&gt;REN A:*.M *.MAT changes on disk A: all matrix result files (with
+extension .M) to matrix files with extension (.MAT).
+To see the current .M files, activate, for example
+DD *.M
+
+<A NAME="MATRES"></A>Typical matrix files for statistical results:
+
+CORR.M      Correlation matrix (by operation CORR, for example)
+MSN.M       Matrix of 3 columns (by CORR):
+              column 1: means of variables
+              column 2: standard deviations of variables
+              column 3: number of observations
+
+REG.M       Column vector of regression coefficients (LINREG,REGDIAG)
+REGS.M      Regression coefficients and their std.errors (LINREG,REGDIAG)
+REG_CORR.M  Correlations of regression coefficients (LINREG,REGDIAG)
+LG.M        Scalar results of regression analysis (LINREG)
+RG.M        Scalar results of regression analysis (REGDIAG)
+
+EST_PAR.M   parameter estimates and their standard errors (ESTIMATE)
+EST_CORR.M  correlations of parameter estimates (ESTIMATE)
+EST.M       scalar results (ESTIMATE)
+
+STAT.M      certain results of STAT
+STAT.M      results of MINSTAT
+
+Matrix files (continued)
+
+PCOMP.M     Principal component loadings (/PCOMPR, /PCOMPCOV)
+PCOMPV.M    Variances of components (/PCOMPR, /PCOMPCOV)
+PCOEFF.M    Coefficients of pcomp scores (/PCOMPR, /PCOMPCOV)
+PCOCENT.M   Variances of components (%) (/PCOMPR, /PCOMPCOV)
+PCOEFF.M    Coefficients for principal component scores (/PCOMPR, /PCOMPCOV)
+
+FACT.M      Factor matrix (FACTA)
+PFACT.M     Factor matrix (MATRUN PFACT)
+AFACT.M     Rotated factor matrix (ROTATE)
+TFACT.M     Rotation matrix (ROTATE)
+RFACT.M     Factor correlation matrix (ROTATE)
+SFACT.M     Factor structure matrix (ROTATE)
+FCOEFF.M    Factor score coefficients (/FCOEFF, /FTCOEFF)
+
+L.M         Transformation matrix (/TRAN-SYMMETR, /TRAN-LEASTSQR)
+E.M         Residual matrix (/TRAN-SYMMETR, /TRAN-LEASTSQR)
+
+Matrix files (continued)
+
+XTAB.M      Design matrix (TABFIT)
+PCOV.M      Covariance estimates of parameters (TABFIT, GENREG)
+GENREG.M    Parameter estimates (GENREG)
+
+DISCRL.M    Discriminant coefficients (/DISCRI)
+DISCRXR.M   Correlations between variables and discriminators (/DISCRI)
+
+LCAN.M      Vector of canonical correlations (CANON, /CANCORR)
+XCAN.M      Correlations of canonical variables with X variables (CANON)
+YCAN.M      Correlations of canonical variables with Y variables (CANON)
+XCOEFF.M    Coefficients for the first set of canonical variables (CANON)
+YCOEFF.M    Coefficients for the second set of canonical variables (CANON)
+
+Matrix files (continued)
+
+CR_COORD.M  Column coordinates (CORRESP)
+CR_SUPPC.M  Supplementary column coordinates (CORRESP)
+CR_V.M      V from SVD (CORRESP)
+CR_EIGEN.M  D^2 from SVD (CORRESP)
+CR_CONTR.M  Columnwise absolute contributions (CORRESP)
+CR_CORR2.M  Columnwise squared correlations (CORRESP)
+CR_MDIST.M  Mass (1st column) and chi^2 distance (2nd column) (CORRESP)
+
+SIMPLEX.M   Solution vector (SIMPLEX)
+SLACK.M     Values of the slack variables (SIMPLEX)
+TSIMPLEX.M  Simplex Output Table (SIMPLEX)
+
+CSCAL.M     Scale values (/CSCAL)
+CSEIGEN.M   Eigenvalues (/CSCAL)
+CSCENT.M    Eigenvalues in percentages (/CSCAL)
+CSDIST.M    Reproduced distances (/CSCAL)
+
+Matrix files (continued)
+
+LSCAL.M     Estimated configuration matrix (LSCAL)
+LSDIST.M    Reproduced distances (LSCAL)
+
+T2COEFF.M   Coefficients of the linear discriminant function (/T2)
+
+CHI2FM.M    Original table with margins (/CHI2)
+CHI2E.M     Expected frequencies (/CHI2)
+CHI2C.M     Contributions to Chi-square (/CHI2)
+CHI2.M      Chi-square value (/CHI2)
+CHI2DF.M    Degrees of freedom (/CHI2)
+
+RCOV.M      Residual covariance matrix (RELIAB by K.Vehkalahti)
+RCORR.M     Residual correlation matrix (RELIAB)
+WEIGHT2.M   Second order scales (RELIAB)
+
+Matrix files (continued)
+
+OR.M        Odds Ratios and confidence intervals (/LOGREG by K.Vehkalahti)
+
+COV.M       Covariance matrix from CORR.M and MSN.M (/COV)
+
+L1.M        Optimal transformation matrix (TRAN1)
+
+MNCOEFF.M   Coefficient matrix (MNSIMUL)
+MNMEAN.M    Vector of means (MNSIMUL)
+
+TAILFREQ.M  Relative frequencies of values exceeding treshold values (STATMSF)
+
+COVVAR.M    Optimally permuted covariance matrix (MULTVAR)
+
+Matrix files (continued)
+
+CORR.M      Correlation matrix (CORRMV)
+MSN.M       Matrix of 3 columns (see <A HREF="q21_03.html">CORR</A> above) (CORRMV)
+PAIRFREQ.M  Frequencies of observations for each pair of observations (CORRMV)
+
+BURT.M      Burt's table (BURT by K.Vehkalahti)
+CLASS.M     Vector of the number of classes per classifier (BURT)
+
+SMOOTH.M    Smoothened values (LOWESS by J.Puranen)
+
+  <A HREF="qmr2_01.html">M = More information on multivariate statistical operations</A> 
+  <A HREF="qv4_01.html">L = Linear combinations of variables (LINCO)</A> 
+  <A HREF="q21_01.html">S = More information on statistical operations</A> 
+  <A HREF="q0e_01.html">C = More information on output control</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>

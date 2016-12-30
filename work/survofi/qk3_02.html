@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+     <!--
+         Created by using the PRINT operation of SURVO MM 
+          For more information, see http://www.survo.fi/  
+         -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="SURVO MM">
+<TITLE>SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)</TITLE>
+<LINK REL="stylesheet" HREF="q.css" TYPE="text/css">
+<META NAME="Description" CONTENT="SURVO&nbsp;MM&nbsp;Help&nbsp;System&nbsp;(web&nbsp;edition)">
+<META NAME="Classification" CONTENT="help system">
+<META NAME="Keywords" CONTENT="Survo, help, hypertext">
+</HEAD>
+<BODY>
+<H1><IMG SRC="../survologo1.gif" WIDTH="200" HEIGHT="82" ALT="SURVO&nbsp;MM">&nbsp;<A HREF="mainmenu.html">Help&nbsp;System&nbsp;(web&nbsp;edition)</A></H1>
+<P><PRE CLASS="HelpText">Structured LISTs
+
+Definition of a list given by a .LST text file can be extended by
+additional specifications telling about the structure of a list,
+i.e. how the text in the list can be interpreted as a sequence
+of cases consisting of one or more lines and how various fields
+within the text are identified.
+In this form a list corresponds to a data file with string and
+numeric variables. However, there is neither a fixed length nor
+a fixed position of a field in one record or case.
+
+Thus a structured LIST in Survo consists of a sequence of text chapters
+in edit fields with a division into cases (records) of one or more
+edit lines and within each case of fields (variables) in free order.
+
+Structured LISTs (continued)
+
+The cases are limited either by empty lines or by control characters
+in the control column (one character shows where the case begins and
+another where it ends).
+The fields are indicated in different ways:
+   1) by characters in the control column,
+   2) by shadow characters (colours),
+   3) by key texts within the text itself.
+The two first alternatives are most suitable since they admit coding
+of textual data without inserting technical notation in the text itself.
+
+It is also possible to define subcases (by the above-mentioned means)
+to indicate their range within a case and define fields within
+a particular subcase. The subcases can also be nested thus enabling
+hierarchical structures in lists.
+
+Also several structured definitions can be given to the same sequence
+of edit file chapters by different .LST files.
+
+For the time being strucured lists can be processed by LIST SORT.
+
+Structured LISTs (continued)
+
+Contents of a .LST text file for a structured LIST:
+/ comment lines starting by `/'
+&lt;chapter_1&gt;&lt;edit_field_1&gt; 
+&lt;chapter_2&gt;&lt;edit_field_2&gt; 
+...
+END
+CASE_START=&lt;control_character&gt;      default: first non-empty line
+CASE_END=&lt;control_character&gt;        default: first empty line
+LIST FIELDS:
+1 &lt;type&gt; &lt;length&gt; &lt;field name&gt; &lt;identification key&gt; 
+2 &lt;type&gt; &lt;length&gt; &lt;field name&gt; &lt;identification key&gt; 
+...
+END
+&lt;comment lines&gt; 
+
+To a great extent the definition of fields starting from a LIST FIELDS:
+line is the same as in the FILE CREATE operation (see <A HREF="qf2_01.html">FCREATE</A>?).
+The essential addition is the &lt;definition&gt; part which is needed
+for the identification of the field within the text.
+
+Structured LISTs (continued)
+
+Definition of fields:
+As an example, one field in LIST FIELDS section can be given in the form
+3 S 16 Name1 SHADOW:1,STRING
+where `3' is # of the field `S' the type (string), `16' the length,
+and `Name1' the name of the field.
+The &lt;identification key&gt; is in this case `SHADOW:1,STRING' which means
+that the first <STRONG>red</STRONG> string (i.e. string with consecutive shadow characters 1)
+in the current case will be taken as the value of field `Name1'
+Thus, if the first line in the current case with 1's as shadow characters is
+This is the <STRONG>SURVO 84C</STRONG> System.
+the field `Name1' will have the value `SURVO 84C'.
+
+In the list of various identification keys which follows on next pages
+this alternative is described briefly as
+
+SHADOW:1,STRING                           identification key
+This is the <STRONG>SURVO 84C</STRONG> System.             essential part of the case text
+SURVO 84C                                 value obtained by identification
+
+Identification keys in structured LISTs
+Keys that are already implemented are indicated by (*).
+
+Using shadow characters:
+SHADOW:1,STRING                     (*)   identification key
+This is the <STRONG>SURVO 84C</STRONG> System.             essential part of the case text
+SURVO 84C                                 value obtained by identification
+
+SHADOW:1,WORD                       (*)
+SURVO 84C Sy<STRONG>s</STRONG>tem is
+System
+
+SHADOW:( - SHADOW:)                 (*)
+This is the <CODE>SURVO 84</CODE>C System.
+            (       )             shadow characters
+SURVO 84C
+
+SHADOW:17 - SHADOW:71               (*)
+A field (<STRONG>t</STRONG><B>h</B>is is <B>i</B><STRONG>t</STRONG>) is indicated by pairs (triples etc.) of shadows.
+this is it
+
+Identification keys in structured LISTs
+
+Using shadow characters: (continued)
+
+#SHADOW:1,STRING                    (*)
+#SHADOW:1,WORD                      (*)
+number of strings or words indicated by shadow `1'
+
+
+Identification keys in structured LISTs
+
+Using the control column:
+ *CONTROL:+                         (*)
+ + the entire line
+ * the entire line
+
+CONTROL:[ - CONTROL:]               (*)
+defines a subcase starting from a line with `[' in the control column and
+ending to a line with `]' in the control column (the latter line also included).
+A subcase is always defined as a field with type and length `-' and
+any field within it is defined as follows:
+
+5  -  -  PART1  CONTROL:{ - CONTROL:}
+6  S  16 KEYW   SHADOW:1,WORD [PART1]
+
+`PART1' in brackets in the definition of `KEYW' tells that the field
+to be identified is the first word within the subcase `PART1' indicated
+by the shadow character 1.
+
+Identification keys in structured LISTs
+
+Using the control column: (continued)
+ *CONTROL:+,12                   *CONTROL:+,WORD,2
+ +01234567890123456              +SURVO 84C
+ *012345678901                   *84C
+
+ *CONTROL:+,4,5                  *CONTROL:+,WORD,2,END
+ +01234567890123456              +SURVO 84C System
+ *34567                          *84C System
+
+ *CONTROL:+,WORD
+ +SURVO 84C
+ *SURVO
+
+Identification keys in structured LISTs
+
+Using keywords within the text itself:
+TEXT:Birth_place:_
+(any text) Birth place: Helsinki
+Helsinki
+
+TEXT:Birth_place:_,16               (*)
+(any text) Birth place: Helsinki 1234567890
+Helsinki 1234567
+
+TEXT:Birth_place:_,WORD
+(any text) Birth place: Helsinki 1234567890
+Helsinki
+
+Identification keys in structured LISTs
+
+Miscellaneous:
+WORD#:3 [S]                                  (*)
+the third word (in the subcase S).
+
+#WORDS: [S]                                  (*)
+number of words (in subcase S).
+
+#WORDS:word1,word2,... [S]                   (*)
+number of words word1,word2,... (in subcase S).
+Also wild card notations of the form *word,word*,*word* permitted.
+
+#WORDS:#&lt;keyword&gt;/&lt;text_file&gt;] [S]           (*)
+as above with a list of words in &lt;text_file&gt; in the form
+#&lt;keyword&gt; word1,word2,....
+           wordn,#END
+
+In the two last items comparisons are case-insensitive by default.
+To make them case-sensitive, insert `C' as follows:
+#WORDS:C:word1,word2,... [S]                 (*)
+
+Identification keys in structured LISTs
+
+#LINES: [S]                                  (*)
+
+START:n  [S]
+n first bytes (control column excluded)
+
+
+  <A HREF="qk1_01.html">L = More information on LIST operations</A> 
+</PRE></P><HR>
+<DIV CLASS="Details"><SMALL>More information on Survo from <A HREF="http://www.survo.fi/">www.survo.fi</A></SMALL><BR><SMALL>Copyright &copy; Survo Systems 2001-2012.<BR><A HREF="mailto:webmaster'at'survo.fi">webmaster'at'survo.fi</A></SMALL></DIV>
+</BODY>
+</HTML>
