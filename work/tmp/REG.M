@@ -1,1 +1,0 @@
-MATRIX84D 5 1 1 8 8 0                                                                                                           regr(DECA)                                                                                                                      %1      Constant±ú§UZ´@100m    	^çã?L_jump  dàÅˆQÁó?400m    Øæ¾;Åâ?Javelin Àé¯í.“ê?
