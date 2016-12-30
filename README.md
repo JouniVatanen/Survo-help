@@ -1,7 +1,7 @@
 # Survo-help
 Survo help repository including all the necessary files to create Survo help web page
 
-Contents of EDT-files
+EDT-files and examples of html-files it creates
 * SURVO-HLP // All the settings. Activate this before anything!
 * MISC      // frontpage, misc-pages, tutorial, [Jouni] (https://github.com/JouniVatanen)
 * EXAMPLES  // examples
