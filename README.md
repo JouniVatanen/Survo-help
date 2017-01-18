@@ -1,5 +1,5 @@
 # Survo-help
-Survo help repository including all the necessary files to create Survo help web page
+Survo help repository including all the necessary files to create Survo help web page.https://d3l3g8x9oq84ue.cloudfront.net/
 
 ## EDT-files and examples of html-files it creates
 * SURVO-HLP // All the settings. Activate this before anything!
