@@ -53,33 +53,33 @@ s.parentNode.insertBefore(gcse, s);
 FILE SAVE
 </H2><H3>Description</H3><DIV  id="CommandList"><CODE>FILE SAVE</CODE> saves contents of a text file to Survo data file.
 
-</DIV><H3>Usage</H3><P><CODE>FILE SAVE 'text file' TO NEW 'Survo data file'</CODE> 
+</DIV><H3>Usage</H3><PRE><CODE>FILE SAVE 'text file' TO NEW 'Survo data file'
+</CODE></PRE>
 <P><CODE>'text file'</CODE> is the whole name of the text file that you want to save. Use without
 '-characters and with the correct file extension
 <CODE>'Survo data file'</CODE> is name of the file where the data will be saved. Use without '-characters.
 <CODE>NEW</CODE> is optional and deletes the existing Survo data file.
 
 <H3>Parameters</H3><DL><DT><CODE>NAMES</CODE> 
-<DD><CODE>NAMES=names_line</CODE> gives  he line for the variable names in Survo data
-file. Default (if no NAMES given): variable names X1, X2, ... are used.
+<DD>Define the line for the variable names by <CODE>NAMES=names_line</CODE>.
+Default (if no NAMES given): variable names X1, X2, ... are used.
 <CODE>NAMES=DEFAULT</CODE> maps the columns of a text file to the active variables of
-Survo data file.
+Survo data file. Example: <CODE>NAMES=1</CODE>.
 
 <DT><CODE>DELIMITER</CODE> 
-<DD><CODE>DELIMITER=char(number)</CODE> separates the columns of the text file. Default:
-one or more blank (space) characters. Possible values are denoted by
-char(i), i=1,...,255. Keyword TAB may be used instead of char(9).
+<DD>Define the delimiter of the text file by <CODE>DELIMITER=char(number)</CODE>. Default:
+one or more blank (space) characters. Example: <CODE>DELIMITER=char(9)</CODE> or <CODE>DELIMITER=TAB</CODE>.
 
 <DT><CODE>FIRST</CODE> 
-<DD><CODE>FIRST=first_line</CODE>. The first line to be copied from the text file.
-Default: 1.
+<DD>Define the first line to copy from the text file by <CODE>FIRST=first_line</CODE>.
+Default: 1. Example: <CODE>FIRST=2</CODE> 
 
 <DT><CODE>LAST</CODE> 
-<DD><CODE>LAST=last</CODE>_<CODE>line</CODE>. The last line to be copied from the text file.
-Default: last line of the text file.
+<DD>Define the last line to copy from the text file by <CODE>LAST=last_line</CODE>.
+Default: last line of the text file. Example: <CODE>LAST=100</CODE> 
 
 <DT><CODE>MISSING</CODE> 
-<DD><CODE>MISSING=string</CODE> treats string as a missing value. Default: spaces and/or '-'.
+<DD>Define a string as a missing value by <CODE>MISSING=string</CODE>. Default: spaces and/or '-'. Example: <CODE>MISSING=.</CODE>.
 
 <DT><CODE>SELECT='Boolean expression'</CODE> 
 <DD>selects observations satisfying the conditions given by
@@ -152,27 +152,28 @@ Activation of a MASK line of this type will lead to a file activation
 display of that mask column for additional changes.
 
 <DT><CODE>MAXFIELDS</CODE> 
-<DD><CODE>MAXFIELDS=# of fields</CODE> defines maximum number of fields in the text file.
-Default: 300.
+<DD>Define maximum number of fields in the text file by <CODE>MAXFIELDS=# of fields</CODE>.
+Default: 300. Example: <CODE>MAXFIELDS=500</CODE> 
 
 <DT><CODE>ENCODING</CODE> 
-<DD>encoding of the text file spesifies, how to encode the text
-file. This spesification is used only if the system doesn't regognize
-encoding. <CODE>ENCODING=UTF-8</CODE> encodes UTF-8 text files. Default: DEFAULT.
+<DD>Define encoding of the text file by <CODE>ENCODING=encoding format</CODE>. Use only
+if the system doesn't regognize encoding. Default: DEFAULT. Example:
+<CODE>ENCODING=UTF-8</CODE>.
 
-<DT>&gt><CODE>R</CODE> 
-<DD>&gt><CODE>R'R data frame'</CODE> transforms R data frame to Survo data. Use without '-characters.
+
+<DT><CODE>R</CODE>&gt  
+<DD>Transform R data frame to Survo data by <CODE>R</CODE>&gt <CODE>'R data frame'</CODE>. Example: <CODE>FILE SAVE R>MyData TO MyData</CODE>.
 
 <DT><CODE>SKIP</CODE> 
-<DD><CODE>SKIP=list_of_characters</CODE> skips unwanted charcters.
+<DD>Skip unwanted characters by <CODE>SKIP=list_of_characters</CODE>. Example: <CODE>SKIP=/"</CODE>.
 
 <DT><CODE>FIELDS</CODE> 
-<DD><CODE>FIELDS</CODE> specification makes difficult text file structures readable to a Survo data files.
+<DD>Make difficult text file structures readable to a Survo data file by <CODE>FIELDS</CODE>.
 For more information check
 <A HREF="file-save-with-fields.html">FILE SAVE with FIELDS</A>.
 
 <DT><CODE>MATCH</CODE> 
-<DD>Only to use with FIELDS specification. For more information check
+<DD>Use only with <CODE>FIELDS</CODE> specification. For more information check
 <A HREF="file-save-with-fields">FILE SAVE WITH FIELDS</A>.
 
 <DT><CODE>SKIP_ERRORS</CODE> 
@@ -182,11 +183,11 @@ data record from an incomplete line and assumes that missing fields are
 at the end of the text line
 
 <DT><CODE>CHECK_VAR_NAMES</CODE> 
-<DD><CODE>CHECK_VAR_NAMES=0</CODE> treats variable names as is instead of altering the 8th character
+<DD>Treat variable names as is by <CODE>CHECK_VAR_NAMES=0</CODE>. Default: alter the 8th character
 if duplicate variable names are encountered.
 
 <DT><CODE>REMOVE_QUOTES</CODE> 
-<DD><CODE>REMOVE_QUOTES=1</CODE> converts double quotes within text to ''.
+<DD>Convert double quotes within text to single quotes by <CODE>REMOVE_QUOTES=1</CODE>.
 
 <DT><CODE>FORMAT</CODE> 
 <DD><CODE>FORMAT=WORD,'variable','delimiters'</CODE> saves the words of a text file to a selected variable.

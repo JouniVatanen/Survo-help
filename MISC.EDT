@@ -408,156 +408,126 @@ S   |1
 0390|- [LINK4(file-save,FILE&nbsp;SAVE)]
 0391|- [LINK4(file-save-with-fields,FILE&nbsp;SAVE&nbsp;WITH&nbsp;FIELDS)]
 0392|- [LINK4(linreg,LINREG)]
-0393|- [LINK4(stat,STAT)]
-0395|- [/DLIST]
-0396|*Commands by keyword (abandoned idea)
-S   | kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-0397|IBasics
-S   | mmmmmm
-0398|NActivate commands
-0399|NSAVE
-0400|NLOAD
-0401|NFILE SAVE
-0402|NFILE LOAD
-0403|NVARS
-0404|NSTAT
-0406|IEditorial system
-S   | mmmmmmmmmmmmmmmm
-0407|NActivate commands
-0408|NR commands
-0409|NF1 commands
-0410|NF2-F12 commands
-0412|IData
-S   | mmmm
-0413|NFILE SAVE
-0414|NFILE LOAD
-0415|NFILE COPY
-0416|NVAR
-0417|NSelect observations
-0419|IStatistics
-S   | mmmmmmmmmm
-0420|NSTAT
-0421|NLINREG
-0422|NCORR
-0424|IResults
-S   | mmmmmmm
-0425|NPRINT
-0426|NSTAT
-0427|NPLOT
-0429|- chapter end IN Survo-hlp
-0430|E
-0432|*REPLACE "COMMAND NAME IN CAPITAL","Tutorial",C / LINES=CUR+1,E>
-0433|*REPLACE  "web-page-name-in-small","turorial",C / LINES=CUR+1,E>
-0434|*Tutorial
+0393|- [LINK4(regdiag,REGDIAG)]
+0394|- [LINK4(stat,STAT)]
+0396|- [/DLIST]
+0397|*Theme pages
+S   | kkkkkkkkkkk
+0398|- [LINK4(select-observations,Select&nbsp;observations)]
+0401|- chapter end IN Survo-hlp
+0402|E
+0404|*REPLACE "COMMAND NAME IN CAPITAL","Tutorial",C / LINES=CUR+1,E>
+0405|*REPLACE  "web-page-name-in-small","turorial",C / LINES=CUR+1,E>
+0406|*Tutorial
 S   |3
-0435|+PRINT CUR+2,E> TO www\public_html\tutorial.html
-0436|*/OPEN             www\public_html\tutorial.html
-0437|- include HTML50.DEV
-0438|*Tutorial manual video | Help | Survo R
+0407|+PRINT CUR+2,E> TO www\public_html\tutorial.html
+0408|*/OPEN             www\public_html\tutorial.html
+0409|- include HTML50.DEV
+0410|*Tutorial manual video | Help | Survo R
 S   |3
-0439|- chapter menu IN Survo-hlp
-0440|- / chapter sidebar IN Survo-hlp
-0441|*Tutorial
+0411|- chapter menu IN Survo-hlp
+0412|- / chapter sidebar IN Survo-hlp
+0413|*Tutorial
 S   | kkkkkkkk
-0442|/Some example explained with pictures and words
-0443|/Maybe 3 pictures?
-0445|*Tutorials
+0414|/Some example explained with pictures and words
+0415|/Maybe 3 pictures?
+0417|*Tutorials
 S   | kkkkkkkkk
-0446|/Comprehensive list and links of all the tutorials at the web.
-0447|/Maybe 3-5 best ones at the beginning. Otherwise at the -DATE order
-0448|*Videos
+0418|/Comprehensive list and links of all the tutorials at the web.
+0419|/Maybe 3-5 best ones at the beginning. Otherwise at the -DATE order
+0420|*Videos
 S   | kkkkkk
-0449|/List of 3 videos from Youtube and a collapsed longer etc. 12 videos list.
-0451|- chapter end IN Survo-hlp
-0452|E
-0454|*REPLACE "COMMAND NAME IN CAPITAL","Example",C / LINES=CUR+1,E>
-0455|*REPLACE  "web-page-name-in-small","example",C / LINES=CUR+1,E>
-0456|*Example
+0421|/List of 3 videos from Youtube and a collapsed longer etc. 12 videos list.
+0423|- chapter end IN Survo-hlp
+0424|E
+0426|*REPLACE "COMMAND NAME IN CAPITAL","Example",C / LINES=CUR+1,E>
+0427|*REPLACE  "web-page-name-in-small","example",C / LINES=CUR+1,E>
+0428|*Example
 S   |3
-0457|+PRINT CUR+2,E> TO www\public_html\example.html
-0458|*/OPEN             www\public_html\example.html
-0459|- include HTML50.DEV
-0460|*Example | Help | Survo R
+0429|+PRINT CUR+2,E> TO www\public_html\example.html
+0430|*/OPEN             www\public_html\example.html
+0431|- include HTML50.DEV
+0432|*Example | Help | Survo R
 S   |3
-0461|- chapter menu IN Survo-hlp
-0462|- / chapter sidebar IN Survo-hlp
-0463|*Examples
+0433|- chapter menu IN Survo-hlp
+0434|- / chapter sidebar IN Survo-hlp
+0435|*Examples
 S   | kkkkkkkk
-0464|*Here comes some basic example opened, videos and examples as a code you can copy
-0466|*Basic example explained
+0436|*Here comes some basic example opened, videos and examples as a code you can copy
+0438|*Basic example explained
 S   | lllllllllllllllllllllll
-0467|*Picture about
-0471|*Example videos
+0439|*Picture about
+0443|*Example videos
 S   | llllllllllllll
-0475|*Examples as a code
+0447|*Examples as a code
 S   | llllllllllllllllll
-0476|/Include also data. For example.
-0477|/
-0478|(GET "http://survo.fi/puzzles/250808.txt" data.txt
-0479|*FILE SAVE data.txt TO data
-0480|*..........
-0481|)
+0448|/Include also data. For example.
+0449|/
+0450|(GET "http://survo.fi/puzzles/250808.txt" data.txt
+0451|*FILE SAVE data.txt TO data
+0452|*..........
+0453|)
+0454|- chapter end IN Survo-hlp
+0455|E
+0457|*REPLACE "COMMAND NAME IN CAPITAL","FAQ",C / LINES=CUR+1,E>
+0458|*REPLACE  "web-page-name-in-small","faq",C / LINES=CUR+1,E>
+0459|*More info about FAQ
+S   |3
+0460|+PRINT CUR+2,E> TO www\public_html\faq.html
+0461|*/OPEN             www\public_html\faq.html
+0462|- include HTML50.DEV
+0463|*FAQ | Frequently asked questions | Help | Survo R
+S   |3
+0464|- chapter menu IN Survo-hlp
+0465|- / chapter sidebar IN Survo-hlp
+0468|- chapter end IN Survo-hlp
+0469|E
+0471|*REPLACE "COMMAND NAME IN CAPITAL","Search",C / LINES=CUR+1,E>
+0472|*REPLACE  "web-page-name-in-small","search",C / LINES=CUR+1,E>
+0473|*Search
+S   |3
+0474|+PRINT CUR+2,E> TO www\public_html\search.html
+0475|*/OPEN             www\public_html\search.html
+0476|- include HTML50.DEV
+0477|*Search results | Help | Survo R
+S   |3
+0478|- chapter menu IN Survo-hlp
+0479|- / chapter sidebar IN Survo-hlp
+0480|*Search results
+S   | kkkkkkkkkkkkkk
+0481|- [GS(searchresults-only)][/GS(searchresults-only)]
 0482|- chapter end IN Survo-hlp
 0483|E
-0485|*REPLACE "COMMAND NAME IN CAPITAL","FAQ",C / LINES=CUR+1,E>
-0486|*REPLACE  "web-page-name-in-small","faq",C / LINES=CUR+1,E>
-0487|*More info about FAQ
-S   |3
-0488|+PRINT CUR+2,E> TO www\public_html\faq.html
-0489|*/OPEN             www\public_html\faq.html
-0490|- include HTML50.DEV
-0491|*FAQ | Frequently asked questions | Help | Survo R
-S   |3
-0492|- chapter menu IN Survo-hlp
-0493|- / chapter sidebar IN Survo-hlp
-0496|- chapter end IN Survo-hlp
-0497|E
-0499|*REPLACE "COMMAND NAME IN CAPITAL","Search",C / LINES=CUR+1,E>
-0500|*REPLACE  "web-page-name-in-small","search",C / LINES=CUR+1,E>
-0501|*Search
-S   |3
-0502|+PRINT CUR+2,E> TO www\public_html\search.html
-0503|*/OPEN             www\public_html\search.html
-0504|- include HTML50.DEV
-0505|*Search results | Help | Survo R
-S   |3
-0506|- chapter menu IN Survo-hlp
-0507|- / chapter sidebar IN Survo-hlp
-0508|*Search results
-S   | kkkkkkkkkkkkkk
-0509|- [GS(searchresults-only)][/GS(searchresults-only)]
-0510|- chapter end IN Survo-hlp
-0511|E
-0513|*........................................................................................................................................................................................................
-0514|* - OTHER GENERAL CONTENT
+0485|*........................................................................................................................................................................................................
+0486|* - OTHER GENERAL CONTENT
 S   |4
-0515|*Here comes other required content
+0487|*Here comes other required content
 S   |3
-0517|*Modify this content!
+0489|*Modify this content!
 S   |1
-0518|+SAVEP CUR+2,E>,www\public_html\robots.txt
-0519|*/OPEN          www\public_html\robots.txt
-0520|*User-agent: *
-0521|*Disallow: /
-0522|E
-0523|*Modify this content!
+0490|+SAVEP CUR+2,E>,www\public_html\robots.txt
+0491|*/OPEN          www\public_html\robots.txt
+0492|*User-agent: *
+0493|*Disallow: /
+0494|E
+0495|*Modify this content!
 S   |1
-0524|+SAVEP CUR+2,E>,www\public_html\humans.txt
-0525|*/OPEN          www\public_html\humans.txt
-0526|*/* TEAM */
-0528|*    Seppo Mustonen -- Developer
-0529|*    Kimmo Vehkalahti -- Developer
-0530|*    Reijo Sund -- Developer
-0531|*    Jouni Vatanen -- Developer -- @JouniVatanen
-0532|*    Maria Valaste -- Developer
-0533|*    Petri Palmu -- Developer
-0535|*/* THANKS */
-0537|*/* SITE */
-0539|*    Last update: 2016/07/29
-0540|*    Language: English
-0541|*    Standards: HTML5, CSS3
-0542|*    Components: Bootstrap
-0543|*    Software: Survo, GIMP
-0544|E
-0545|+
-0546|*LOAD EXAMPLES
+0496|+SAVEP CUR+2,E>,www\public_html\humans.txt
+0497|*/OPEN          www\public_html\humans.txt
+0498|*/* TEAM */
+0500|*    Seppo Mustonen -- Developer
+0501|*    Kimmo Vehkalahti -- Developer
+0502|*    Reijo Sund -- Developer
+0503|*    Jouni Vatanen -- Developer -- @JouniVatanen
+0504|*    Maria Valaste -- Developer
+0505|*    Petri Palmu -- Developer
+0507|*/* THANKS */
+0509|*/* SITE */
+0511|*    Last update: 2016/07/29
+0512|*    Language: English
+0513|*    Standards: HTML5, CSS3
+0514|*    Components: Bootstrap
+0515|*    Software: Survo, GIMP
+0516|E
+0517|+
+0518|*LOAD EXAMPLES

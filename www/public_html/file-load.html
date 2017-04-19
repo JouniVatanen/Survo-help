@@ -51,12 +51,15 @@ s.parentNode.insertBefore(gcse, s);
 ></SPAN></BUTTON></DIV></DIV></FORM></DIV></DIV></DIV></NAV><DIV CLASS="container">
 <H2>
 FILE LOAD
-</H2><H3>Description</H3><DIV  id="CommandList">This loads the file
-</DIV><H3>Usage</H3>FILE LOAD <Survo_data_file> TO <text_file>
-moves the active fields of the data file to a text file.
-<H3>Parameters</H3><DL><DT><CODE>Code word</CODE> 
-<DD>Explanation
-<DT><CODE>SELECT='Boolean expression'</CODE> 
+</H2><H3>Description</H3><DIV  id="CommandList"><CODE>FILE LOAD</CODE> loads the Survo data file to a text file or in the edit field.
+</DIV><H3>Usage</H3><PRE><CODE><CODE>FILE LOAD  MyData TO MyData.txt</CODE> 
+</CODE></PRE>
+loads the active fields of the data file to a text file.
+<PRE><CODE><CODE>FILE LOAD MyData,L</CODE> 
+</CODE></PRE>
+loads the active fields of the data file in the edit field
+from the line L forwards.
+<H3>Parameters</H3><DL><DT><CODE>SELECT='Boolean expression'</CODE> 
 <DD>selects observations satisfying the conditions given by
 Boolean expression=A+B+C+... (read A or B or C or ...) or
 A*B*C*...  (read A and B and C and ...).
@@ -125,16 +128,81 @@ example, <CODE>MASK=#7(XY)</CODE> selects the fields indicated by X or Y in mask
 column 7.
 Activation of a MASK line of this type will lead to a file activation
 display of that mask column for additional changes.
-
+<DT><CODE>DELIMITER='character'</CODE> 
+<DD>By default field in the output will be separated by a space character.
+<DD>Use another character as a delimiter by <CODE>DELIMITER='character'</CODE>.
+<DD>Use delimiter character also in the last field by <CODE>DELIMITER='character',1</CODE>.
+<DD>If DELIMITER is used, both leading and trailing space characters
+in each field are replaced by a character given by
+<CODE>SPACE='space character'</CODE>. Those characters can be erased thereafter by
+<A HREF="txtconv.html">TXTCONV.</A> Example: <CODE>DELIMITER=TAB</CODE> or <CODE>DELIMITER=char(9)</CODE> 
+<DT><CODE>SKIP</CODE> 
+<DD>Skip unwanted characteds by <CODE>SKIP='list of characters</CODE>. Example: <CODE>SKIP=,"</CODE> 
+<DT><CODE>MISSING</CODE> 
+<DD>Use any 'string' as a missing value by <CODE>MISSING='string'</CODE>. This option
+applies to numeric fields only. Example: <CODE>MISSING=***</CODE> 
+<DT><CODE>STR_COMMA</CODE> 
+<DD>Replace the spaces in a string variables by <CODE>STR_COMMA='character'</CODE>.
+Example: <CODE>STR_COMMA=;</CODE>.
+<DT><CODE>STR_SPACE</CODE> 
+<DD>Replace the spaces in a string variables by <CODE>STR_SPACE='character'</CODE>.
+Example: <CODE>STR_SPACE=_</CODE>.
+<DT><CODE>NAMES8</CODE> 
+<DD>By default names of fields are truncated according to the current format.
+<DD>Copy field names to the normal length of 8 characters by <CODE>NAMES8=1</CODE>.
+<DD>Replace the name of the first variable by blanks by <CODE>NAMES8=2</CODE>. This is a useful
+option in making data tables for R.
+<DT><CODE>FORMAT</CODE> 
+<DD>The default format of the output is a data matrix (table). Other formats
+may be selected by a <CODE>FORMAT</CODE> specification. It has 3 different forms:
+<DD>1. <CODE>FORMAT=ORDER:'field 1','field 2',...</CODE> 
+reorders the fields for output.
+<DD>2. <CODE>FORMAT=LIST</CODE> 
+gives the output in the form of a data list.
+<DD>3. <CODE>FORMAT='name of format'</CODE> 
+   specifies that a special (multiline) format given in the current
+   edit field is to be used. This format has to be given in the form:
+<PRE><CODE>FORMAT 'name of format'
+  one or several lines containing free text and field
+  descriptions of form name_of_field: ###.##
+  or [name_of_field]
+END
+</CODE></PRE>
+If ###.## is missing, the default format for the field is used.
+In the latter case (name in brackets []) the default format is
+always used and the value overwrites the name of the field.
+<DT><CODE>FILTER</CODE> 
+<DD>Make a code conversion to the output by <CODE>FILTER='conversion file'</CODE>.
+See more about
+<A HREF="codes.html">codes.</A> 
 </DL><H3>Details</H3>Also the header lines telling the name of the data file and the names
 of the fields will be moved.
-If <Survo_data_file> is preceded by a '-', the header lines are
+If 'Survo data file' is preceded by a '-', the header lines are
 not moved. This is useful in situations where several parts of a data
 file has to be copied in a single text file.
 Each record will appear as a line terminated by a line feed character.
 
 <H3>See also</H3>
-<H3>Examples</H3>
+<H3>Examples</H3><PRE><CODE>FILE LOAD FINLAND,48 / FORMAT=PLAN1
+ 41 *FILE LOAD FINLAND,48 / FORMAT=PLAN1
+ 42 *FORMAT PLAN1            [Province]
+ 43 *[Commune]                    [Province]
+ 44 +[Popul]          [Births]--------
+ 45 *--------------------------------------
+ 46 *END
+ 47 *
+ 48 *Helsinki                     UUS
+ 49 +483057           5851------------
+ 50 *--------------------------------------
+ 51 *Tampere                      HŽM
+ 52 +165453           2084------------
+ 53 *--------------------------------------
+ 54 *Turku                        TUR
+ 55 +164081           2330------------
+ 56 *--------------------------------------
+     etc.
+</CODE></PRE>
+
 <FOOTER><P>
 <P>
 <P CLASS="pull-right"><A href="index.html" class="pagination-centered btn btn-default btn-sm"
