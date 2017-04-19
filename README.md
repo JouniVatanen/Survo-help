@@ -5,7 +5,7 @@ Survo help repository includes all the necessary files to create [Survo help web
 **Make preparations**
 * Make a username for Git at www.github.com.
 * Ask from [Jouni](https://github.com/JouniVatanen) to participate at jounipvatanen at gmail.com.
-* Download and install Git e.g. git.scm.com/downloads.
+* Download and install Git e.g. http://git.scm.com/downloads.
 * Start Git and update your basic info in the command line. [For more info about Git](git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
 ```
 git -config --global user.name "John Doe"
