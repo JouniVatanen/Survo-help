@@ -129,3 +129,140 @@ S   |           <     >
 0128|)
 0129|- chapter end IN Survo-hlp
 0130|E
+0132|*DATE / Friday January 20 2017 19:39:33 Week=03 Day=020
+0134|*First time testing by KV
+0136|*REPLACE "COMMAND NAME IN CAPITAL","REGDIAG",C / LINES=CUR+1,E>
+S   | 22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+0137|*REPLACE  "web-page-name-in-small","regdiag",C / LINES=CUR+1,E>
+S   | 22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+0138|*REGDIAG
+S   |3
+0139|+PRINT CUR+2,E> TO www\public_html\regdiag.html
+0140|*/OPEN             www\public_html\regdiag.html
+0141|- include HTML50.DEV
+0142|*REGDIAG | Help | Survo R
+S   |3
+0143|- chapter menu IN Survo-hlp
+0144|- chapter sidebar IN Survo-hlp
+0145|*REGDIAG
+S   |3
+0146|- [DESC]
+0147|*Performs linear regression analysis by orthogonalizing the design matrix X.
+0148|- [USAGE]
+0149|(REGDIAG data,L
+0150|)
+0151|*Estimates the parameters of a linear regression model by orthogonalizing
+0152|*the design matrix X.
+0153|/
+0154|*This procedure is more accurate than the classical approach of
+0155|- [LINK(linreg.html)]
+0156|*LINREG through moment matrix (correlations).
+S   | ||||||
+0157|/The model is specified by activating variables with Y and X's.
+0158|/The constant term is omitted by setting CONSTANT=0.
+0159|/
+0160|*L (optional) is the first line for the results.
+S   | x
+0161|/
+0162|*Furthermore the following masks for special output variables may be used:
+0163|- [LIST]
+0164|L  R is the residual variable,
+0165|L  P is the variable for predicted values,
+0166|L  H is the diagonal of the hat matrix X*INV(X'*X)*X',
+0167|L  S is the variable for (externally) Studentized residuals,
+0168|L  C is the variable for (signed square roots of) Cook's distances.
+0169|- [/LIST]
+0170|/These output variables provide a basis for regression diagnostics.
+0171|*See Belsley,Kuh&Welsch (1980): Regression Diagnostics, for example.
+S   |                &
+0173|- [PARAMETERS]
+0174|- [DLIST]
+0175|- chapter mask IN Survo-hlp
+0176|- chapter vars IN Survo-hlp
+0177|- chapter select IN Survo-hlp
+0178|- [/DLIST]
+0180|- [DETAILS]
+0182|*Matrix files created by REGDIAG
+0183|/
+0184|*The following matrices are available for additional computations:
+0185|(REG.M        vector of regression coefficients
+0186|*REGS.M       regression coeffients and their standard errors
+0187|*REG_CORR.M   correlations of regression coefficients
+0188|*RG.M         vector of miscellaneous scalars (see next page)
+0189|)
+0191|*The covariance matrix of regression coefficients can be computed by
+0192|+/COV REG_COV,REG_CORR.M,REGS.M
+0193|/The vector RG.M has the following contents (when displayed by MAT LOAD).
+0194|(REGDIAG statistics from data DECA
+0195|*RG.M
+0196|*///          REGDIAG
+0197|*n             48.000 / # of cases
+0198|*k              6.000 / # of regression coefficients
+0199|*const          1.000 / 1 if constant term included, 0 otherwise
+0200|*df            42.000 / n-k
+0201|*Yvar       26132.000 / variance of regressand
+0202|*SST      1228203.979 / total sum of squares
+0203|*SSE       445535.121 / residual sum of squares
+0204|*SSR       782668.858 / SST-SSE
+0205|*MSE        10607.979 / mean square error
+0206|*Resvar     10607.979 / MSE
+0207|*R              0.798 / multiple correlation coefficient
+0208|*R2             0.637 / R^2
+0209|*kappa         93.968 / condition number
+0210|*DW             1.246 / Durbin-Watson statistics
+0211|*F             14.756 / Overall F-test: SSR/(k-1)/MSE (only when const is 1)
+0212|*Pr_F           1.000 / P-value of F-test
+0213|- / skipped:             Studying P-values of F-test in |EXAMPLE|
+S   |    55555555
+0214|)
+0215|/
+0216|*REGDIAG gives the value of the Durbin-Watson statistics for testing
+0217|*the first order autocorrelation of residuals.
+0218|*To get its P-value enter a specification DWN=<integer>
+S   |                                          xxx <       >
+0219|*where <integer> must be at least 10000.
+S   |       <       >
+0220|*Then the P-value will be computed by simulation using <integer>
+S   |                                                       <       >
+0221|*replicates.
+0222|/
+0223|*Also higher-order autocorrelations can be tested by the same method.
+0224|*By MAXLAG=k the order 1,2,...,k autocorrelations of residuals
+S   |    xxxxxxxx
+0225|*will be tested by using the generalized DW statistics
+0226|(
+0227|*       sum [res(i)-res(i-j)]^2
+0228|*D(j) = -----------------------
+0229|*          sum [res(i)]^2
+0230|)
+0231|/where res(1),...,res(n) are the residuals of the estimated linear
+0232|*regression model
+0233|+   Y = X*beta + eps
+0234|/where X is the n*m design matrix and eps is N(0,sigma^2*I).
+0235|*Then we have res=M*eps where M=I-X*inv(X'X)X'.
+0236|*By making the SVD decomposition X=U*D*V' where U is a n*m matrix
+0237|*the residuals can be computed by 2*m*n multiplications by
+0238|*res=(I-U*U')*eps.
+0239|/
+0240|*In randomized tests DWN replicates of D(j), j=1,2,...,k are
+S   |                     xxx
+0241|*computed and the P values are obtained as the proportion of replicates
+0242|*having a lower value than the original one.
+0243|/
+0244|*By using RN specification instead of DWN the randomized tests
+S   |          xx                          xxx
+0245|*will be based on autocorrelations instead of DW values.
+S   |                                              xx
+0247|- / skipped:                                      See |EXAMPLE|
+S   |    55555555
+0250|- [LINKS]
+0252|- [EXAMPLES]
+0253|(FILE COPY <Survo>/D/DECA TO NEW DECATEST / VARS=ALL
+S   |           <     >
+0254|*VAR Res,Pre,Hat,Stu,Cook TO DECATEST / Res=MISSING Pre=Res Hat=Res Stu=Res Cook=Res
+0256|*VARS=Points(Y),100m(X),400m(X),Res(R),Pre(P),Hat(H),Stu(S),Cook(C)
+0257|*REGDIAG DECATEST,END+3   /
+0258|*......................
+0262|)
+0264|- chapter end IN Survo-hlp
+0265|E
