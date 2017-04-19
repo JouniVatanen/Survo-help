@@ -494,27 +494,127 @@ S   |3
 0439|*FILE LOAD
 S   |3
 0440|- [DESC]
-0441|*This loads the file
-0442|- [USAGE]
-0443|*FILE LOAD <Survo_data_file> TO <text_file>
-0444|*moves the active fields of the data file to a text file.
-0445|- [PARAMETERS]
-0446|- [DLIST]
-0447|ICode word
+0441|*FILE LOAD loads the Survo data file to a text file or in the edit field.
 S   | xxxxxxxxx
-0448|NExplanation
-0449|- chapter select IN Survo-hlp
-0450|- chapter vars   IN Survo-hlp
-0451|- chapter mask   IN Survo-hlp
-0453|- [/DLIST]
-0454|- [DETAILS]
-0455|*Also the header lines telling the name of the data file and the names
-0456|*of the fields will be moved.
-0457|*If <Survo_data_file> is preceded by a '-', the header lines are
-0458|*not moved. This is useful in situations where several parts of a data
-0459|*file has to be copied in a single text file.
-0460|*Each record will appear as a line terminated by a line feed character.
-0462|- [LINKS]
-0464|- [EXAMPLES]
-0466|- chapter end IN Survo-hlp
-0467|E
+0442|- [USAGE]
+0443|(FILE LOAD  MyData TO MyData.txt
+S   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0444|)
+0445|*loads the active fields of the data file to a text file.
+0446|(FILE LOAD MyData,L
+S   | xxxxxxxxxxxxxxxxxx
+0447|)
+0448|*loads the active fields of the data file in the edit field
+0449|*from the line L forwards.
+0450|- [PARAMETERS]
+0451|- [DLIST]
+0452|- chapter select IN Survo-hlp
+0453|- chapter vars   IN Survo-hlp
+0454|- chapter mask   IN Survo-hlp
+0455|IDELIMITER='character'
+S   | xxxxxxxxxxxxxxxxxxxxx
+0456|NBy default field in the output will be separated by a space character.
+0457|NUse another character as a delimiter by DELIMITER='character'.
+S   |                                         xxxxxxxxxxxxxxxxxxxxx
+0458|NUse delimiter character also in the last field by DELIMITER='character',1.
+S   |                                                   xxxxxxxxxxxxxxxxxxxxxxx
+0459|NIf DELIMITER is used, both leading and trailing space characters
+0460|*in each field are replaced by a character given by
+0461|*SPACE='space character'. Those characters can be erased thereafter by
+S   | xxxxxxxxxxxxxxxxxxxxxxx
+0462|- [LINK(txtconv.html)]
+0463|*TXTCONV. Example: DELIMITER=TAB or DELIMITER=char(9)
+S   |        |          xxxxxxxxxxxxx    xxxxxxxxxxxxxxxxx
+0464|ISKIP
+S   | xxxx
+0465|NSkip unwanted characteds by SKIP='list of characters. Example: SKIP=,"
+S   |                             xxxxxxxxxxxxxxxxxxxxxxxx           xxxxxxx
+0466|IMISSING
+S   | xxxxxxx
+0467|NUse any 'string' as a missing value by MISSING='string'. This option
+S   |                                        xxxxxxxxxxxxxxxx
+0468|*applies to numeric fields only. Example: MISSING=***
+S   |                                          xxxxxxxxxxx
+0469|ISTR_COMMA
+S   | xxxxxxxxx
+0470|NReplace the spaces in a string variables by STR_COMMA='character'.
+S   |                                             xxxxxxxxxxxxxxxxxxxxx
+0471|*Example: STR_COMMA=;.
+S   |          xxxxxxxxxxx
+0472|ISTR_SPACE
+S   | xxxxxxxxx
+0473|NReplace the spaces in a string variables by STR_SPACE='character'.
+S   |                                             xxxxxxxxxxxxxxxxxxxxx
+0474|*Example: STR_SPACE=_.
+S   |          xxxxxxxxxxx
+0475|INAMES8
+S   | xxxxxx
+0476|NBy default names of fields are truncated according to the current format.
+0477|NCopy field names to the normal length of 8 characters by NAMES8=1.
+S   |                                                          xxxxxxxx
+0478|NReplace the name of the first variable by blanks by NAMES8=2. This is a useful
+S   |                                                     xxxxxxxx
+0479|*option in making data tables for R.
+0480|IFORMAT
+S   | xxxxxx
+0481|NThe default format of the output is a data matrix (table). Other formats
+0482|*may be selected by a FORMAT specification. It has 3 different forms:
+S   |                      xxxxxx
+0483|N1. FORMAT=ORDER:'field 1','field 2',...
+S   |    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+0484|*reorders the fields for output.
+0485|N2. FORMAT=LIST
+S   |    xxxxxxxxxxx
+0486|*gives the output in the form of a data list.
+0487|N3. FORMAT='name of format'
+S   |    xxxxxxxxxxxxxxxxxxxxxxx
+0488|*   specifies that a special (multiline) format given in the current
+0489|*   edit field is to be used. This format has to be given in the form:
+0490|(FORMAT 'name of format'
+0491|*  one or several lines containing free text and field
+0492|*  descriptions of form name_of_field: ###.##
+0493|*  or [name_of_field]
+0494|*END
+0495|)
+0496|*If ###.## is missing, the default format for the field is used.
+0497|*In the latter case (name in brackets []) the default format is
+0498|*always used and the value overwrites the name of the field.
+0499|IFILTER
+S   | xxxxxx
+0500|NMake a code conversion to the output by FILTER='conversion file'.
+S   |                                         xxxxxxxxxxxxxxxxxxxxxxxx
+0501|*See more about
+0502|- [LINK(codes.html)]
+0503|*codes.
+S   |      |
+0504|- [/DLIST]
+0505|- [DETAILS]
+0506|*Also the header lines telling the name of the data file and the names
+0507|*of the fields will be moved.
+0508|*If 'Survo data file' is preceded by a '-', the header lines are
+0509|*not moved. This is useful in situations where several parts of a data
+0510|*file has to be copied in a single text file.
+0511|*Each record will appear as a line terminated by a line feed character.
+0513|- [LINKS]
+0515|- [EXAMPLES]
+0516|(FILE LOAD FINLAND,48 / FORMAT=PLAN1
+0517|* 41 *FILE LOAD FINLAND,48 / FORMAT=PLAN1
+0518|* 42 *FORMAT PLAN1            [Province]
+0519|+ 43 *[Commune]                    [Province]
+0520|* 44 +[Popul]          [Births]--------
+0521|* 45 *--------------------------------------
+0522|* 46 *END
+0523|* 47 *nki                     UUS
+0524|* 48 *Helsinki                     UUS
+0525|* 49 +483057           5851------------
+0526|* 50 *--------------------------------------
+0527|* 51 *Tampere                      HŽM
+0528|* 52 +165453           2084------------
+0529|* 53 *--------------------------------------
+0530|* 54 *Turku                        TUR
+0531|* 55 +164081           2330------------
+0532|* 56 *--------------------------------------
+0533|*     etc.
+0534|)
+0536|- chapter end IN Survo-hlp
+0537|E
