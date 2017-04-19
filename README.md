@@ -1,10 +1,10 @@
 # Survo-help
 Survo help repository including all the necessary files to create Survo help web page. 
-* Link to Survo-help webpage https://d3l3g8x9oq84ue.cloudfront.net/
+* Link to [Survo-help webpage](https://d3l3g8x9oq84ue.cloudfront.net/)
 
 ## How to participate
 **Make preparations**
-* Make a username for Git e.g. www.github.com
+* Make a username for Git at www.github.com
 * Ask from [Jouni](https://github.com/JouniVatanen) to participate at jounipvatanen at gmail.com
 * Download and install Git e.g. git.scm.com/downloads
 * Start Git and update your basic info in the command line for more info check git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
@@ -14,8 +14,8 @@ git -config --global user.mail johndoe@example.com
 ```
 
 **Use Git the easy way**
-* Start Git and go to  
-* Download a copy of the files to your computer by inserting the command to a Git  
+* Start Git and go to your working directory in the command line where you want Survo-help folder to be saved
+* Download a copy of the files to your working directory  
 ```
 git clone https://github.com/JouniVatanen/Survo-help
 ```
@@ -31,11 +31,12 @@ git push origin master
 Note: If you have problems to update Git, you can always send the EDT-file to Jouni at jounipvatanen at gmail.com. That way you do not need to download Git. Instead you can download the zip-file from this page.
 
 **Working with the Survo-help**
-1. Install and open R https://cran.r-project.org/ and muste package e.g. install(
-1. Open Survo-help.EDT
-1. 
-1. 
-1. 
+1. Install and open [R](https://cran.r-project.org/) and its muste package.
+1. Open Survo-help.EDT and activate /ACTIVATE +. This is not necessary, but this way you ensure that all your settings are updated.
+1. Tell Jouni jounipvatanen at gmail.com what part you are going to work on.
+1. Open EDT-file you want to work on and read its instructions. 
+1. Activate the COPY command and you get an empty html template you can start to work on.
+1. Go to the html template and first replace XXX by capital command name e.g. FILE SAVE. Replace xxx by lowercase command name and replace possible spaces with - e.g. file-save.
 
 ## EDT-files and examples of html-files it creates
 * SURVO-HLP // All the settings. Activate this before anything!
