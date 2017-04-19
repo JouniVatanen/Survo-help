@@ -1,6 +1,5 @@
 # Survo-help
-Survo help repository including all the necessary files to create Survo help web page. 
-* Link to [Survo-help webpage](https://d3l3g8x9oq84ue.cloudfront.net/)
+Survo help repository includes all the necessary files to create [Survo help web page](https://d3l3g8x9oq84ue.cloudfront.net/). 
 
 ## How to participate
 **Make preparations**
@@ -30,7 +29,7 @@ git push origin master
 
 Note: If you have problems to update Git, you can always send the EDT-file to Jouni at jounipvatanen at gmail.com. That way you do not need to download Git. Instead you can download the zip-file from this page.
 
-**Working with the Survo-help**
+**How to work with the Survo-help**
 1. Install and open [R](https://cran.r-project.org/) and its muste package.
 1. Open Survo-help.EDT and activate /ACTIVATE +. This is not necessary, but this way you ensure that all your settings are updated.
 1. Tell Jouni jounipvatanen at gmail.com what part you are going to work on.
