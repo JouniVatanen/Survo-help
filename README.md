@@ -18,14 +18,18 @@ git -config --global user.mail johndoe@example.com
 ```
 git clone https://github.com/JouniVatanen/Survo-help
 ```
-* Make changes to an EDT-file you choose.
-* After that update the file to a server.
+* Make changes to an EDT-file you choose using Survo.
+* Upload the file to a server.
 ```
 git add <filename>
 git commit -m "Commit message”
 git push origin master
 ```
 * Insert your github username and password.
+* If you do not have all the recent updates then before uploading the file you need to download the newest files 
+```
+git pull https://github.com/JouniVatanen/Survo-help
+```
 
 **Note:** If you have problems to update Git, you can always send the EDT-file to Jouni at jounipvatanen at gmail.com. That way you do not need to download Git. Instead you can download the zip-file from this page.
 
