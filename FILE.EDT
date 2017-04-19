@@ -624,3 +624,43 @@ S   |      |
 0535|)
 0537|- chapter end IN Survo-hlp
 0538|E
+0540|*REPLACE "COMMAND NAME IN CAPITAL","FILE CREATE",C / LINES=CUR+1,E>
+0541|*REPLACE  "web-page-name-in-small","file-create",C / LINES=CUR+1,E>
+0542|*FILE CREATE
+S   |3
+0543|+PRINT CUR+2,E> TO www\public_html\file-create.html
+0544|*/OPEN             www\public_html\file-create.html
+0545|- include HTML50.DEV
+0546|*FILE CREATE | Help | Survo R
+S   |3
+0547|- chapter menu IN Survo-hlp
+0548|- chapter sidebar IN Survo-hlp
+0549|*FILE CREATE
+S   |3
+0550|- [DESC]
+0551|*Creates a Survo data file.
+0552|- [USAGE]
+0553|(FILE CREATE Name,Bytes/obs,max # fields
+0554|)
+0556|- [PARAMETERS]
+0557|- [DLIST]
+0558|ICode word
+S   | xxxxxxxxx
+0559|NExplanation
+0561|- [/DLIST]
+0562|- [DETAILS]
+0564|- [LINKS]
+0566|- [EXAMPLES]
+0567|(FILE CREATE COMMUNES,128,20
+0568|*  The file consists of the Finnish communes.
+0569|*  Statistics mostly from 1979-80
+0570|*FIELDS:
+0571|*   1 S  16  Commune  Name of the commune
+0572|*   2 S   3  County   UUS,TUR,AHV,HAM,KYM,MIK,KAR,KUO,KES,VAA,OUL,LAP
+0573|*   3 N   4  People   Population 1.1.1980 (######) {100,500000}
+0574|*   4 N   4  Births   Live births in 1978 (####) {0,6000}
+0575|*   5 N   8  Area     Land area km^2 1.1.1979 (#####.##)
+0576|*END
+0577|)
+0583|- chapter end IN Survo-hlp
+0584|E
